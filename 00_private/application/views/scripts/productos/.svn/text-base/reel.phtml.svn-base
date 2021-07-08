@@ -1,0 +1,381 @@
+<!--==============================content=================================-->
+
+<link href="/css/sorting.css" rel="stylesheet" />
+     <link href="/css/animation.css" rel="stylesheet" />
+<link href="/jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="/jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+
+<div id="content">   
+  <div class="row-title">
+    <div class="container">
+      <h2>Reel SeaMaster 5000</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span><a href="/alquileres-y-ventas">Productos</a></span><i class="fa fa-angle-right"></i>Reel SeaMaster 5000</div>
+    </div>
+  </div>
+  <div class="container">
+    <!--/*
+  *
+  * Revive Adserver Asynchronous JS Tag
+  * - Generated with Revive Adserver v3.2.1
+  *
+  */-->
+    <div class="row content-div">
+        <section class="span12 ss_p_right">
+          <div class="clearfix t_xs_align_c">
+          <div class="photoframe type_2 shadow r_corners fleft f_sm_none d_xs_inline_b product_single_preview relative m_right_30 m_bottom_5 m_sm_bottom_20 m_xs_right_0 w_mxs_full">
+            <div class="relative d_inline_b m_bottom_10 qv_preview d_xs_block">
+            
+              <img id="zoom_image" src="/imagenes/servicios/timthumb.php?src=http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000.jpg&w=450&h=450&zc=1" data-zoom-image="" class="tr_all_hover" alt="Reel SeaMaster 5000">            
+            </div>
+            <!--carousel-->
+            <div class="relative qv_carousel_wrap">
+              <button class="button_type_11 bg_light_color_1 t_align_c f_size_ex_large bg_cs_hover r_corners d_inline_middle bg_tr tr_all_hover qv_btn_single_prev">
+                <i class="fa fa-angle-left "></i>
+              </button>
+              <div class="qv_carousel_single d_inline_middle">
+                <a class="jackbox" 
+                    href="http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000.jpg" 
+                    data-group="images" 
+                    data-image="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000.jpg&w=450&h=450&zc=1" 
+                    data-zoom-image="http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000.jpg">
+                  <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000.jpg&w=110&h=110&zc=1" alt="">
+                </a>
+                <a class="jackbox" 
+                    href="http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_2.jpg" 
+                    data-group="images" 
+                    data-image="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_2.jpg&w=450&h=450&zc=1" 
+                    data-zoom-image="http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_2.jpg">
+                  <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_2.jpg&w=110&h=110&zc=1" alt="">
+                </a>
+                <a class="jackbox" 
+                    href="http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_3.jpg" 
+                    data-group="images" 
+                    data-image="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_3.jpg&w=450&h=450&zc=1" 
+                    data-zoom-image="http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_3.jpg">
+                  <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://static.balneario-el-condor.com.ar/imagenes/productos/reel_seaMaster_5000_3.jpg&w=110&h=110&zc=1" alt="">
+                </a>
+              </div>
+              <button class="button_type_11 bg_light_color_1 t_align_c f_size_ex_large bg_cs_hover r_corners d_inline_middle bg_tr tr_all_hover qv_btn_single_next">
+                <i class="fa fa-angle-right "></i>
+              </button>
+            </div>
+          </div>
+          <div class="v_space3 t_xs_align_l shop_section">
+            <table class="description_table m_bottom_15 txt-2">
+              <tr>
+                <td>Contacto:</td>
+                <td>
+                <a href="mailto:ventas@balneario-el-condor.com.ar">ventas@balneario-el-condor.com.ar</a>
+                </td>
+              </tr>
+            </table>
+            <hr class="m_bottom_15 m_t_no_space" style="margin-bottom:5px !important">
+
+            <div>
+            <table class="description_table m_bottom_15 txt-2">
+              <tr>
+                <td><b>Formas de Pago:</b></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2">- Mediante tarjetas hasta 12 cuotas s/interes (seg&uacute;n la tarjeta) por medio de Mercado Pago.</td>
+              </tr>
+              <tr>
+                <td colspan="2">- Transferencia bancaria.</td>
+              </tr>
+            </table>
+            <hr class="m_bottom_15 m_t_no_space" style="margin-bottom:5px !important">
+            <table class="description_table m_bottom_15 txt-2">
+              <tr>
+                <td><b>Precio:</b> 1400 pesos</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td><b>Stock:</b> 10</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+            <hr class="m_bottom_15 m_t_no_space" style="margin-bottom:5px !important">
+            <table class="description_table m_bottom_15 txt-2">
+              <tr>
+                <td><b>Formas de envío:</b></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2">- Sin cargo a Viedma, Patagones y el Condor.</td>
+              </tr>
+              <tr>
+                <td colspan="2">- A convenir otras localidades.</td>
+              </tr>
+            </table>
+            <hr class="m_bottom_15 m_t_no_space" style="margin-bottom:5px !important">
+            <table class="description_table m_bottom_15 txt-2">
+              <tr>
+                <td><b>Comprar con:</b></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2"><img src="/imagenes/mp.png" onmouseover="this.style.cursor='pointer';" onclick="modalInfoOpen(1);"/></td>
+              </tr>
+              <tr>
+                <td colspan="2"><a href="#" class="btn-small btn-white clearleft"  onclick="modalInfoOpen(2);" style="width:202px;text-align:center">Transferencia Bancaria</a></td>
+              </tr>
+              <tr>
+                <td colspan="2"><a href="#" class="btn-small btn-white clearleft"  onclick="modalInfoOpen(3);" style="width:202px;text-align:center">Pag&oacute; al recibirlo</a><br>(Solo Viedma, Patagones y el Condor).</td>
+              </tr>
+            </table>
+            
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="tabbable responsive shop_tabs">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#one" data-toggle="tab">Descripción: </a></li>
+          </ul>
+
+          <div class="tab-content icon_tab">
+            <div class="tab-pane active" id="one">
+
+              <p class="tab_pad">
+
+                - Manivela con infinito anti-reverso<br /><br />
+                - Manivela de Alumínio<br /><br />
+                - Carretel de Alumínio<br /><br />
+                - 5 Rol. de esferas + 1 Rol. de roletes<br /><br />
+                - Sistema de oscilacion con engranajes<br /><br />
+                - Velocidad 5.3:1<br /><br />
+                - Sistema de freno Arandela<br /><br />
+                - Pero Aproximado 425 gr.<br /><br />
+                - Capacidad Linea 170 ms. / 0,35 mm.<br />
+              </p>
+            
+            </div>
+          </div>
+        </div>       
+      </section>
+      
+    </div>         
+  </div>    
+</div>
+
+
+    <script src="/js/elevatezoom.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+
+
+<script src="/js/jquery.isotope.js"></script>
+  <script>
+    jQuery(window).load(function() {  
+    var jQuerycontainer = jQuery('.projects');
+    //Run to initialise column sizes
+    //updateSize();
+    $("#medio_envio").submit(function(e){
+      e.preventDefault();
+      if ($("#telefono").val() == "" || 
+        $("#nombre").val() == "" || 
+        $("#apellido").val() == "" || 
+        $("#mail").val() == "" || 
+        $("#direccion").val() == "" ){
+          alert("Por favor complete todos los campos obligatorios");
+      }else{
+
+       var variables = $(this).serialize();
+       $.ajax({ dataType: 'json', type:"POST",url:"/productos/comprar/",data:variables,
+              success: function(data){
+              	/*
+                  if ($("#tipo_pago").val() == "2"){
+                    $(".modal-body").html("<p><strong>Datos de la cuenta</strong><br />CBU: 0720314388000036415186<br />Banco: Santander Rio<br />Tipo de Cuenta: Cuenta Unica<br />CUIL: 23282568519<br/><br/><strong>Por favor realiz&aacute; la transferencia y luego env&iacute;a un mail a <a href='mailto:ventas@balneario-el-condor.com.ar' target='_blank'>ventas@balneario-el-condor.com.ar</a> indicando el n&uacute;mero de referencia " + data + " luego de ello nos pondremos en contacto con vos para realizar la entrega del producto.</strong><br><br>Gracias por tu compra.<br /> El equipo de la web del Balneario El Condor.</p>");
+                  } else if ($("#tipo_pago").val() == "3"){
+                    $(".modal-body").html("<p>Gracias por dejarnos tus datos, nos pondremos en contacto con vos para acordar la entrega.<br><br>El equipo de la web del Balneario El Condor.</p>");
+                  } else if ($("#tipo_pago").val() == "1"){
+                    document.location.href = '/mercadopago/irapagar/cliente/' + data;
+                  }
+                 */
+              },
+              fail: function(){alert('Error en la eliminación, por favor intente nuevamente mas tarde');   }
+          });
+      } 
+    });
+    //Load masonry when images all loaded
+    jQuerycontainer.imagesLoaded( function(){
+
+        jQuerycontainer.isotope({
+            // options
+            itemSelector : '.element',  
+            layoutMode : 'masonry',
+            transformsEnabled: false,
+            columnWidth: function( containerWidth ) {
+                containerWidth = jQuerybrowserWidth;
+                return Math.floor(containerWidth / jQuerycols);
+              }
+        });
+    });
+    
+      // update columnWidth on window resize
+    jQuery(window).smartresize(function(){  
+        updateSize();
+        jQuerycontainer.isotope( 'reLayout' );
+    });
+
+  
+    //Set item size
+    function updateSize() {
+        jQuerybrowserWidth = jQuerycontainer.width();
+        jQuerycols = 4;
+
+        if (jQuerybrowserWidth >= 1200) {
+            jQuerycols = 4;
+        }
+        else if (jQuerybrowserWidth >= 980 && jQuerybrowserWidth < 1200) {
+            jQuerycols = 4;
+        }
+    
+       else if (jQuerybrowserWidth >= 768 && jQuerybrowserWidth < 979) {
+            jQuerycols = 4;
+        }
+    
+    
+        else if (jQuerybrowserWidth >= 401 && jQuerybrowserWidth < 767) {
+            jQuerycols = 2;
+        }
+        else if (jQuerybrowserWidth < 400) {
+            jQuerycols = 2;
+        }
+
+        //console.log("Browser width is:" + jQuerybrowserWidth);
+        //console.log("Cols is:" + jQuerycols);
+
+        // jQuerygutterTotal = jQuerycols * 20;
+    jQuerybrowserWidth = jQuerybrowserWidth; // - jQuerygutterTotal;
+        jQueryitemWidth = jQuerybrowserWidth / jQuerycols;
+        jQueryitemWidth = Math.floor(jQueryitemWidth);
+
+        jQuery(".element").each(function(index){
+            jQuery(this).css({"width":jQueryitemWidth+"px"});             
+        });
+      
+    
+  var jQueryoptionSets = jQuery('#options .option-set'),
+    jQueryoptionLinks = jQueryoptionSets.find('a');
+
+  jQueryoptionLinks.click(function(){
+  var jQuerythis = jQuery(this);
+  // don't proceed if already selected
+  if ( jQuerythis.hasClass('selected') ) {
+    return false;
+  }
+  var jQueryoptionSet = jQuerythis.parents('.option-set');
+  jQueryoptionSet.find('.selected').removeClass('selected');
+  jQuerythis.addClass('selected');
+
+  // make option object dynamically, i.e. { filter: '.my-filter-class' }
+  var options = {},
+    key = jQueryoptionSet.attr('data-option-key'),
+    value = jQuerythis.attr('data-option-value');
+  // parse 'false' as false boolean
+  value = value === 'false' ? false : value;
+  options[ key ] = value;
+  if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+    // changes in layout modes need extra logic
+    changeLayoutMode( jQuerythis, options )
+  } else {
+    // otherwise, apply new options
+    jQuerycontainer.isotope( options );
+  }
+  
+  return false;
+  });   
+    
+    };      
+    
+    });
+  </script>
+    <script type="text/javascript" src="/jackbox/js/libs/Jacked.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox-swipe.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox.js"></script>
+    <script type="text/javascript" src="/jackbox/js/libs/StackBlur.js"></script>
+    <script>
+      $(document).ready(function() {    
+  jQuery(".jackbox[data-group]").jackBox("init",{deepLinking: true});
+      });
+
+      function modalInfoOpen(identificador){
+        $("#tipo_pago").val(identificador);
+        $('#modalPago').modal('show');
+      }
+    </script>
+    <style type="text/css">
+h4{
+  padding: 21px 0 17px;
+}
+.v_form textarea{
+  height: 70px;
+}
+.form-horizontal .control-group{
+  margin-bottom:10px;
+}
+    </style>
+<div class="modal fade" id="modalPago" tabindex="-1" role="dialog" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Estas comprando: Reel SeaMaster 5000</h4>
+      </div>
+      <form id="medio_envio" class="form-horizontal v_form v_space3">
+      <div class="modal-body">
+                
+                  <input type="hidden" value="" name="tipo_pago" id="tipo_pago" />
+                  <fieldset>
+                    <div class="control-group">
+                      <label class="control-label">Nombre:</label>
+                      <div class="controls">
+                        <input id="nombre" name="nombre" placeholder="nombre" type="text" class="v_large_width">
+                        
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label">Apellido:</label>
+                      <div class="controls">
+                        <input id="apellido" name="apellido" placeholder="apellido" type="text" class="v_large_width">
+                        
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label">Tel&eacute;fono:</label>
+                      <div class="controls">
+                        <input id="telefono" name="telefono" placeholder="02920 15535345" type="text" class="v_large_width">
+                        
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label">Direcci&oacute;n de mail:</label>
+                      <div class="controls">
+                        <input id="mail" name="mail" placeholder="mail@mail.com" type="text" class="v_large_width">
+                        
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label">Direcci&oacute;n de entreg&aacute;:</label>
+                      <div class="controls">
+                        <input id="direccion" name="direccion" placeholder="Calle 1234, Viedma, Rio Negro" type="text" class="v_large_width">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label">Comentario:</label>
+                      <div class="controls">
+                        <textarea name="comentario" id="comentario" placeholder="La casa es la verde con rejas azules :)." ></textarea>
+                      </div>
+                    </div>
+                  </fieldset>
+      </div>
+      <div class="modal-footer">
+      <button type="submit" class="btn btn-default" >Comprar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

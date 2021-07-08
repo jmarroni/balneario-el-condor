@@ -1,0 +1,102 @@
+
+<link rel="stylesheet" type="text/css" href="/css/shadow/shadowbox.css">
+<script type="text/javascript" src="/js/shadowbox.js"></script>
+<script src="<?php echo RUTA_JS ?>/js/jquery.masonry.min.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            var $container = $('#container');
+            $container.imagesLoaded( function(){
+            $container.masonry({
+                  itemSelector: '.grid', 
+                  isAnimated:true,
+                  columnWidth: function( containerWidth ) {
+                                    return containerWidth / 5;
+                                  }
+                });
+            });
+        });
+        function grabarClick(id){
+            $.post( "imagen/visita/id/" + id, function( data ) {});
+        }
+</script>
+
+     <div  itemscope itemtype=" http://schema.org/NewsArticle" class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota" style="margin-top:20px">
+            <h2>Primer concurso de kayak en el Balneario El Condor</h2>
+            <div itemprop="description">
+            <p >Participaron 45 kayistas, toc&oacute; una jornada maravillosa, el clima acompa&ntilde;o de la mejor manera al igual que la gente.<br>El Concurso fue realizado por la Comisi&oacute;n Organizadora de Carnavales El C&oacute;ndor. La entrega de premio se hizo en el hotel austral, se cont&oacute; con la presencia del Sr. Intendente Jos&eacute; Luis Foulkes y autoridades locales (la delegaci&oacute;n municipal, Junta vecinal, integrantes de turismo). Adem&aacute;s de los premios ya pactados se  le entrego un premio especial en efectivo y regalar&iacute;a de Fondo de Bikini por ser la &uacute;nica concursante femenina a Diana Mu&ntilde;iz.<br>
+            <b>Primeros puestos:</b> <br><br>
+            1&deg; Cruce Claudio Martin (4,62), <br>
+            2&deg; Poissonneau Alejandro (3,86), <br>
+            3&deg; Rodriguez Federico (3,75)<br><br>
+    <b>Apellido y Nombres  (Peso de la pieza
+Puesto) </b><br>     
+1&deg;  Cruce Claudio Martin    4,62<br>
+2&deg;  Poissonneau Alejandro   3,86<br>
+3&deg;  Rodriguez Federico  3,75<br>
+4&deg;  Zamora Alejo    2,82<br>
+5&deg;  Risoli Martin Nicolas   2,51<br>
+6&deg;  Ullua esteban   2,47<br>
+7&deg;  Parede Carlos   2,17<br>
+8&deg;  John Martinez   2,08<br>
+9&deg;  Rebolini Sebastian  1,78<br>
+10&deg; Iturriaga Cristian  1,64<br>
+11&deg; Mi&ntilde;on Guillermo 1,41<br>
+12&deg; Porris Jos&eacute; 1,27<br>
+13&deg; Morel Jorge 1,26<br>
+14&deg; Carrilo Andr&eacute;s  1,26<br>
+15&deg; Zanotti Cesar   1,23<br>
+16&deg; Tombesi Lucas   1,08<br>
+17&deg; Donadio Juan     <br>
+18&deg; Roa Ra&uacute;l     <br>
+19&deg; Bozdino Alvaro   <br>
+20&deg; Perez Ruela Martin Alejandro     <br>
+21&deg; Romero Daniel    <br>
+22&deg; Mu&ntilde;iz Diana  <br>
+23&deg; Mu&ntilde;iz Nicolas    <br>
+24&deg; Mesa Gast&oacute;n  <br>
+25&deg; Iturburu Lautaro <br>    
+26&deg; Portada Julian   <br>
+27&deg; Herrera Norberto     <br>
+28&deg; Cejas Miguel     <br>
+29&deg; Fernandez Matias     <br>
+30&deg; Trotta Nicolas   <br>
+31&deg; Basly Sergio Rafael  <br>
+32&deg; Arcajo Jos&eacute;  <br>
+33&deg; Robles Juan  <br>
+34&deg; Negro Gonzalo    <br>
+35&deg; Mujica Ricardo Cristian      <br>
+36&deg; Balog Juan   <br>
+37&deg; Miranda German   <br>
+38&deg; Tombesi Nicolas  <br>
+39&deg; Laggiard Rocardo Jos&eacute;    <br>
+40&deg; Sicardi Luis     <br>
+41&deg; Barrera Matias   <br>
+42&deg; Portela Gast&oacute;n   <br>
+43&deg; Tassara Federico     <br>
+44&deg; Quinteros Marco  <br>
+45&deg; Pino Rafael  <br>
+<br> 
+1&deg; Premio: 3000 pesos + 500 pesos en orden de compra FRIDEVI + un voucher a Las Grutas para 2 personas (otorgado por el Ministerio de Turismo de R&iacute;o Negro). <br>
+2&deg; Premio: 2000 pesos + un voucher Hotel Austral con destino abierto (Neuqu&eacute;n, Bah&iacute;a Blanca, El C&oacute;ndor, Viedma o Bs. As Cap), fin de semana 2 Noches para 2 personas (otorgado por Hotel Austral) <br>
+3&deg; Premio: 1000 pesos + un voucher Hotel Austral con destino abierto (Neuqu&eacute;n, Bah&iacute;a Blanca, El C&oacute;ndor, Viedma o Bs. As. Cap.), fin de semana 2 Noches para 2 personas (otorgado por Hotel Austral).<br>
+Premio estimulo (sorteo entre todos los participantes): Regalar&iacute;a y &oacute;rdenes de compra.</p>
+            </div>
+<h2>Imagenes</h2>
+        <div id="container" class="masonry" style="height: 980px;margin-top:30px">
+        	<?php $album = "";$cont = 0;foreach ($this->Imagenes as $key => $value) { ?>
+            <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">
+                <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(<?php echo $value["im_id"]; ?>);" rel="shadowbox[Mixed];" href="<?php echo $value["im_imagen"] ?>" title="<?php echo $value["im_titulo"]; ?>" alt="<?php echo $value["im_titulo"]; ?>">
+                        <img alt="<?php echo $value["im_titulo"]; ?>" title="<?php echo $value["im_titulo"]; ?>" src="<?php echo $value["im_thumb"]; ?>" >
+                    </a>
+                </div>                        
+                <p><?php echo $value["im_descripcion"]; ?></p>
+                <div class="meta">por <?php echo $value["im_titulo"]; ?></div>
+            </div>
+        	<?php } ?>
+        </div>
+</section>

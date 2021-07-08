@@ -1,0 +1,39 @@
+<?php
+
+class Application_Model_DbTable_novedades extends Zend_Db_Table_Abstract
+{
+    /**
+     * Variable que contiene el nombre de la tabla.
+     * @var string
+     */
+    protected $_name = 'novedades'; 
+
+    public function get($limit = NULL, $group = NULL){
+        $select = $this->select();
+        $select->setIntegrityCheck(false);
+        $select->from(array("nov" => "novedades"));
+        $select->joinLeft(array("img" => "img_articulos"),"img.nov_id = nov.nov_id");
+        $select->order('nov.nov_fechahora DESC');
+        if ($limit) $select->limit($limit);
+        if ($group)	 $select->group($group); else $select->group("nov.nov_id");
+        return $this->_fetch($select);
+    }
+
+    public function getDetalle($identificador){
+        if ($identificador){
+            $select = $this->select();
+            $select->setIntegrityCheck(false);
+            $select->from(array("nov" => "novedades"));
+            $select->joinLeft(array("img" => "img_articulos"),"img.nov_id = nov.nov_id");
+            echo $identificador;
+            //exit();
+            $select->where('nov_keyword = ?',$identificador);
+            return $this->_fetch($select);
+        }else{
+            return array();
+        }
+    }
+
+    
+}
+

@@ -1,0 +1,199 @@
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo $this->arrClasificados[0]["cla_titulo"]; ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><a class="active font-weight-semibold" href="/hospedaje" style="color: #e2a522;font-size: 16px;">Clasificados</a></span> <i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo $this->arrClasificados[0]["cla_titulo"]; ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--==============================content=================================-->
+
+<div class="container pt-3 pb-2">
+
+  <div class="row">
+    <div class="col-lg-4">
+
+      <div class="thumb-gallery-wrapper">
+        <div class="thumb-gallery-detail owl-carousel owl-theme manual nav-inside nav-style-1 nav-dark mb-3 owl-loaded owl-drag"> 
+
+          <div class="owl-stage-outer owl-height" style="height: 356px;"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2562px;">
+            <div class="owl-item active" style="width: 356px; margin-right: 10px;">
+              <div><img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen0"] != "")?$this->arrClasificados[0]["cla_imagen0"]:"no_image.jpg";?>&w=450&h=450&zc=1" class="img-fluid" alt="Imagen Principal">
+              </div></div>
+              <div class="owl-item" style="width: 356px; margin-right: 10px;"><div>
+                <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen1"] != "")?$this->arrClasificados[0]["cla_imagen1"]:"no_image.jpg";?>" class="img-fluid" alt="Imagen 1">
+              </div></div>
+              <div class="owl-item" style="width: 356px; margin-right: 10px;"><div>
+                <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen2"] != "")?$this->arrClasificados[0]["cla_imagen2"]:"no_image.jpg";?>" class="img-fluid" alt="Imagen 2">
+              </div></div>
+              <div class="owl-item" style="width: 356px; margin-right: 10px;"><div>
+                <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen3"] != "")?$this->arrClasificados[0]["cla_imagen3"]:"no_image.jpg";?>" class="img-fluid" alt="Imagen 3">
+              </div></div>
+              <div class="owl-item" style="width: 356px; margin-right: 10px;"><div>
+                <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen4"] != "")?$this->arrClasificados[0]["cla_imagen4"]:"no_image.jpg";?>" class="img-fluid" alt="Imagen 4">
+              </div></div>
+            </div></div>
+            <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"></button><button type="button" role="presentation" class="owl-next"></button></div><div class="owl-dots disabled"></div></div>
+
+
+            <div class="thumb-gallery-thumbs owl-carousel owl-theme manual thumb-gallery-thumbs owl-loaded owl-drag">
+              <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 650px;"><div class="owl-item active selected" style="width: 77.75px; margin-right: 15px;">
+                  <div>
+                    <span class="d-block cur-pointer">
+                      <img alt="Imagen Principal" src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen0"] != "")?$this->arrClasificados[0]["cla_imagen0"]:"no_image.jpg";?>" class="img-fluid">
+                    </span>
+                  </div></div>
+                  <div class="owl-item active" style="width: 77.75px; margin-right: 15px;"><div>
+                    <span class="d-block cur-pointer">
+                      <img alt="Imagen 1" src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen1"] != "")?$this->arrClasificados[0]["cla_imagen1"]:"no_image.jpg";?>" class="img-fluid">
+                    </span>
+                  </div></div>
+                  <div class="owl-item active" style="width: 77.75px; margin-right: 15px;"><div>
+                    <span class="d-block cur-pointer">
+                      <img alt="Imagen2" src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen2"] != "")?$this->arrClasificados[0]["cla_imagen2"]:"no_image.jpg";?>" class="img-fluid">
+                    </span>
+                  </div></div>
+                  <div class="owl-item active" style="width: 77.75px; margin-right: 15px;"><div>
+                    <span class="d-block cur-pointer">
+                      <img alt="Imagen 3" src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen3"] != "")?$this->arrClasificados[0]["cla_imagen3"]:"no_image.jpg";?>" class="img-fluid">
+                    </span>
+                  </div></div>
+                  <div class="owl-item" style="width: 77.75px; margin-right: 15px;"><div>
+                    <span class="d-block cur-pointer">
+                      <img alt="Imagen 4" src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen4"] != "")?$this->arrClasificados[0]["cla_imagen4"]:"no_image.jpg";?>" class="img-fluid">
+                    </span>
+                  </div></div>
+                </div></div>
+                <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+              </div>
+
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <hr class="solid mt-3">
+              <div class="row">
+                <div class="col">
+                  <article class="post post-large">
+                    <div class="post-image">
+                      <a href="#" class="d-block btn  btn-outline border-0 rounded-0 font-weight-bold text-center text-6 py-5"><?php echo $this->arrClasificados[0]["cla_categoria"]; ?> - <?php echo $this->arrClasificados[0]["cla_titulo"]; ?></a>
+                    </div>
+
+                    <div class="">
+                      <p style="font-size:19px"><span class="badge badge-primary badge-sm"><?php echo " ".$this->arrClasificados[0]["cla_visitas"]; ?></span> personas visitaron el clasificado.</p>
+                    </div>
+
+                    <div class="post-content">
+                      <h4><a href="" class="text-decoration-none" style="color:black">Titular:  <span style="font-size:14px ;"><i style="color:#0088CC" class="far fa-user"></i><a style="font-size:14px ;" href="#"><?php echo ($this->arrClasificados[0]["cla_nombre_contacto"] != "")?" ".$this->arrClasificados[0]["cla_nombre_contacto"]." ":"<b> No informa</b>"; ?></a> </span></a></h4>
+
+                      <h4><a href="" class="text-decoration-none" style="color:black">Mail:  <span style="font-size:14px ;"><i style="color:#0088CC" class="far fa-envelope"></i><a style="font-size:14px ;" href="#">  <?php if ($this->arrClasificados[0]["cla_mail_contacto"] != "")
+                      { echo "<a style='font-size:16px' href='mailto:".$this->arrClasificados[0]["cla_mail_contacto"]."'>" ." ".$this->arrClasificados[0]["cla_mail_contacto"]."</a>";}
+                      else{ echo "<b>No informa</b>";} ?></a> </span></a></h4>
+
+                      <h4><a href="" class="text-decoration-none" style="color:black">Compartir en:</a>
+                       <div >
+
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="es" data-text="<?php echo $this->arrClasificados[0]["cla_categoria"]; ?>: <?php echo $this->arrClasificados[0]["cla_titulo"]; ?>"><img src="/imagenes/tweet-button-300x242.jpg" style="height: 18px;" /></a>
+
+                        <a  href="#" onclick="javascript:postToFeed('http://<?php echo $_SERVER["SERVER_NAME"]; ?>/clasificados/detalle/<?php echo $this->arrClasificados[0]["cla_keyword"]; ?>','http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagen0"] != "")?$this->arrClasificados[0]["cla_imagen0"]:"no_image.jpg";?>','<?php echo $this->arrClasificados[0]["cla_titulo"]; ?>','Encontre este clasificado en la web del Balneario, hace click y mira toda la descripción');"><img src="/imagenes/fbcCompartir.jpg" style="margin-top: -9px;" /></a><br><br> 
+
+                        <!-- <a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=http://<?php echo $_SERVER["SERVER_NAME"]; ?>/clasificados/detalle/<?php echo $this->arrClasificados[0]["cla_keyword"]; ?>&p[images][0]=http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/clasificados/<?php echo $this->arrClasificados[0]["cla_imagen0"];?>&p[summary]=<?php echo $descripcion; ?>' ,'ventanacompartir', 'toolbar=0, status=0, width=650, height=450');"><img src="/imagenes/fbcCompartir.jpg" /></a><br><br> -->
+
+                      </div>
+                    </h4>
+
+                    <p class="mb-1"></p>
+
+
+
+                    <div class="post-meta">
+
+                    </div>
+
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+<div id="examples" class="container py-2">
+    <div class="row">
+      <div class="col-lg-12">
+       <div class="divider divider-primary">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="tabs tabs-primary">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#popularColors1" data-bs-toggle="tab">Descripción</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div id="popularColors1" class="tab-pane active">
+                    <p><?php echo utf8_encode($this->arrClasificados[0]["cla_descripcion"]); ?></p>
+                  </div>
+                 
+                </div>
+              </div>
+</div>
+      </div>
+      <script>
+        FB.init({
+          appId  : "341020419335849",
+          status : true,
+          cookie : true,
+          xfbml  : true
+        });
+        function postToFeed(linkEnviado,pictureEnviada,tituloEnviado,descripcionEnviado) {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'http://www.balneario-el-condor.com.ar',
+          link: linkEnviado,
+          picture: pictureEnviada,
+          name: tituloEnviado,
+          caption: '',
+          description: descripcionEnviado
+        };
+
+        function callback(response) {
+        }
+
+        FB.ui(obj, callback);
+      }
+
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);
+          js.id=id;
+          js.src="https://platform.twitter.com/widgets.js";
+
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }
+      (document,"script","twitter-wjs");
+    </script>

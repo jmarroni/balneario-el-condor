@@ -1,0 +1,341 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulario a generar en pdf</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/js/jquery-cookie-master/jquery.cookie.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('p#mas_anexo2').click(function(){
+		$('#anexo2 .campos:first').removeClass( "campos" ).addClass( "visible" );
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+	$('p#mas_anexo3').click(function(){
+		$('#anexo3 .campos:first').removeClass( "campos" ).addClass( "visible" );
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+});
+
+var nextinput = 1;
+var nextinput1 = 1;
+var nextinput2 = 1;
+var nextinput3 = 1;
+function AgregarCampos(){
+nextinput++;
+campo = '<tr><td><select name="'+nextinput+'_Tipo_linea" id="'+nextinput+'_Tipo_linea"><option value="">Elegir...</option><option value="Telefonía Básica">Telefonía Básica</option><option value="Acceso a Troncal Digital">Acceso a Troncal Digital</option></select></td><td><input type="text" maxlength="17" name="'+nextinput+'_Tipo_linea1" class="anexo"/></td><td><input type="text" maxlength="17" name="'+nextinput+'_Limi_llama" class="anexo"/></td></tr>';
+$("#table1").append(campo);
+}
+
+function AgregarCampos2(){
+nextinput1++;
+campo = '<tr><td><input type="text" maxlength="17" name="'+nextinput1+'_cant" class="anexo"/></td><td><input type="text" maxlength="17" name="'+nextinput1+'_Tip_max" class="anexo"/></td><td><input type="text" maxlength="17" name="'+nextinput1+'_Locu_llama" class="anexo"/></td></tr>';
+$("#table2").append(campo);
+}
+
+function AgregarCampos3(){
+nextinput2++;
+campo = '<tr><td><select name="'+nextinput2+'_Tip" id="'+nextinput2+'_Tip"><option value="">Elegir...</option><option value="Telefonía Básica">Telefonía Básica</option><option value="Acceso a Troncal Digital">Acceso a Troncal Digital</option></select></td><td><input type="text" maxlength="17" name="'+nextinput2+'_Num_lin" class="anexo" /></td></tr>';
+$("#table3").append(campo);
+}
+
+function AgregarCampos4(){
+nextinput3++;
+campo = '<tr><td><input type="text" maxlength="17" name="'+nextinput3+'_resp-name" class="anexo" placeholder=" Elija un nombre para centro de respuesta"/></td><td><input type="text" maxlength="17" name="'+nextinput3+'_line-active" class="anexo" placeholder=" Líneas que componen el centro de respuesta"/></td><td><select name="'+nextinput3+'_rota" id="'+nextinput3+'_rota"><option value="">Elegir...</option><option value="Ciclico">Ciclico</option><option value="Prioritario">Prioritario</option></select></td></tr>';
+$("#table4").append(campo);
+}
+
+var indice = 0;
+
+$( document ).ready(function() {
+
+	$("#enviar").click(function(indice, elemento) {
+		var generar_indices = true;
+		try{ event.preventDefault();}catch (e) {}
+		var indiceActual_enrutamiento = 9999;
+		var indiceActual_distribucion = 9999; 
+		var indiceActual_restriccion = 9999;
+		var indiceActual_rotativas = 9999;
+		var indice_enrutamiento = 0; 
+		var indice_distribucion = 0; 
+		var indice_restriccion = 0;
+		var indice_rotativas = 0;
+		var anexo_3_restriccion_de_llamadas = new Array();
+		var anexo_3_distribucion_de_llamadas = new Array();
+		var anexo_3_enrutamiento_de_llamadas = new Array();
+		var anexo_3_rotativas_de_llamadas = new Array();
+		$(":text").each(function(indices, elemento) {
+			if (isNaN(elemento.name.substring(0,elemento.name.indexOf("_")))){
+				indice = 0;
+				nombre = elemento.name;
+			}else{
+
+				indice = elemento.name.substring(0,elemento.name.indexOf("_")) - 1;
+				if (indice == -1 ){ 
+					indice = 0; // porque cuando no encuentra algo devuelve -1
+					nombre = elemento.name;
+				}else{
+					nombre = elemento.name.substring(elemento.name.indexOf("_") + 1);
+				}
+			}
+
+			console.log(indice);
+			switch (nombre) {
+				case "Tipo_linea1":
+				case "Tipo_linea":
+				case "Limi_llama":
+					indice_enrutamiento = indice;
+					break;
+				case "cant":
+				case "Tip_max":
+				case "Locu_llama":
+					indice_distribucion = indice;
+					break;
+				case "Tip":
+				case "Num_lin":
+					indice_restriccion = indice;
+					break;
+				case "resp-name":
+				case "line-active":
+				case "rota":
+					indice_rotativas = indice;
+					break;
+				default:
+					break;
+			}
+			
+			if (indice_enrutamiento != indiceActual_enrutamiento){
+				indiceActual_enrutamiento = indice_enrutamiento;
+				anexo_3_enrutamiento_de_llamadas[indice_enrutamiento] = new Array();
+			}
+			
+			if (indice_distribucion != indiceActual_distribucion){
+				indiceActual_distribucion = indice_distribucion;
+				anexo_3_distribucion_de_llamadas[indice_distribucion] = new Array();
+			}
+			
+			if (indice_restriccion != indiceActual_restriccion){
+				indiceActual_restriccion = indice_restriccion;
+				anexo_3_restriccion_de_llamadas[indice_restriccion] = new Array();
+			}
+			
+			if (indice_rotativas != indiceActual_rotativas){
+				indiceActual_rotativas = indice_rotativas;
+				anexo_3_rotativas_de_llamadas[indice_rotativas] = new Array();
+			}
+			console.log(nombre);
+			switch (nombre) {
+			case "Tipo_linea1":
+				if (indice > 0){
+					console.log(indice + '---' + $("#"+indice+"_Tipo_linea").val());
+					anexo_3_enrutamiento_de_llamadas[indice_enrutamiento][0] = $("#"+ (indice + 1) +"_Tipo_linea").val();
+				}else
+					anexo_3_enrutamiento_de_llamadas[indice_enrutamiento][0] = $("#Tipo_linea").val();
+				anexo_3_enrutamiento_de_llamadas[indice_enrutamiento][1] = elemento.value;
+
+				break;
+			case "Limi_llama":
+				anexo_3_enrutamiento_de_llamadas[indice_enrutamiento][2] = elemento.value;
+				break;
+			case "cant":
+				anexo_3_distribucion_de_llamadas[indice_distribucion][0] = elemento.value;
+				break;
+			case "Tip_max":
+				anexo_3_distribucion_de_llamadas[indice_distribucion][1] = elemento.value;
+				break;
+			case "Locu_llama":
+				anexo_3_distribucion_de_llamadas[indice_distribucion][2] = elemento.value;
+				break;
+			case "Num_lin":
+				if (indice > 0)
+					anexo_3_restriccion_de_llamadas[indice_restriccion][0] = $("#"+(indice + 1)+"_Tip").val();
+				else
+					anexo_3_restriccion_de_llamadas[indice_restriccion][0] = $("#Tip").val();
+					anexo_3_restriccion_de_llamadas[indice_restriccion][1] = elemento.value;
+
+				break;
+			case "resp-name":
+				anexo_3_rotativas_de_llamadas[indice_rotativas][0] = elemento.value;
+			case "line-active":
+				anexo_3_rotativas_de_llamadas[indice_rotativas][1] = elemento.value;
+				
+			case "rota":
+				if (indice > 0)
+					anexo_3_rotativas_de_llamadas[indice_rotativas][2] = $("#"+(indice + 1)+"_rota").val();
+				else
+					anexo_3_rotativas_de_llamadas[indice_rotativas][2] = $("#rota").val();
+				break;
+			default:
+				break;
+			
+			}
+	        });
+		
+
+		var banderaCookie = "";
+		var distribucion_de_llamadas = new Array();
+		for ( var i = 0; i < anexo_3_distribucion_de_llamadas.length; i++) {
+			for  ( var j = 0; j < anexo_3_distribucion_de_llamadas[i].length; j++) {
+				if (anexo_3_distribucion_de_llamadas[i][j].trim() != ""){
+					banderaCookie = "si";
+				}
+			}
+			distribucion_de_llamadas[i] = anexo_3_distribucion_de_llamadas[i].join("||");
+		}
+		
+		if (banderaCookie != "") $.cookie('anexo_3_cola_de_llamadas', distribucion_de_llamadas.join("@@"), {  path: '/' });
+		
+
+		var banderaCookie = "";
+		var enrutamiento_de_llamadas = new Array();
+		for ( var i = 0; i < anexo_3_enrutamiento_de_llamadas.length; i++) {
+			for  ( var j = 0; j < anexo_3_enrutamiento_de_llamadas[i].length; j++) {
+				if (anexo_3_enrutamiento_de_llamadas[i][j].trim() != ""){
+					banderaCookie = "si";
+				}
+			}
+			enrutamiento_de_llamadas[i] = anexo_3_enrutamiento_de_llamadas[i].join("||");
+		}
+		if (banderaCookie != "") $.cookie('anexo_3_destino_de_llamadas', enrutamiento_de_llamadas.join("@@"), {  path: '/' });
+		
+		
+
+		var banderaCookie = "";
+		var restriccion_de_llamadas = new Array();
+		for ( var i = 0; i < anexo_3_restriccion_de_llamadas.length; i++) {
+			for  ( var j = 0; j < anexo_3_restriccion_de_llamadas[i].length; j++) {
+				if (anexo_3_restriccion_de_llamadas[i][j].trim() != ""){
+					banderaCookie = "si";
+				}
+			}
+			restriccion_de_llamadas[i] = anexo_3_restriccion_de_llamadas[i].join("||");
+		}
+		
+
+		
+		if (banderaCookie != "") $.cookie('anexo_3_alternativo_de_llamadas', restriccion_de_llamadas.join("@@"), {  path: '/' });
+ 		var banderaCookie = "";
+		var rotativas_de_llamadas = new Array();
+		for ( var i = 0; i < anexo_3_rotativas_de_llamadas.length; i++) {
+			for  ( var j = 0; j < anexo_3_rotativas_de_llamadas[i].length; j++) {
+				if (anexo_3_rotativas_de_llamadas[i][j].trim() != ""){
+					banderaCookie = "si";
+				}
+			}
+			rotativas_de_llamadas[i] = anexo_3_rotativas_de_llamadas[i].join("||");
+		}
+		
+		if (banderaCookie != "") $.cookie('anexo_3_rotativas_de_llamadas', rotativas_de_llamadas.join("@@"), {  path: '/' });
+		if ($("#observaciones").val() != "") $.cookie('anexo_3_observaciones', $("#observaciones").val(), {  path: '/' });
+ 		
+ 		alert('Gracias por completar el Anexo.\nContinúe con el Formulario de Alta de Servicio.');
+ 		window.close();
+		 
+	});
+
+});
+</script>
+</head>
+<body>
+ <div id="main">
+<div><img src="img/top.jpg" usemap="#Map" border="0">
+      <map name="Map">
+        <area shape="rect" coords="18,20,183,67" href="index.html" alt="home">
+      </map></div>
+        <div id="anexo3">
+        <div id="formulario_anexo3">
+        <form name='pdf' method='post' action='#' onSubmit="return false;">
+        <h3>Anexo 3<br>Posibilidad de Destino </h3>
+        <table id="table1" style="display:none">
+        <tr>
+        <td colspan="4" align="center"><p class="title">3.1 Destino</p></td>
+        <td><p id="mas_anexo3" class="mas" onClick="AgregarCampos();">Agregar +</p></td>
+        </tr>
+        <tr>
+        <td><p>Tipo de línea</p></td>
+        <td><p>Número de línea</p></td>
+        <td><p>Límite de llamadas</p></td></tr>
+        <tr><td><select name="Tipo_linea" id="Tipo_linea">
+        <option value="">Elegir...</option>
+        <option value="Telefonía Básica">Telefonía Básica</option>
+        <option value="Acceso a Troncal Digital">Acceso a Troncal Digital</option>
+        </select></td>
+        <td><input type='text' maxlength="17" name='Tipo_linea1' class="anexo"/></td>
+        <td><input type='text' maxlength="17" name='Limi_llama' class="anexo"/></td></tr>
+        </table>
+        
+        <table id="table2" style="display:none">
+        <tr>
+        <td colspan="4" align="center"><p class="title">3.2 Cola de llamadas</p></td>
+        <td><p id="mas_anexo3" class="mas" onClick="AgregarCampos2();">Agregar +</p></td>
+        </tr>
+        <tr>
+        <td><p>Cantidad</p></td>
+        <td><p>Tiempo máximo (seg.)</p></td>
+        <td><p>Locución cola de llamadas</p></td>
+        </tr>
+        <tr>
+        <td><input type='text' maxlength="17" name='cant' class="anexo"/></td>
+        <td><input type='text' maxlength="17" name='Tip_max' class="anexo"/></td>
+        <td><input type='text' maxlength="17" name='Locu_llama' class="anexo"/></td></tr>
+        </table>
+        
+        <table style="width: 600px;display:none;" id="table3" >
+        <tr>
+        <td colspan="4" align="center"><p class="title">3.2 Destino alternativo( Ocupado y no contesta)</p></td>
+        <td><p id="mas_anexo3" class="mas" onClick="AgregarCampos3();">Agregar +</p>  </td>
+        </tr>
+        <tr>
+        <td><p>Tipo</p></td>
+        <td><p>Numero de línea</p>  </td>
+        <tr>
+        <td><select name="Tip" id="Tip">
+        <option value="">Elegir...</option>
+        <option value="Telefonía Básica">Telefonía Básica</option>
+        <option value="Acceso a Troncal Digital">Acceso a Troncal Digital</option>
+        </select></td>
+        <td><input type='text' maxlength="17" name='Num_lin'class="anexo" /></td>
+        </tr>
+        </table>
+        
+        
+        <table id="table4">
+        <tr>
+        <td colspan="4" align="center"><p class="title">3.3 CENTRO DE RESPUESTA O LINEAS ROTATIVAS:  </p></td>
+        
+        <td><p id="mas_anexo3" class="mas" onClick="AgregarCampos4();">Agregar +</p>  </td>
+        </tr>
+        <tr>
+        <td><p>Nombre</p></td>
+        <td><p>Líneas activas</p></td>
+      	 <td><p>Rotación</p></td>
+        <!-- <td><p>Porcentaje</p></td>-->
+        </tr>
+        <tr>
+        <td><input type='text' maxlength="17" name='resp-name' class="anexo" placeholder=" Elija un nombre para centro de respuesta"/></td>
+        <td><input type='text' maxlength="17" name='line-active' class="anexo" placeholder=" Líneas que componen el centro de respuesta"/></td>
+        <td><select name="rota" id="rota">
+        <option value="">Elegir...</option>
+        <option value="Ciclico">Ciclico</option>
+        <option value="Prioritario">Prioritario</option>
+        </select></td>
+        <!--<td><input type='text' maxlength="17" name='procentaje' class="anexo" placeholder=" Elija una alternativa"/></td>-->
+        </tr>
+        </table>
+       
+     
+        <p>Observaciones:</p><br> <textarea id="observaciones"  name='observaciones'></textarea><br>
+        
+       <input type='image' src="img/enviar.jpg" id="enviar" value='Generar'/>
+     </form>
+</div>
+</div>
+
+</div><!--Fin del MAin-->
+ </body>
+ </html>
+         

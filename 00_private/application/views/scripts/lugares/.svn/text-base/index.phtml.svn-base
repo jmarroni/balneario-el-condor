@@ -1,0 +1,126 @@
+<!--==============================content=================================-->
+<style>
+.content-div{padding-top:10px;}
+.col-right, .col-left{margin-top:0px;}
+</style>
+<div id="content">   
+    <div class="container">
+      <div class="row content-div">
+        <article class="span3">  
+     <div class="col-left"> 
+     <div class="block-widget">
+    <h4 class="heading-h4">Lugares</h4>    
+      <ul class="list-categories">
+      <?php 
+                        $coordenadasGoogleMaps =  "";
+                        foreach ($this->cercanos as $key => $value) { ?>
+                            <li id="<?php echo $value["ce_keyword"]; ?>">
+                                <a target="_blank" href="/playa/<?php echo $value["ce_keyword"]; ?>">
+                                    <?php echo $value["ce_titulo"]; ?>
+                                </a>
+                            </li>
+                        <?php 
+                            if ($value["ce_googlemaps"] != ""){
+                                $coordenadasGoogleMaps .= ($coordenadasGoogleMaps != "")?"##":"";
+                                $coordenadas = explode(",",str_replace(")", "", str_replace("(", "", $value["ce_googlemaps"])));
+                                $descripcion = ($value["ce_descripcion"] !="")?substr(strip_tags($value["ce_descripcion"]),0,100)."...":"";
+                                $coordenadasGoogleMaps .= $coordenadas[1]."@@".$coordenadas[0]."@@".$value["ce_titulo"]."@@".$descripcion."@@".$value["ce_keyword"];
+                            }
+                        } ?>
+     </ul>    
+    </div> 
+   </div>
+  </article>
+  <article class="span9">
+            <div class="contenedorMapa">
+                <div id="map_canvas" style="width:100%;height: 905px;" ></div>
+            </div>         
+  </article>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+var coordenadasGoogleMaps = '<?php echo $coordenadasGoogleMaps ?>';
+var markersArray = new Array();
+var map;
+infos = [];
+var infowindow = new google.maps.InfoWindow();
+    var bounds = new google.maps.LatLngBounds();
+    var myOptions = {
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.SATELLITE,
+            disableDefaultUI: true
+        }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+verEnMapa();
+
+function verEnMapa(){
+    //Googlemaps
+    var geocoder;
+    var address;
+    var myPano;
+    var pLat;
+    var pLong;
+    var coordenadas = "";
+    var marker;
+    geocoder = new google.maps.Geocoder();
+    ArraycoordenadasGoogleMaps =coordenadasGoogleMaps.split('##');
+    var bounds = new google.maps.LatLngBounds();
+    var imageBeneficio = new google.maps.MarkerImage('/css/images/iconos_sitio/Playas.png');
+
+    for(var i =0; i < ArraycoordenadasGoogleMaps.length; i ++){
+        coordenadas = ArraycoordenadasGoogleMaps[i].split("@@");
+
+            pLong = coordenadas[0];
+            pLat  = coordenadas[1];
+            var point = new google.maps.LatLng(pLat, pLong, false);
+                        bounds.extend(point);
+                        var marker = new google.maps.Marker({
+                                                                'position': point,
+                                                                'bounds': true,
+                                                                map: map,
+                                                                'title' : coordenadas[2],
+                                                                'identificador': coordenadas[4],
+                                                                content:'<div style="width:300px;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif"><a href="/playa/'+ coordenadas[4] +'" target="_blank" ><Strong>' + coordenadas[2] + '</Strong></a><br>'+ coordenadas[3] +'</div>',
+                                                                'icon': imageBeneficio
+                                                            });
+
+                        pointGetCoord = point.toString().replace("(","").replace(")","");
+                        pointGetCoord = pointGetCoord.split(",");
+                        google.maps.event.addListener(marker, 'click', function() {
+                                closeInfos();
+                                seleccionarUbicacion(this.identificador);
+                                var info = new google.maps.InfoWindow({content: this.content});
+                                info.open(map,this);
+                                infos[0]=info;
+                            });
+    }
+
+            map.fitBounds(bounds);
+}
+function seleccionarUbicacion(identificador){
+    $( "li" ).each(function( index ) {
+        if (this.id)
+        if ($('#' + this.id).attr('class') == 'seleccionadoEnMap'){
+            $('#' + this.id).attr('class','');
+        }
+    });
+    $('#identificador').attr('class','seleccionadoEnMap');
+
+}
+function closeInfos(){
+ 
+   if(infos.length > 0){
+ 
+      /* detach the info-window from the marker */
+      infos[0].set("marker",null);
+ 
+      /* and close it */
+      infos[0].close();
+ 
+      /* blank the array */
+      infos.length = 0;
+   }
+}
+</script>

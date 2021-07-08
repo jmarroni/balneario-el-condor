@@ -1,0 +1,84 @@
+
+<main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading">
+                                Novedades
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Novedades</li>
+                                
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-content">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-bordered table-striped js-dataTable-simple">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ID</th>
+                                        <th>Título</th>
+                                        <th>Fecha</th>
+                                        <th class="hidden-xs" style="width: 15%;">Imagen</th>
+                                        <th class="hidden-xs" style="width: 15%;">Link</th>
+                                        <th class="hidden-xs" style="width: 15%;">Visitas</th>
+                                        <th class="text-center" style="width: 10%;">Acci&oacute;n</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($this->arrNovedades as $value) {?>
+                                    <tr>
+                                        <td class="text-center"><?php echo $value["nov_id"]; ?></td>
+                                        <td class="font-w600"><?php echo utf8_encode($value["nov_titulo"]); ?></td>
+                                        <td class="hidden-xs"><?php echo substr($value["nov_fechahora"], 0,10); ?></td>
+                                        <td class="hidden-xs" stye="text-align:center"><img src="/timthumb/timthumb.php?src=<?php echo $value["imagen"]; ?>&w=50&h=50&zc=1" /></td>
+                                        <td class="hidden-xs"><a target="_blank" href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>">Link</a></td>
+                                        <td class="hidden-xs"><?php echo $value["nov_visitas"]; ?></td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                               <a href="/novedades/accion/id/<?php echo $value["nov_id"]; ?>"<button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar Novedad"><i class="fa fa-pencil"></i></button></a>
+                                                <button class="btn btn-xs btn-default" type="button" onclick="eliminarNovedad(<?php echo $value["nov_id"]; ?>)" data-toggle="tooltip" title="Remover Novedad"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+            <script>
+
+            function eliminarNovedad(idNovedad){
+                event.preventDefault();
+                if (confirm('Esta seguro?')){
+                        var jqxhr = $.ajax( "/novedades/eliminar/id/" + idNovedad );
+                        jqxhr.done(function(data) {
+                         var obj = jQuery.parseJSON(data);
+                         if (obj.proceso != "error"){
+                            document.location.reload();
+                         }else{
+                            alert('Error, por favor intente mas tarde');
+                         }
+                        })
+                        jqxhr.fail(function() {
+                          jQuery( "#mensajeERROR" ).show();
+                        });
+                }
+            };
+            </script>

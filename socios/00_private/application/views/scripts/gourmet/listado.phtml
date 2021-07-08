@@ -1,0 +1,87 @@
+
+<main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading">
+                                Lugares Cercanos
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Lugares Cercanos</li>
+                                
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-content">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-bordered table-striped js-dataTable-simple">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ID</th>
+                                        <th>Título</th>
+                                        <th class="hidden-xs">Descripción</th>
+                                        <th class="hidden-xs" style="width: 15%;">Google Maps</th>
+                                        <th class="hidden-xs" style="width: 15%;">Dirección</th>
+                                        <th class="hidden-xs" style="width: 15%;">Visitas</th>
+                                        <th class="hidden-xs" style="width: 15%;">Keyword</th>
+                                        <th class="text-center" style="width: 10%;">Acci&oacute;n</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<?php foreach ($this->cercanos as $value) {?>
+                                    <tr>
+                                        <td class="text-center"><?php echo $value->getce_id(); ?></td>
+                                        <td class="font-w600"><?php echo $value->getce_titulo(); ?></td>
+                                        <td class="hidden-xs"><?php echo utf8_encode($value->getce_descripcion()); ?></td>
+                                        <td class="hidden-xs"><?php echo $value->getce_googlemaps(); ?></td>
+                                        <td class="hidden-xs"><?php echo $value->getce_direccion(); ?></td>
+                                        <td class="hidden-xs"><?php echo $value->getce_visitas(); ?></td>
+                                        <td class="hidden-xs"><?php echo $value->getce_keyword(); ?></td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                               <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar Evento"><i class="fa fa-pencil"></i></button>
+                                                <button class="btn btn-xs btn-default" type="button"  data-toggle="tooltip" title="Remover Evento"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+            <script>
+            function eliminarEvento(id){
+            	if (confirm('Esta seguro?')){
+	            	var jqxhr = $.ajax( "/evento/eliminar/id/" + id );
+			       	 jqxhr.done(function(data) {
+			       		 var obj = jQuery.parseJSON(data);
+			       		 console.log(obj.proceso);
+			       		 if (obj.proceso != "error"){
+			       		 	document.location.reload();
+			       		 }else{
+			       			jQuery( "#mensajeERROR" ).show();
+			           		var new_position = jQuery('.page-heading').offset();
+			           		window.scrollTo(new_position.left,new_position.top);
+			           	 }
+			       	  })
+			       	  jqxhr.fail(function() {
+			       		  jQuery( "#mensajeERROR" ).show();
+			       	  });
+            	}
+            }
+            </script>

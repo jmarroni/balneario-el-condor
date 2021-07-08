@@ -1,0 +1,241 @@
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo $this->cercanos[0]["ce_titulo"]; ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo 'Clasificados' ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="modal fade show" id="formClasificado" tabindex="-1" aria-labelledby="formModalLabel" style="display: none; padding-right: 17px;" aria-modal="true" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="formModalLabel">Nuevo clasificado</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="demo-form" class="mb-4" novalidate="novalidate">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group row align-items-center">
+                <label class="col-sm-9">T&iacute;tulo:</label>
+                <div class="col-sm-9">
+                  <input type="text" name="name" class="form-control" id="tituloForm">
+                </div>
+              </div>
+              <div class="form-group row align-items-center">
+                <label class="col-sm-9">Descripci&oacute;n:</label>
+                <div class="col-sm-9">
+                 <textarea type="txt" class="form-control" id="descripcionForm"></textarea>
+               </div>
+             </div>
+             <div class="form-group row align-items-center">
+              <label class="col-sm-9">Direcci&oacute;n:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control" id="dirForm">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-9">Categor&iacute;a:</label>
+              <div class="col-sm-9">
+                <select class="form-select form-control h-auto py-2" id="comboForm">
+                  <option value='Alquilo'>Alquilo</option>
+                  <option value='Vendo'>Vendo</option>
+                  <option value='Necesito'>Necesito</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group row align-items-center">
+              <label class="col-sm-9">Nombre de Contacto:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control"  id="nomForm">
+              </div>
+            </div>
+
+            <div class="form-group row align-items-center">
+              <label class="col-sm-9">Correo Electr&oacute;nico:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control"  id="correoForm">
+              </div>
+            </div>
+
+            <div class="form-group row align-items-center">
+              <label class="col-sm-9">URL Video de Youtube:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control"  id="videoForm">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-9">Subir archivo:</label>
+              <div id="fileuploader"></div>
+              <input type="hidden" value="" name="uploadLogo" id="uploadLogo"/>
+              <hr class="sepModal" style="margin-top:2%;">
+              <input type="hidden" value="" name="uploadLogo1" id="uploadLogo1"/>
+              <input type="hidden" value="" name="uploadLogo2" id="uploadLogo2"/>
+              <input type="hidden" value="" name="uploadLogo3" id="uploadLogo3"/>
+              <input type="hidden" value="" name="uploadLogo4" id="uploadLogo4"/>
+            </div>
+
+       </div>
+     </div>
+     </form>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+    <button type="button" id="subir" class="btn btn-primary">Agregar Clasificado</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!--==============================content=================================-->
+
+<div class="container pt-3 pb-2">
+  <div class="row pt-2">  
+
+    <section class="call-to-action  featured featured-primary with-button-arrow mb-5">
+     <div class="col-sm-9 col-lg-9">
+      <div class="call-to-action-content">
+        <h3 style="font-size:30px">Agrega tu <strong class="font-weight-extra-bold"><span class="badge badge-primary badge-sm rounded-pill text-uppercase px-2 py-1 me-1">clasificado</span></strong> </h3>
+        <p class="mb-2" style="font-size:20px">Es totalmente <strong class="font-weight-extra-bold"><span class="badge badge-secondary badge-sm rounded-pill text-uppercase px-2 py-1 me-1">gratuito</span></strong></p>
+      </div>
+    </div>
+    <div class="col-sm-3 col-lg-3">
+      <div class="call-to-action-btn">
+        <button data-bs-toggle="modal" data-bs-target="#formClasificado" class="btn btn-modern text-2 btn-primary"> Agregar</button> <span class="arrow hlb d-none d-md-block appear-animation animated rotateInUpLeft appear-animation-visible" data-appear-animation="rotateInUpLeft" style="left: 90%; top: -32px; animation-delay: 100ms;"></span>
+
+      </div>
+    </div>
+  </section>
+</div>
+<div class="row pt-2">
+  <div class="col-lg-12">
+
+    <a href="/alquileres-ofrecidos-pedidos-temporada/Alquilo" class="btn-small"><span style="margin-top: 14px;margin-bottom: 14px;" class="badge <?php echo ($this->tab["alquilo"] != "active")?"badge-dark":"badge-primary" ?> badge-md">Alquileres ofrecidos</span></a>
+    <a href="/alquileres-ofrecidos-pedidos-temporada/Necesito" class="btn-small"><span style="margin-top: 14px;margin-bottom: 14px;" class="badge <?php echo ($this->tab["necesito"] != "active")?"badge-dark":"badge-primary" ?> badge-md">Alquileres pedidos</span></a>
+    <a href="/alquileres-ofrecidos-pedidos-temporada/Vendo" class="btn-small"><span style="margin-top: 14px;margin-bottom: 14px;" class="badge <?php echo ($this->tab["vendo"] != "active")?"badge-dark":"badge-primary" ?> badge-md">Ventas</span></a>
+
+  </div><!--Col-lg-12-->
+</div><!--row pt-2-->
+
+
+<div class="row mt-lg-5">
+ <?php 
+ $categroy_count = 1;
+ foreach ($this->arrClasificados as $key => $value) { ?>
+   <div class="col-lg-4">
+    <h5 class="text-uppercase mt-4"></h5>
+    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+      <span class="thumb-info-wrapper">
+        <a class="jackbox"                         
+        data-group="images"            
+        data-title="<?php echo $value["cla_titulo"]."-".$value["cla_id"]; ?>"
+        data-description="<?php echo (strlen(strip_tags($value["cla_descripcion"])) > 50)?substr(strip_tags($value["cla_descripcion"]), 0, 50)."...":strip_tags($value["cla_descripcion"]); ?>" 
+        href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/clasificados/detalle/<?php echo $value["cla_keyword"]; ?>" > 
+        <img  src="../imagenes/servicios/no_image.jpg" alt="<?php echo $value["cla_titulo"]; ?>" class="img-fluid">
+      </a>
+      <span class="thumb-info-title">
+        <span class="thumb-info-inner line-height-1"><strong><a href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/clasificados/detalle/<?php echo $value["cla_keyword"]; ?>"><?php echo $value["cla_categoria"]; ?></a> </strong></span>
+        <span class="thumb-info-type opacity-8"></span>
+        <span class="thumb-info-show-more-content opacity-7"><a href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/clasificados/detalle/<?php echo $value["cla_keyword"]; ?>" style="font-size;10px;color:white"><?php echo $value["cla_titulo"]; ?></a></span>
+      </span>
+    </span>
+  </span>
+</div>
+<?php $categroy_count = ($categroy_count == 3)?1:$categroy_count + 1; } ?>
+
+</div><!--row-->
+</div><!--container-->
+<link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
+
+
+<script> 
+
+  $( document ).ready(function() {
+
+ var contador= '';
+
+              $("#fileuploader").uploadFile({
+                url:"/clasificados/upload",
+                fileName:"myfile",
+                maxFileCount:5,
+                multiple: true,
+                showDownload:false,
+                onSuccess:function(files,data,xhr,pd)
+                {   
+                  if(data!=''){
+                    $("#uploadLogo"+contador).val(data); 
+                    contador++;   
+                  }
+
+
+                  /*$("#upload-1").css("display", "inline");*/
+                }
+              });
+
+
+              /*###################### FIN UPLOAD #############################*/
+
+              $("#subir").click(function(){
+                event.preventDefault();
+                if( $('#tituloForm').val()!='' && $('#dirForm').val()!='' && $('#correoForm').val()!='' && $('#comboForm').val()!=''){
+                  var dataString = 'titulo='+ $('#tituloForm').val() + 
+                  '&descripcion=' + $('#descripcionForm').val() + 
+                  '&categoria=' + $('#comboForm').val() + 
+                  '&direccion=' + $('#dirForm').val() + 
+                  '&nombre=' + $('#nomForm').val() + 
+                  '&correo=' + $('#correoForm').val() + 
+                  '&video=' + $('#videoForm').val() + 
+                  "&archivo=" + $('#uploadLogo').val() + 
+                  "&archivo1=" + $('#uploadLogo1').val() + 
+                  "&archivo2=" + $('#uploadLogo2').val() + 
+                  "&archivo3=" + $('#uploadLogo3').val() + 
+                  "&archivo4=" + $('#uploadLogo4').val();
+
+                  $.ajax({
+              url: "/clasificados/cargarclasificado", // Url to which the request is send
+              type: "POST",             // Type of request to be send, called as method
+              data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+              success: function(data)   // A function to be called if request succeeds
+              {
+
+                alert('El clasificado se ha subido correctamente.');
+                document.location.href = "/clasificados/detalle/"+data;
+              }
+            });
+                } else {
+                  alert ('Verifique que todos los datos estan completos');
+                }
+              });
+
+
+             
+
+            });
+          </script>
+<style type="text/css">
+  .ajax-file-upload-statusbar {
+  width: 75% !important;
+
+}
+.ajax-upload-dragdrop{
+  width: 75% !important;
+}
+</style>

@@ -1,0 +1,199 @@
+     <!--Isotop styles -->
+     <link href="css/sorting.css" rel="stylesheet" />
+     <link href="css/animation.css" rel="stylesheet" />
+  <!--jackbox styles -->
+  <link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--==============================content=================================-->
+<div id="content">
+  <div class="row-title">
+    <div class="container">
+      <h2>Club Amigos Balneario El Condor</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span><a href="/club-de-amigos">Club Social y Deportivo Amigos, Balneario El Condor</a></span></div>
+    </div>
+  </div>
+  <div class="content-div extra">
+    <div class="container">
+      <h3>Novedades</h3> 
+      <article>
+        <div id="work_container" class="clearfix projects">
+          <ul class="row">
+            <?php 
+            $categroy_count = 0;
+            foreach ($this->listadoAmigos as $key => $value) {?>
+		            <li class="item element category01" data-category="category0<?php echo $categroy_count; ?>"> 
+		              <div class="box-work">
+		              <figure>
+		                <a class="jackbox"                         
+		                  data-group="images"            
+		                  data-title="<?php echo $value["cl_titulo"]; ?>" 
+		                  data-description="<?php echo (strlen(strip_tags($value["cl_descripcion"])) > 50)?substr(strip_tags($value["cl_descripcion"]), 0, 50)."...":strip_tags($value["cl_descripcion"]); ?>" 
+		                  href="/club-de-amigos/<?php echo $value["cl_keyword"]; ?>" >            
+		                  <img src="<?php echo str_replace("thumb", "photo", $value["cl_imagenes"]); ?>" alt="<?php echo $value["cl_titulo"]; ?>">            
+		                </a> 
+		              </figure>
+		              <span> <strong><a href="/club-de-amigos/<?php echo $value["cl_keyword"]; ?>"><?php echo utf8_encode($value["cl_titulo"]); ?></a></strong> <i><a href="/club-de-amigos/<?php echo $value["cl_keyword"]; ?>"><?php echo (strlen(strip_tags($value["cl_descripcion"])) > 50)?substr(strip_tags($value["cl_descripcion"]), 0, 50)."...":strip_tags($value["cl_descripcion"]); ?></a></i> </span> 
+		              </div> 
+		            </li>
+            <?php $categroy_count = ($categroy_count == 3)?1:$categroy_count + 1; } ?>
+          
+          
+          </ul>
+        </div>
+      </article> 
+    </div>
+  </div>
+</div>
+
+  <script src="js/jquery.isotope.js"></script>
+  <script>
+    jQuery(window).load(function() {  
+    var jQuerycontainer = jQuery('.projects');
+    //Run to initialise column sizes
+    updateSize();
+
+    //Load masonry when images all loaded
+    jQuerycontainer.imagesLoaded( function(){
+
+        jQuerycontainer.isotope({
+            // options
+            itemSelector : '.element',  
+            layoutMode : 'masonry',
+            transformsEnabled: false,
+            columnWidth: function( containerWidth ) {
+                containerWidth = jQuerybrowserWidth;
+                return Math.floor(containerWidth / jQuerycols);
+              }
+        });
+    });
+    
+      // update columnWidth on window resize
+    jQuery(window).smartresize(function(){  
+        updateSize();
+        jQuerycontainer.isotope( 'reLayout' );
+    });
+
+  
+    //Set item size
+    function updateSize() {
+        jQuerybrowserWidth = jQuerycontainer.width();
+        jQuerycols = 3;
+
+        if (jQuerybrowserWidth >= 1200) {
+            jQuerycols = 3;
+        }
+        else if (jQuerybrowserWidth >= 980 && jQuerybrowserWidth < 1200) {
+            jQuerycols = 3;
+        }
+    
+       else if (jQuerybrowserWidth >= 768 && jQuerybrowserWidth < 979) {
+            jQuerycols = 3;
+        }
+    
+    
+        else if (jQuerybrowserWidth >= 401 && jQuerybrowserWidth < 767) {
+            jQuerycols = 2;
+        }
+        else if (jQuerybrowserWidth < 400) {
+            jQuerycols = 1;
+        }
+
+        //console.log("Browser width is:" + jQuerybrowserWidth);
+        //console.log("Cols is:" + jQuerycols);
+
+        // jQuerygutterTotal = jQuerycols * 20;
+    jQuerybrowserWidth = jQuerybrowserWidth; // - jQuerygutterTotal;
+        jQueryitemWidth = jQuerybrowserWidth / jQuerycols;
+        jQueryitemWidth = Math.floor(jQueryitemWidth);
+
+        jQuery(".element").each(function(index){
+            jQuery(this).css({"width":jQueryitemWidth+"px"});             
+        });
+      
+    
+  var jQueryoptionSets = jQuery('#options .option-set'),
+    jQueryoptionLinks = jQueryoptionSets.find('a');
+
+  jQueryoptionLinks.click(function(){
+  var jQuerythis = jQuery(this);
+  // don't proceed if already selected
+  if ( jQuerythis.hasClass('selected') ) {
+    return false;
+  }
+  var jQueryoptionSet = jQuerythis.parents('.option-set');
+  jQueryoptionSet.find('.selected').removeClass('selected');
+  jQuerythis.addClass('selected');
+
+  // make option object dynamically, i.e. { filter: '.my-filter-class' }
+  var options = {},
+    key = jQueryoptionSet.attr('data-option-key'),
+    value = jQuerythis.attr('data-option-value');
+  // parse 'false' as false boolean
+  value = value === 'false' ? false : value;
+  options[ key ] = value;
+  if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+    // changes in layout modes need extra logic
+    changeLayoutMode( jQuerythis, options )
+  } else {
+    // otherwise, apply new options
+    jQuerycontainer.isotope( options );
+  }
+  
+  return false;
+  });   
+    
+    };      
+    
+    });
+  </script>
+
+   
+    <script type="text/javascript" src="jackbox/js/libs/Jacked.js"></script>
+    <script type="text/javascript" src="jackbox/js/jackbox-swipe.js"></script>
+    <script type="text/javascript" src="jackbox/js/jackbox.js"></script>
+    <script type="text/javascript" src="jackbox/js/libs/StackBlur.js"></script>
+    <script>
+      $(document).ready(function() {    
+ // jQuery(".jackbox[data-group]").jackBox("init",{deepLinking: true});
+      })
+    </script>
+
+<section class="mainSection">
+  <div class="wrapper wrapperSection clearfix">
+    <section class="mainCol left long">
+        <h2>Club de Amigos</h2>
+        <ul class="listadoNotas">
+            <?php foreach ($this->listadoAmigos as $key => $value) {?>
+                <li class="primerItem">
+                    <div class="descripcion">
+                        <a href="/club-de-amigos/<?php echo $value["cl_keyword"]; ?>" /><span class="titulo"><?php echo $value["cl_titulo"]; ?></span></a>
+                        <p><?php if (strlen($value["cl_descripcion"]) > 300)
+                                    echo substr($value["cl_descripcion"], 0, 300)."...";
+                                 else
+                                    echo $value["cl_descripcion"]; ?></p>
+                    </div>
+                    <?php if ($value["cl_imagenes"] != "") {?> 
+                        <div class="imagen">
+                            <img src="<?php echo $value["cl_imagenes"] ?>" alt="">
+                        </div>
+                    <?php } ?>
+                </li>
+            <?php } ?>
+        </ul>
+        <!--
+        <ul class="paginator">
+            <li><a class="activo" href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">Siguiente &gt;</a></li>
+        </ul>
+    -->
+    </section><!-- /mainCol -->        
+    <section class="sidebar right short">
+        <div class="bannerContacto">
+            <a href="/contacto"><img src="/css/images/banner-contacto-230.gif" alt="Contactenos" title ="Contactenos"></a>
+        </div>
+    </section><!-- /sidebar -->
+  </div>
+</section>

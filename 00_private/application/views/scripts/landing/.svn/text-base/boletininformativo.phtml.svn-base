@@ -1,0 +1,49 @@
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <!-- /sidebar -->
+        <section class="mainCol left long" style="width:960px;">
+			<h2>Suscripci&oacute;n Boletin Informativo</h2>
+            <h3 style="color: #f4af1a;
+font-size: 15px;">Recib&iacute; Informaci&oacute;n de: </h3>
+            <ul>
+                <li>- Tabla de mareas de la semana</li>
+                <li>- Pronostico del tiempo</li>
+                <li>- Actividades</li>
+                <li>- Im&aacute;genes del Balneario</li>
+                <li>- &Uacute;ltimas noticias</li>
+                <li>- Servicios</li>
+                <li>- Clasificados</li>
+            </ul>
+            <article class="imageLeft">
+            	<span class="titulo" style="font-size:16px;">Ingres&aacute; tu mail y recib&iacute; una vez por semana toda la informaci&oacute;n del Balneario</span><br>
+                    <input type="text" style="width: 230px;height: 30px;" id="newsletterInputs" name="newsletterInputs" placeholder="Introduzca su Email">
+                    <a class="botonEnviar" id="suscripcionBoletin" href="#" style="float:none;">Suscribirme</a>
+            </article>
+        </section>
+        <!-- /mainCol -->
+      </div>
+    </section>
+<script>
+//Enviar el newsletter
+        $('#suscripcionBoletin').click(function(){
+            var valorMail = $("#newsletterInputs").val();
+            if (valorMail != "" && valorMail != 'Introduzca su Email'){
+            var checkIn = '/newsletter/suscripcion?' + 
+                        '&suscripcion=' + valorMail;
+            $.ajax({
+                        dataType: 'json',
+                        async:false,
+                        success: function ( data ) {
+                            if (data.Mensaje){
+                                alert (data.Mensaje);    
+                            }else{
+                                alert ('El servidor se encuentra fuera de servicio, por favor intente mas tarde');
+                            }
+                            
+                        },
+                        url: checkIn
+                    }); 
+            }
+        });
+
+</script>

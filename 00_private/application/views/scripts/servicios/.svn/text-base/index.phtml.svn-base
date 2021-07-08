@@ -1,0 +1,331 @@
+<!--Isotop styles -->
+     <link href="css/sorting.css" rel="stylesheet" />
+     <link href="css/animation.css" rel="stylesheet" />
+  <!--jackbox styles -->
+  <link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+<!--==============================content=================================-->
+ 
+<div class="modal fade serv" id="nuevoServ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only"></span>
+        </button>
+        <h4 class="modal-title titNewClas titServ" id="exampleModalLabel">Nuevo Servicio</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <!-- <div class="filaleft">  -->
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">T&iacute;tulo:</label>
+              <input type="txt" class="form-control titServ3" id="tituloForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="message-text" class="control-label">Descripci&oacute;n:</label>
+              <textarea type="txt" class="form-control titServ2" id="descripcionForm"></textarea>
+            </div>
+            <div class="form-group topdoce">
+              <label for="recipient-name" class="control-label">Direcci&oacute;n:</label>
+              <input type="txt" class="form-control titServ3" id="dirForm">
+            </div>              
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Nombre de Contacto:</label>
+              <input type="txt" class="form-control titServ3" id="nomForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Correo Electr&oacute;nico:</label>
+              <input type="mail" class="form-control titServ3" id="correoForm">
+            </div>             
+            <div class="form-group topcuatro" id="upload">
+              <div id="fileuploaders">Subir Archivo</div>
+                <input type="hidden" value="" name="uploadLogos" id="uploadLogos"/>
+                <hr class="sepModal" style="margin-top:2%;">
+            </div>  
+      
+          
+        </form>
+      </div> 
+      <div class="modal-footer">
+        <button type="button" id="subir" class="btn btn-default" >Agregar Servicio</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="row-title">
+    <div class="container" style="padding-bottom:10px;">
+      <h2>Servicios Brindados</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span><a href="/alquileres-y-venta">Clasificados</a></span> <i class="fa fa-angle-right"></i> Servicios </div>
+    </div>
+    <a href="#" data-toggle="modal" data-target="#nuevoServ" class="btServ btnalta btn-small btn-blue btn-extra">Agrega tu Servicio<br><b class="btnb">(Es totalmente gratuito)</b></a> 
+
+  </div>
+  <div class="content-div extra">
+    <div class="container" style="margin-top:6%;">
+      <article>
+        <div id="work_container" class="clearfix projects">
+          <ul class="row">
+          <?php foreach ($this->arrServicios as $key => $value) { ?>
+            <li class="item element category01" data-category="category01" style="float:left;"> 
+              <div class="box-work">
+              <figure>
+                <a class="jackbox"                         
+                  data-group="images"            
+                  data-title="" 
+                  data-description="" 
+                  href="/imagenes/servicios/<?php echo  ($value["ser_imagenes"] != "")?$value["ser_imagenes"]:"no_image.jpg";?>" >            
+                  <img src="/timthumb/timthumb.php?src=/imagenes/servicios/<?php echo  ($value["ser_imagenes"] != "")?$value["ser_imagenes"]:"no_image.jpg";?>&w=570&h=359&zc=1" alt="<?php echo $value["ser_titulo"]; ?>">            
+                </a> 
+              </figure>
+              <span> <strong><a href="http://www.balneario-el-condor.com.ar/servicios/detalle/id/<?php echo $value["ser_keyword"]; ?>"><?php echo $value["ser_titulo"]; ?></a></strong> <i><a href="http://www.balneario-el-condor.com.ar/servicios/detalle/id/<?php echo $value["ser_keyword"]; ?>">[+ info]</a></i> </span> 
+              </div> 
+            </li>
+            <?php } ?>
+          </ul>
+        </div>
+      </article> 
+    </div>
+  </div>
+</div>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>   
+   <script src="js/retina.js"></script>
+    <script src="js/bootstrap.js"></script>
+	  <script src="js/script.js"></script>
+   <script src="js/jquery.bxslider.js"></script>
+  <script src="js/jquery.isotope.js"></script>
+  <script>
+    map = new OpenLayers.Map("mapdiv");
+    map.addLayer(new OpenLayers.Layer.OSM());
+ 
+    var lonLat = new OpenLayers.LonLat(-63.018928 ,-40.8058052 )
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            map.getProjectionObject() // to Spherical Mercator Projection
+          );
+ 
+    var zoom=16;
+ 
+    var markers = new OpenLayers.Layer.Markers( "Markers" );
+    map.addLayer(markers);
+ 
+var myLocation = new OpenLayers.Geometry.Point(-63.018928 ,-40.8058052)
+        .transform('EPSG:4326', 'EPSG:3857');
+    // A popup with some information about our location
+    var popup = new OpenLayers.Popup.FramedCloud("Popup", 
+        myLocation.getBounds().getCenterLonLat(), null,
+        '<a target="_blank" href="http://openlayers.org/">We</a> ' +
+        'could be here.<br>Or elsewhere.', null,
+        true // <-- true if we want a close (X) button, false otherwise
+    );
+
+    jQuery(window).load(function() {  
+    var jQuerycontainer = jQuery('.projects');
+    //Run to initialise column sizes
+    updateSize();
+
+    //Load masonry when images all loaded
+    jQuerycontainer.imagesLoaded( function(){
+
+        jQuerycontainer.isotope({
+            // options
+            itemSelector : '.element',  
+            layoutMode : 'masonry',
+            transformsEnabled: false,
+            columnWidth: function( containerWidth ) {
+                containerWidth = jQuerybrowserWidth;
+                return Math.floor(containerWidth / jQuerycols);
+              }
+        });
+    });
+    
+      // update columnWidth on window resize
+    jQuery(window).smartresize(function(){  
+        updateSize();
+        jQuerycontainer.isotope( 'reLayout' );
+    });
+
+  
+    //Set item size
+    function updateSize() {
+        jQuerybrowserWidth = jQuerycontainer.width();
+        jQuerycols = 3;
+
+        if (jQuerybrowserWidth >= 1200) {
+            jQuerycols = 3;
+        }
+        else if (jQuerybrowserWidth >= 980 && jQuerybrowserWidth < 1200) {
+            jQuerycols = 3;
+        }
+    
+       else if (jQuerybrowserWidth >= 768 && jQuerybrowserWidth < 979) {
+            jQuerycols = 3;
+        }
+    
+    
+        else if (jQuerybrowserWidth >= 401 && jQuerybrowserWidth < 767) {
+            jQuerycols = 2;
+        }
+        else if (jQuerybrowserWidth < 400) {
+            jQuerycols = 1;
+        }
+
+        //console.log("Browser width is:" + jQuerybrowserWidth);
+        //console.log("Cols is:" + jQuerycols);
+
+        // jQuerygutterTotal = jQuerycols * 20;
+    jQuerybrowserWidth = jQuerybrowserWidth; // - jQuerygutterTotal;
+        jQueryitemWidth = jQuerybrowserWidth / jQuerycols;
+        jQueryitemWidth = Math.floor(jQueryitemWidth);
+
+        jQuery(".element").each(function(index){
+            jQuery(this).css({"width":jQueryitemWidth+"px"});             
+        });
+      
+    
+  var jQueryoptionSets = jQuery('#options .option-set'),
+    jQueryoptionLinks = jQueryoptionSets.find('a');
+
+  jQueryoptionLinks.click(function(){
+  var jQuerythis = jQuery(this);
+  // don't proceed if already selected
+  if ( jQuerythis.hasClass('selected') ) {
+    return false;
+  }
+  var jQueryoptionSet = jQuerythis.parents('.option-set');
+  jQueryoptionSet.find('.selected').removeClass('selected');
+  jQuerythis.addClass('selected');
+
+  // make option object dynamically, i.e. { filter: '.my-filter-class' }
+  var options = {},
+    key = jQueryoptionSet.attr('data-option-key'),
+    value = jQuerythis.attr('data-option-value');
+  // parse 'false' as false boolean
+  value = value === 'false' ? false : value;
+  options[ key ] = value;
+  if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+    // changes in layout modes need extra logic
+    changeLayoutMode( jQuerythis, options )
+  } else {
+    // otherwise, apply new options
+    jQuerycontainer.isotope( options );
+  }
+  
+  return false;
+  });   
+    
+    };      
+    
+    });
+  </script>
+
+  <link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+    <script> 
+
+    $( document ).ready(function() {
+
+        /*############# UPLOAD DE ARCHIVOS x5 #############*/
+           /* $("#fileuploader").uploadFile({
+                url:"/clasificados/upload",
+                fileName:"myfile",
+                maxFileCount:1,
+                showDownload:false,
+                onSuccess:function(files,data,xhr,pd)
+                {
+                    $("#uploadLogo").val(data);
+                }
+            });*/
+
+            var contador= '';
+
+            $("#fileuploaders").uploadFile({
+                url:"/servicios/upload",
+                fileName:"myfile",
+                maxFileCount:1,
+                multiple: true,
+                showDownload:false,
+                onSuccess:function(files,data,xhr,pd)
+                {   
+                    if(data!=''){
+                    $("#uploadLogos"+contador).val(data); 
+                    contador++;   
+                }
+
+                    
+                    /*$("#upload-1").css("display", "inline");*/
+                }
+            });
+               
+
+      /*###################### FIN UPLOAD #############################*/
+
+      $("#subir").click(function(event){
+        event.preventDefault();
+        if( $('#tituloForm').val()!='' && $('#dirForm').val()!='' && $('#correoForm').val()!=''){
+          var dataString = 'titulo='+ $('#tituloForm').val() + 
+                            '&descripcion=' + $('#descripcionForm').val() + 
+                            '&direccion=' + $('#dirForm').val() + 
+                            '&nombre=' + $('#nomForm').val() + 
+                            '&correo=' + $('#correoForm').val() + 
+                            "&archivo=" + $('#uploadLogos').val();
+          
+          $.ajax({
+              url: "/servicios/cargarservicio", // Url to which the request is send
+              type: "POST",             // Type of request to be send, called as method
+              data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+              success: function(data)   // A function to be called if request succeeds
+              {
+
+                  alert('El servicio se ha subido correctamente.');
+                  document.location.href = "/servicios/detalle/id/"+data;
+              }
+          });
+        } else {
+          alert ('Verifique que todos los datos estan completos');
+        }
+      });
+});
+</script>
+
+<style type="text/css">
+.titServ{
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+.titServ2{
+  width: 96% !important;
+  border: 1px solid #BEBEBE;
+}
+.titServ3{
+  width: 98% !important;
+  border: 1px solid #BEBEBE; 
+}
+.topcuatro{
+  padding-top: 4%;
+}
+.btServ{
+  margin-left: 7%;
+}
+.btnalta{
+  font-size: 25px;
+  width: 83%;
+  text-align: center;
+  margin-top: 3%;
+  position: absolute;
+  line-height: 0.8;
+}
+.btnb{
+  font-size: 14px;
+}
+</style>
+
+<link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+    

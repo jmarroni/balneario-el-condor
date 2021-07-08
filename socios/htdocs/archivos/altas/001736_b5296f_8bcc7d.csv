@@ -1,0 +1,145 @@
+Nombre;Apellido;Actividad Principal;Cargo;Mail;Teléfono;Ciudad;Provinicia;Pais;Evento id;tags (sin las comillas dobles)
+Arturo;Navarro Ithuralde;5;5;arturo@aadesa.com.ar;;CABA;169;282;6 (invertur);#cadena 
+Iñaki;Gonzalez Arnejo;5;10;inaki@aadesa.com.ar;;CABA;169;282;6 (invertur);#cadena 
+Eduardo;Rodriguez Suarez;5;7;eduardo.rodriguezsuarez@hilton.com;;CABA;169;282;6 (invertur);#cadena 
+Aldo;Elías;5;5;aelias@hotelpresidente.com.ar;.54.11.4816.2222;CABA;169;282;6 (invertur);#inversor
+Andrés;Kalwill;5;10;andres@cannonpuntana.com;.54.11.4808.2100;CABA;169;282;6 (invertur);#inversor
+Rubén;Ramírez;16;13;rramirez@caf.com;.54.11.4318.6415;CABA;169;282;6 (invertur);#banca
+Angel;Cárdenas;16;3;acardenas@caf.com;.54.11.4318.6415;CABA;169;282;6 (invertur);#banca
+Angie;Palacios;16;3;apalacios@caf.com;.54.11.4318.6421;CABA;169;282;6 (invertur);#banca
+David;Sutton;5;5;davidsutton@cannonpuntana.com;.54.11.4865.9610 ;CABA;169;282;6 (invertur);#inversor
+José;Sutton;5;10;jose.sutton@alvear.com.ar;.54.11.4808.2170;CABA;169;282;6 (invertur);#inversor
+Luis;Lisanti;5;7;llisanti@alvear.com.ar;;CABA;169;282;6 (invertur);#cadena 
+Fernando;Gaido;5;10;fgaido@amerian.com;;Córdoba;171;282;6 (invertur);#cadena 
+Jose;Ramos;5;10;jramos@amerian.com;;Córdoba;171;282;6 (invertur);#cadena 
+Martin;Amengual;5;5;secretaria@gruporegam.com;;Córdoba;171;282;6 (invertur);#inversor
+Roberto;Amengual;5;6;ramengual@amerian.com;;Córdoba;171;282;6 (invertur);#inversor
+Pablo;Ramos;16;7;PRamos@bice.com.ar;;CABA;169;282;6 (invertur);#banca
+Gustavo;Ortolá Martinez;16;10;gustavo@ortola.com;.54.911.4444.5394 /.54.11.505.2200;CABA;169;282;6 (invertur);#desarrollador
+Alejandro;Abraham;16;5;aabraham@bcoctes.com.ar;.54.9379.493.0987 7.54.379.4479376;Corrientes;170;282;6 (invertur);#banca
+Hugo;Florez Timorán;16;13;SOFIAD@IADB.ORG;.54.11.4320.1800;CABA;169;282;6 (invertur);#banca
+Ricardo;Quiroga;16;13;RICARDOQ@iadb.org;.54.11.4320.1870;CABA;169;282;6 (invertur);#banca
+Juan Noel;Verger;16;10;nverger@ljramos.com.ar;;CABA;169;282;6 (invertur);#otro
+Fernando;de Andreis;16;5;"fdeandreis@gmail.com; turismo@buenosaires.gov.ar";.54.911.3830.6586 / 54.11.4114-5724/29;CABA;169;282;6 (invertur);#provincia
+Valentín;Díaz Gilligan;16;10;valentin@terra-sur.com;.54.911.3939.7429 /54.11.4114-5724/29;CABA;169;282;6 (invertur);#provincia
+Marcelo;Wechsler;16;13;marcelo.wechsler@gmail.com;;CABA;169;282;6 (invertur);#otro
+Ignacio;Perez Riba;16;13;iperezriba@gmail.com;;CABA;169;282;6 (invertur);#provincia
+Roland;Mouly;5;6;rmouly@carlsonrezidor.com;.1.301.260.3505 /.1.305.607.1010;Miami;;506;6 (invertur);#cadena 
+Juan Pablo;Lafosse;5;1;jplafosse@hotmail.com;.54.911.4413.3315;CABA;169;282;6 (invertur);#inversor
+Daniel;Manzella;5;13;dmanzella@dysyn.com;.54.911.3689.5532 /.54.11.5077.2500;CABA;169;282;6 (invertur);#inversor
+Ignacio;Gutierrez Zaldivar;5;5;igz@hotelelcasco.com;;Río Negro;180;282;6 (invertur);#inversor
+Gonzalo;del Campo;5;7;gdc@gonzalodelcampo.com;;Río Negro;180;282;6 (invertur);#inversor
+Bernardo;Racedo Aragon;16;5;"bernardo@racedoaragon.com.ar; privada@tucumanturismo.gov.ar";.54.9381.5560777 /.54.381.422.2199;Tucumán;188;282;6 (invertur);#provincia
+Patricio;Fuks;5;5;pfuks@fenhoteles.com;.54.11.5217.5700;CABA;169;282;6 (invertur);#cadena 
+Alejandro;Frenkel;5;10;afrenkel@fenhoteles.com;.54.11.5217.5700;CABA;169;282;6 (invertur);#cadena 
+Georgina;Adrogue;5;10;gadrogue@fenhoteles.com;.54.11.5217.5780;CABA;169;282;6 (invertur);#cadena 
+José María;Candioti;16;10;jmcandioti@speedy.com.ar;.54.3489.466110;Buenos Aires;165;282;6 (invertur);#inversor
+Fabián;Geuna;16;7;fabian.geuna@sofitel.com;.54.3489.466110;Buenos Aires;165;282;6 (invertur);#inversor
+Gerónimo;Frigerio;3;10;gfrigerio@geronimofrigerio.com;.54.11.4814.3643;CABA;169;282;6 (invertur);#otro
+Santiago;Lafosse;16;13;slafosse@gmail.com;.54.92804.381310;Chubut;168;282;6 (invertur);#desarrollador
+Tobías;Lafosse;16;10;tobiaslafosse@gmail.com;.54.92804.381001;Chubut;168;282;6 (invertur);#desarrollador
+Federico;Tomasevich;16;1;ftomasevich@puentenet.com;.54.911.6944.4500 /4329-0035;CABA;169;282;6 (invertur);#inversor
+PUENTE;PUENTE;16;;;.54.911.3147.1100;CABA;169;282;6 (invertur);#inversor
+PUENTE;PUENTE;16;;;.54.911.3147.1100;CABA;169;282;6 (invertur);#inversor
+Gustavo;Grande;3;7;ggrande@puertonortehotel.com;.54.9341.275.9795;Santa Fe;185;282;6 (invertur);#cadena 
+Alejo;Castellanos;3;7;acastellanos@puertonortehotel.com;.54.9.341.520.7427;Santa Fe;185;282;6 (invertur);#inversor
+Diego;Gonzalez Bonorino;5;6;"diegonbon@gmail.com; dgb@hiisa.com.ar";.54.911.6551.4096 /.54.11.4743.3925;Misiones;178;282;6 (invertur);#inversor
+Alberto;Albamonte;5;5;albamonte@hojoar.com;.1.305.320.1353;Buenos Aires;165;282;6 (invertur);#cadena 
+Pablo;Albamonte;5;10;palbamonte@hojoar.com;;Buenos Aires;165;282;6 (invertur);#cadena 
+Fernanda;L´Hopital;5;10;flhopital@hvs.com;;CABA;169;282;6 (invertur);#otro
+Ruben;JanowskI;16;10;rjanowski@irsa.com.ar;.54.911.4401.9044 /.54.11.4323.7400;CABA;169;282;6 (invertur);#inversor
+Ignacio;Balliana;5;10;marketing@hojoar.com;.54.911.5110.7890 /.54.11.733.5000;CABA;169;282;6 (invertur);#cadena 
+Edgar;Garin;5;10;edgar.garin@laquinta.com;.1.305.790.7395 /.1.305.531.5270;Miami;;506;6 (invertur);#cadena 
+José;Pérez-Barquero Flores;5;10;j.perezbarquero@nh-hotels.com;;CABA;169;282;6 (invertur);#cadena 
+Gilles;González;16;1;g.gonzalez@nh-hotels.com;;San Pablo;;303;6 (invertur);#cadena 
+Jorge;Vartabetian;16;5;jvartabetian@hoteleuro.com;.54.911.3363.1128 / .54.11.5352.1111;CABA;169;282;6 (invertur);#inversor
+Adrian;Stur;5;10;adrianstur@gmail.com;.54.93436.223854;Entre Ríos;172;282;6 (invertur);#otro
+Adolfo;Sturzenegger;5;10;astu.ibcp@gmail.com;.54.911.4419.6967;CABA;169;282;6 (invertur);#otro
+Hernán;Montenegro;16;2;info@masionvitraux.com;.54.11.4300.6886;CABA;169;282;6 (invertur);#inversor
+Paul;Adan;16;6;Paul.Adan@marriott.com;;Miami;;506;6 (invertur);#cadena 
+Diego;Ferreyra;16;10;dferreyra@eidico.com.ar;.54.3327.470013 /.54.3327.470121;Buenos Aires;165;282;6 (invertur);#desarrollador
+Andrés;Valenzuela;16;10;avalenzuela@eidico.com.ar;.54.3327.470121;Buenos Aires;165;282;6 (invertur);#desarrollador
+Javier;Dellamonica;16;10;jdellamonica@santafe.gov.ar;.54.9342.508.1973 /.54.342.458.9475/76;Santa Fe;185;282;6 (invertur);#provincia
+Juan;Martearena;5;13;"Jmartearena@jujuy.gov.ar; turismo@jujuy.gov.ar";;Jujuy;174;282;6 (invertur);#provincia
+Matías;Sket;5;13;secpoliticaexterna@tierradelfuego.org.ar;.54.11.4328.7040 /.54.911.5629.2634;Tierra del Fuego, Antártida e Islas del Atltántico Sur;187;282;6 (invertur);#provincia
+Daniel;Suffredini;5;10;danielsu@grupoalpe.com.ar;.54.223.494.3446 /.54.9223.5215451;Buenos Aires;165;282;6 (invertur);#inversor
+Alejandro;Suffredini;5;10;alejandrosu@grupoalpe.com.ar;.54.223.494.3446 /.54.9223.527.3202;Buenos Aires;165;282;6 (invertur);#cadena 
+Ricardo;Calo;5;6;ricardo.calo@starwoodhotels.com;;CABA;169;282;6 (invertur);#cadena 
+Enrique;Scala;5;10;enrique.scala@starwoodhotels.com;.54.11.4318.9277;CABA;169;282;6 (invertur);#cadena 
+Federico;Blizniuk;16;10;federicob@tay-group.com;;CABA;169;282;6 (invertur);#desarrollador
+Luis;Mirabelli;16;6;luis.mirabelli@wyn.com;;CABA;169;282;6 (invertur);#cadena 
+Jorge;Almirón;16;13;jorge@dobiasrealty.com;.54.911.3956.1940;CABA;169;282;6 (invertur);#desarrollador
+Juan Carlos;Begue;16;5;juancarlos@cerrocastor.com;;Tierra del Fuego, Antártida e Islas del Atltántico Sur;187;282;6 (invertur);#inversor
+Juan Cruz;Adrogue;3;5;juancruzadrogue@chapelco.com;;Neuquén;179;282;6 (invertur);#inversor
+Pedro;Diamante;3;10;pedro.diamante@fsagrp.com;;CABA;169;282;6 (invertur);#inversor
+Orlando;Ferreres;5;5;ornotas@icloud.com;.54.11.4394.3993;CABA;169;282;6 (invertur);#otro
+Marcelo;Plana;3;10;mplana@ojf.com;.54.11.4394.3993;CABA;169;282;6 (invertur);#desarrollador
+Willie;Paats;3;10;wpaats@argentinavision.com;;Chubut;168;282;6 (invertur);#inversor
+Ignacio;Podetti;7;7;"ignaciop@smihr.com.ar; ignaciopodetti@gmail.com";;CABA;169;282;6 (invertur);#otro
+Pablo;Musumeci;16;5;pablom@smihr.com.ar;;CABA;169;282;6 (invertur);#otro
+Lisandro;Cristia;3;10;lisandro@argenway.com;.54.9341.5212771;Santa Fe;185;282;6 (invertur);#inversor
+Gastón;Basso Dastugue;5;10;gbassodastugue@temaiken.org.ar;.54.3484.436818;Buenos Aires;165;282;6 (invertur);#inversor
+Carlos;Gerbi;3;5;cgerbi@hmi-argentina.com, cegerbi@yahoo.com;.54.911.5308.9516/.54.911.3064.9380/.54.11.4313.3550;CABA;169;282;6 (invertur);#inversor
+Carlos;Montaldo;3;5;gerenciageneral@hotelesaustralis.com.ar;.54.911.5494.6864;Buenos Aires;165;282;6 (invertur);#inversor
+Patricia;Boo;16;13;pboo@strglobal.com;;San Pablo;;303;6 (invertur);#otro
+Elizabeth;Winkle;16;13;ewinkle@strglobal.com;;Londres;;;6 (invertur);#otro
+Fernando;García Soria;16;13;fgarciasoria@turismosalta.gov.ar;.54.387.4215763;Salta;181;282;6 (invertur);#provincia
+Mariano;Ovejero;16;13;"movejero.salta@gmail.com; despacho@turismosalta.gov.ar";.54.9387.4084743/.54.387.4215763;Salta;181;282;6 (invertur);#provincia
+Ana;Cornejo;5;13;acornejo@turismosalta.gov.ar;.54.387.4310950;Salta;181;282;6 (invertur);#provincia
+Guido;Pacanowski;16;10;guido@casasurhotel.com;.54.911.5715.3403/4807-4848;CABA;169;282;6 (invertur);#desarrollador
+Mariano;Barbeito;16;7;mbarbeito@savoyhotel.com.ar;.54.911.3172.7399/.54.11.4370.8000;CABA;169;282;6 (invertur);#cadena 
+José;Otrosky;3;10;joseostrosky@gmail.com;.54.9345.4046908/.54.9343.4630553;Entre Ríos;172;282;6 (invertur);#provincia
+Sergio;Dobrusin;5;13;"sergiodobrusin@gmail.com; minturismomisiones@gmail.com; turismo@misiones.gov.ar";.54.9376.4330489/.54.376.444.7629;Misiones;178;282;6 (invertur);#provincia
+Emiliano;Franke;16;10;efranke@sfcworldwide.com;.54.11.4783.3594/.54.911.6113.0821;CABA;169;282;6 (invertur);#otro
+Sabrina;Kis;2;13;sabrina@cbrepresentaciones.com;.54.911.6108.1505;CABA;169;282;6 (invertur);#cadena 
+Victor;Navarro;2;10;vdnavarro@hotmail.com;.54.9388.416.2947;Jujuy;174;282;6 (invertur);#provincia
+Daniel;Itzcovici;16;10;danielit@nuevachevallier.com;.54.911.6962.7942/.54.11.4016.7000;CABA;169;282;6 (invertur);#inversor
+Luis;Derudder;5;10;lderudder@nuevachevallier.com;.54.11.4016.7000;CABA;169;282;6 (invertur);#inversor
+Carolina;Spinelli;2;10;"cspinelli@horwath.com.ar; carolinaspinelli@me.com";.54.911.5897.5883/.54.11.4394.8091;Buenos Aires;165;282;6 (invertur);#otro
+Michel;Bicquard;3;10;michel.biquard@invesco.com.py;.54.911.3770.9218;Santa Cruz;184;282;6 (invertur);#inversor
+Diego;Badaloni Giner;3;10;diegobadaloniginer@andesmar.com.ar;.54.911.3262.7830;CABA;169;282;6 (invertur);#inversor
+Manuel;Valdés;5;13;mvaldes2000@yahoo.com;.54.911.5586.1907/.54.11.4717.5111;CABA;169;282;6 (invertur);#inversor
+Edgardo;Salamano;3;10;"arqsalamano@grupourbania.com.ar; grupourbania07@yahoo.com.ar";.54.911.5013.9444/.54.11.4772.6847;CABA;169;282;6 (invertur);#desarrollador
+Nicolás;Grande;16;10;nico.grande@gmail.com;.54.11.5275.5550;CABA;169;282;6 (invertur);#cadena 
+Horacio;Iriarte;3;7;hiriarte@londonsupply.net;.54.11.4321.7300;CABA;169;282;6 (invertur);#inversor
+Iván;Kozicki;3;7;info@emprenurban.com;.54.11.5199.9470;CABA;169;282;6 (invertur);#desarrollador
+Victor Hugo;Bonnet;5;6;vbonnet@londonsupply.net;.54.11.4321.7300;CABA;169;282;6 (invertur);#inversor
+Nicolás;Schnaider;5;10;nschnaider@grupoupgrade.com;.54.11.4701.8020;CABA;169;282;6 (invertur);#desarrollador
+Gastón;Casoy;1;5;gaston.casoy@icloud.com;;CABA;169;282;6 (invertur);#inversor
+Carlos;Pitta;1;5;"capitta@publicit.com.ar; gerencia@publicit.com.ar";;CABA;169;282;6 (invertur);#inversor
+Nicolas;Obejero;3;10;"nicolas.obejero@lan.com; groppa.griselda@lan.com";;CABA;169;282;6 (invertur);#otro
+Máximo;Amadeo;9;7;maximo.amadeo@lan.com;.54.911.3681.8960;CABA;169;282;6 (invertur);#otro
+Federico;Muñoz;5;10;fede@fmya.com.ar;.54.911.5890.4717/.54.11.4787.6030;CABA;169;282;6 (invertur);#otro
+Cristian;Calomarde;5;10;ccalomarde@hitravel.com.ar;;CABA;169;282;6 (invertur);#otro
+Horacio;Losa;9;7;horacio.losa@alvear.com.ar;;CABA;169;282;6 (invertur);#cadena 
+Aldo;Santalucía;3;5;hotelmarconi@yahoo.com.ar;;Chaco;167;282;6 (invertur);#inversor
+Raul;Varese;5;5;gerencia@vistasuites.com.ar;;San Luis;183;282;6 (invertur);#otro
+Lucas;Perez Paez Molina;5;10;lpaezmolina@delex.com.ar;.54.9351.2688765/.54.351.481.8091;Córdoba;171;282;6 (invertur);#desarrollador
+Javier;Figueroa;5;10;jfigueroa@legadomitico.com;.54.911.4141.7448;CABA;169;282;6 (invertur);#desarrollador
+Alberto;Colik;3;13;acolik@myc-corp.com.ar;;Río Negro;180;282;6 (invertur);#inversor
+Mariana;Susskind;5;13;ms@villagecatedral.com.ar;;Río Negro;180;282;6 (invertur);#inversor
+Damián;Tabakman;16;8;damiantabakman@fibertel.com.ar;;CABA;169;282;6 (invertur);#otro
+Alfredo;Baldini;5;5;gerencia@hlpinamar.com.ar;.54.9226.7441418;Buenos Aires;165;282;6 (invertur);#inversor
+Maita;Barrenechea;16;10;"maita@mai10.com.ar; maitabarre@gmail.com";;CABA;169;282;6 (invertur);#otro
+Juan;Giacalone;13;7;jgiacalone@estanciavillamaria.com;.54.911.60912064;Buenos Aires;165;282;6 (invertur);#inversor
+Mauricio;Lacona;14;5;mlacona@ibera-argentina.com;.54.9376.4817478;Misiones;178;282;6 (invertur);#otro
+Carla;Quiroga;9;13;carliquiroga@gmail.com;;CABA;169;282;6 (invertur);#otro
+Tiño;Resnik;5;10;tinio@southernspirit.com.ar;;Chubut;168;282;6 (invertur);#inversor
+Sergio;Gonzalez;10;10;directorejecutivo@ahtra.com.ar;.54.911.3118.3510/.54.11.5219.0686;CABA;169;282;6 (invertur);#otro
+Fernando;Busquet;16;7;fbusquet@regalpacific.com.ar;.54.911.5568.4969/.54.11.4310.7000;CABA;169;282;6 (invertur);#inversor
+Julio;Elias;16;13;buho12@hotmail.com;.54.11.6314.3000;CABA;169;282;6 (invertur);#otro
+Paola;Valencia;16;10;pvalencia@procolombia.co;.54.11.4325.0258;CABA;169;282;6 (invertur);#otro
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;
+;;;;;;;;;;

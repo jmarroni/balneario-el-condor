@@ -1,0 +1,202 @@
+<div class="modal fade show" id="nuevoServ" tabindex="-1" aria-labelledby="formModalLabel" style="display: none; padding-right: 17px;" aria-modal="true" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="formModalLabel">Nuevo clasificado</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="demo-form" class="mb-4" novalidate="novalidate">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group row align-items-center">
+                <label class="col-sm-9">T&iacute;tulo:</label>
+                <div class="col-sm-9">
+                  <input type="text" name="name" class="form-control" id="tituloForm">
+                </div>
+              </div>
+              <div class="form-group row align-items-center">
+                <label class="col-sm-9">Descripci&oacute;n:</label>
+                <div class="col-sm-9">
+                 <textarea type="txt" class="form-control" id="descripcionForm"></textarea>
+               </div>
+             </div>
+             <div class="form-group row align-items-center">
+              <label class="col-sm-9">Direcci&oacute;n:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control" id="dirForm">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group row align-items-center">
+              <label class="col-sm-9">Nombre de Contacto:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control"  id="nomForm">
+              </div>
+            </div>
+
+            <div class="form-group row align-items-center">
+              <label class="col-sm-9">Correo Electr&oacute;nico:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control"  id="correoForm">
+              </div>
+            </div>
+
+            <div class="form-group row align-items-center">
+              <label class="col-sm-9">URL Video de Youtube:</label>
+              <div class="col-sm-9">
+                <input type="url" name="url" class="form-control"  id="videoForm">
+              </div>
+            </div>
+
+            <div class="form-group topcuatro" id="upload">
+              <label class="col-sm-9">Subir archivo:</label>
+              <div id="fileuploaders">Subir Archivo</div>
+              <input type="hidden" value="" name="uploadLogos" id="uploadLogos"/>
+              <hr class="sepModal" style="margin-top:2%;">
+            </div>  
+
+
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+      <button type="button" id="subir" name="subir" class="btn btn-primary">Agregar Servicio</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!--------------------------------------------------------->
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo 'Servicios' ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><a class="active font-weight-semibold" href="/boliches-pub" style="color: #e2a522;font-size: 16px;">Clasificados</a></span> <i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo 'Servicios' ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--==============================content=================================-->
+
+<div class="container pt-3 pb-2">
+  <div class="row pt-2">  
+
+    <section class="call-to-action  featured featured-primary with-button-arrow mb-5">
+     <div class="col-sm-9 col-lg-9">
+      <div class="call-to-action-content">
+        <h3 style="font-size:30px">Agrega tu <strong class="font-weight-extra-bold"><span class="badge badge-primary badge-sm rounded-pill text-uppercase px-2 py-1 me-1">servicio</span></strong> </h3>
+        <p class="mb-2" style="font-size:20px">Es totalmente <strong class="font-weight-extra-bold"><span class="badge badge-secondary badge-sm rounded-pill text-uppercase px-2 py-1 me-1">gratuito</span></strong></p>
+      </div>
+    </div>
+    <div class="col-sm-3 col-lg-3">
+      <div class="call-to-action-btn">
+        <button data-bs-toggle="modal" data-bs-target="#nuevoServ" class="btn btn-modern text-2 btn-primary"> Agregar</button> <span class="arrow hlb d-none d-md-block appear-animation animated rotateInUpLeft appear-animation-visible" data-appear-animation="rotateInUpLeft" style="left: 90%; top: -32px; animation-delay: 100ms;"></span>
+
+      </div>
+    </div>
+  </section>
+</div>
+<div class="row">
+ <?php foreach ($this->arrServicios as $key => $value) { ?>
+  <div class="col-lg-6">
+
+    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+      <span class="thumb-info-wrapper">     
+        <img src="/timthumb/timthumb.php?src=/imagenes/servicios/<?php echo  ($value["ser_imagenes"] != "")?$value["ser_imagenes"]:"sin-imagen.png";?>&w=570&h=359&zc=1" alt="<?php echo $value["ser_titulo"]; ?>" class="img-fluid">       
+        <span class="thumb-info-title">
+          <span class="thumb-info-inner line-height-1"><?php echo $value["ser_titulo"]; ?></span>
+          <span class="thumb-info-type opacity-8"><a href="/servicios/detalle/id/<?php echo $value["ser_keyword"]; ?>"><strong class="font-weight-extra-bold" style="font-size: 15px;">[+ info]</strong></a></span>
+        </span>
+      </span>
+    </span>
+
+    <p></p>
+  </div>
+<?php } ?>
+</div>
+</div><!-- End Content  -->
+<link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
+<script> 
+  $(document).ready(function() {   
+
+             var contador= '';
+
+            $("#fileuploaders").uploadFile({
+                url:"/servicios/upload",
+                fileName:"myfile",
+                maxFileCount:1,
+                multiple: true,
+                showDownload:false,
+                onSuccess:function(files,data,xhr,pd)
+                {   
+                    if(data!=''){
+                    $("#uploadLogos"+contador).val(data); 
+                    contador++;   
+                }
+
+                    
+                    /*$("#upload-1").css("display", "inline");*/
+                }
+            });
+               
+
+      /*###################### FIN UPLOAD #############################*/
+
+   $("#subir").click(function(event){
+    event.preventDefault();
+    if( $('#tituloForm').val()!='' && $('#dirForm').val()!='' && $('#correoForm').val()!=''){
+      var dataString = 'titulo='+ $('#tituloForm').val() + 
+      '&descripcion=' + $('#descripcionForm').val() + 
+      '&direccion=' + $('#dirForm').val() + 
+      '&nombre=' + $('#nomForm').val() + 
+      '&correo=' + $('#correoForm').val() + 
+      "&archivo=" + $('#uploadLogos').val();
+
+      $.ajax({
+              url: "/servicios/cargarservicio", // Url to which the request is send
+              type: "POST",             // Type of request to be send, called as method
+              data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+              success: function(data)   // A function to be called if request succeeds
+              {
+
+                alert('El servicio se ha subido correctamente.');
+                document.location.href = "/servicios/detalle/id/"+data;
+              }
+            });
+    } else {
+      alert ('Verifique que todos los datos estan completos');
+    }
+  });
+ });
+</script>
+
+<style type="text/css">
+  .ajax-file-upload-statusbar {
+  width: 75% !important;
+
+}
+.ajax-upload-dragdrop{
+  width: 75% !important;
+}
+</style>

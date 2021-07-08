@@ -1,0 +1,596 @@
+          <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-8">
+                            <h1 class="page-heading">
+                                Usuario <small>Formulario de alta para un nuevo Usuario.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-4 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li><a class="link-effect" href="/usuarios/listado">Usuario</a></li>
+                                <li>Nuevo</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content content-narrow">
+
+				<!-- Bootstrap Design -->
+                    <div class="row">
+                            <!-- Default Elements -->
+                            <div class="block">
+                            	<div class="alert alert-success" id="mensajeOK" style="display:none;">
+								  <strong>Perfecto!</strong> Alta del usuario correcta. <a href="/usuarios/listado">Ir al listado</a>
+								</div>
+								<div class="alert alert-danger" id="mensajeERROR" style="display:none;">
+								  <strong>Upps!</strong> Existen errores, por favor verificalos.
+								</div>
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button"><i class="si si-settings"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Formulario de Alta</h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal" action="base_forms_elements.html" method="post" enctype="multipart/form-data" onsubmit="return false;">
+                                        <input type="hidden" id="us_id" name="us_id" value="<?php echo $this->usuarios->getUs_id(); ?>" />
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Nombre</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_nombre(); ?>" type="text" id="nombre" name="nombre" placeholder="Nombre del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Apellido</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_apellido(); ?>" type="text" id="apellido" name="apellido" placeholder="Apellido del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Email</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_email(); ?>" type="text" id="email" name="email" placeholder="Email del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Tel&eacute;fono</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_telefono(); ?>" type="text" id="telefono" name="telefono" placeholder="Teléfono del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Pa&iacute;s</label>
+                                            <div class="col-sm-9">
+                                              <select class="form-control" id="pais" name="pais" onchange="changeProvincia(this);">
+
+                                                    <?php if($this->usuarios->getPais_pa_id()!=''){
+                                                            foreach ($this->paises as $p) { 
+                                                              if($p->getPa_id() == $this->usuarios->getPais_pa_id()) { echo 'e1';?>
+                                                                  <option value="<?php echo $p->getPa_id(); ?>" selected><?php echo $p->getPa_nombre(); ?></option>
+                                                              <?php } else {  echo 'e2';?>
+                                                                  <option value="<?php echo $p->getPa_id(); ?>"><?php echo $p->getPa_nombre(); ?></option>
+                                                              <?php }
+                                                            }
+                                                          } else { ?>
+                                                            <option value=""></option>
+                                                            <?php foreach ($this->paises as $p) {?>
+                                                              <option value="<?php echo $p->getPa_id(); ?>"><?php echo $p->getPa_nombre(); ?></option>
+                                                            <?php } 
+                                                          }?>
+
+                                              </select>
+                                            </div>
+                                        </div>  
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Provincia</label>
+                                            <div class="col-sm-9">
+
+                                              <select class="form-control" id="provincia" name="provincia">
+                                                <?php if($this->usuarios->getProvincia_pr_id() != ''){ 
+
+                                                    foreach ($this->listProv as $prov) { 
+                                                      if ($prov->getPr_id() == $this->usuarios->getProvincia_pr_id()) { ?>
+                                                        <option value="<?php echo $prov->getPr_id(); ?>" selected>
+                                                          <?php echo $prov->getPr_nombre(); ?>
+                                                        </option>
+                                                      <?php } else { ?>
+                                                        <option value="<?php echo $prov->getPr_id(); ?>"><?php echo $prov->getPr_nombre(); ?></option>
+                                                  <?php }
+                                                }
+                                                } ?> 
+                                              </select>
+                                            </div>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Ciudad</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_ciudad(); ?>" type="text" id="ciudad" name="ciudad" placeholder="Ciudad del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Actividad Principal</label>
+                                            <div class="col-sm-9">
+                                                <!-- <input class="form-control" value="<?php echo $this->usuarios->getUs_actividad_principal(); ?>" type="text" id="actividad" name="actividad" placeholder="Actividad Principal del Usuario"> -->
+                                                <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox1">
+                                                  <?php if($this->usuarios->getUs_actividad_principal()== 1){ ?>
+                                                   <input type="checkbox" id="listAct1" name="listAct" onclick="alternar3(this);" value="1" checked>Transporte a&eacute;reo
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct1" name="listAct" onclick="alternar3(this);" value="1">Transporte a&eacute;reo
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox2">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 2){ ?>
+                                                   <input type="checkbox" id="listAct2" name="listAct" onclick="alternar3(this);" value="2" checked>Transporte terrestre
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct2" name="listAct" onclick="alternar3(this);" value="2">Transporte terrestre
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 3){ ?>
+                                                   <input type="checkbox" id="listAct3" name="listAct" onclick="alternar3(this);" value="3" checked>Servicios Profesionales / Consultor&iacute;a
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct3" name="listAct" onclick="alternar3(this);" value="3">Servicios Profesionales / Consultor&iacute;a
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 4){ ?>
+                                                   <input type="checkbox" id="listAct4" name="listAct" onclick="alternar3(this);" value="4" checked>DMO / Desarrollo de destinos
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct4" name="listAct" onclick="alternar3(this);" value="4">DMO / Desarrollo de destinos
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 5){ ?>
+                                                   <input type="checkbox" id="listAct5" name="listAct" onclick="alternar3(this);" value="5" checked>Hoteler&iacute;a
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct5" name="listAct" onclick="alternar3(this);" value="5">Hoteler&iacute;a
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 6){ ?>
+                                                   <input type="checkbox" id="listAct6" name="listAct" onclick="alternar3(this);" value="6" checked>Proveedor de Tecnolog&iacute;a
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct6" name="listAct" onclick="alternar3(this);" value="6">Proveedor de Tecnolog&iacute;a
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 7){ ?>
+                                                   <input type="checkbox" id="listAct7" name="listAct" onclick="alternar3(this);" value="7" checked>Agencia de viajes Tradicional
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct7" name="listAct" onclick="alternar3(this);" value="7">Agencia de viajes Tradicional
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 8){ ?>
+                                                   <input type="checkbox" id="listAct8" name="listAct" onclick="alternar3(this);" value="8" checked>Asistencia al viajero
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct8" name="listAct" onclick="alternar3(this);" value="8">Asistencia al viajero
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 9){ ?>
+                                                   <input type="checkbox" id="listAct9" name="listAct" onclick="alternar3(this);" value="9" checked>Asociaci&oacute;n
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct9" name="listAct" onclick="alternar3(this);" value="9">Asociaci&oacute;n
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 10){ ?>
+                                                   <input type="checkbox" id="listAct10" name="listAct" onclick="alternar3(this);" value="10" checked>Educaci&oacute;n
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct10" name="listAct" onclick="alternar3(this);" value="10">Educaci&oacute;n
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 11){ ?>
+                                                   <input type="checkbox" id="listAct11" name="listAct" onclick="alternar3(this);" value="11" checked>Cruceros
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct11" name="listAct" onclick="alternar3(this);" value="11">Cruceros
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 12){ ?>
+                                                   <input type="checkbox" id="listAct12" name="listAct" onclick="alternar3(this);" value="12" checked>PR / Agencia de MKT, Publicidad
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct12" name="listAct" onclick="alternar3(this);" value="12">PR / Agencia de MKT, Publicidad
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 13){ ?>
+                                                   <input type="checkbox" id="listAct13" name="listAct" onclick="alternar3(this);" value="13" checked>Prensa
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct13" name="listAct" onclick="alternar3(this);" value="13">Prensa
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 14){ ?>
+                                                   <input type="checkbox" id="listAct14" name="listAct" onclick="alternar3(this);" value="14" checked>Operados
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct14" name="listAct" onclick="alternar3(this);" value="14">Operados
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 15){ ?>
+                                                   <input type="checkbox" id="listAct15" name="listAct" onclick="alternar3(this);" value="15" checked>Agencia de viajes online
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct15" name="listAct" onclick="alternar3(this);" value="15">Agencia de viajes online
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_actividad_principal()== 16){ ?>
+                                                   <input type="checkbox" id="listAct16" name="listAct" onclick="alternar3(this);" value="16" checked>Otro
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listAct16" name="listAct" onclick="alternar3(this);" value="16">Otro
+                                                   <?php } ?>
+                                               </label>
+                                            </div>
+                                        </div>                                 
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Cargo</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_cargo(); ?>" type="text" id="cargo" name="cargo" placeholder="Cargo del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Jerarqu&iacute;a  del Cargo</label>
+                                            <div class="col-sm-9">
+                                                <!-- <input class="form-control" value="<?php echo $this->usuarios->getUs_jerarquiza_cargo(); ?>" type="text" id="jerarquiza" name="jerarquiza" placeholder=""> -->
+                                                <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox1">
+                                                  <?php if($this->usuarios->getUs_jerarquiza_cargo() == 1){?>
+                                                   <input type="checkbox" id="listJC1" name="listJC" onclick="alternar(this);" value="1" checked>CEO
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC1" name="listJC" onclick="alternar(this);" value="1">CEO
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox2">
+                                                  <?php if($this->usuarios->getUs_jerarquiza_cargo() == 2){?>
+                                                   <input type="checkbox" id="listJC2" name="listJC" onclick="alternar(this);"  value="2" checked>Due&ntilde;o
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC2" name="listJC" onclick="alternar(this);"  value="2">Due&ntilde;o
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_jerarquiza_cargo() == 3){?>
+                                                   <input type="checkbox" id="listJC3" name="listJC" onclick="alternar(this);"  value="3" checked>Ejecutivo
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC3" name="listJC" onclick="alternar(this);"  value="3">Ejecutivo
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_jerarquiza_cargo() == 4){?>
+                                                   <input type="checkbox" id="listJC4" name="listJC" onclick="alternar(this);"  value="4" checked>COO
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC4" name="listJC" onclick="alternar(this);"  value="4">COO
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_jerarquiza_cargo() == 5){?>
+                                                   <input type="checkbox" id="listJC5" name="listJC" onclick="alternar(this);"  value="5" checked>Presidente
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC5" name="listJC" onclick="alternar(this);"  value="5">Presidente
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_jerarquiza_cargo() == 6){?>
+                                                   <input type="checkbox" id="listJC6" name="listJC" onclick="alternar(this);"  value="6" checked>VP
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC6" name="listJC" onclick="alternar(this);"  value="6">VP
+                                                   <?php } ?>
+                                               </label>
+
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC7" name="listJC" onclick="alternar(this);"  value="7">Gerente
+                                               </label>
+                                               
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                <?php if($this->usuarios->getUs_jerarquiza_cargo() == 8){?>
+                                                   <input type="checkbox" id="listJC8" name="listJC" onclick="alternar(this);"  value="8" checked>Consultor
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC8" name="listJC" onclick="alternar(this);"  value="8">Consultor
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_jerarquiza_cargo() == 9){?>
+                                                   <input type="checkbox" id="listJC9" name="listJC" onclick="alternar(this);"  value="9" checked>Socio
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC9" name="listJC" onclick="alternar(this);"  value="9">Socio
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_jerarquiza_cargo() == 10){?>
+                                                   <input type="checkbox" id="listJC10" name="listJC" onclick="alternar(this);"  value="10" checked>Director
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC10" name="listJC" onclick="alternar(this);"  value="10">Director
+                                                   <?php } ?>
+                                               </label>
+                                               <br>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_jerarquiza_cargo() == 11){?>
+                                                   <input type="checkbox" id="listJC11" name="listJC" onclick="alternar(this);"  value="11" checked>CFO 
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC11" name="listJC" onclick="alternar(this);"  value="11">CFO 
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_jerarquiza_cargo() == 12){?>
+                                                   <input type="checkbox" id="listJC12" name="listJC" onclick="alternar(this);"  value="12" checked>Analista
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listJC12" name="listJC" onclick="alternar(this);"  value="12">Analista
+                                                   <?php } ?>
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <?php if($this->usuarios->getUs_jerarquiza_cargo() == 13){?>
+                                                   <input type="checkbox" id="listJC13" name="listJC" onclick="alternar(this);" value="13" checked>Otro
+                                                   <?php } else { ?>
+                                                    <input type="checkbox" id="listJC13" name="listJC" onclick="alternar(this);" value="13">Otro
+                                                   <?php } ?>
+                                               </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Como conociste</label>
+                                            <div class="col-sm-9">
+                                                <!-- <textarea class="form-control" value="<?php echo $this->usuarios->getUs_como_conociste(); ?>" type="text" id="conociste" name="conociste" placeholder=""> </textarea> -->
+                                                <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                  <?php if($this->usuarios->getUs_como_conociste()== 1){ ?>
+                                                   <input type="checkbox" id="listCC1" name="listCC" onclick="alternar2(this);" value="1" checked>Prensa
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listCC1" name="listCC" onclick="alternar2(this);" value="1">Prensa
+                                                   <?php } ?>
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox2">
+                                                  <?php if($this->usuarios->getUs_como_conociste()== 2){ ?>
+                                                   <input type="checkbox" id="listCC2" name="listCC" onclick="alternar2(this);" value="2" checked>Sponsor
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listCC2" name="listCC" onclick="alternar2(this);" value="2">Sponsor
+                                                   <?php } ?>
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_como_conociste()== 3){ ?>
+                                                   <input type="checkbox" id="listCC3" name="listCC" onclick="alternar2(this);" value="3" checked>Fui invitado
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listCC3" name="listCC" onclick="alternar2(this);" value="3">Fui invitado
+                                                   <?php } ?>
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_como_conociste()== 4){ ?>
+                                                   <input type="checkbox" id="listCC4" name="listCC" onclick="alternar2(this);" value="4" checked>Redes Sociales
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listCC4" name="listCC" onclick="alternar2(this);" value="4">Redes Sociales
+                                                   <?php } ?>
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox3">
+                                                  <?php if($this->usuarios->getUs_como_conociste()== 5){ ?>
+                                                   <input type="checkbox" id="listCC5" name="listCC" onclick="alternar2(this);" value="5" checked>Newsletter
+                                                   <?php } else { ?>
+                                                   <input type="checkbox" id="listCC5" name="listCC" onclick="alternar2(this);" value="5">Newsletter
+                                                   <?php } ?>
+                                               </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Temas de Inter&eacute;s</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_temas_de_interes(); ?>" type="text" id="temas" name="temas" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Evento</label>
+                                          <div class="col-sm-9">
+                                            <select class="form-control" id="evento" name="evento">
+                                              <option>Seleccione un evento</option>
+                                            <?php foreach ($this->arrEventos as $e => $eValue) { ?>
+                                              <?php if ($this->usuarios->getEvento_ev_id() != "" && $this->usuarios->getEvento_ev_id() == $eValue->getEv_id()){ ?>
+                                              <option value="<?php echo $eValue->getEv_id(); ?>" selected><?php echo $eValue->getEv_nombre(); ?></option>
+                                              <?php }else{ ?>
+                                              <option value="<?php echo $eValue->getEv_id(); ?>" ><?php echo $eValue->getEv_nombre(); ?></option>
+                                              <?php } ?>
+                                            <?php } ?>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-xs-12" for="example-text-input">Tags</label>
+                                          <div class="col-sm-9">
+                                            <?php if ($this->usuarios->getUs_tags() != ""){ ?>
+                                              <input class="form-control" value="<?php echo $this->usuarios->getUs_tags(); ?>" type="text" id="tags" name="tags" placeholder="@tag_1 @tag_2">
+                                            <?php }else{ ?>
+                                              <input class="form-control" value="" type="text" id="tags" name="tags" placeholder="@tag_1 @tag_2">
+                                            <?php } ?>
+                                              <div class="help-block">Tag especiales comienza con @ y separados por un espacio.</div>
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                           <label class="col-xs-12">Estado</label>
+                                           <div class="col-xs-12">
+                                              <input type="hidden" value="<?php echo $this->usuarios->getUs_status(); ?>" name="estadoActual" id="estadoActual">
+                                               <label class="radio-inline" for="example-inline-radio1">
+                                                <?php if($this->usuarios->getUs_status() == '1'){ ?>
+                                                   <input type="radio" id="activado" name="activo" value="1" checked>Activado
+                                                <?php } else { ?>
+                                                    <input type="radio" id="activado" name="activo" value="1">Activado
+                                                <?php } ?>
+                                               </label>
+                                               <label class="radio-inline" for="example-inline-radio2">
+                                                <?php if($this->usuarios->getUs_status() == '0'){ ?>
+                                                   <input type="radio" id="noactivado" name="activo" value="0" checked> No Activado
+                                                <?php } else { ?>
+                                                  <input type="radio" id="noactivado" name="activo" value="0"> No Activado
+                                                <?php } ?>
+                                               </label>
+                                           </div>
+                                       </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-primary" type="submit">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Default Elements -->                        
+                    </div>
+                    </div>
+                    </main>
+                    <script>
+                        jQuery(document).ready(function($) {
+                            $('#activado').click(function(event) {
+                                $('#noactivado').prop('checked', false);
+                                //alert($('input:radio[name=activo]:checked').val());
+                            });
+                            $('#noactivado').click(function(event) {
+                                $('#activado').prop('checked', false);
+                                //alert($('input:radio[name=activo]:checked').val());
+                            });
+                        });
+	                    jQuery( "form" ).on( "submit", function( event ) {
+	                    	event.preventDefault();
+	                    	 jQuery( "#mensajeERROR" ).hide();
+	                    	 jQuery( "#mensajeOK" ).hide();
+	                    	 
+                             var dataString = 'id=' + $('#us_id').val() + 
+                                            '&nombre='+ $('#nombre').val() + 
+                                            '&apellido=' + $('#apellido').val() + 
+                                            "&email=" + $('#email').val() + 
+                                            '&telefono=' + $('#telefono').val() + 
+                                            '&pais='+ $('#pais').val() + 
+                                            '&provincia=' + $('#provincia').val() + 
+                                            '&ciudad='+ $('#ciudad').val() + 
+                                            '&actividad='+ $("input[name=listAct]:checked").val() + 
+                                            '&cargo='+ $('#cargo').val() + 
+                                            '&jerarquiza='+ $("input[name=listJC]:checked").val() + 
+                                            '&conociste='+ $("input[name=listCC]:checked").val() + 
+                                            '&temas='+ $('#temas').val() + 
+                                            '&evento='+ $('#evento').val() + 
+                                            '&tags='+ $('#tags').val() + 
+                                            '&status='+ $('input:radio[name=activo]:checked').val()
+                                            '&status_older=' + $('#estadoActual').val();
+                                $.ajax({
+                                url: "/usuarios/procesar", // Url to which the request is send
+                                type: "POST",             // Type of request to be send, called as method
+                                data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                                success: function(data)   // A function to be called if request succeeds
+                                {
+                                    if(data!= ''){
+                                        jQuery( "#mensajeOK" ).show();
+                                        var new_position = jQuery('.page-heading').offset();
+                                        window.scrollTo(new_position.left,new_position.top);
+                                    }
+                                    else {
+                                        jQuery( "#mensajeERROR" ).show();
+                                        var new_position = jQuery('.page-heading').offset();
+                                        window.scrollTo(new_position.left,new_position.top);
+                                    }
+                                }
+                    });
+	                    	 
+	                    });
+
+                        function alternar(check){
+                            listJC1.checked = false;
+                            listJC2.checked = false;
+                            listJC3.checked = false;
+                            listJC4.checked = false;
+                            listJC5.checked = false;
+                            listJC6.checked = false;
+                            listJC7.checked = false;
+                            listJC8.checked = false;
+                            listJC9.checked = false;
+                            listJC10.checked = false;
+                            listJC11.checked = false;
+                            listJC12.checked = false;
+                            listJC13.checked = false;
+                        
+                            check.checked = true; 
+
+                            /*$("input[name=listJC]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function alternar2(check){
+                            listCC1.checked = false;
+                            listCC2.checked = false;
+                            listCC3.checked = false;
+                            listCC4.checked = false;
+                            listCC5.checked = false;
+                                                
+                            check.checked = true; 
+
+                            /*$("input[name=listCC]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function alternar3(check){
+                            listAct1.checked = false;
+                            listAct2.checked = false;
+                            listAct3.checked = false;
+                            listAct4.checked = false;
+                            listAct5.checked = false;
+                            listAct6.checked = false;
+                            listAct7.checked = false;
+                            listAct8.checked = false;
+                            listAct9.checked = false;
+                            listAct10.checked = false;
+                            listAct11.checked = false;
+                            listAct12.checked = false;
+                            listAct13.checked = false;
+                            listAct14.checked = false;
+                            listAct15.checked = false;
+                            listAct16.checked = false;
+                            
+                                                
+                            check.checked = true; 
+
+                            /*$("input[name=listAct]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function changeProvincia(sel){ 
+                          //console.log(sel.value);                        
+                          var idPais = sel.value;
+                          $.post("/usuarios/buscarprovincia", { id: idPais }, function(data){
+                              $("#provincia").html(data);
+                          //console.log(data);
+                          }); 
+                        }
+                    </script>
+                    <link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                    <script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+                    
+                    <style type="text/css">
+                    #fileuploader, #fileuploader2 {
+                          margin-left: 2%;
+                          margin-top: 4%;
+                    }
+                    .ajax-file-upload-statusbar{
+                        width: 71% !important;
+                        margin-left: 2%;
+                    }
+                    .ajax-file-upload-progress{
+                        float: right;
+                        margin-top: -25px;
+                    }
+                    .ajax-upload-dragdrop{
+                        width: 73% !important;
+                    }
+                    </style>

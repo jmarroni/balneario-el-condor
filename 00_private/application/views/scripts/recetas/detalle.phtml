@@ -1,0 +1,63 @@
+<style>
+<!--
+h3{
+font-size: 15px;
+color: #2269a9;
+margin-top: 20px;
+margin-bottom: 10px;
+font-weight: bold;
+}
+h4{
+font-size: 15px;
+}
+-->
+</style>
+<section class="mainSection">
+      <div  itemscope itemtype=" http://schema.org/NewsArticle" class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota">
+            <h2>Receta</h2>
+            <span itemprop="name" class="tituloNota" style="margin-bottom: 20px;font-size: 20px;"><?php echo $this->arrRecetas[0]["re_titulo"] ?></span>
+            <?php if ($this->arrRecetas[0]["re_titulo"]){ ?>
+                <img itemprop=" image " class="imagenNota" src="<?php echo str_replace("thumb_", "photo_", $this->arrRecetas[0]["re_imagen_top"]); ?>" alt="<?php echo $this->arrRecetas[0]["re_titulo"] ?>">
+            <?php } ?>
+            
+            <h4><strong>Tiempo de preparaci&oacute;n:</strong> <?php echo nl2br($this->arrRecetas[0]["re_tiempo_preparacion"]); ?> minutos.</h4>
+            <h4><strong>Tiempo de cocci&oacute;n:</strong> <?php echo nl2br($this->arrRecetas[0]["re_tiempo_coccion"]); ?> minutos.</h4>
+            <h4><strong>Porciones:</strong> <?php echo nl2br($this->arrRecetas[0]["re_porciones"]); ?>.</h4>
+            <h4><strong>Costo aproximado:</strong> <?php echo nl2br($this->arrRecetas[0]["re_costo"]); ?>.</h4>
+            <h3>Ingredientes</h3>
+            <div itemprop="description">
+            <p ><?php echo nl2br($this->arrRecetas[0]["re_ingredientes"]); ?></p>
+            </div>
+            <h3>Preparaci&oacute;n</h3>
+            <div itemprop="description">
+            <p style="text-align:justify"><?php echo nl2br($this->arrRecetas[0]["re_preparacion"]); ?></p>
+            </div>
+            <h4 style="margin-top: 15px;margin-bottom: 15px;"><strong>Autor:</strong><i><?php echo $this->arrRecetas[0]["re_autor"]; ?></i></h4>
+            <img itemprop=" image" style="margin-left: 75px;" class="imagenNota" src="<?php echo str_replace("thumb_", "photo_", $this->arrRecetas[0]["re_imagen_bottom"]); ?>" alt="<?php echo $this->arrRecetas[0]["re_titulo"] ?>">
+            <a class="botonVolver" href="/">&laquo; Volver</a>
+        </section><!-- /mainCol -->        
+        <section class="sidebar right short">
+            <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=434469869953110";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" data-href="https://www.facebook.com/VillaMaritimaElCondor" data-width="300" data-show-faces="true" data-stream="true" data-header="true"></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6223502738437330";
+/* Novedades */
+google_ad_slot = "3848899158";
+google_ad_width = 200;
+google_ad_height = 200;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+        </section><!-- /sidebar -->
+      </div>
+    </section>

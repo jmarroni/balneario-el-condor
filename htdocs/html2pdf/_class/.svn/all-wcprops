@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/html2pdf/_class
+END
+parsingCss.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/html2pdf/_class/parsingCss.class.php
+END
+exception.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/html2pdf/_class/exception.class.php
+END
+locale.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/html2pdf/_class/locale.class.php
+END
+myPdf.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/html2pdf/_class/myPdf.class.php
+END
+tcpdfConfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/html2pdf/_class/tcpdfConfig.php
+END
+parsingHtml.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/html2pdf/_class/parsingHtml.class.php
+END

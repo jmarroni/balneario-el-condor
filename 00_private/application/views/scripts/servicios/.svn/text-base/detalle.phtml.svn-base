@@ -1,0 +1,130 @@
+<link href="/css/sorting.css" rel="stylesheet" />
+     <link href="/css/animation.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/css/shadow/shadowbox.css">
+<script type="text/javascript" src="/js/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<div id="content">   
+
+<section class="mainSection">
+  <div class="row-title">
+    <div class="container">
+      <h2><?php echo $this->arrServicios[0]["ser_titulo"]; ?></h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span><a href="/servicios">Servicios</a></span><i class="fa fa-angle-right"></i><?php echo $this->arrServicios[0]["ser_titulo"]; ?></div>
+    </div>
+  </div>
+  <div class="container">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota">
+            <div class="anuncios" itemscope itemtype="http://schema.org/Offer">
+                <section class="span9 ss_p_right">
+                    <div class="clearfix t_xs_align_c" style="margin-top:2%;">
+                      <div class="photoframe type_2 shadow r_corners fleft f_sm_none d_xs_inline_b product_single_preview relative m_right_30 m_bottom_5 m_sm_bottom_20 m_xs_right_0 w_mxs_full">
+                        <div class="relative d_inline_b m_bottom_10 qv_preview d_xs_block">
+                          <ul>
+                            <li class="clasificadosDetail">
+                              <a href="/imagenes/servicios/<?php echo  ($this->arrServicios[0]["ser_imagenes"] != "")?$this->arrServicios[0]["ser_imagenes"]:"no_image.jpg";?>" rel="shadowbox">  	<!-- Cambiar ruta --> 
+                              <img itemprop="image" src="http://www.balneario-el-condor.com.ar/imagenes/servicios/timthumb.php?src=http://www.balneario-el-condor.com.ar/imagenes/servicios/<?php echo  ($this->arrServicios[0]["ser_imagenes"] != "")?$this->arrServicios[0]["ser_imagenes"]:"no_image.jpg";?>&w=450">	<!-- Cambiar ruta -->
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                <div itemscope itemtype="http://schema.org/Product">
+                <!-- <h1 style="width:500px" itemprop="name"><?php echo $this->arrServicios[0]["ser_titulo"]; ?></h1> -->
+                 
+                  
+                  <div class="v_space3 t_xs_align_l shop_section">
+                  <div class="datos">
+                      <label><b>Compart&iacute;r:</b> </label>
+                      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>  
+                      <a href="#" onclick="javascript:postToFeed('http://www.balneario-el-condor.com.ar/servicios/detalle/id/<?php echo $this->arrServicios[0]["ser_keyword"]; ?>','http://www.balneario-el-condor.com.ar/imagenes/servicios/<?php echo  ($this->arrServicios[0]["ser_imagenes"] != "")?$this->arrServicios[0]["ser_imagenes"]:"no_image.jpg";?>','Servicios Balneario El Condor','<?php echo $this->arrServicios[0]["cla_titulo"]; ?>');">
+                      <img src="/imagenes/fbcCompartir.jpg" style="margin-top:-12px;"/></a><br><br>
+                      <div itemscope itemtype="http://schema.org/Product">
+                        <label><b>Titular:</b> </label><div itemprop="name"><?php echo ($this->arrServicios[0]["ser_nombre_contacto"] != "")?$this->arrServicios[0]["ser_nombre_contacto"]:"<b>No informa</b>"; ?><br></div><br>
+                        <label><b>Mail:</b> </label><div itemprop="email"><?php echo ($this->arrServicios[0]["ser_mail_contacto"] != "")?$this->arrServicios[0]["ser_mail_contacto"]:"<b>No informa</b>"; ?></div><br><br>
+                        <label><b>Direcci&oacute;n:</b> </label><div itemprop="address"><?php echo ($this->arrServicios[0]["ser_direccion"] != "")?$this->arrServicios[0]["ser_direccion"]:"<b>No informa</b>"; ?></div><br>
+                        
+                        
+                        
+                      </div>
+                    </div>	
+                  </div>
+                  </div>			
+
+                
+              
+            </div>
+
+            <div class="tabbable responsive shop_tabs" style="margin-bottom:2%;">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#one" data-toggle="tab">Descripci&oacute;n</a></li>
+              </ul>
+
+              <div class="tab-content icon_tab">
+                <div class="tab-pane active" id="one">
+
+                  <p class="tab_pad"><?php echo utf8_encode($this->arrServicios[0]["ser_descripcion"]); ?></p>
+                
+                </div>
+              </div>
+            </div>  
+
+          </section>	
+               
+            
+        </section><!-- /mainCol -->        
+        <!-- <section class="sidebar right short">
+            <div class="bannerContacto">
+                <a href="/contacto"><img src="/css/images/banner-contacto-230.gif" alt="Contactenos" title ="Contactenos"></a>
+            </div>
+
+        </section>-->
+      </div>
+      </div>
+    </section>
+  </div>
+    <div id="fb-root"></div>
+
+    <script src="http://connect.facebook.net/es_LA/all.js"></script>
+<script>
+    FB.init({
+        appId  : "341020419335849",
+        status : true,
+        cookie : true,
+        xfbml  : true
+    });
+ function postToFeed(linkEnviado,pictureEnviada,tituloEnviado,descripcionEnviado) {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'http://www.balneario-el-condor.com.ar',
+          link: linkEnviado,
+          picture: pictureEnviada,
+          name: tituloEnviado,
+          caption: '',
+          description: descripcionEnviado
+        };
+
+        function callback(response) {
+        }
+
+        FB.ui(obj, callback);
+      }
+
+       !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);
+          js.id=id;
+          js.src="https://platform.twitter.com/widgets.js";
+
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }
+          (document,"script","twitter-wjs");
+</script>
+<script src="/js/elevatezoom.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>

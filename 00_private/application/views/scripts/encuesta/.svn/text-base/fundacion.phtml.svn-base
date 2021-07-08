@@ -1,0 +1,93 @@
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota" style="width: 670px;">
+            <h2>Encuesta - Fundaci&oacute;n del Balneario El Condor</h2>
+            <p>Esta es una encuesta an&oacute;nima, solo pedimos el email porque ser&aacute; por medio del cual se podr&aacute; contabilizar la votaci&oacute;n, d&eacute;janos un email, la fecha en la que pensas que se fundo el balneario y un comentario.</p>
+            <form action="/encuesta/fundacionpost" id="encuestaFundacion" name="encuestaFundacion" method="post">
+            <ul>
+
+              <li><input type="radio" id="fecha" name="fecha" value="1881" /> <strong>Yo opino que la fundaci&oacute;n fue en 1881</strong>, Fecha en la cual naufrago el C&oacute;ndor. </li>
+               <li><input type="radio" id="fecha" name="fecha" value="1888" /> <strong>Yo opino que la fundaci&oacute;n fue en mayo de 1887, </strong>, Fecha de inauguraci&oacute;n del faro.</li>
+              <li><input type="radio" id="fecha" name="fecha" value="1887" /> <strong>Yo opino que la fundaci&oacute;n fue en 1887</strong>, Primera excursi&oacute;n de los Salesianos, con sus alumnos.</li>
+              <li><input type="radio" id="fecha" name="fecha" value="1915" /> <strong>Yo opino que la fundaci&oacute;n fue en 1915</strong>, Se construyen las primeras casitas de los pobladores.</li>
+              <li><input type="radio" id="fecha" name="fecha" value="1920" /> <strong>Yo opino que la fundaci&oacute;n fue en 1920</strong>, Liberaci&oacute;n del paso al balneario y el primer permiso para construir.</li>
+              <li><input type="radio" id="fecha" name="fecha" value="1922" /> <strong>Yo opino que la fundaci&oacute;n fue en 1922</strong>, Se denomino Villa Massini en homenaje al Sr Massini.</li>
+              <li><input type="radio" id="fecha" name="fecha" value="1948" /> <strong>Yo opino que la fundaci&oacute;n fue en 1948</strong>, Decreto que da el nombre a el C&oacute;ndor.</li>
+              <li><input type="radio" id="fecha" name="fecha" value="2099" /> <strong>Propongo otra fecha</strong>, leer comentarios. </li>
+              <li><br>Mail: <input type="text"  id="mail" name="mail" style="width:300px;" value="" /><br><i>Se eliminaran los votos de mails invalidos y se toma un vot&oacute; por email.</i></li>
+              <li><br>Comentario:<i>(Opcional)</i> <br><textarea cols="80" rows="6" name="comentario" id="comentario" ></textarea></li>
+              <li><input type="button" id="enviarEncuesta" style="width:150px;" value="Enviar Encuesta">&nbsp;<input type="checkbox" value="1" name="deseo" id="deseo"> Checkea la casilla si deseas recibir informaci&oacute;n del Balneario al email ingresado.</li>
+            </ul>
+            </form>
+<br>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#enviarEncuesta").click(function(){
+    if (!($("input[name='fecha']:checked").val())){
+      alert('Por favor selecciona una fecha');
+      return;
+    }
+    if ($("#mail").val() == ""){
+      alert('Por favor ingresa un email');
+      return;
+    }
+    $("#encuestaFundacion").submit();
+  });
+});
+</script>
+<CENTER>
+<table border="1" width="400">
+  <caption style="font-weight:bold">Resultados<br></caption>
+  <thead>
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">Fundaci&oacute;n 1881</th>
+      <th scope="col">Fundaci&oacute;n mayo 1887</th>
+      <th scope="col">Fundaci&oacute;n 1887</th>
+      <th scope="col">Fundaci&oacute;n 1915</th>
+      <th scope="col">Fundaci&oacute;n 1920</th>
+      <th scope="col">Fundaci&oacute;n 1922</th>
+      <th scope="col">Fundaci&oacute;n 1948</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Votos</td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1881"])) echo $this->conabilizacionEncuesta["1881"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1888"])) echo $this->conabilizacionEncuesta["1888"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1887"])) echo $this->conabilizacionEncuesta["1887"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1915"])) echo $this->conabilizacionEncuesta["1915"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1920"])) echo $this->conabilizacionEncuesta["1920"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1922"])) echo $this->conabilizacionEncuesta["1922"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1948"])) echo $this->conabilizacionEncuesta["1948"]; else echo "0"; ?></td>
+    </tr>
+  </tbody>
+</table>
+</CENTER>
+<br>
+<h2>Comentarios</h2>
+<ul>
+  <?php foreach ($this->Encuesta as $key => $value) {
+    if ($value["en_comentario"] != ""){
+    ?>
+    <li><strong><?php 
+    $arrFecha = explode("-", substr($value["en_fecha"],0,10));
+    echo $arrFecha[2]."-".$arrFecha[1]."-".$arrFecha[0]; ?></strong> - vot&oacute; <?php echo $value["en_opcion"] ?> - <?php echo $value["en_comentario"] ?></li>
+  <?php } } ?>
+              
+            </ul>
+
+        </section><!-- /mainCol -->        
+        <section class="sidebar right short" style="width: 300px;">
+            <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=434469869953110";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" data-href="https://www.facebook.com/VillaMaritimaElCondor" data-width="300" data-show-faces="true" data-stream="true" data-header="true"></div>
+        </section><!-- /sidebar -->
+      </div>
+    </section>

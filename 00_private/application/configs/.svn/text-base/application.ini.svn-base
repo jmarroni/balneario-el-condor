@@ -1,0 +1,35 @@
+[production]
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+includePaths.library = APPLICATION_PATH "/../library"
+bootstrap.path = APPLICATION_PATH "/Bootstrap.php"
+bootstrap.class = "Bootstrap"
+appnamespace = "Application"
+resources.frontController.controllerDirectory = APPLICATION_PATH "/controllers"
+resources.frontController.params.displayExceptions = 0
+
+
+;y el nombre de la clase debe ser Custom_
+autoloaderNamespaces.custom = "Custom_"
+
+resources.db.adapter = "Pdo_Mysql"
+resources.db.params.host = "localhost"
+resources.db.params.username = "balneari"
+resources.db.params.password = "dbm348J"
+resources.db.params.dbname = "balneario-el-condor"
+
+resources.layout.layoutPath = APPLICATION_PATH "/layouts/scripts/"
+
+
+[staging : production]
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+
+[testing : production]
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+
+[development : production]
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+resources.frontController.params.displayExceptions = 0

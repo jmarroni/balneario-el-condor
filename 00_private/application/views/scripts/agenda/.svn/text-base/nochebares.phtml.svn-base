@@ -1,0 +1,293 @@
+     <!--Isotop styles -->
+     <link href="css/sorting.css" rel="stylesheet" />
+     <link href="css/main.css" rel="stylesheet" />
+     <link href="css/animation.css" rel="stylesheet" />
+  <!--jackbox styles -->
+  <link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--==============================content=================================-->
+    <script> 
+  /*$( "#dialog" ).dialog({
+                  autoOpen: false
+                });*/
+    function modalInfoOpen(identificador){
+      $('#modalMenu').modal('show');
+      var html ="";
+      var restaurante_titulo      ='';
+      var restaurante_menu        ='';
+      var restaurante_espectaculo ='';
+      var restaurante_precio      ='';
+      var restaurante_pago      ='';
+      var imagen = "";
+      var reserva = '';
+      switch(identificador) {
+            case 1:
+                restaurante_titulo      ='Restaurante Arenas del Sur';
+                restaurante_menu        ='<p><b>Cena:</b> Empanadas de cerdo (2), seguido de pernil de ternera con papas y criolla como plato principal y barra helada con salsas como plato dulce de despedida.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Covers y tangos</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 200</p>';
+                restaurante_pago      ='<p><b>Medios de pago:</b> Se podrá abonar con tarjeas Visa y Mastercard.';
+                reserva = '<p><b>Reservas al </b>2920 15 32 33 22</p>';
+                break;
+            case 2:
+                restaurante_titulo      ='Restaurante Los Trentinos';
+                restaurante_menu        ='<p><b>Cena:</b> Entrada de rabas o empanadas criollas, siguiendo como plato principal un pernil de ternera, con salsa de champignones y aderezos, acompañado con papas y batatas grillé. Se culmina con flan casero.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> "Fuerza Joven" chamamé y melódicos</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 180</p>';
+                restaurante_pago      ='<p><b>Medios de pago:</b> Sin información.';
+                reserva = '<p><b>Reservas al </b>2920 15 67 37 73</p>';
+                break;
+            case 3:
+                restaurante_titulo      ='Restaurante Lupe\'s';
+                restaurante_menu        ='<p><b>Cena:</b> Crepes morados de primavera, continuando con arrollado de cordero patagónico con papas bravas y la copa "lupe\'s" como postre.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Agrupación musical Pridebailo con aportes de jazz y blues</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 270</p>';
+                restaurante_pago      ='<p><b>Medios de pago:</b> Se podrá abonar con tarjeas Visa y Mastercard.';
+                reserva = '<p><b>Reservas al </b>2920 15 32 33 22</p>';
+                break;
+            case 4:
+                restaurante_titulo      ='Restaurante Al Reparo';
+                restaurante_menu        ='<p><b>Cena:</b> Cazuela de pollo con vegetales cerrando la noche con una copa de frutas.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Covers "Deluxe" de género pop - rock</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 200</p>';
+                restaurante_pago      ='<p><b>Medios de pago:</b> Se podrá abonar con tarjetas Visa débito.';
+                reserva = '<p><b>Reservas al </b>2920 15 51 51 96</p>';
+                break;
+            case 5:
+                restaurante_titulo      ='Restaurante Pizzaiolo';
+                restaurante_menu        ='<p><b>Cena:</b> Menú de parrilla con ensaladas.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Roli Pérez género folclórico</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 250</p>';
+                restaurante_pago      ='<p><b>Medios de pago:</b> Sin información';
+                reserva = '<p><b>Reservas al </b>2920 15 24 17 91</p>';
+                break;
+            default:
+                //default code block
+        }
+
+
+
+        $(".modal-title").html(restaurante_titulo);
+        $(".modal-body").html(restaurante_menu + restaurante_espectaculo + restaurante_precio + restaurante_pago+reserva);
+        
+       // $( "#dialog" ).dialog( "open" );
+        //$(".ui-dialog-title").html("Arenas del Sur menu descripción");
+    }
+</script>
+<div id="content"> 
+
+  <div class="row-title">
+    <div class="container">
+      <h2>Noche de Bares 2016</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span>Noche de Bares</span></div>
+    </div>
+  </div>
+  <div class="content-div extra">
+    <div class="container">
+      <h3 class="titleanv">Eleg&iacute; tu opci&oacute;n para el 27 a la noche</h3> 
+      <article>
+        <div id="work_container" class="clearfix projects">
+          <ul class="row inline" style="margin-left:-1%;width:120%; ">
+                <li class="item element category01" id="arenasdelsur" data-category="category01"> 
+                  <div class="box-work">
+                  <figure>
+                    <a onclick="modalInfoOpen(1);" href="#arenasdelsur" >            
+                      <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/arenas-del-sur_noche_bares.jpg" alt="Noche de Bares, Arenas del Sur">            
+                    </a> 
+                  </figure>
+                  <span> <strong><a onclick="modalInfoOpen(1);" href="#arenasdelsur">Arenas del Sur</a> </strong> <i><a honclick="modalInfoOpen(1);" href="#arenasdelsur">Men&uacute; y espectaculo</a></i> </span> 
+                  </div> 
+                </li>
+                <li class="item element category01" id="trentinos" data-category="category01"> 
+                  <div class="box-work">
+                  <figure>
+                    <a onclick="modalInfoOpen(2);" href="#trentinos" >            
+                      <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/trentinos_noche_bares.jpg" alt="Noche de Bares, Trentinos">            
+                    </a> 
+                  </figure>
+                  <span> <strong><a onclick="modalInfoOpen(2);" href="#trentinos">Los Trentinos</a> </strong> <i><a onclick="modalInfoOpen(2);" href="#trentinos">Men&uacute; y espectaculo</a></i> </span> 
+                  </div> 
+                </li>
+                <li class="item element category01" data-category="category01"> 
+                  <div class="box-work">
+                  <figure>
+                    <a onclick="modalInfoOpen(3);" href="#lupes" >            
+                      <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/lupes-resto_noche-bares.jpg" alt="Noche de Bares, Lupes">            
+                    </a> 
+                  </figure>
+                  <span> <strong><a onclick="modalInfoOpen(3);" href="#lupes">Lupe's</a> </strong> <i><a onclick="modalInfoOpen(3);" href="#lupes">Men&uacute; y espectaculo</a></i> </span> 
+                  </div> 
+                </li>
+                <li class="item element category01" id="#alreparo" data-category="category01"> 
+                  <div class="box-work">
+                  <figure>
+                    <a onclick="modalInfoOpen(4);" href="#alreparo" >            
+                      <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/al-reparo_noche_bares.jpg" alt="Noche de Bares, Al Reparo">            
+                    </a> 
+                  </figure>
+                  <span> <strong><a onclick="modalInfoOpen(4);" href="#alreparo">Al Reparo</a> </strong> <i><a onclick="modalInfoOpen(4);" href="#alreparo">Men&uacute; y espectaculo</a></i> </span> 
+                  </div> 
+                </li>
+                <li class="item element category01" data-category="category01"> 
+                  <div class="box-work">
+                  <figure>
+                    <a onclick="modalInfoOpen(5);" href="#pizzaiolo" >          
+                      <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/pizzaiolo_noche-bares.jpg" alt="Noche de Bares, Pizzaiolo">            
+                    </a> 
+                  </figure>
+                  <span> <strong><a onclick="modalInfoOpen(5);" href="#pizzaiolo">Pizzaiolo</a> </strong> <i><a onclick="modalInfoOpen(5);" href="#pizzaiolo">Men&uacute; y espectaculo</a></i> </span> 
+                  </div> 
+                </li>
+          </ul>
+        </div>
+      </article> 
+    </div>
+  </div>
+
+  
+</div>
+
+
+  <script src="/js/jquery.isotope.js"></script>
+  <script>
+
+    
+
+   jQuery(window).load(function() {  
+    var jQuerycontainer = jQuery('.projects');
+    //Run to initialise column sizes
+    updateSize();
+
+    //Load masonry when images all loaded
+/*
+        jQuerycontainer.isotope({
+            // options
+            itemSelector : '.element',  
+            layoutMode : 'masonry',
+            transformsEnabled: false,
+            columnWidth: function( containerWidth ) {
+                containerWidth = jQuerybrowserWidth;
+                return Math.floor(containerWidth / jQuerycols);
+              }
+        });
+    */
+      // update columnWidth on window resize
+    jQuery(window).smartresize(function(){  
+        updateSize();
+        jQuerycontainer.isotope( 'reLayout' );
+    });
+
+  
+    //Set item size
+    function updateSize() {
+        jQuerybrowserWidth = jQuerycontainer.width();
+        jQuerycols = 2;
+
+        if (jQuerybrowserWidth >= 1200) {
+            jQuerycols = 2;
+        }
+        else if (jQuerybrowserWidth >= 980 && jQuerybrowserWidth < 1200) {
+            jQuerycols = 2;
+        }
+    
+       else if (jQuerybrowserWidth >= 768 && jQuerybrowserWidth < 979) {
+            jQuerycols = 2;
+        }
+    
+    
+        else if (jQuerybrowserWidth >= 401 && jQuerybrowserWidth < 767) {
+            jQuerycols = 2;
+        }
+        else if (jQuerybrowserWidth < 400) {
+            jQuerycols = 1;
+        }
+
+        //console.log("Browser width is:" + jQuerybrowserWidth);
+        //console.log("Cols is:" + jQuerycols);
+
+        // jQuerygutterTotal = jQuerycols * 20;
+    jQuerybrowserWidth = jQuerybrowserWidth; // - jQuerygutterTotal;
+        jQueryitemWidth = jQuerybrowserWidth / jQuerycols;
+        jQueryitemWidth = Math.floor(jQueryitemWidth);
+
+        jQuery(".element").each(function(index){
+            jQuery(this).css({"width":jQueryitemWidth+"px"});             
+        });
+      
+    
+  var jQueryoptionSets = jQuery('#options .option-set'),
+    jQueryoptionLinks = jQueryoptionSets.find('a');
+
+  jQueryoptionLinks.click(function(){
+  var jQuerythis = jQuery(this);
+  // don't proceed if already selected
+  if ( jQuerythis.hasClass('selected') ) {
+    return false;
+  }
+  var jQueryoptionSet = jQuerythis.parents('.option-set');
+  jQueryoptionSet.find('.selected').removeClass('selected');
+  jQuerythis.addClass('selected');
+
+  // make option object dynamically, i.e. { filter: '.my-filter-class' }
+  var options = {},
+    key = jQueryoptionSet.attr('data-option-key'),
+    value = jQuerythis.attr('data-option-value');
+  // parse 'false' as false boolean
+  value = value === 'false' ? false : value;
+  options[ key ] = value;
+  if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+    // changes in layout modes need extra logic
+    changeLayoutMode( jQuerythis, options )
+  } else {
+    // otherwise, apply new options
+    jQuerycontainer.isotope( options );
+  }
+  
+  return false;
+  });   
+    
+    };      
+    
+    });
+  </script>
+
+   
+    <script type="text/javascript" src="/jackbox/js/libs/Jacked.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox-swipe.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox.js"></script>
+    <script type="text/javascript" src="/jackbox/js/libs/StackBlur.js"></script>
+ 
+    <script>
+     /* $(document).ready(function() {    
+ // jQuery(".jackbox[data-group]").jackBox("init",{deepLinking: true});
+      })*/
+    </script>
+<style type="text/css">
+   h4{
+    font-size: 20px;
+    line-height: 20px;
+    color: #1B1B1B;
+    display: block;
+    font-weight: bold;
+    padding: 10px 0 10px;
+  }
+
+</style>
+
+<div class="modal fade" id="modalMenu" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

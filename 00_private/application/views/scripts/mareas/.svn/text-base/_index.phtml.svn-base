@@ -1,0 +1,115 @@
+<?php if (isset($this->toWord)) {
+	header("Content-type: application/vnd.ms-word");
+	header("Content-Disposition: attachment; Filename=".date("d-m-Y")."-Tabla-de-mareas-El-Condor.docx");
+	?>
+<style>
+<!--
+td {
+	border: 1px solid;
+}
+
+.impar {
+	color: #2269a9;
+}
+
+table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	width: 900px;
+}
+
+.tituloAmarillo {
+	text-align: center;
+}
+-->
+</style>
+	<?php } ?>
+<div id="content">
+	<div class="row-title">
+		<div class="container">
+			<h2>Tabla de Mareas </h2>
+			
+			<div class="breadcrumb">
+				<span><a href="/">Inicio</a> </span> <i class="fa fa-angle-right"></i><span><a
+					href="/tablas-mareas-pleamar">Tabla de Mareas</a> </span> <i
+					class="fa fa-angle-right"></i><?php echo $this->playas; ?>
+			</div>
+			
+		</div>
+		
+	</div>
+	<div class="row-landing4">
+	
+		<div class="container v_space ls_tables">
+			<div class="m_xm_top_20">
+				<div class="list-buttons clearfix">
+					<a href="/tablas-mareas-pleamar" class="btn-small <?php echo ($this->playas != "El Condor")?"btn-blue":""; ?> btn-extra">El Condor</a>
+					<a href="/tablas-mareas-pleamar/playa/loberia" class="btn-small <?php echo ($this->playas != "Loberia")?"btn-blue":""; ?> btn-extra">Loberia</a>
+					<a href="/tablas-mareas-pleamar/playa/bahia-rosa" class="btn-small <?php echo ($this->playas != "Bah&iacute;a-rosa")?"btn-blue":""; ?> btn-extra">Bah&iacute;a rosa</a>
+					<a href="/tablas-mareas-pleamar/playa/bahia-creek" class="btn-small <?php echo ($this->playas != "Bahia-creek")?"btn-blue":""; ?> btn-extra">Bahia creek</a>
+				</div>
+				<div class="fa-hover span3"><a href="/tabla-mareas.pdf"><i class="fa fa-download"></i> Descargar en version pdf</a></div>
+				<table class="tab_var1">
+					<tr>
+						<td class="tab_var1_pad">
+							<div class="v_tables">
+								<table>
+									<tr>
+										<td>Domingo</td>
+										<td>Lunes</td>
+										<td>Martes</td>
+										<td>Mi&eacute;rcoles</td>
+										<td>Jueves</td>
+										<td>Viernes</td>
+										<td>S&aacute;bado</td>
+									</tr>
+									<?php for ($col=0; $col < 5 ; $col++) { ?>
+									<tr>
+									<?php for ($fila=0; $fila < 7 ; $fila++) { //filas
+										switch ($fila) {
+											case '0': $dia = 'Sunday';break;
+											case '1': $dia = 'Monday';break;
+											case '2': $dia = 'Tuesday';break;
+											case '3': $dia = 'Wednesday';break;
+											case '4': $dia = 'Thursday';break;
+											case '5': $dia = 'Friday';break;
+											case '6': $dia = 'Saturday';break;
+
+										}
+										?> 
+										<td><span class="dia"><?php echo $this->arrMareasDiarias[$dia][$col]["numero"]; ?>
+										</span>
+											<div class="boxMareas">
+											<?php if ($this->arrMareasDiarias[$dia][$col]["numero"]){ ?>
+												<ul>
+												<?php
+												$PrimerItem = ($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"] > $this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"])? "<b>Bajamar</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"], 0, 5): "Pleamar <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"], 0, 5);
+												$SegundoItem= ($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"] < $this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"])? "<b>Bajamar</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"], 0, 5): "Pleamar <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"], 0, 5);
+												$TercerItem = ($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"] > $this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"])?  "<b>Bajamar</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"], 0, 5): "Pleamar <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"], 0, 5);
+												$CuartoItem = ($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"] < $this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"])?  "<b>Bajamar</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"], 0, 5): "Pleamar <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"], 0, 5);
+												?>
+
+
+													<li class="impar"><?php echo str_replace("00:00", "-", $PrimerItem); ?>
+													</li>
+													<li><?php echo str_replace("00:00", "-", $SegundoItem); ?>
+													</li>
+													<li class="impar"><?php echo str_replace("00:00", "-", $TercerItem); ?>
+													</li>
+													<li><?php echo str_replace("00:00", "-", $CuartoItem); ?></li>
+												</ul>
+												<?php } ?>
+											</div>
+										</td>
+										<?php } ?>
+									</tr>
+									<?php } ?>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

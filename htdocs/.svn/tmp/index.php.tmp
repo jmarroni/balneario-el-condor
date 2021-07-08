@@ -1,0 +1,53 @@
+<?php
+/*error_reporting(E_ERROR | E_PARSE);
+if ($_SERVER['SERVER_NAME'] == "js.balneario-el-condor.com.ar" ||
+	$_SERVER['SERVER_NAME'] == "css.balneario-el-condor.com.ar" ||
+	$_SERVER['SERVER_NAME'] == "img.balneario-el-condor.com.ar"){
+exit();
+}
+if ($_SERVER['SERVER_NAME'] == "balneario-el-condor.com.ar"){
+	header ('HTTP/1.1 301 Moved Permanently');
+  	header ('Location: http://www.balneario-el-condor.com.ar/');
+  	exit();
+}
+error_reporting(E_ERROR | E_PARSE);
+if ($_SERVER['SERVER_NAME'] == "js.balneario.elcondor.com.ar" ||
+	$_SERVER['SERVER_NAME'] == "css.balneario.elcondor.com.ar" ||
+	$_SERVER['SERVER_NAME'] == "img.balneario.elcondor.com.ar"){
+exit();
+}
+if ($_SERVER['SERVER_NAME'] == "local.balneario.elcondor.com.ar"){
+	header ('HTTP/1.1 301 Moved Permanently');
+  	header ('Location: http://local.balneario.elcondor.com.ar/');
+  	exit();
+}*/
+/*error_reporting(E_ALL);
+ini_set('display_errors', '1');*/
+set_time_limit(3600);
+// Define path to application directory
+defined('APPLICATION_PATH')
+    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../00_private/application'));
+
+// Define application environment
+defined('APPLICATION_ENV')
+    || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'borjas'));
+
+// Ensure library/ is on include_path
+set_include_path(implode(PATH_SEPARATOR, array(
+    realpath(dirname(__FILE__).'/../../library'),
+    get_include_path(),
+)));
+
+/** Zend_Application */
+require_once 'Zend/Application.php';
+
+// Create application, bootstrap, and run
+$application = new Zend_Application(
+    APPLICATION_ENV,
+    APPLICATION_PATH . '/configs/application.ini'
+);
+
+
+
+$application->bootstrap()
+            ->run();

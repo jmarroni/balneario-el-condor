@@ -1,0 +1,160 @@
+<?php
+
+class IndexController extends Zend_Controller_Action
+{
+    public function init()
+    {
+
+        $this->view->metaKeywords="El Condor,Balneario,Viedma,Rio Negro,Playa,Verano,Costa Atlantica,La Boca,Desembocadura,Playa Bonita,Balenario Massini,Loberia,Caleta de los Loros,Villa Maritima El Condor,El Faro,Los Trentinos,Picoto";
+        $this->view->metaDescription="Ubicado a 30 km de la ciudad de Viedma, Rio Negro, posee playas de mas 150km de extension. Contacto: contacto@balneario-el-condor.com.ar; Telefono: +54 9 2920 15535353";
+        $Mareas = new Application_Model_DbTable_mareas();
+        $arrMareas = $Mareas->get('El Condor',date('Y-m-d'),4);
+        $this->view->arrMareas = $arrMareas;
+
+        
+        $Clima = new Application_Model_DbTable_clima();
+        $arrClima = $Clima->get(1);
+        $this->view->arrClima = $arrClima;
+
+        $this->view->param = array(
+                "home"          => 'class="activo radiusPrimero"',
+                "Ubicacion"     => '',
+                "Servicio"      => '',
+                "Imagenes"      => '',
+                "Novedades"     => '',
+                "Clasificados"  => '',
+                "Fauna"         => '',
+                "Hospedaje"         => '',
+                "Nocturno"         => '',
+                "Contacto"         => '',
+                "Informacion"         => '',
+                "Historia"      => 'class="radiusUltimo"'
+                );
+
+        $Cercanos = new Application_Model_DbTable_cercanos();
+        $arrCercanos = $Cercanos->get(6);
+        $this->view->arrCercanos = $arrCercanos;
+        $Gourmet = new Application_Model_DbTable_gourmet();
+        $arrGourmet = $Gourmet->get(6);
+        $this->view->arrGourmet = $arrGourmet;
+
+        $Hospedaje = new Application_Model_DbTable_hospedaje();
+        $arrHospedaje1 = $Hospedaje->get(6);
+        $this->view->arrHospedaje = $arrHospedaje1;
+                
+       	$Hospedaje = new Application_Model_DbTable_hospedaje();
+        $arrHospedaje1 = $Hospedaje->get(6,1);
+        $this->view->arrHospedaje1 = $arrHospedaje1;
+
+        $Hospedaje = new Application_Model_DbTable_hospedaje();
+        $arrHospedaje2 = $Hospedaje->get(6,2);
+        $this->view->arrHospedaje2 = $arrHospedaje2;
+        
+        $Hospedaje = new Application_Model_DbTable_hospedaje();
+        $arrHospedaje3 = $Hospedaje->get(6,3);
+        $this->view->arrHospedaje3 = $arrHospedaje3;
+        
+        $Nocturno = new Application_Model_DbTable_nocturno();
+        $arrNocturno = $Nocturno->get(99);
+        $this->view->arrNocturno = $arrNocturno;
+
+        $Imagenes = new Application_Model_DbTable_imagenes();
+        $arrImagenes = $Imagenes->get(99);
+        $this->view->arrImagenes = $arrImagenes;
+    }
+
+    public function mailAction(){
+        $config = array('ssl' => 'tls',
+                'auth' => 'login',
+                'username' => 'jmarroni@gmail.com',
+                'password' => 'Afoo2te1');
+
+        $transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
+        $bodytext = "Texto del mensaje";
+        $email = "jmarroni@gmail.com";
+        $username = "Juan Pablo eGlow";
+
+        $mail = new Zend_Mail();
+        $mail->setBodyHtml($bodytext);
+        $mail->setFrom('jmarroni@gmail.com');
+        $mail->addTo($email, $username);
+        $mail->setSubject('Profile Activation');
+        $mail->send($transport);
+        exit();
+    }
+
+    public function consultarpublicidadAction(){
+        $param = $this->_getAllParams();
+
+        $consulta= array('pu_nombre' => $this->_getParam('nombre'), 
+                        'pu_apellido' => $this->_getParam('apellido'),
+                        'pu_email' => $this->_getParam('email'),
+                        'pu_comentario' => $this->_getParam('comentario'),
+                        'pu_zona' => $this->_getParam('zona')
+                        );
+        $pu_model = new Application_Model_publiciteMapper();
+        $publicidad = $pu_model->save($consulta);
+        if($this->_getParam('email')!= ''){
+            $titulo = "Nueva Consulta por Publicidad";
+                                $para = "jmarroni@gmail.com";
+                                $mensaje = "Se ha recibido una nueva consulta para publicidad en Balneario El Condor <br>".$this->_getParam('nombre')." ".$this->_getParam('apellido').", comentó: <br>".$this->_getParam('comentario').". <br> Mail de Contacto: ".$this->_getParam('email').".";
+                                // Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
+                                $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+                                $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            
+                                // Cabeceras adicionales
+                                // $cabeceras .= 'To: micaelak@guiaoleo.com' . "\r\n";
+                                $cabeceras .= 'To: jmarroni@gmail.com' . "\r\n";
+                                $cabeceras .= 'From: Web ElCondor <balneario-el-condor@web.com>' . "\r\n";
+            
+                                // Mail it
+                                $comentario = "";
+                                (mail($para, $titulo, $mensaje, $cabeceras));
+        }
+                        
+        echo $publicidad;
+        exit();
+    }
+
+    public function indexAction()
+    {
+        // DATOS
+        $clubDeAmigos = new Application_Model_DbTable_clubdeamigos();
+        $clubDeAmigos = $clubDeAmigos->get(2);
+        $this->view->clubDeAmigos = $clubDeAmigos;
+
+        $ag_model = new Application_Model_DbTable_agenda();
+        $arrDestacados = $ag_model->get(1, date("Y-m-d"),3);
+        $this->view->arrDestacados = $arrDestacados;
+        $Novedades = new Application_Model_DbTable_novedades();
+        $arrNovedades = $Novedades->get(6,"nov.nov_id");
+        for ($i = 0; $i < sizeof($arrNovedades); $i++) {
+        	$fecha_hora = explode("-", substr($arrNovedades[$i]["nov_fechahora"], 0, 10));
+        	$arrNovedades[$i]["dia"] = $fecha_hora[2];
+        	switch (intval($fecha_hora[1])) {
+        		case 1: $mes = "ENE";break;
+        		case 2: $mes = "FEB";break;
+        		case 3: $mes = "MAR";break;
+        		case 4: $mes = "ABR";break;
+        		case 5: $mes = "MAY";break;
+        		case 6: $mes = "JUN";break;
+        		case 7: $mes = "JUL";break;
+        		case 8: $mes = "AGO";break;
+        		case 9: $mes = "SEP";break;
+        		case 10:$mes = "OCT";break;
+        		case 11:$mes = "NOV";break;
+        		case 12:$mes = "DIC";break;
+        	}
+			        	
+        	$arrNovedades[$i]["mes"] = $mes;
+        	
+        }
+        $this->view->arrNovedades = $arrNovedades;
+
+        
+
+
+    }
+
+}
+

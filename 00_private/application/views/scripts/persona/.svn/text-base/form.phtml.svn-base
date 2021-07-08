@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>UbbiMap Login</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="main-popup" style="text-align:center;overflow-x:hidden;">
+    <div class="col-md-12" >
+    <img src="../img/logo2.png">
+    </div>
+    <div class="col-md-12" style="padding:20px 0px;">
+    <img src="../img/crear-cuenta2.png" style="width:100%;">
+    </div>
+    <div class="col-md-12">
+    <form id="registracion" name="registracion">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Nombre</span>
+          <input type="text" class="form-control" value="<?php echo $this->nombre; ?>" name="nombre" placeholder="Juan" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Apellido</span>
+          <input type="text" class="form-control" value="<?php echo $this->apellido; ?>" name="apellido" placeholder="Perez" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2">Email</span>
+          <input type="text" class="form-control" value="<?php echo $this->mail; ?>" name="mail" id="mail" placeholder="mail@mail.com" aria-describedby="basic-addon2">
+        </div>
+        
+        <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2">Sexo</span>
+          <input type="text" class="form-control" value="<?php echo $this->sexo; ?>" name="sexo" placeholder="Masculino o Femenino" aria-describedby="basic-addon2">
+        </div>
+        
+        <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2">Pa&iacute;s</span>
+          <input type="text" class="form-control" value="<?php echo $this->pais; ?>" name="pais" id="pais" placeholder="Argentina, Uruguay" aria-describedby="basic-addon2">
+        </div>
+        
+        <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2">Celular codigo de ar&eacute;a</span>
+             <input type="text" class="form-control" value="" name="codigopais" placeholder="+23" aria-describedby="basic-addon2" style="width:50px;">
+              <span class="input-group-addon" id="sizing-addon1"> - </span>
+              <input type="text" class="form-control" value="" name="numero" placeholder="9 11 35955798" aria-describedby="sizing-addon1">
+			</div>
+        <input type="hidden" value="<?php echo $this->id; ?>" name="fbcid" id="fbcid" />
+        <div class="input-group" style="margin: 10px 0px;text-align: right;width: 100%;"><input type="image" src="../img/cancelar.png">&nbsp;<input type="image" src="../img/bot-registro.png"></div>
+    </form>
+    </div>
+   <div class="col-md-12" style="text-align:right;margin-top: 26px;">
+   <div class="col-md-3" style="float: left;"><a href="new-user.html" target="_self"><img src="../img/atras.png"></a></div>
+   <div class="col-md-9" style="text-align:right;margin-top: -12px;">
+   <div class="checkbox">
+    <label>
+      <input type="checkbox" id = "tyc">He leido y acepto los terminos de privacidad<br><a href="#" target="_blank">Leer T&eacute;rminos y Condiciones</a>
+    </label>
+  </div></div>
+   </div>
+</div>
+<script type="text/javascript" src="/js/usuarioFunctions.js?12345"></script>
+</body>
+</html>

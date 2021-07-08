@@ -1,0 +1,32 @@
+<?php 
+header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
+header("Content-Disposition: attachment; filename=".date("Y-m-d")."_socios_completos.xls");
+header("Expires: 0");
+header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+header("Cache-Control: private",false);
+?>
+
+<table class="table table-bordered table-striped js-dataTable-simple">
+    <thead>
+        <tr>
+            <th class="text-center">Socio</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th class="hidden-xs" style="width: 15%;">Domicilio</th>
+            <th class="hidden-xs" style="width: 15%;">Tel&eacute;fono</th>
+            <th class="hidden-xs" style="width: 15%;">Cuota</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->socios as $value) {?>
+        <tr>
+            <td class="text-center"><?php echo $value["IdSocio"]; ?></td>
+            <td class="text-center"><?php echo utf8_encode($value["Nombre_"]); ?></td>
+            <td class="font-w600"><?php echo utf8_encode($value["Apellidos_"]); ?></td>
+            <td class="hidden-xs"><?php echo utf8_encode($value["DireccionDomicilio"]); ?></td>
+            <td class="hidden-xs"><?php echo $value["TelefonoCasa"]; ?></td>
+            <td class="hidden-xs"><?php echo $value["CuotasSocio"]; ?></td>
+        </tr>
+       <?php } ?>
+    </tbody>
+</table>

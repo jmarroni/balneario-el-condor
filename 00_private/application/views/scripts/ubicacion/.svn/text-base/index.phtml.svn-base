@@ -1,0 +1,55 @@
+<div id="content">
+  <div class="row-title">
+    <div class="container">
+      <h2>Villa Mar&iacute;tima El Condor</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i> Ubicaci&oacute;n</div>
+    </div>
+  </div>
+  
+  <div class="container content-div" style="text-align: justify">   
+   <p>
+A 30 kil&oacute;metros de Viedma, donde se unen el r&iacute;o Negro y el mar, se encuentra el balneario El C&oacute;ndor, Portal de Ingreso a la Patagonia Atl&aacute;ntica. Caracterizado por la extensi&oacute;n de sus playas y la presencia de la Colonia de loros mas grande del mundo.<br><br>
+<strong>Atractivos Hist&oacute;ricos y Religiosos:</strong><br>
+Mirador Ceferino Namuncur&aacute;: en el nacimiento del acantilado, la familia P&eacute;rez, erigi&oacute; una
+estatua como ofrenda a Ceferino Namuncur&aacute;, con una enorme cruz y una ermita. La ofrenda se
+realiz&oacute; en cumplimiento de una promesa a cambio de salud y lluvia, ya que una gran sequ&iacute;a
+estaba afectando a la regi&oacute;n. Hoy constituye un punto panor&aacute;mico desde donde se puede
+observar la belleza de la villa y la desembocadura del r&iacute;o en el mar.<br><br>
+Faro del R&iacute;o Negro: Fue inaugurado el 25 de mayo de 1887 por el General Lorenzo Winter con
+el objeto de ser un punto de referencia para los barcos que se acercan a esta zona de la costa.
+Fue el primer faro continental de la Patagonia, y actualmente es la se&ntilde;al m&aacute;s antigua en
+servicio con personal de custodia. Su altura sobre el nivel del mar es de 45.62 metros, y se&ntilde;ala
+el comienzo de los acantilados de la costa Patag&oacute;nica.<br><br>
+Iglesia "Stella Maris": Las primeras misas del balneario se celebraban en las casas de algunos
+vecinos de El C&oacute;ndor, quienes a&ntilde;os mas tarde lograron con gran esfuerzo, la construcci&oacute;n de
+la capilla, que fue bendecida bajo el nombre de Stella Maris el 23 de enero de 1960.
+            </p><br><br>
+            <div id="map_canvas" style="width:100%;height: 512px;" ></div>
+    </div>
+   
+  </div>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<?php
+$coordenadas = explode(",",str_replace(")","",str_replace("(", "", $this->cercanos[0]["ce_googlemaps"])));
+?>
+<script type="text/javascript">
+    var initialLocation;
+    var browserSupportFlag =  new Boolean();
+    var map;
+    var infowindow = new google.maps.InfoWindow();
+    var latitud  = '-41.043258';
+    var longitud = '-62.826731';
+    var myOptions = {
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.SATELLITE
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      
+
+        initialLocation = new google.maps.LatLng(latitud,longitud);
+        contentString = "<?php echo $this->cercanos[0]["ce_titulo"]; ?>";
+        map.setCenter(initialLocation);
+        infowindow.setContent(contentString);
+        infowindow.setPosition(initialLocation);
+        infowindow.open(map);
+</script>

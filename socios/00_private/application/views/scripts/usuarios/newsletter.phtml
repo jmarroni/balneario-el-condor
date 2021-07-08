@@ -1,0 +1,68 @@
+<main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading">
+                                Newsletter <small>Listados de suscriptos al newsletter</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Reportes</li>
+                                <li><a class="link-effect" href="/usuarios/newsletter">newsletter</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-content">
+                            
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <div class="row">
+                                <table id="tablas_selector" class="table table-bordered table-striped ">
+                                    <thead>
+                                        <tr>
+                                            <th class="hidden-xs" style="width: 15%;">N°</th>
+                                            <th class="hidden-xs">Usuario</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                <?php foreach ($this->arrSuscriptos as $value) {  ?>
+                                                        <tr>
+                                                            <td class="text-center"><?php echo $value->getNe_id();?></td>
+                                                            <td class="text-center"><?php echo $value->getNe_mail(); ?></td>
+                                                        </tr>
+                                                <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+           
+            <style type="text/css">
+            #filtro{
+                width: 12%;
+                border: 1px solid #BEBEBE;
+                margin-left: 2%;
+            }
+            .leftdos{
+                margin-left: 2%;   
+            }
+            #jerarquia{
+                width: 264px;
+            }
+            .bottomuno{
+                margin-bottom: 1%;
+            }
+            </style>

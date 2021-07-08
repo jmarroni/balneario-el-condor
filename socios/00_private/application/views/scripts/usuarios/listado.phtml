@@ -1,0 +1,381 @@
+<main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading">
+                                Usuarios <small>Listados de usuarios dados de alta</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Usuarios</li>
+                                <li><a class="link-effect" href="">DataTables</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-content">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select id="jerarquia" class="form-control">
+                                        <option value=''>Seleccionar Jerarquía</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==1){ ?>
+                                            <option value='1' selected>
+                                        <?php } else { ?>
+                                            <option value='1'>
+                                        <?php } ?>
+                                            CEO</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==2){ ?>
+                                            <option value='2' selected>
+                                        <?php } else { ?>
+                                            <option value='2'>
+                                        <?php } ?>Due&ntilde;o</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==3){ ?>
+                                            <option value='3' selected>
+                                        <?php } else { ?>
+                                            <option value='3'>
+                                        <?php } ?>Ejecutivo</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==4){ ?>
+                                            <option value='4' selected>
+                                        <?php } else { ?>
+                                            <option value='4'>
+                                        <?php } ?>COO</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==5){ ?>
+                                            <option value='5' selected>
+                                        <?php } else { ?>
+                                            <option value='5'>
+                                        <?php } ?>Presidente</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==6){ ?>
+                                            <option value='6' selected>
+                                        <?php } else { ?>
+                                            <option value='6'>
+                                        <?php } ?>VP</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==7){ ?>
+                                            <option value='7' selected>
+                                        <?php } else { ?>
+                                            <option value='7'>
+                                        <?php } ?>Gerente</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==8){ ?>
+                                            <option value='8' selected>
+                                        <?php } else { ?>
+                                            <option value='8'>
+                                        <?php } ?>Consultor</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==9){ ?>
+                                            <option value='9' selected>
+                                        <?php } else { ?>
+                                            <option value='9'>
+                                        <?php } ?>Socio</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==10){ ?>
+                                            <option value='10' selected>
+                                        <?php } else { ?>
+                                            <option value='10'>
+                                        <?php } ?>Director</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==11){ ?>
+                                            <option value='11' selected>
+                                        <?php } else { ?>
+                                            <option value='11'>
+                                        <?php } ?>CFO</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==12){ ?>
+                                            <option value='12' selected>
+                                        <?php } else { ?>
+                                            <option value='12'>
+                                        <?php } ?>Analista</option>
+                                        <?php if(isset($_GET["j"]) && $_GET["j"]==13){ ?>
+                                            <option value='13' selected>
+                                        <?php } else { ?>
+                                            <option value='13'>
+                                        <?php } ?>Otro</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select id="actividad" class="form-control">
+                                        <option value=''>Seleccionar Actividad</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==1){ ?>
+                                            <option value='1' selected>
+                                        <?php } else { ?>
+                                            <option value='1'>
+                                        <?php } ?>Transporte A&eacute;reo</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==2){ ?>
+                                            <option value='2' selected>
+                                        <?php } else { ?>
+                                            <option value='2'>
+                                        <?php } ?>Transporte Terrestre</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==3){ ?>
+                                            <option value='3' selected>
+                                        <?php } else { ?>
+                                            <option value='3'>
+                                        <?php } ?>Servicios Profesionales / Consultor&iacute;a</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==4){ ?>
+                                            <option value='4' selected>
+                                        <?php } else { ?>
+                                            <option value='4'>
+                                        <?php } ?>DMO / Desarrollo de destinos</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==5){ ?>
+                                            <option value='5' selected>
+                                        <?php } else { ?>
+                                            <option value='5'>
+                                        <?php } ?>Hoteler&iacute;a</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==6){ ?>
+                                            <option value='6' selected>
+                                        <?php } else { ?>
+                                            <option value='6'>
+                                        <?php } ?>Proveedor de Tecnolog&iacute;a</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==7){ ?>
+                                            <option value='7' selected>
+                                        <?php } else { ?>
+                                            <option value='7'>
+                                        <?php } ?>Agencia de viajes Tradicional</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==8){ ?>
+                                            <option value='8' selected>
+                                        <?php } else { ?>
+                                            <option value='8'>
+                                        <?php } ?>Asistencia al viajero</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==9){ ?>
+                                            <option value='9' selected>
+                                        <?php } else { ?>
+                                            <option value='9'>
+                                        <?php } ?>Asociaci&oacute;n</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==10){ ?>
+                                            <option value='10' selected>
+                                        <?php } else { ?>
+                                            <option value='10'>
+                                        <?php } ?>Educaci&oacute;n</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==11){ ?>
+                                            <option value='11' selected>
+                                        <?php } else { ?>
+                                            <option value='11'>
+                                        <?php } ?>Cruceros</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==12){ ?>
+                                            <option value='12' selected>
+                                        <?php } else { ?>
+                                            <option value='12'>
+                                        <?php } ?>PR / Agencia de MKT, Publicidad</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==13){ ?>
+                                            <option value='13' selected>
+                                        <?php } else { ?>
+                                            <option value='13'>
+                                        <?php } ?>Prensa</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==14){ ?>
+                                            <option value='14' selected>
+                                        <?php } else { ?>
+                                            <option value='14'>
+                                        <?php } ?>Operados</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==15){ ?>
+                                            <option value='15' selected>
+                                        <?php } else { ?>
+                                            <option value='15'>
+                                        <?php } ?>Agencia de viajes online</option>
+                                        <?php if(isset($_GET["a"]) && $_GET["a"]==16){ ?>
+                                            <option value='16' selected>
+                                        <?php } else { ?>
+                                            <option value='16'>
+                                        <?php } ?>Otro</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select id="evento" name="evento" class="form-control">
+                                      <option value="">Seleccione un evento</option>
+                                    <?php foreach ($this->arrEventos as $e => $eValue) { ?>
+                                        <?php if ( isset($_GET["ev"]) && ($eValue->getEv_id() == $_GET['ev']) ){ ?>
+                                          <option value="<?php echo $eValue->getEv_id(); ?>" selected><?php echo $eValue->getEv_nombre(); ?></option>  
+                                        <?php }else{ ?>
+                                          <option value="<?php echo $eValue->getEv_id(); ?>" ><?php echo $eValue->getEv_nombre(); ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <center>
+                                        <button class="btn btn-minw btn-default" id="filtro">Filtrar</button>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <table id="tablas_selector" class="table table-bordered table-striped js-dataTable-simple">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center"><input type="checkbox" name="select_all" id="select_all" /></th>
+                                            <th class="text-center">ID</th>
+                                            <th>Nombre</th>
+                                            <th class="hidden-xs">Apellido</th>
+                                            <th class="hidden-xs" style="width: 15%;">Tel&eacute;fono</th>
+                                            <th class="hidden-xs" style="width: 15%;">Email</th>
+                                            <th class="text-center" style="width: 10%;">Acci&oacute;n</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	<?php foreach ($this->arrUsuarios as $value) { ?>
+                                        <tr>
+                                            <td class="text-center"><input type="checkbox" name="select[]" value="<?php echo $value->getUs_id(); ?>" /></td>
+                                            <td class="text-center"><?php echo $value->getUs_id(); ?></td>
+                                            <td class="font-w600"><?php echo utf8_encode($value->getUs_nombre()); ?></td>
+                                            <td class="hidden-xs"><?php echo utf8_encode($value->getUs_apellido()); ?></td>
+                                            <td class="hidden-xs"><?php echo $value->getUs_telefono(); ?></td>
+                                            <td class="hidden-xs"><?php echo $value->getUs_email(); ?></td>
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-xs btn-default" type="button" onclick="loginPanel(<?php echo $value->getUs_id(); ?>)" data-toggle="tooltip" title="Ir al panel"><i class="fa">P</i></button>
+                                                    <a href="/usuarios/accion/id/<?php echo $value->getUs_id(); ?>"><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar Usuario"><i class="fa fa-pencil"></i></button></a>
+                                                    <a href="#"><button class="btn btn-xs btn-default" type="button" onclick="eliminarUsuario(<?php echo $value->getUs_id(); ?>);" id="remover_usuario" data-toggle="tooltip" title="Remover Usuario"><i class="fa fa-times"></i></button></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                       <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Simple -->
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div style="float:left">
+                                <button class="btn btn-sm btn-primary" id="enviar_invitaciones" type="button">Enviar Invitaciones</button>
+                            </div>&nbsp;
+                            <div style="margin-left:15px;float:left">
+                          		<select class="form-control" id="ronda" name="ronda">
+                          			<option>Seleccione un evento a enviar</option>
+				                    <?php foreach ($this->rondas as $e) { ?>
+			                        	<option value="<?php echo $e->evento->getEv_id(); ?>" ><?php echo $e->evento->getEv_nombre(); ?></option>
+			                        <?php } ?>
+		                        </select>
+                            </div>
+                             <div style="margin-left:0px;float:left">
+                          		<select class="form-control" id="evento_envio" name="evento_envio">
+                          			<option value="1">Envio por usuario</option>
+                          			<option value="2">Envio por evento</option>
+		                        </select>
+                            </div>
+                            <div id="enviando" style="float:left;display:none;">
+                                <div class="help-block"><img src="/imagenes/ajax-loader.gif" />&nbsp;
+                                Enviando invitaciones, esto puede tardar unos minutos dependiendo de la cantidad de invitaciones a enviar, por favor no cierre el navegador ni cambie de item.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+            <script>
+            
+            $('#select_all').change(function() {
+                var checkboxes = $("#tablas_selector").find(':checkbox');
+                if($(this).is(':checked')) {
+                    checkboxes.prop('checked', true);
+                } else {
+                    checkboxes.prop('checked', false);
+                }
+            });
+
+            $("#enviar_invitaciones").click(function(){
+                var arrCheckbox = [];
+                var i =0;
+                $("#tablas_selector").find(':checkbox').each(function( index ) {
+                    console.log($(this));
+                    if($(this).is(':checked')) {
+                        arrCheckbox[i] = $(this).val();
+                        i ++;
+                    }
+                });
+               // if (arrCheckbox.length > 0){
+                    $("#enviando").show();
+                    var jqxhr = $.ajax( "/usuarios/enviarinvitaciones/ids/" + arrCheckbox.join(',')+ "/ev/" + $('#ronda').val() + '/envento/' + $('#evento_envio').val() );
+                     jqxhr.done(function(data) {
+                         $("#enviando").hide();
+                      })
+                /*}else{
+                    alert('Error, debe seleccionar algun usuario');
+                }*/
+            })
+
+            $('#filtro').click(function(event) {
+                /* Las 3 Condiciones seteadas */
+                if ($("#jerarquia").val() != '' && $('#actividad').val() !='' && $("#evento").val() != '') {
+                    window.location= "/usuarios/listado/?j=" + $("#jerarquia").val()+ "&a=" + $("#actividad").val() +"&ev=" + $("#evento").val();
+                };
+                /* Jerarquia y Actividad */
+                if ($("#jerarquia").val() != '' && $('#actividad').val() !='' && $("#evento").val() == '') {
+                    window.location= "/usuarios/listado/?j=" + $("#jerarquia").val()+ "&a=" + $("#actividad").val();
+                };
+                /* Jerarquia y evento */
+                if ($("#jerarquia").val() != '' && $('#actividad').val() =='' && $("#evento").val() != '') {
+                    window.location= "/usuarios/listado/?j=" + $("#jerarquia").val()+ "&ev=" + $("#evento").val();
+                };
+                /* Actividad y Evento */
+                if ($("#jerarquia").val() == '' && $('#actividad').val() !='' && $("#evento").val() != '') {
+                    window.location= "/usuarios/listado/?a=" + $("#actividad").val()+ "&ev=" + $("#evento").val();
+                };
+                /* Jerarquia */
+                if ($("#jerarquia").val() != '' && $('#actividad').val() =='' && $("#evento").val() == '') {
+                    window.location= "/usuarios/listado/?j=" + $("#jerarquia").val();
+                };
+                /* Actividad */
+                if ($("#jerarquia").val() == '' && $('#actividad').val() !='' && $("#evento").val() == '') {
+                    window.location= "/usuarios/listado/?a=" + $("#actividad").val();
+                };
+                /* Evento */
+                if ($("#jerarquia").val() == '' && $('#actividad').val() =='' && $("#evento").val() != '') {
+                    window.location= "/usuarios/listado/?ev=" + $("#evento").val();
+                };
+                /*$.ajax({
+                    url: "/usuarios/listado/?j=" + $("#jerarquia").val()+ "&a=" + $("#actividad").val(), // Url to which the request is send
+                    type: "POST",             // Type of request to be send, called as method
+                    data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                    success: function(data)   // A function to be called if request succeeds
+                    {
+                        if(data!= ''){
+                            jQuery( "#mensajeOK" ).show();
+                            var new_position = jQuery('.page-heading').offset();
+                            window.scrollTo(new_position.left,new_position.top);
+                        }
+                        else {
+                            jQuery( "#mensajeERROR" ).show();
+                            var new_position = jQuery('.page-heading').offset();
+                            window.scrollTo(new_position.left,new_position.top);
+                        }
+                    }
+                })*/
+                //window.location= "/usuarios/listado/?j=" + $("#jerarquia").val()+ "&a=" + $("#actividad").val();
+            });
+            function eliminarUsuario(id){
+            	if (confirm('Esta seguro?')){
+	            	var jqxhr = $.ajax( "/usuarios/eliminar/id/" + id );
+			       	 jqxhr.done(function(data) {
+			       		 var obj = jQuery.parseJSON(data);
+			       		 console.log(obj.proceso);
+			       		 if (obj.proceso != "error"){
+			       		 	document.location.reload();
+			       		 }else{
+			       			jQuery( "#mensajeERROR" ).show();
+			           		var new_position = jQuery('.page-heading').offset();
+			           		window.scrollTo(new_position.left,new_position.top);
+			           	 }
+			       	  })
+			       	  jqxhr.fail(function() {
+			       		  jQuery( "#mensajeERROR" ).show();
+			       	  });
+            	}
+            }
+
+            function loginPanel(id){
+                var dataString = 'id=' + id;
+                $.ajax({
+                    url: "/usuarios/buscar", // Url to which the request is send
+                    type: "POST",             // Type of request to be send, called as method
+                    data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                    success: function(data)   // A function to be called if request succeeds
+                    {
+                        console.log(data);
+                    }
+                });
+            }
+            </script>

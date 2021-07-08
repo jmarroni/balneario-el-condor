@@ -1,0 +1,73 @@
+
+<link rel="stylesheet" type="text/css" href="/css/shadow/shadowbox.css">
+<script type="text/javascript" src="/js/shadowbox.js"></script>
+<script src="<?php echo RUTA_JS ?>/js/jquery.masonry.min.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            var $container = $('#container');
+            $container.imagesLoaded( function(){
+            $container.masonry({
+                  itemSelector: '.grid', 
+                  isAnimated:true,
+                  columnWidth: function( containerWidth ) {
+                                    return containerWidth / 5;
+                                  }
+                });
+            });
+        });
+        function grabarClick(id){
+            $.post( "imagen/visita/id/" + id, function( data ) {});
+        }
+</script>
+
+     <div  itemscope itemtype=" http://schema.org/NewsArticle" class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota" style="margin-top:20px;width:970px">
+            <h2>5ta Fiesta Nacional del Tejo en el Club de Amigos Balneario El Condor</h2>
+            <div itemprop="description">
+            <p style="text-align:justify">Una multitudinaria jornada cerr&oacute; este domingo la "5ta Fiesta Nacional del Tejo" que organiz&oacute; el club Amigos del balneario El C&oacute;ndor con la participaci&oacute;n de unos 200 participantes.<br>
+El torneo abierto de tr&iacute;os fue la competencia que nucle&oacute; al mayor n&uacute;mero de tejista y mostr&oacute; supremac&iacute;a de competidores oriundos de la provincia de Buenos Aires.<br>
+En varones ganaron los juninenses Mario Gard&uacute;, Sergio Gard&uacute; y Walter Verggini por 15 a 11 sobre los sanpedrinos H&eacute;ctor Monteros, Osvaldo Ojeda y Edgado Brescas&iacute;n.<br>
+Por su parte, la final de damas mostr&oacute; como vencedoras a las sanfernandinas Beatriz Correa, Marta Cuello y Graciela Quiroga, que derrotaron por 15 a 5 a los cipole&ntilde;as Mirta de Bisconti, Leonila San Mart&iacute;n e Irma Sosa.<br>
+El conjunto viedmense mejor ubicado result&oacute; el integrado por Sergio Casamiquela, Horacio Mendioroz y Jorge Dest&eacute;fanis, quienes llegaron hasta cuartos de final.<br>
+Por su parte, en octavos se quedaron los tr&iacute;os compuestos por Carlos Bogado - Jorge Franchino - V&iacute;ctor Aballay y tambi&eacute;n Jorge Cejas - H&eacute;ctor "Fito"Lastra - Juan Carlos "Nino" Navarro.<br>
+Entre las damas, el tr&iacute;o que compusieron Elba Tolosa, Aurora Aranda y Mar&iacute;a Isabel "Marisa" Chaparro fue eliminado en el primer cruce posterior a la fase clasificatoria.<br>
+<br><strong>Carlos Steding: "Se cumplieron las expectativas"</strong><br>
+El presidente del club Amigos del balneario El C&oacute;ndor, Carlos Steding, sostuvo que la instituci&oacute;n realiza un positivo balance de las jornadas de tejo.<br>
+"Nosotros estamos muy conformes, porque se cumplieron todas las expectativas y la gente qued&oacute; content&iacute;sima", destac&oacute; el dirigente.<br>
+Steding record&oacute; que la movida del tejo en El C&oacute;ndor "surgi&oacute; hace un a&ntilde;o y medio, con un grupo de personas liderado por Catalina Parra" que paulatinamente fue convocando a "gente del balneario, de Viedma y de Patagones" y r&aacute;pidamente "organizaron un torneo regional".<br>
+El dirigente tambi&eacute;n destac&oacute; el movimiento generado en la villa mar&iacute;tima durante estos d&iacute;as. "Todos los departamentos y casas en alquiler ofrecidos en la p&aacute;gina de tejo fueron cubiertas y tambi&eacute;n se not&oacute; la presencia de turistas en los diferentes negocios", apunt&oacute;.<br>
+Otra voz favorable corresponde al presidente de la Asociaci&oacute;n Argentina de Tejo, Edgardo Garc&iacute;a Mirabelli. "La organizaci&oacute;n fue impecable y el apoyo de la gente de El C&oacute;ndor fue maravilloso y eso habla muy bien del grupo de trabajo", destac&oacute; el dirigente.<br>
+Al ver este grado de capacidad organizativa, la AAT dio el visto bueno para concederle un torneo nacional en forma anual. "Acordamos que todos los a&ntilde;os el balneario El C&oacute;ndor tendr&aacute; una fecha nacional, para el mes de marzo", explic&oacute; Garc&iacute;a Mirabelli.<br>
+<br><strong>M&aacute;s elogios</strong>
+<br>El tejista porte&ntilde;o Horacio Acevedo -una de las grandes figuras de la disciplina que estuvo presente en esta Fiesta Nacional- tambi&eacute;n ponder&oacute; algunos aspectos organizativos.<br>
+"El nivel fue muy alto, fuimos muy bien atendidos y se cumpli&oacute; algo que no veo en otros torneos, que es el organigrama: estaba toda la llave armada hasta la final, lo que no da lugar a malas interpretaciones", destac&oacute;.<br>
+Acevedo es un jugador de nivel "A", que compite en torneos rentados, de all&iacute; que tiene una particular visi&oacute;n de la actividad.<br>
+"Hay que dedicarle dos o tres horas al d&iacute;a, buscando mejorar los tiros y a organizar el juego, porque ac&aacute; no es tirar y tirar. Pero el hecho de ser profesional hace que la disciplina no sea masiva y ahora estamos intentando hacer torneos que sirvan para integrar a todos los niveles", explic&oacute; este jugador de 49 a&ntilde;os y ex saltador de salto en alto.</p></div>
+Fuente de la nota Noticias de la Costa.
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=116725188535269";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="http://www.balneario-el-condor.com.ar/5ta-fiesta-nacional-del-tejo-el-condor" data-width="970" data-numposts="5" data-colorscheme="light"></div>
+<h2>Imagenes</h2>
+        <div id="container" class="masonry" style="height: 980px;margin-top:30px">
+        	<?php $album = "";$cont = 0;foreach ($this->Imagenes as $key => $value) { ?>
+            <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">
+                <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(<?php echo $value["im_id"]; ?>);" rel="shadowbox[Mixed];" href="<?php echo $value["im_imagen"] ?>" title="<?php echo $value["im_titulo"]; ?>" alt="<?php echo $value["im_titulo"]; ?>">
+                        <img alt="<?php echo $value["im_titulo"]; ?>" title="<?php echo $value["im_titulo"]; ?>" src="<?php echo $value["im_thumb"]; ?>" >
+                    </a>
+                </div>                        
+                <p><?php echo $value["im_descripcion"]; ?></p>
+                <div class="meta">por <?php echo $value["im_titulo"]; ?></div>
+            </div>
+        	<?php } ?>
+        </div>
+</section>

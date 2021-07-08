@@ -1,0 +1,252 @@
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-8">
+                            <h1 class="page-heading">
+                                Items <small>Formulario de <?php if ($this->programa->getPr_imagen() != ""){?>edici&oacute;n<?php }else{ ?>Alta<?php } ?> para un item del programa.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-4 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li><a class="link-effect" href="/evento/listado">Item Programa</a></li>
+                                <li><?php if ($this->programa->getPr_imagen() != ""){?>Edici&oacute;n<?php }else{ ?>Nuevo<?php } ?></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content content-narrow">
+
+				<!-- Bootstrap Design -->
+                    <div class="row"> 
+                            <!-- Default Elements -->
+                            <div class="block">
+                            	<div class="alert alert-success" id="mensajeOK" style="display:none;">
+								  <strong>Perfecto!</strong> <?php if ($this->programa->getPr_imagen() != ""){?>Edici&oacute;n<?php }else{ ?>Alta<?php } ?> del item del programa correcta. <a href="/programa/listado">Ir al listado</a>
+								</div>
+								<div class="alert alert-danger" id="mensajeERROR" style="display:none;">
+								  <strong>Upps!</strong> Existen errores, por favor verificalos.
+								</div>
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button"><i class="si si-settings"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Formulario de <?php if ($this->programa->getPr_imagen() != ""){?>Edici&oacute;n<?php }else{ ?>Alta<?php } ?></h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal" action="base_forms_elements.html" method="post" enctype="multipart/form-data" onsubmit="return false;">
+                                        <input type="hidden" id="pr_id" name="pr_id" value="<?php echo $this->programa->getPr_id(); ?>" />
+                                            <div class="form-group" id="upload2" >
+                                            <input type="hidden" value="<?php echo $this->programa->getPr_imagen(); ?>" name="imagen" id="imagen" />
+                                            	<!-- 
+                                            	<label class="col-xs-12" for="example-text-input">Imagen en lugar de Speaker</label>
+                                                <div <?php if ($this->programa->getPr_imagen() != ""){ ?>style="display:none;"<?php } ?> id="fileuploader2">Subir Archivo</div>
+                                            	<?php if ($this->programa->getPr_imagen() != ""){?>
+                                                <div style="float:left" id='divimagen'>
+                                            		<img src="<?php echo $this->programa->getPr_imagen(); ?>" style="height:80px;margin-left: 15px;"/>
+                                                    <a href="#"><button class="btn btn-xs btn-default" type="button" onclick="eliminarImagen(<?php echo $this->programa->getPr_id(); ?>);" id="remover_web" data-toggle="tooltip" title="Remover Imagen"><i class="fa fa-times"></i></button></a>
+                                                        &nbsp;&nbsp;
+                                                </div>
+                                            	<?php } ?>
+                                            		
+                                            	
+                                        		<div class="help-block">La imagen se visualizara en el mismo lugar que el speakers, si no va a existir imagen no deberiamos subir nada, no es un campo obligatorio</div>
+                                        		 -->
+                                        	</div>
+                                            <div class="form-group">
+                                                <label class="col-xs-12" for="example-text-input">T&iacute;tulo</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" value="<?php echo $this->programa->getPr_titulo(); ?>" type="text" id="titulo" name="titulo" placeholder="">
+                                                </div>
+                                            </div>
+                                        	<div class="form-group">
+                                            <label class="col-xs-12" for="citas">Speakers</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="sp_id" name="sp_id[]" multiple size="10">
+                                                	
+                                                	<?php 
+                                                	$speakers = $this->programa->getSpeakers_sp_id();
+                                                	$arrSpeakers = explode(",", $speakers);
+                                                	foreach ($this->objSpeakers as $value) {
+                                                		$selector= '';
+                                                		foreach ($arrSpeakers as $key2 => $value2) {
+                                                			if ($value2 == $value->getSp_id()) $selector = "selected='selected'";
+                                                		}
+                                                		?>
+                                                		
+                                                		<option value="<?php echo $value->getSp_id(); ?>" <?php echo $selector; ?> ><?php echo $value->getSp_nombre().' '.$value->getSp_apellido(); ?></option>
+                                                	<?php
+                                                		}
+                                                		?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                            <label class="col-xs-12" for="citas">Moderador</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="sp_id2" name="sp_id2" size="1">
+                                                    <option value=""></option>
+                                                	<?php 
+                                                	$speakers2 = $this->programa->getSpeakers_sp_id2();
+                                                	echo $speakers2;
+                                                	$arrSpeakers = explode(",", $speakers);
+
+                                                	foreach ($this->objSpeakers as $value) { ?>
+                                                		<option value="<?php echo $value->getSp_id(); ?>" <?php echo ($speakers2 == $value->getSp_id() )?"selected='selected'":""; ?> ><?php echo $value->getSp_nombre().' '.$value->getSp_apellido(); ?></option>
+                                                	<?php }	?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Contenido</label>
+                                            <div class="col-sm-9">
+                                            	<textarea class="form-control" id="contenido" name="contenido" rows="6" placeholder="Contenido..."><?php echo $this->programa->getPr_contenido(); ?></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Tipo de bloque de contenido</label>
+                                            <div class="col-sm-9">
+                                                <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="tipobloque1" name="tipo-bloque" onclick="cambiar(this);" value="1" <?php echo ($this->programa->getPr_tipo_bloque() == 1)?"checked='checked'":""; ?>>Panel
+                                               </label>
+                                                <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="tipobloque2" name="tipo-bloque" onclick="cambiar(this);" value="2" <?php echo ($this->programa->getPr_tipo_bloque() == 2)?"checked='checked'":""; ?>>Disertaci&oacute;n
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="tipobloque3" name="tipo-bloque" onclick="cambiar(this);" value="3" <?php echo ($this->programa->getPr_tipo_bloque() == 3)?"checked='checked'":""; ?>>Debate
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="tipobloque4" name="tipo-bloque" onclick="cambiar(this);" value="4" <?php echo ($this->programa->getPr_tipo_bloque() == 4)?"checked='checked'":""; ?>>Entrevista
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="tipobloque5" name="tipo-bloque" onclick="cambiar(this);" value="5" <?php echo ($this->programa->getPr_tipo_bloque() == 5)?"checked='checked'":""; ?>>Taller
+                                               </label>
+                                            </div>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Fecha del item del programa</label>
+                                            <div class="col-sm-9">
+                                            	<?php 
+                                            			$fecha = $this->programa->getPr_fecha();
+														$arrfecha = explode("-", $fecha);
+                                            	?>
+                                                <input class="js-datepicker form-control" value="<?php echo $arrfecha[2]."/".$arrfecha[1]."/".$arrfecha[0]; ?>" type="text" id="fecha-datepicker1" name="fecha-datepicker1" data-date-format="dd/mm/yy" placeholder="dd/mm/yy">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Hora a realizarse el item del programa</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->programa->getPr_hora(); ?>" type="text" id="hora" name="hora" placeholder="hh:mm">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Duraci&oacute;n</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->programa->getPr_duracion(); ?>" type="text" id="duracion" name="duracion" placeholder="en minutos solo el n&uacute;mero">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-textarea-input">Web</label>
+                                            <div class="col-sm-9">
+	                                            <select class="form-control" id="web" name="web">
+	                                                <?php foreach ($this->arrWebs as $w) { ?>
+	                                                    <option value="<?php echo $w->getWe_id(); ?>" <?php if ($w->getWe_id() == $this->programa->getWeb_we_id()){ ?>selected="selected"<?php } ?> ><?php echo $w->getWe_titulo(); ?></option>
+	                                                <?php } ?>
+	                                            </select>
+                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-primary" type="submit">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Default Elements -->                        
+                    </div>
+                    </div>
+                    </main>
+                                        <link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                    <script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+                    <script>
+
+                        function eliminarImagen(id){
+                            if (confirm('Esta seguro?')){
+                                var jqxhr = $.ajax( "/programa/eliminarimagen/id/" + id );
+                                 jqxhr.done(function(data) {
+                                     $('#divimagen').hide();
+                                     $('#fileuploader2').show();
+                                  })
+                                  jqxhr.fail(function() {
+                                     alert('Error eliminando la imagen');
+                                  });
+                            }
+                        }
+
+	                    jQuery( "form" ).on( "submit", function( event ) {
+	                    	  event.preventDefault();
+	                    	 jQuery( "#mensajeERROR" ).hide();
+	                    	 jQuery( "#mensajeOK" ).hide();
+	                    	 var datosAlta = $( this ).serialize();
+                             var contenido= '&content=' + CKEDITOR.instances['contenido'].getData()
+	                    	 var jqxhr = $.ajax( "/programa/procesar?" + datosAlta + contenido);
+	                    	 jqxhr.done(function(data) {
+	                    		 var obj = jQuery.parseJSON(data);
+	                    		 console.log(obj.proceso);
+	                    		 if (obj.proceso != "error"){
+	                    		 	jQuery( "#mensajeOK" ).show();
+	                    			var new_position = jQuery('.page-heading').offset();
+	                    			window.scrollTo(new_position.left,new_position.top);
+	                    		 }else{
+	                    			jQuery( "#mensajeERROR" ).show();
+		                    		var new_position = jQuery('.page-heading').offset();
+		                    		window.scrollTo(new_position.left,new_position.top);
+		                    	 }
+	                    	  })
+	                    	  jqxhr.fail(function() {
+	                    		  jQuery( "#mensajeERROR" ).show();
+	                    	  });
+	                    	});
+	                    $("#fileuploader2").uploadFile({
+                            url:"/programa/upload",
+                            fileName:"imagen",
+                            maxFileCount:1,
+                            multiple: true,
+                            showDownload:false,
+                            onSuccess:function(files,data,xhr,pd)
+                            {   $('.ajax-file-upload-error').html('');
+                                /*if($('.ajax-file-upload-filename').size()==5){*/
+                                if($('.ajax-file-upload-error').css('display')!= 'none'){
+                                    $('.ajax-file-upload-error').html('');
+                                    $('.ajax-file-upload-error').html('No se puede subir mas de 1 archivo.');
+                                    $('.ajax-file-upload-error').css('display', 'block');
+                                } 
+                                if(data!=''){
+                                    $("#imagen").val(data); 
+                                }
+                                
+                            }
+                         
+                        });
+                        CKEDITOR.replace('contenido');
+
+                        function cambiar(check){
+                            tipobloque1.checked = false;
+                            tipobloque2.checked = false;
+                            tipobloque3.checked = false;
+                            tipobloque4.checked = false;
+                            tipobloque5.checked = false;
+                            check.checked = true; 
+
+                            /*$("input[name=listAct]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+                    </script>

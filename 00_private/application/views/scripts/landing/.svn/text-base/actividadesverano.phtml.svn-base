@@ -1,0 +1,20 @@
+<div  itemscope itemtype=" http://schema.org/NewsArticle" class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota" style="margin-top:20px;width:970px">
+            <h1 style="width:980px;margin-bottom:20px;">SEMANA ACTIVIDADES EN LA VILLA MARITIMA</h1>
+            <div itemprop="description">
+            <p style="text-align:justify">Quer&iacute;as saber de las actividades en el R&iacute;o y en el Mar&quest;<br><br>
+
+La programaci&oacute;n para estos d&iacute;as de enero en Viedma y El C&oacute;ndor. <br><br>
+
+A disfrutar este verano en los inicios hist&oacute;ricos de la Patagonia!!<br><br>Fuente: Turismo Viedma</p></div>
+<img style="width:980px;" src="/imagenes/actividades-verano-el-condor.jpg">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=116725188535269";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="http://www.balneario-el-condor.com.ar/artistas-locales-20-21-22-23-24-25" data-width="970" data-numposts="5" data-colorscheme="light"></div>
+</section>

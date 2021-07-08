@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/balneario-el-condor/!svn/ver/63/trunk/00_private/application/models
+END
+localesMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/localesMapper.php
+END
+imagenesMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/imagenesMapper.php
+END
+climaextendidoMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/climaextendidoMapper.php
+END
+usuariosMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/usuariosMapper.php
+END
+favoritosMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/favoritosMapper.php
+END
+ubicacionMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/ubicacionMapper.php
+END
+historialMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/historialMapper.php
+END
+publiciteMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/51/trunk/00_private/application/models/publiciteMapper.php
+END

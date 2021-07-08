@@ -1,0 +1,134 @@
+.btn-medium,
+.btn-medium span,
+.btn-large,
+.btn-large > span,
+.btn-large strong,
+.btn-large-1,
+.btn-large-1 span,
+figure.img-polaroid,
+figure.img-polaroid img,
+.block,
+.foto-carousel,
+.badge,
+.btn-small,
+.btn-small span,
+.block_banner,
+.box-tabs,
+.div_table_1,
+.selected_div,
+.block-info {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-position: 0 0;
+}
+.btn-medium,
+.btn-medium span,
+.btn-large,
+.btn-large > span,
+.btn-large strong,
+.btn-large-1,
+.btn-large-1 span,
+.nav-collapse_ .nav > li > a > span,
+.nav-collapse_ .nav > li > a,
+#head-form a,
+.block,
+.block-list span,
+.block-features span,
+.btn-small span,
+.block_banner i,
+.block_banner {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.block-info,
+.foto-carousel,
+.box-tabs,
+.div_table_1,
+.selected_div {
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.box-tabs:after {
+  display: block;
+  position: absolute;
+  height: 3px;
+  background: #1d94ff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+}
+.responsive-tabs__list {
+  *zoom: 1;
+}
+.responsive-tabs__list:before,
+.responsive-tabs__list:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.responsive-tabs__list:after {
+  clear: both;
+}
+/*Core variables and mixins*/
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+}
+.container:before,
+.container:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.container:after {
+  clear: both;
+}
+.container-fluid {
+  padding-right: 20px;
+  padding-left: 20px;
+  *zoom: 1;
+}
+.container-fluid:before,
+.container-fluid:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.container-fluid:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 34px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

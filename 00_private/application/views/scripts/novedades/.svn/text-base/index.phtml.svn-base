@@ -1,0 +1,50 @@
+<section class="mainSection">
+  <div class="wrapper wrapperSection clearfix">
+    <section class="mainCol left long">
+        <h2>Novedades</h2>
+        <ul class="listadoNotas">
+            <?php 
+            foreach ($this->arrNovedades as $key => $value) {?>
+                <li class="primerItem">
+                    <div class="descripcion">
+                        <a href="/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>" /><span class="titulo"><?php echo $value["nov_titulo"]; ?></span></a>
+                        <p><?php if (strlen($value["nov_descripcion"]) > 300)
+                                    echo substr($value["nov_descripcion"], 0, 300)."...";
+                                 else
+                                    echo $value["nov_descripcion"]; ?></p>
+                    </div>
+                    <?php if ($value["img_nombre"] != "") {?> 
+                        <div class="imagen">
+                            <img src="<?php echo $value["img_nombre"] ?>" style="width:206px;" title="<?php echo $value["nov_titulo"]; ?>" alt="<?php echo $value["nov_titulo"]; ?>">
+                        </div>
+                    <?php } ?>
+                </li>
+            <?php } ?>
+        </ul>
+        <!--
+        <ul class="paginator">
+            <li><a class="activo" href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">Siguiente &gt;</a></li>
+        </ul>
+    -->
+    </section><!-- /mainCol -->        
+    <section class="sidebar right short">
+        <div class="bannerContacto">
+            <a href="/contacto"><img src="/css/images/banner-contacto-230.gif" alt="Contactenos" title ="Contactenos"></a>
+        </div>
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-6223502738437330";
+        /* Novedades */
+        google_ad_slot = "3848899158";
+        google_ad_width = 200;
+        google_ad_height = 200;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </section><!-- /sidebar -->
+  </div>
+</section>

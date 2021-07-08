@@ -1,0 +1,228 @@
+<main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading">
+                                Citas <small>Listados de usuarios</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Reportes</li>
+                                <li><a class="link-effect" href="/usuarios/citas">citas</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-content">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <select id="usuarioGen" name="usg" class="form-control">
+                                      <option value="">Seleccione usuario generador</option>
+                                    <?php foreach ($this->arrUsuarios as $us => $uValue) { ?>
+                                        <?php if ( isset($_GET["usg"]) && ($uValue->getUS_id() == $_GET['usg']) ){ ?>
+                                            <option value="<?php echo $uValue->getUs_id(); ?>" selected><?php echo $uValue->getUs_apellido()." ".$uValue->getUs_nombre(); ?></option>  
+                                        <?php }else{ ?>
+                                            <option value="<?php echo $uValue->getUs_id(); ?>"><?php echo $uValue->getUs_apellido()." ".$uValue->getUs_nombre(); ?></option>  
+                                        <?php } ?>
+                                    <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select id="usuarioInv" name="usi" class="form-control">
+                                      <option value="">Seleccione usuario invitado</option>
+                                    <?php foreach ($this->arrUsuarios as $us1 => $usValue) { ?>
+                                        <?php if ( isset($_GET["usi"]) && ($usValue->getUS_id() == $_GET['usi']) ){ ?>
+                                            <option value="<?php echo $usValue->getUs_id(); ?>" selected><?php echo $usValue->getUs_apellido()." ".$usValue->getUs_nombre(); ?></option>  
+                                        <?php }else{ ?>
+                                            <option value="<?php echo $usValue->getUs_id(); ?>"><?php echo $usValue->getUs_apellido()." ".$usValue->getUs_nombre(); ?></option>  
+                                        <?php } ?>
+                                    <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select id="evento" name="ev" class="form-control">
+                                      <option value="" >Seleccione evento</option>
+                                    <?php foreach ($this->arrEventos as $e => $eValue) { ?>
+                                        <?php if ( isset($_GET["ev"]) && ($eValue->getEv_id() == $_GET['ev']) ){ ?>
+                                          <option value="<?php echo $eValue->getEv_id(); ?>" selected><?php echo $eValue->getEv_nombre(); ?></option>  
+                                        <?php }else{ ?>
+                                          <option value="<?php echo $eValue->getEv_id(); ?>" ><?php echo $eValue->getEv_nombre(); ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <center>
+                                        <button class="btn btn-minw btn-default" id="filtro">Filtrar</button>
+                                    </center>
+                                </div>
+                            </div><br>
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <div class="row">
+                                <table id="tablas_selector" class="table table-bordered table-striped ">
+                                    <thead>
+                                        <tr>
+                                            <th class="hidden-xs" style="width: 15%;">Hora / Bloque</th>
+                                            <th class="hidden-xs">Usuario Generador</th>
+                                            <th class="hidden-xs" >Usuario Invitado</th>
+                                            <th class="hidden-xs" style="width: 15%;">Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (count($this->arrCitas) > 0) { ?>
+                                        	<?php foreach ($this->arrCitas as $value) { ?>
+                                                <tr>
+                                                    <td class="text-center"><?php echo $value["ci_hora"]." - Bloque ".($value["ci_bloque"] + 1)?></td>
+                                                    <td class="text-center"><?php echo $value["us_generador_apellido"]." ".$value["us_generador_nombre"]; ?></td>
+                                                    <td class="text-center"><?php echo $value["us_citado_apellido"]." ".$value["us_citado_nombre"]; ?></td>
+                                                    <td class="hidden-xs"><?php
+                                                    switch ($value["ci_estado"]) {
+                                                    	case "0": echo "Pendiente";break;
+                                                    	case "1": echo "Aprobada";break;
+                                                    	case "2": echo "ReProgramada";break;
+                                                    	case "3": echo "Cancelada";break;
+                                                    }
+                                                    ?></td>
+                                                </tr>
+                                           <?php } ?>
+                                        <?php }else{ ?>
+                                            <tr class="odd"><td valign="top" colspan="5" class="dataTables_empty">No data available in table</td></tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+            <script>
+            
+            $('#select_all').change(function() {
+                var checkboxes = $("#tablas_selector").find(':checkbox');
+                if($(this).is(':checked')) {
+                    checkboxes.prop('checked', true);
+                } else {
+                    checkboxes.prop('checked', false);
+                }
+            });
+
+            $("#enviar_invitaciones").click(function(){
+                var arrCheckbox = [];
+                var i =0;
+                $("#tablas_selector").find(':checkbox').each(function( index ) {
+                    console.log($(this));
+                    if($(this).is(':checked')) {
+                        arrCheckbox[i] = $(this).val();
+                        i ++;
+                    }
+                });
+                if (arrCheckbox.length > 0){
+                    $("#enviando").show();
+                    var jqxhr = $.ajax( "/usuarios/enviarinvitaciones/ids/" + arrCheckbox.join(',') );
+                     jqxhr.done(function(data) {
+                         $("#enviando").hide();
+                      })
+                }else{
+                    alert('Error, debe seleccionar algun usuario');
+                }
+            })
+
+            $('#filtro').click(function(event) {
+                if ($("#usuarioGen").val() != '' && $("#usuarioInv").val() != '' && $('#evento').val() !='') {
+                    window.location= "/usuarios/citas/?usg=" + $("#usuarioGen").val()+ "&usi=" + $("#usuarioGen").val()+ "&ev=" + $("#evento").val();
+                };
+                /* inactivo evento */
+                if ($("#usuarioGen").val() != '' && $("#usuarioInv").val() != '' && $('#evento').val() =='') {
+                    window.location= "/usuarios/citas/?usg=" + $("#usuarioGen").val()+ "&usi=" + $("#usuarioGen").val();
+                };
+                /* inactivo invitado */
+                if ($("#usuarioGen").val() != '' && $("#usuarioInv").val() == '' && $('#evento').val() !='') {
+                    window.location= "/usuarios/citas/?usg=" + $("#usuarioGen").val()+ "&ev=" + $("#evento").val();
+                };
+                /* inactivo generador */
+                if ($("#usuarioGen").val() == '' && $("#usuarioInv").val() != '' && $('#evento').val() !='') {
+                    window.location= "/usuarios/citas/?usi=" + $("#usuarioInv").val()+ "&ev=" + $("#evento").val();
+                };
+                /* inactivo evento y invitado */
+                if ($("#usuarioGen").val() != '' && $("#usuarioInv").val() == '' && $('#evento').val() =='') {
+                    window.location= "/usuarios/citas/?usg=" + $("#usuarioGen").val();
+                };
+                /* inactivo evento y generador */
+                if ($("#usuarioGen").val() == '' && $("#usuarioInv").val() != '' && $('#evento').val() =='') {
+                    window.location= "/usuarios/citas/?usi=" + $("#usuarioInv").val();
+                };
+                /* inactivo invitado y generador */
+                if ($("#usuarioGen").val() == '' && $("#usuarioInv").val() == '' && $('#evento').val() !='') {
+                    window.location= "/usuarios/citas/?ev=" + $("#evento").val();
+                };
+                /* Inactivo todos */
+                if ($("#usuarioGen").val() == '' && $("#usuarioInv").val() == '' && $('#evento').val() =='') {
+                    window.location= "/usuarios/citas";  
+                };
+                /*$.ajax({
+                    url: "/usuarios/listado/?j=" + $("#jerarquia").val()+ "&a=" + $("#actividad").val(), // Url to which the request is send
+                    type: "POST",             // Type of request to be send, called as method
+                    data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                    success: function(data)   // A function to be called if request succeeds
+                    {
+                        if(data!= ''){
+                            jQuery( "#mensajeOK" ).show();
+                            var new_position = jQuery('.page-heading').offset();
+                            window.scrollTo(new_position.left,new_position.top);
+                        }
+                        else {
+                            jQuery( "#mensajeERROR" ).show();
+                            var new_position = jQuery('.page-heading').offset();
+                            window.scrollTo(new_position.left,new_position.top);
+                        }
+                    }
+                })*/
+                //window.location= "/usuarios/listado/?j=" + $("#jerarquia").val()+ "&a=" + $("#actividad").val();
+            });
+            function eliminarUsuario(id){
+            	if (confirm('Esta seguro?')){
+	            	var jqxhr = $.ajax( "/usuarios/eliminar/id/" + id );
+			       	 jqxhr.done(function(data) {
+			       		 var obj = jQuery.parseJSON(data);
+			       		 console.log(obj.proceso);
+			       		 if (obj.proceso != "error"){
+			       		 	document.location.reload();
+			       		 }else{
+			       			jQuery( "#mensajeERROR" ).show();
+			           		var new_position = jQuery('.page-heading').offset();
+			           		window.scrollTo(new_position.left,new_position.top);
+			           	 }
+			       	  })
+			       	  jqxhr.fail(function() {
+			       		  jQuery( "#mensajeERROR" ).show();
+			       	  });
+            	}
+            }
+            </script>
+            <style type="text/css">
+            #filtro{
+                width: 12%;
+                border: 1px solid #BEBEBE;
+                margin-left: 2%;
+            }
+            .leftdos{
+                margin-left: 2%;   
+            }
+            #jerarquia{
+                width: 264px;
+            }
+            .bottomuno{
+                margin-bottom: 1%;
+            }
+            </style>

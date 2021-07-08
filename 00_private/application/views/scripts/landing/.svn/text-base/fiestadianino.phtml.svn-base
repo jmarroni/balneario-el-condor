@@ -1,0 +1,59 @@
+
+<link rel="stylesheet" type="text/css" href="/css/shadow/shadowbox.css">
+<script type="text/javascript" src="/js/shadowbox.js"></script>
+<script src="<?php echo RUTA_JS ?>/js/jquery.masonry.min.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            var $container = $('#container');
+            $container.imagesLoaded( function(){
+            $container.masonry({
+                  itemSelector: '.grid', 
+                  isAnimated:true,
+                  columnWidth: function( containerWidth ) {
+                                    return containerWidth / 5;
+                                  }
+                });
+            });
+        });
+        function grabarClick(id){
+            $.post( "imagen/visita/id/" + id, function( data ) {});
+        }
+</script>
+
+     <div  itemscope itemtype=" http://schema.org/NewsArticle" class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota" style="margin-top:20px;width:970px">
+            <h2>Festejo del d&iacute;a del ni&ntilde;o en el Balneario El Condor</h2>
+            <div itemprop="description">
+            <p style="text-align:justify">
+            Festejos del d&iacute;a del ni&ntilde;o !!<br><br>
+			En el CLUB AMIGOS BALNEARIO EL CONDOR<br><br>
+			Estuvieron presentes, PAYASOS - INFLABLES - MUSICA - SORPRESAS - CHOCOLATE CON FACTURAS - LOS PROFES "TODO TERRENO".<br><br>
+			ORGANIZ&Oacute;: Junta Vecinal El C&oacute;ndor, Club De Leones El Condor Club amigos BALNEARIO EL CONDOR, Secretaria de Deportes Turismo y Cultura de la Municipalidad de Viedma, Delegaci&oacute;n de la Municipalidad de Viedma, Comision de Carnavales.<br><br> 
+            </p>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=116725188535269";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="http://www.balneario-el-condor.com.ar/dia-del-nino" data-width="970" data-numposts="5" data-colorscheme="light"></div>
+<h2>Imagenes</h2>
+        <div id="container" class="masonry" style="height: 980px;margin-top:30px">
+        	<?php $album = "";$cont = 0;foreach ($this->Imagenes as $key => $value) { ?>
+            <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">
+                <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(<?php echo $value["im_id"]; ?>);" rel="shadowbox[Mixed];" href="<?php echo $value["im_imagen"] ?>" title="<?php echo $value["im_titulo"]; ?>" alt="<?php echo $value["im_titulo"]; ?>">
+                        <img alt="<?php echo $value["im_titulo"]; ?>" title="<?php echo $value["im_titulo"]; ?>" src="<?php echo $value["im_thumb"]; ?>" >
+                    </a>
+                </div>                        
+                <p><?php echo $value["im_descripcion"]; ?></p>
+                <div class="meta">por <?php echo $value["im_titulo"]; ?></div>
+            </div>
+        	<?php } ?>
+        </div>
+</section>

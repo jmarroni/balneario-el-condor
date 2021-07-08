@@ -1,0 +1,351 @@
+<link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+<link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/theme-blog.css">
+<link rel="stylesheet" href="/css/theme-shop.css">
+<!--==============================Elastic slider==============================-->
+<div class="modal fade serv" id="formClasificado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only"></span>
+        </button>
+        <h4 class="modal-title titNewClas" id="exampleModalLabel" style="padding:4px 0 0px;">Consulta por nueva publicidad</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="filaleft"> <!-- FILALEFT -->
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Nombre:</label>
+              <input type="txt" class="form-control formClas" id="nombreForm" name="nombreForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Apellido:</label>
+              <input type="txt" class="form-control formClas" id="apellidoForm" name="apellidoForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Mail de Contacto:</label>
+              <input type="txt" class="form-control formClas" id="emailForm" name="emailForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="message-text" class="control-label">Comentario:</label>
+              <textarea type="txt" class="form-control formClas2" id="comentarioForm" name="comentarioForm"></textarea>
+            </div>
+            <input type="hidden" value="" id="zonaForm">
+          </div> <!-- END FILALEFT -->
+        </form>
+      </div> 
+      <div class="modal-footer">
+        <button type="button" id="publicitar" class="btn btn-default">Enviar Consulta</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--==============================Elastic slider==============================-->
+
+<div role="main" class="main">
+  <div class="owl-carousel owl-carousel-light owl-carousel-light-init-fadeIn owl-theme manual dots-inside dots-horizontal-center show-dots-hover dots-light nav-style-1 nav-inside nav-inside-plus nav-dark nav-lg nav-font-size-lg show-nav-hover mb-0" data-plugin-options="{'autoplayTimeout': 7000}" style="height: calc(100vh - 155px);">
+    <div class="owl-stage-outer">
+      <div class="owl-stage">
+
+        <!-- Carousel Slide 1 -->
+        <div class="owl-item position-relative overlay overlay-show overlay-op-7" style="background-image: url(/imagenes/slider/inmensidad_playas.png); background-size: cover; background-position: center;">
+          <div class="container position-relative z-index-3 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-lg-7 text-center">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+
+                  <h1 class="text-color-light font-weight-extra-bold text-12-5 line-height-3 mb-2 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">Las playas con toda su inmensidad</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Slide 2 -->
+        <div class="owl-item position-relative overlay overlay-show overlay-op-7" style="background-image: url(/imagenes/slider/vista_el_condor.png); background-size: cover; background-position: center;">
+          <div class="container position-relative z-index-3 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-lg-7 text-center">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                  <h3 class="position-relative text-color-light text-5 line-height-5 font-weight-medium ls-0 px-4 mb-2 appear-animation" data-appear-animation="fadeInDownShorterPlus" data-plugin-options="{'minWindowWidth': 0}">
+                    <span class="position-absolute right-100pct top-50pct transform3dy-n50 opacity-7">
+                      <img src="imagenes/slider/slide-title-border-light.png" class="w-auto appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                    </span>
+                    La Villa Marítima
+                    <span class="position-absolute left-100pct top-50pct transform3dy-n50 opacity-7">
+                      <img src="imagenes/slider/slide-title-border-light.png" class="w-auto appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                    </span>
+                  </h3>
+                  <h1 class="text-color-light font-weight-extra-bold text-12-5 line-height-3 mb-2 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}"> toda nuestra calidez</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="owl-dots mb-5">
+      <button role="button" class="owl-dot active"><span></span></button>
+      <button role="button" class="owl-dot"><span></span></button>
+    </div>
+  </div>
+
+
+  <!--==============================Novedades=================================-->
+
+  <div id="examples" class="container py-2">
+    <div class="row">
+      <div class="row mt-5 pb-4">
+        <div class="col">
+         <div class="heading text-primary">
+          <h3 class="text-primary">Novedades</h3>
+        </div>
+        <div class="owl-carousel owl-theme show-nav-title top-border mb-0 owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 3}, '1199': {'items': 3}}, 'items': 3, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}" style="height: auto;">
+
+          <div class="owl-stage-outer">
+
+            <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2628px;">
+              <?php foreach ($this->arrNovedades as $key => $value) { ?>
+                <div class="owl-item active" style="width: 365.333px; margin-right: 10px;">
+                  <a href="">
+                    <img src="https://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=<?php echo str_replace("thumb_", "photo_", $value["img_nombre"]);?>&amp;w=370&amp;h=222&amp;zc=1" alt="<?php echo utf8_encode($value["nov_titulo"]); ?>"  class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-3">
+                  </a>
+                  <div class="recent-posts">
+                    <article class="post">
+                      <div class="post-date">
+                        <span class="day"><?php echo date("d",strtotime($value["nov_fechahora"]));?>"</span>
+                        <span class="month"><?php echo strftime("%a", strtotime($value["nov_fechahora"]));?>"</span>
+                      </div>
+                      <h4><a href="/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>" class="text-decoration-none"><?php echo utf8_encode($value["nov_titulo"]); ?></a></h4>
+                      <p> <p><?php   if (strlen(strip_tags($value["nov_descripcion"])) > 200){
+                        echo utf8_encode(substr(strip_tags($value["nov_descripcion"]),0,200))."...";
+                      }else{
+                        echo utf8_encode(strip_tags($value["nov_descripcion"]));
+                      } ?></p>
+                      <div class="post-meta">
+                        <span class="d-block mt-2"><a href="/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>" class="btn btn-xs btn-light text-color-dark font-weight-bold text-uppercase">Leer m&aacute;s</a> </span>
+                      </div>
+                    </article>
+                  </div>
+                </div> <?php } ?></div>
+
+              </div>
+              <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"></button><button type="button" role="presentation" class="owl-next"></button></div>
+              <div class="owl-dots disabled"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--==============================Separador=================================-->
+      <div id="examples" class="container py-2">
+        <div class="row">
+          <div class="col-lg-12">
+           <div class="divider divider-primary">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--==============================Alojamiento=================================-->
+    <div id="content">       
+      <div class="content-div">  
+       <div class="container"> 
+
+        <div class="row">      
+         <div class="heading text-primary">
+          <h3 class="text-primary">Alojamiento</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-lg-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" style="animation-delay: 600ms;">
+          <div class="card border-0 border-radius-0 bg-color-primary">
+            <div class="card-body">
+              <p class="card-text font-weight-bold mb-0 text-color-light box-shadow-1" style="text-align: center!important;font-size: 21px">Caba&ntilde;as, Hoteles, Apart, Camping, todo lo que necesita para alojarse con comodidad y todos los servicios disponibles disfrutar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-8"   style="animation-delay: 600ms;">
+          <div class="owl-carousel owl-theme show-nav-title" data-plugin-options="{'items': 3, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}">
+            <?php foreach ($this->arrHospedaje as $key => $value) { //print_r($value); ?>
+              <div >
+                <a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>"><img alt="" class="img-fluid rounded" src="<?php echo $value["imagen"][0]["ho_url"]; ?>" alt="<?php echo $value["ho_titulo"]; ?>">
+                  <div class="d-flex align-items-center justify-content-center bg-color-light-scale-1 py-3 rounded-3" data-cursor-effect-hover="fit" style="margin-top: 5px;">
+                   <span style="text-align: center!important"> <strong ><?php echo $value["ho_titulo"]; ?></strong> </span> 
+                 </div>
+               </a>
+             </div>
+           <?php } ?>
+         </div>
+       </div>
+     </div>
+
+     <!--==============================Separador=================================-->
+     <div id="examples" class="container py-2">
+      <div class="row">
+        <div class="col-lg-12">
+         <div class="divider divider-primary">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--==============================Restaurantes=================================-->
+  <div class="row">      
+   <div class="heading text-primary">
+    <h3 class="text-primary">Restaurantes</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-lg-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" style="animation-delay: 600ms;">
+
+      <div class="card border-radius-0 bg-color-light border-0 box-shadow-1">
+        <div class="card-body">
+          <a href="/noche-de-bares"><p class="card-text font-weight-bold mb-0  box-shadow-1" style="text-align: center!important;font-size: 22px">Mir&aacute; todos los restaurantes de la noche de los bares click aqu&iacute</p></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4 col-lg-8"   style="animation-delay: 600ms;">
+      <div class="owl-carousel owl-theme show-nav-title" data-plugin-options="{'items': 3, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}">
+        <?php foreach ($this->arrGourmet as $key => $value) { ?>
+          <div>
+            <a href="/restaurantes-y-confiterias/<?php echo $value["go_keyword"]; ?>"><img alt="<?php echo $value["go_titulo"]; ?>" class="img-fluid rounded" src="<?php echo $value["imagen"][0]["gi_url"]; ?>" alt="<?php echo $value["go_titulo"]; ?>">
+              <div class="d-flex align-items-center justify-content-center bg-color-light-scale-1 py-3 rounded-3" data-cursor-effect-hover="fit" style="margin-top: 5px;">
+               <span style="text-align: center!important"> <strong ><?php echo $value["go_titulo"]; ?></strong> </span> 
+             </div>
+
+           </a>
+         </div>
+       <?php } ?>
+     </div>
+   </div>
+ </div>
+
+ <div id="examples" class="container py-2">
+  <div class="row">
+    <div class="col-lg-12">
+     <div class="divider divider-primary">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+</div>
+</div>
+<!--========responsive-tabs========--> 
+<div class="row">
+  <div class="col">
+    <div class="heading text-primary">
+      <h3 class="text-primary">Otros datos</h3>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="tabs tabs-vertical tabs-left tabs-navigation">
+          <ul class="nav nav-tabs col-sm-3">
+            <li class="nav-item active">
+              <a class="nav-link active" href="#tabsNavigation1" data-bs-toggle="tab"><i class="fas fa-users"></i> Club de Amigos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tabsNavigation2" data-bs-toggle="tab"><i class="fas fa-file"></i> Turismo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tabsNavigation3" data-bs-toggle="tab"><i class="fas fa-phone"></i> Delegaci&oacute;n Municipal</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="tab-pane tab-pane-navigation" id="tabsNavigation1">
+          <h4><?php echo $this->clubDeAmigos[0]["cl_titulo"];?></h4>
+          <p><?php   if (strlen($this->clubDeAmigos[0]["cl_descripcion"]) > 800){
+           echo substr(strip_tags($this->clubDeAmigos[0]["cl_descripcion"]),0,800)."...";
+         }else{
+           echo strip_tags($this->clubDeAmigos[0]["cl_descripcion"]);
+         } ?></p>
+         <div class="post-meta">
+          <span class="d-block mt-2"><a href="/club-de-amigos/<?php echo $this->clubDeAmigos[0]["cl_keyword"]; ?>" class="btn btn-xs btn-light text-color-dark font-weight-bold text-uppercase">Leer m&aacute;s</a> </span>
+        </div>
+
+      </div>
+      <div class="tab-pane tab-pane-navigation active" id="tabsNavigation2">
+        <img src="/img/thumbs/logo-muni.png" alt="Oficina de Informes Tur&iacute;sticos" class="float-end">
+        <p><strong>Oficina de Informes Tur&iacute;sticos</strong><br />
+         Avda. Francisco de Viedma Nro. 51 - Tel: 427171<br />
+         turismo@viedma.gov.ar - infoturismo@viedma.gov.ar<br />
+         Facebook: TurismoMunicipalidadViedma<br />
+         Twitter: @Turismoviedma<br />
+         YouTube: Viedmaturismo<br />
+         Pinterest: /Turismoviedma<br />
+         Informaci&oacute;n extraida de la web de turismo Viedma.<br /></p>
+       </div>
+       <div class="tab-pane tab-pane-navigation" id="tabsNavigation3">
+        <img src="/img/thumbs/logo-muni.png" alt="" class="float-end" width="200">
+        <p><strong>Delegaci&oacute;n Municipal Balneario El C&oacute;ndor</strong></p>
+        <p>
+          Calle 69 y 12 Bis, 8501 Balneario El C&oacute;ndor, Rio Negro, Argentina<br />
+          Tel:  02920 - 497068<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<!--phpbajo-->
+<script type="text/javascript">
+  $('#consultar').click(function(event) {
+    $('#zonaForm').val(1);
+  });
+  $('#publicitar').click(function(event) {
+    event.preventDefault();
+    if( $('#nombreForm').val()!='' && $('#emailForm').val()!='' && $('#comentarioForm').val()!=''){
+      var dataString = 'nombre=' + $('#nombreForm').val() + '&apellido=' + $('#apellidoForm').val() + '&email=' + $('#emailForm').val() + '&zona=' + $('#zonaForm').val() + '&comentario=' + $('#comentarioForm').val();
+
+
+      $.ajax({
+              url: "/index/consultarpublicidad", // Url to which the request is send
+              type: "POST",             // Type of request to be send, called as method
+              data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+              success: function(data)   // A function to be called if request succeeds
+              {
+
+                alert('La consulta se envio correctamente. En breve nos contactaremos con usted.');
+                $('#formClasificado').hide();
+              }
+            });
+    } else {
+      alert ('Verifique que todos los datos esten completos');
+    }    
+  });
+</script>
+<style type="text/css">
+.liagenda{
+  float:left;list-style: none;position: relative;width: 370px !important;margin-right: 30px !important;
+}
+#nombreForm, #emailForm, #apellidoForm {
+  border: 1px solid #BEBEBE;
+  width: 98%;
+}
+#comentarioForm{
+  width: 96%;
+  min-height: 80px;
+  margin-bottom: -4%;
+}
+</style>
+

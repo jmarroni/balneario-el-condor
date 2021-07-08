@@ -1,0 +1,64 @@
+
+/*/////////////////////---POPUP ALTA CLASIFICADO---//////////////////////////////////*/
+#formClasificado{
+	width: 80%;
+  	margin-left: -40%;
+  	top: 8%;
+}
+.filaleft, .filaright{
+	width: 48%;
+	float: left;
+}
+.filaleft{
+	padding-right: 2%;
+}
+.filaright{
+	padding-left: 2%;
+}
+.oculto1, .oculto2, .oculto3, .oculto4{
+	display: none;
+}
+.formClas{
+	border: 1px solid #BEBEBE;
+  	width: 100% !important;
+  	height: 30px;
+  	border-radius: 5px;
+}
+.topdoce{
+	  margin-top: -2px;
+}
+.topseis{
+	padding-top: 6%;
+}
+.top-dos{
+	margin-top: -2%;
+}
+.topcuatro{
+	padding-top: 4%;
+}
+.ajax-upload-dragdrop, .ajax-file-upload-statusbar{
+	width:472px !important;
+}
+.mitad{
+	width: 50%;
+}
+.formClas2{
+	border: 1px solid #BEBEBE;
+  	width: 98% !important;
+  	height: 22px;  
+  	border-radius: 5px;
+}
+.formClas3{
+	width: 50%;
+    float: left;
+    margin-top: 1%;
+}
+.titNewClas{
+	padding-top: 1% !important;
+	padding-bottom: 1%;
+}
+.topdos{
+	padding-top: 2%;
+}
+
+/*/////////////////////---END POPUP ALTA CLASIFICADO---//////////////////////////////*/

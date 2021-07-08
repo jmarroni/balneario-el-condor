@@ -1,0 +1,554 @@
+<table style="border:1px solid #dbdbdb; background-repeat: repeat-x; font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 12px; color: #484747" bgcolor="#FFFFFF" background="images/bkg-header.gif" width="750" cellpadding="0" cellspacing="0" align="center">
+	
+	<!-- HEADER -->
+	<tr>
+		<td>
+			<h1><a style="display:block; margin:7px 70px 10px 10px" href=""><img style="display:block;" src="http://www.balneario-el-condor.com.ar/newsletter/images/logo-balneario.gif" alt="Balneario El Condor"></a></h1>
+		</td>
+		<td align="center">
+			&nbsp; <!-- <a style="display:block;" href=""><img style="display:block;" src="http://placehold.it/468x60" alt=""></a> -->
+		</td>		
+	</tr>
+	<!-- FIN HEADER -->
+
+	
+
+	<!-- BODY -->
+	<tr>
+		<td style="background-repeat: repeat-x; padding: 10px;" background="images/bkg-body.gif" colspan="2">
+			
+			<!-- MODULO NOVEDADES DESTACADAS -->
+					
+			<table style="margin-bottom: 30px; margin-top: 10px" width="100%" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td style="border-bottom: 1px solid #cecdcd" colspan="2"><h2 style="color:#324e87; font-size: 20px; margin-bottom: 0; display: block">Novedades destacadas</h2></td>
+				</tr>
+				
+				<!-- Novedad 1 -->
+
+				<tr>
+					<td style="padding: 15px 0; vertical-align: top;" width="70%">
+						<h3 style="color: #b1831a; font-weight: bold; display: block; margin-bottom: 5px; font-size: 18px;"><a  style="color: #b1831a; text-decoration:none" href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[0]["nov_keyword"]; ?>?source=newsletter"><?php echo $this->arrNovedades[0]["nov_titulo"]; ?></a></h3>
+						<p style="font-size: 12px; line-height: 1.2;">
+						<?php 
+
+						if (strlen($this->arrNovedades[0]["nov_descripcion"]) > 200){
+                                    echo substr($this->arrNovedades[0]["nov_descripcion"],0,200)."...";
+                        }else{
+                            echo $this->arrNovedades[0]["nov_descripcion"];
+                        } 
+                        ?>
+                        </p>
+					</td>
+					<td style="padding: 15px 0; vertical-align: top;" width="30%" align="right">
+						<?php if ($this->arrNovedades[0]["img_nombre"] != ""){ ?>
+
+							<a href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[0]['nov_keyword']; ?>" ><img style="display:block;width:200px;height:120px;" src="<?php echo $this->arrNovedades[0]["img_nombre"]; ?>" alt=""></a>
+						<?php } ?>
+					</td>
+				</tr>
+
+				<!-- Novedad 2 -->
+				<tr>
+					<td style="padding: 15px 0; vertical-align: top;" width="70%">
+						<h3 style="color: #b1831a; font-weight: bold; display: block; margin-bottom: 5px; font-size: 18px;"><a style="color: #b1831a; text-decoration:none" href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[1]["nov_keyword"]; ?>?source=newsletter"><?php echo $this->arrNovedades[1]["nov_titulo"]; ?></a></h3>
+						<p style="font-size: 12px; line-height: 1.2;"><?php
+
+							if (strlen($this->arrNovedades[1]["nov_descripcion"]) > 200){
+                                    echo substr($this->arrNovedades[1]["nov_descripcion"],0,200)."...";
+                                }else{
+                                    echo $this->arrNovedades[1]["nov_descripcion"];
+                                }
+						 ?></p>
+					</td>
+					<td style="padding: 15px 0; vertical-align: top;" width="30%" align="right">
+						<?php if ($this->arrNovedades[1]["img_nombre"] != ""){ ?>
+							<a href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[1]['nov_keyword']; ?>" ><img style="display:block;width:200px;height:120px;" src="<?php echo $this->arrNovedades[1]["img_nombre"]; ?>" alt=""></a>
+						<?php } ?>
+				<br><br>
+
+					</td>
+				</tr>
+<!-- Novedad 3 -->
+				<tr>
+					<td style="padding: 15px 0; vertical-align: top;" width="70%">
+						<h3 style="color: #b1831a; font-weight: bold; display: block; margin-bottom: 5px; font-size: 18px;"><a style="color: #b1831a; text-decoration:none" href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[2]["nov_keyword"]; ?>?source=newsletter"><?php echo $this->arrNovedades[2]["nov_titulo"]; ?></a></h3>
+						<p style="font-size: 12px; line-height: 1.2;"><?php
+
+							if (strlen($this->arrNovedades[2]["nov_descripcion"]) > 200){
+                                    echo substr($this->arrNovedades[2]["nov_descripcion"],0,200)."...";
+                                }else{
+                                    echo $this->arrNovedades[2]["nov_descripcion"];
+                                }
+						 ?></p>
+					</td>
+					<td style="padding: 15px 0; vertical-align: top;" width="30%" align="right">
+						<?php if ($this->arrNovedades[2]["img_nombre"] != ""){ ?>
+							<a href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[2]['nov_keyword']; ?>" ><img style="display:block;width:200px;height:120px;" src="<?php echo $this->arrNovedades[2]["img_nombre"]; ?>" alt=""></a>
+						<?php } ?>
+				<br><br>
+
+					</td>
+				</tr>
+				<!-- Receta -->
+				<tr>
+					<td style="border-bottom: 1px solid #cecdcd" colspan="2"><h2 style="color:#324e87; font-size: 20px; margin-bottom: 0; display: block">Recetas</h2></td>
+				</tr>
+
+				<tr>
+					<td style="padding: 15px 0; vertical-align: top;" width="70%">
+						<h3 style="color: #b1831a; font-weight: bold; display: block; margin-bottom: 5px; font-size: 18px;"><a style="color: #b1831a; text-decoration:none" href="http://www.balneario-el-condor.com.ar/recetas/<?php echo $this->arrRecetas[0]["re_keyword"]; ?>?source=newsletter"><?php echo $this->arrRecetas[0]["re_titulo"]; ?></a></h3>
+						<p ><?php
+
+							if (strlen($this->arrRecetas[0]["re_ingredientes"]) > 200){
+                                    echo strip_tags(substr($this->arrRecetas[0]["re_ingredientes"],0,200)."...");
+                                }else{
+                                    echo strip_tags($this->arrRecetas["re_ingredientes"]);
+                                }
+						 ?></p>
+					</td>
+					<td style="padding: 15px 0; vertical-align: top;" width="30%" align="right">
+						
+
+						<?php if ($this->arrRecetas[0]["re_imagen_bottom"] != ""){ ?> <a href="http://www.balneario-el-condor.com.ar/recetas/<?php echo $this->arrRecetas[0]["re_keyword"]; ?>?source=newsletter" >
+						<img style="display:block;width:200px;height:120px;" src="http://www.balneario-el-condor.com.ar/<?php echo $this->arrRecetas[0]["re_imagen_top"]; ?>" alt="">
+						<?php } ?></a>
+						
+
+					</td>
+				</tr>
+			</table>
+			<!-- FIN MODULO NOVEDADES DESTACADAS -->
+
+
+			<!-- MODULO ULTIMAS IMAGENES -->
+			<table style="margin-bottom: 30px;" width="100%" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td style="border-bottom: 1px solid #cecdcd" colspan="3"><h2 style="color:#324e87; font-size: 20px; margin-bottom: 0; display: block">Ultimas im&aacute;genes</h2></td>
+				</tr>
+				<tr>
+					<td  style="padding-top: 10px; vertical-align: top;" width="33%">
+						<a href="http://www.balneario-el-condor.com.ar/imagen">
+						<img style="display:block;width: 238px;height: 160px;" src="<?php echo $this->arrImagenes[0]["im_imagen"]; ?>" alt=""></a>
+						<span style="display:block; font-size:12px; color: #999999;"><?php echo $this->arrImagenes[0]['im_titulo']; ?></span>
+					</td>
+					<td style="padding-top: 10px; vertical-align: top;" width="33%">
+						<a href="http://www.balneario-el-condor.com.ar/imagen">
+						<img style="display:block;width: 238px;height: 160px;" src="<?php echo $this->arrImagenes[1]["im_imagen"]; ?>" alt=""></a>
+						<span style="display:block; font-size:12px; color: #999999;"><?php echo $this->arrImagenes[1]['im_titulo']; ?></span>
+					</td>
+					<td style="padding-top: 10px; vertical-align: top;" width="33%">
+						<a href="http://www.balneario-el-condor.com.ar/imagen">
+						<img style="display:block;width: 238px;height: 160px;" src="<?php echo $this->arrImagenes[2]["im_imagen"]; ?>" alt=""></a>
+						<span style="display:block; font-size:12px; color: #999999;"><?php echo $this->arrImagenes[2]['im_titulo']; ?></span>
+					</td>
+				</tr>
+			</table>
+			<!-- FIN MODULO ULTIMAS IMAGENES -->
+
+
+			<!-- MODULO TABLA MAREAS -->
+			<table style="margin-bottom: 30px;" width="100%" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td style="border-bottom: 1px solid #cecdcd" colspan="3"><h2 style="color:#324e87; font-size: 20px; margin-bottom: 0; display: block">Tabla de Mareas de la semana</h2></td>
+				</tr>
+				<tr>
+					<td style="padding-top: 10px;">
+						<table width="100%" cellpadding="0" cellspacing="0" align="center">
+							<tr>
+								<!-- Columna Dia -->
+								<td>
+									<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px;" align="center">Viernes</td>
+										</tr>
+										<tr>
+											<td style="padding: 10px 0" align="center">
+												<span style="font-size: 14px; display:block; text-align: center; color: #324e87;">6&deg;C <img src="http://www.balneario-el-condor.com.ar/newsletter/images/icon-cloudy.png" alt=""></span>
+												<p style="font-size: 10px; margin: 0; padding: 0;">7-18&deg;C  4.83k/h</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<ul style="font-size: 12px; color: #324e87; list-style: none; padding: 0 10px; line-height: 2.3;">
+														
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[5]['ma_primera_bajamar'] ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+
+														<?php echo $this->mareas[5]['ma_primera_pleamar'] ?></span>
+													</li>
+													<li>Bajamar <span style="color: #b1831a;">
+
+														<?php echo $this->mareas[5]['ma_segunda_plamar'] ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+
+														<?php echo $this->mareas[5]['ma_segunda_bajamar'] ?></span>
+													</li>
+														
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<!-- Fin Columna Dia -->
+
+								<!-- Columna Dia -->
+								<td style="padding-left: 5px;">
+									<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px;" align="center">Sabado</td>
+										</tr>
+										<tr>
+											<td style="padding: 10px 0" align="center">
+												<span style="font-size: 14px; display:block; text-align: center; color: #324e87;">6&deg;C <img src="http://www.balneario-el-condor.com.ar/newsletter/images/icon-cloudy.png" alt=""></span>
+												<p style="font-size: 10px; margin: 0; padding: 0;">7-18&deg;C  4.83k/h</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<ul style="font-size: 12px; color: #324e87; list-style: none; padding: 0 10px; line-height: 2.3;">
+													
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[6]['ma_primera_bajamar'];?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[6]['ma_primera_pleamar'];?></span>
+													</li>
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[6]['ma_segunda_bajamar'];?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[6]['ma_segunda_plamar'];?></span>
+													</li>
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<!-- Fin Columna Dia -->
+
+								<!-- Columna Dia -->
+								<td style="padding-left: 5px;">
+									<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px;" align="center">Domingo</td>
+										</tr>
+										<tr>
+											<td style="padding: 10px 0" align="center">
+												<span style="font-size: 14px; display:block; text-align: center; color: #324e87;">6&deg;C <img src="http://www.balneario-el-condor.com.ar/newsletter/images/icon-cloudy.png" alt=""></span>
+												<p style="font-size: 10px; margin: 0; padding: 0;">7-18&deg;C  4.83k/h</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<ul style="font-size: 12px; color: #324e87; list-style: none; padding: 0 10px; line-height: 2.3;">
+
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[0]['ma_primera_bajamar'] ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[0]['ma_primera_pleamar'] ?></span>
+													</li>
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[0]['ma_segunda_bajamar'] ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[0]['ma_segunda_plamar'] ?></span>
+													</li>
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<!-- Fin Columna Dia -->
+
+								<!-- Columna Dia -->
+								<td style="padding-left: 5px;">
+									<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px;" align="center">Lunes</td>
+										</tr>
+										<tr>
+											<td style="padding: 10px 0" align="center">
+												<span style="font-size: 14px; display:block; text-align: center; color: #324e87;">6&deg;C <img src="http://www.balneario-el-condor.com.ar/newsletter/images/icon-cloudy.png" alt=""></span>
+												<p style="font-size: 10px; margin: 0; padding: 0;">7-18&deg;C  4.83k/h</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<ul style="font-size: 12px; color: #324e87; list-style: none; padding: 0 10px; line-height: 2.3;">
+													<li>Bajamar <span style="color: #b1831a;">
+													<?php echo $this->mareas[1]['ma_primera_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+													<?php echo $this->mareas[1]['ma_primera_pleamar']; ?></span>
+													</li>
+													<li>Bajamar <span style="color: #b1831a;">
+													<?php echo $this->mareas[1]['ma_segunda_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+													<?php echo $this->mareas[1]['ma_segunda_plamar']; ?></span>
+													</li>
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<!-- Fin Columna Dia -->
+
+								<!-- Columna Dia -->
+								<td style="padding-left: 5px;">
+									<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px;" align="center">Martes</td>
+										</tr>
+										<tr>
+											<td style="padding: 10px 0" align="center">
+												<span style="font-size: 14px; display:block; text-align: center; color: #324e87;">6&deg;C <img src="http://www.balneario-el-condor.com.ar/newsletter/images/icon-cloudy.png" alt=""></span>
+												<p style="font-size: 10px; margin: 0; padding: 0;">7-18&deg;C  4.83k/h</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<ul style="font-size: 12px; color: #324e87; list-style: none; padding: 0 10px; line-height: 2.3;">
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[2]['ma_primera_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[2]['ma_primera_pleamar']; ?></span>
+													</li>
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[2]['ma_segunda_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[2]['ma_segunda_plamar']; ?></span>
+													</li>
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<!-- Fin Columna Dia -->
+
+								<!-- Columna Dia -->
+								<td style="padding-left: 5px;">
+									<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px;" align="center">Miercoles</td>
+										</tr>
+										<tr>
+											<td style="padding: 10px 0" align="center">
+												<span style="font-size: 14px; display:block; text-align: center; color: #324e87;">6&deg;C <img src="http://www.balneario-el-condor.com.ar/newsletter/images/icon-cloudy.png" alt=""></span>
+												<p style="font-size: 10px; margin: 0; padding: 0;">7-18&deg;C  4.83k/h</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<ul style="font-size: 12px; color: #324e87; list-style: none; padding: 0 10px; line-height: 2.3;">
+
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[3]['ma_primera_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[3]['ma_primera_pleamar']; ?></span>
+													</li>
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[3]['ma_segunda_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[3]['ma_segunda_plamar']; ?></span>
+													</li>
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<!-- Fin Columna Dia -->
+
+								<!-- Columna Dia -->
+								<td style="padding-left: 5px;">
+									<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px;" align="center">Jueves</td>
+										</tr>
+										<tr>
+											<td style="padding: 10px 0" align="center">
+												<span style="font-size: 14px; display:block; text-align: center; color: #324e87;">6&deg;C <img src="http://www.balneario-el-condor.com.ar/newsletter/images/icon-cloudy.png" alt=""></span>
+												<p style="font-size: 10px; margin: 0; padding: 0;">7-18&deg;C  4.83k/h</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<ul style="font-size: 12px; color: #324e87; list-style: none; padding: 0 10px; line-height: 2.3;">
+													
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[4]['ma_primera_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[4]['ma_primera_pleamar']; ?></span>
+													</li>
+													<li>Bajamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[4]['ma_segunda_bajamar']; ?></span>
+													</li>
+													<li>Pleamar <span style="color: #b1831a;">
+														<?php echo $this->mareas[4]['ma_segunda_plamar']; ?></span>
+													</li>
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<!-- Fin Columna Dia -->
+
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<!-- FIN MODULO TABLA MAREAS -->
+
+
+			<!-- MODULO INFO DE INTERES -->
+			<table style="margin-bottom: 30px;" width="100%" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td style="border-bottom: 1px solid #cecdcd" colspan="3"><h2 style="color:#324e87; font-size: 20px; margin-bottom: 0; display: block">Informaci&oacute;n de inter&eacute;s</h2></td>
+				</tr>
+				<tr>
+					
+					<!-- Telefonos -->
+					<td style="padding-top: 10px; vertical-align: top" width="48%">
+						<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+							<tr>
+								<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px; font-weight: bold;" align="center">TELEFONOS UTILES</td>
+							</tr>
+							<tr>
+								<td style="padding: 10px;">
+									
+									<p style="font-size: 12px; margin-bottom: 10px;"><span  style="color:#324e87; font-size: 14px;">Bomberos</span><br>
+									Rotonda de ingreso al Balneario<br>
+									Telefono: 100 / 497161<br></p>
+
+									<p style="font-size: 12px; margin-bottom: 10px;"><span  style="color:#324e87; font-size: 14px;">Policia</span><br>
+									Calle 69 y 4<br>
+									Telefono: 101 / 497300</p>
+									
+									<p style="font-size: 12px;"><span  style="color:#324e87; font-size: 14px;">Cento de salud</span><br>
+									Calle 69 y 8<br>
+									Telefono: 107 / 497198</p>
+
+								</td>
+							</tr>
+						</table>
+					</td>
+					<!-- Fin Telefonos -->
+					
+					<td width="4%">&nbsp;</td>
+					
+					<!-- Colectivos -->
+					<td style="padding-top: 10px; vertical-align: top" width="48%">
+						<table style="background-color: #f5f3f3;" width="100%" cellpadding="0" cellspacing="0" align="center">
+							<tr>
+								<td style="background-color: #c49b3f; padding: 5px 0; color: #FFFFFF; font-size: 15px; font-weight: bold;" align="center">HORARIOS DE COLECTIVOS</td>
+							</tr>
+							<tr>
+								<td style="padding: 10px;">									
+									<table width="100%" cellpadding="0" cellspacing="0" align="center">
+										<tr>
+											
+											<!-- Columna 1 -->
+											<td style="vertical-align: top; padding-right: 10px" align="left">
+												<table cellpadding="0" cellspacing="0" align="center">
+													<tr>
+														<td style="color: #324e87; font-size: 15px; font-weight: bold; padding-bottom: 10px;" colspan="2" align="center">Lunes a S&aacute;bados</td>
+													</tr>
+													<tr>
+														<td style="font-size: 11px; color: #b1831a; border-right: 1px dotted #cdcbc7; padding-right: 5px; vertical-align: top;">
+															<span style="font-weight: bold; display:block; margin-bottom: 5px;">De Viedma a El Condor</span>
+															<ul style="list-style: none; padding: 0; text-align: center; line-height: 2;">
+																<li>7:00</li>
+																<li>11:00</li>
+																<li>14:00</li>
+																<li>18:00</li>
+																<li>21:00</li>
+															</ul>
+														</td>
+														<td style="font-size: 11px; color: #324e87; padding-left: 5px; vertical-align: top;">
+															<span style="font-weight: bold; display:block; margin-bottom: 5px;">De El Condor a Viedma</span>
+															<ul style="list-style: none; padding: 0; text-align: center; line-height: 2;">
+																<li>8:00</li>
+																<li>12:00</li>
+																<li>15:00</li>
+																<li>19:00</li>
+																<li>22:00</li>
+															</ul>
+														</td>
+													</tr>
+												</table>
+											</td>
+											<!-- Fin Columna 1 -->
+
+											<!-- Columna 2 -->
+											<td style="vertical-align: top; padding-left: 10px;" align="right">
+												<table cellpadding="0" cellspacing="0" align="center">
+													<tr>
+														<td style="color: #324e87; font-size: 15px; font-weight: bold; padding-bottom: 10px;" colspan="2" align="center">Domingos y Feriados</td>
+													</tr>
+													<tr>
+														<td style="font-size: 11px; color: #b1831a; border-right: 1px dotted #cdcbc7; padding-right: 5px; vertical-align: top;">
+															<span style="font-weight: bold; display:block; margin-bottom: 5px;">De Viedma a El Condor</span>
+															<ul style="list-style: none; padding: 0; text-align: center; line-height: 2;">
+																<li>8:00</li>
+																<li>11:00</li>
+																<li>14:00</li>
+																<li>18:00</li>
+																<li>21:00</li>
+															</ul>
+														</td>
+														<td style="font-size: 11px; color: #324e87; padding-left: 5px; vertical-align: top;">
+															<span style="font-weight: bold; display:block; margin-bottom: 5px;">De El Condor a Viedma</span>
+															<ul style="list-style: none; padding: 0; text-align: center; line-height: 2;">
+																<li>9:00</li>
+																<li>12:00</li>
+																<li>15:00</li>
+																<li>19:00</li>
+																<li>22:00</li>
+															</ul>
+														</td>
+													</tr>
+												</table>
+											</td>
+											<!-- Fin Columna 2 -->
+
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<!-- Fin Colectivos -->
+
+				</tr>
+			</table>
+			<!-- FIN MODULO INFO DE INTERES -->
+
+
+		</td>
+	</tr>
+	<!-- FIN BODY -->
+
+	
+
+	<!-- FOOTER -->
+	<tr>
+		<td style="background-color: #324e87; color: #FFFFFF; padding: 16px 12px;" colspan="2">
+			Contacto: <a style="color: #FFFFFF;" href="mailto:contacto@balneario-el-condor.com">contacto@balneario-el-condor.com</a><br>
+			Copyright &copy; 2013 Balneario El Condor<br>
+			Sitio Web independiente, sin relaci&oacute;n oficial
+		</td>
+	</tr>
+	<!-- FIN FOOTER -->
+
+</table>

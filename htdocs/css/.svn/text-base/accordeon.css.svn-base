@@ -1,0 +1,275 @@
+/* CSS crunched with Crunch - http://crunchapp.net/ */
+.accordion {
+  margin-bottom: 24px;
+}
+.accordion-group {
+  margin-bottom: 5px;
+  padding: 5px;
+  background: #f0f0f0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.accordion-heading {
+  border-bottom: 0;
+  background: #f0f0f0;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  position: relative;
+}
+.accordion-heading a {
+  z-index: 2;
+  position: relative;
+}
+.accordion-heading a h5 {
+  font-weight: normal;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.accordion-heading a h5 i {
+  font-size: 16px;
+  color: #1b1b1b;
+  display: inline-block;
+  margin-right: 11px;
+  font-weight: normal;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.accordion-heading span {
+  display: block;
+  position: absolute;
+  background: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  z-index: 1;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.accordion-heading.active:hover h5,
+.accordion-heading.active h5,
+.accordion-heading.active:hover h5 i,
+.accordion-heading.active h5 i {
+  color: #1b1b1b;
+}
+.accordion-heading.active h5,
+.accordion-heading.active h5 i {
+  font-weight: 600;
+}
+.accordion-2 .accordion-heading h5:before {
+  font-family: FontAwesome;
+  font-size: 16px;
+  content: "";
+  margin-right: 10px;
+  font-weight: normal;
+}
+.accordion-2 .accordion-heading.active h5:before {
+  content: "";
+}
+.accordion-heading.active span {
+  bottom: 0;
+}
+.accordion-heading:hover h5,
+.accordion-heading:hover h5 i {
+  color: #1f97ff;
+}
+.accordion-heading .accordion-toggle {
+  display: block;
+  padding: 10px 15px;
+}
+.accordion-toggle {
+  cursor: pointer;
+}
+.accordion-inner {
+  padding: 13px 20px;
+  background: #ffffff;
+  font-size: 14px;
+  line-height: 21px;
+  color: #6a6a6a;
+}
+.accordion.black-style .accordion-group,
+.accordion.black-style .accordion-heading {
+  background: #262626;
+}
+.accordion.black-style .accordion-inner,
+.accordion.black-style .accordion-heading span {
+  background: #333 ;
+}
+.accordion.black-style .accordion-inner {
+  color: #999999;
+}
+.accordion.black-style .accordion-heading a h5 {
+  color: #fff;
+}
+.accordion.black-style .accordion-heading a h5 i {
+  color: #fff;
+  font-weight: normal;
+}
+.accordion.black-style .accordion-heading a:hover h5 {
+  color: #1f97ff;
+}
+.accordion.black-style .accordion-heading a:hover h5 i {
+  color: #1f97ff;
+}
+.accordion.black-style .accordion-heading.active:hover h5,
+.accordion.black-style .accordion-heading.active h5,
+.accordion.black-style .accordion-heading.active:hover h5 i,
+.accordion.black-style .accordion-heading.active h5 i {
+  color: #ffffff;
+}
+.accordion-2 .accordion-heading h5:before {
+  font-family: FontAwesome;
+  font-size: 16px;
+  content: "";
+  margin-right: 10px;
+  font-weight: normal;
+}
+.accordion-2 .accordion-heading.active h5:before {
+  content: "";
+}
+.box-toggle {
+  margin-bottom: 5px;
+  padding: 5px;
+  background: #f0f0f0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.box-toggle .toggle-heading {
+  background: #fff;
+  display: block;
+  padding: 10px 15px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+.box-toggle .toggle-heading i {
+  font-size: 16px;
+  color: #1b1b1b;
+  display: inline-block;
+  margin-right: 11px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: normal;
+}
+.box-toggle .toggle-heading:hover h5 {
+  color: #1f97ff;
+}
+.box-toggle .toggle-heading:hover h5 i {
+  color: #1f97ff;
+}
+.box-toggle .toggle-heading h5 {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 600;
+}
+.box-toggle .toggle-heading.togle-icon h5:before {
+  font-family: FontAwesome;
+  font-size: 16px;
+  content: "";
+  margin-right: 10px;
+  font-weight: normal;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.box-toggle .toggle-heading.togle-icon.collapsed {
+  background: #f0f0f0;
+}
+.box-toggle .toggle-heading.togle-icon.collapsed h5:before {
+  content: "";
+}
+.box-toggle .toggle-heading.collapsed {
+  background: #f0f0f0;
+}
+.box-toggle .toggle-heading.collapsed h5 {
+  font-weight: normal;
+}
+.box-toggle.black-style {
+  background: #262626;
+}
+.box-toggle.black-style .toggle-heading.togle-icon.collapsed,
+.box-toggle.black-style .toggle-heading,
+.box-toggle.black-style .accordion-inner {
+  background: #333333;
+}
+.box-toggle.black-style h5,
+.box-toggle.black-style h5 i {
+  color: #fff;
+}
+.box-toggle.black-style .toggle-heading.togle-icon.collapsed {
+  background: #262626;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+}
+.container:before,
+.container:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.container:after {
+  clear: both;
+}
+.container-fluid {
+  padding-right: 20px;
+  padding-left: 20px;
+  *zoom: 1;
+}
+.container-fluid:before,
+.container-fluid:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.container-fluid:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 34px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

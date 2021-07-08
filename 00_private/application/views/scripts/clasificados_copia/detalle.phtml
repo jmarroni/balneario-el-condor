@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="/css/shadow/shadowbox.css">
+<script type="text/javascript" src="/js/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota">
+            <div class="anuncios">
+                
+                <ul>
+                    <li class="clasificadosDetail">
+                        <a href="http://www.balneario-el-condor.com.ar/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagenes"] != "")?$this->arrClasificados[0]["cla_imagenes"]:"no_image.jpg";?>" rel="shadowbox">
+                        <img src="http://www.balneario-el-condor.com.ar/imagenes/clasificados/<?php echo  ($this->arrClasificados[0]["cla_imagenes"] != "")?$this->arrClasificados[0]["cla_imagenes"]:"no_image.jpg";?>">
+                        </a>
+                    </li>
+                </ul>
+                <h1><?php echo $this->arrClasificados[0]["cla_titulo"]; ?></h1>
+                <div class="datos">
+                    <label><b>Titular:</b> </label><?php echo ($this->arrClasificados[0]["cla_nombre_contacto"] != "")?$this->arrClasificados[0]["cla_nombre_contacto"]:"<b>No informa</b>"; ?><br><br>
+                    <label><b>Mail:</b> </label><?php echo ($this->arrClasificados[0]["cla_mail_contacto"] != "")?$this->arrClasificados[0]["cla_mail_contacto"]:"<b>No informa</b>"; ?><br><br>
+                    <label><b>Direcci&oacute;n:</b> </label><?php echo ($this->arrClasificados[0]["cla_direccion"] != "")?$this->arrClasificados[0]["cla_direccion"]:"<b>No informa</b>"; ?><br>
+                </div>
+                <p>
+                    <?php echo $this->arrClasificados[0]["cla_descripcion"]; ?>
+                </p>
+            </div>
+        </section><!-- /mainCol -->        
+        <section class="sidebar right short">
+            <div class="bannerContacto">
+                <a href="/contacto"><img src="/css/images/banner-contacto-230.gif" alt="Contactenos" title ="Contactenos"></a>
+            </div>
+            
+        </section><!-- /sidebar -->
+      </div>
+    </section>

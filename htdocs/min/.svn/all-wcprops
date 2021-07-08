@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/index.php
+END
+quick-test.css
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/quick-test.css
+END
+quick-test.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/quick-test.js
+END
+utils.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/utils.php
+END
+config-test.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/config-test.php
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/.htaccess
+END
+config.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/config.php
+END
+groupsConfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/balneario-el-condor/!svn/ver/2/trunk/htdocs/min/groupsConfig.php
+END

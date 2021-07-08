@@ -1,0 +1,224 @@
+
+<!--------------------------------------------------------->
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;">Noche de bares</h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> Noche de bares</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--==============================content=================================-->
+ <script> 
+  /*$( "#dialog" ).dialog({
+                  autoOpen: false
+                });*/
+    function modalInfoOpen(identificador){
+      $('#modalMenu').modal('show');
+      var html ="";
+      var restaurante_titulo      ='';
+      var restaurante_menu        ='';
+      var restaurante_espectaculo ='';
+      var restaurante_precio      ='';
+      var restaurante_pago      ='';
+      var imagen = "";
+      var reserva = '';
+      switch(identificador) {
+            case 1:
+                restaurante_titulo      ='Restaurante Arenas del Sur';
+                restaurante_menu        ='<p><b>Cena:</b> El menú  incluirá tenedor libre con pernil de cerdo a 250 pesos. Sin bebida</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> La cantante de tango invitada Mabel León brindará su show</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 250</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> calle 69 N°430';
+                reserva = '<p><b>Reservas al </b>2920 15 32 33 22</p>';
+                break;
+            case 2:
+                restaurante_titulo      ='Restaurante Los Trentinos';
+                restaurante_menu        ='<p><b>Cena:</b> Pernil de ternera con variedad de salsas, ensaladas y flan de postre.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Un show a cargo de “Lucas”, que brindará un espectáculo melódico</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ No informa</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Avenida costanera Nº 721.';
+                reserva = '<p><b>Reservas al </b>2920 15 67 37 73</p>';
+                break;
+            case 3:
+                restaurante_titulo      ='Restaurante Lupe\'s';
+                restaurante_menu        ='<p><b>Cena:</b> ofrece un menú de langostinos, brusquetas, risoto, y postre peras.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Agrupación musical Pridebailo con aportes de jazz y blues</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 350</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Avenida Costanera y calle 61.';
+                reserva = '<p><b>Reservas al </b>2920 15 32 33 22</p>';
+                break;
+            case 4:
+                restaurante_titulo      ='Pizzería Somo´s';
+                restaurante_menu        ='<p><b>Cena:</b>Oofrecerá un menú a la carta de pizzas y pastas.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Con un show de Carla Galvez</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ 200</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Calle 67 y 40.';
+                reserva = '<p><b>Reservas al </b>2920 15 54 020</p>';
+                break;
+            case 5:
+                restaurante_titulo      ='Del Tomate Restobar';
+                restaurante_menu        ='<p><b>Cena:</b> Se ofrecerá pizza más bebida con descuento.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b>  folclore a cargo de Daniel Cantos Julián Álvarez Carlos Calderón</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ No informa</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Calle 60 y 65';
+                reserva = '<p><b>Reservas al </b>2920 15 56 20 55</p>';
+                break;
+            case 6:
+                restaurante_titulo      ='Parrilla Mary';
+                restaurante_menu        ='<p><b>Cena:</b> Ofrecerá pollo, lechón frio, pernil de cerdo y Casata de postre</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b>Lucas Fernández, brindará un show melódico-bailable</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ No informa</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Calle 12 y 71';
+                reserva = '<p><b>Reservas al </b>2920 15 30 46 63</p>';
+                break;
+            case 7:
+                restaurante_titulo      ='Carabana';
+                restaurante_menu        ='<p><b>Cena:</b> Menú a la Carta, con pizza libre.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b>  folclore a cargo de Daniel Cantos Julián Álvarez Carlos Calderón</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ No informa</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Costanera N°653';
+                reserva = '<p><b>Reservas al </b>No informa</p>';
+                break;
+            case 8:
+                restaurante_titulo      ='Al Reparo';
+                restaurante_menu        ='<p><b>Cena:</b> Cordero Black beer y copa de vino, agua o gaseosa.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b>  folclore a cargo de Daniel Cantos Julián Álvarez Carlos Calderón</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ No informa</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Avenida Costanera entre 59 y 49';
+                reserva = '<p><b>Reservas al </b>2920 15 51 51 96</p>';
+                break;
+           case 9:
+                restaurante_titulo      ='Parador Punta del Faro';
+                restaurante_menu        ='<p><b>Cena:</b> Pizza libre.</p>';
+                restaurante_espectaculo ='<p><b>Espectaculo:</b> Show de rock de La Gran 7</p>';
+                restaurante_precio      ='<p><b>Costo:</b>$ No informa</p>';
+                restaurante_pago      ='<p><b>Ubicaci&oacute;n:</b> Avenida costanera 1465';
+                reserva = '<p><b>Reservas al </b>2920 15 61 90 80</p>';
+                break;
+            default:
+                //default code block
+        }
+
+
+
+        $(".modal-title").html(restaurante_titulo);
+        $(".modal-body").html(restaurante_menu + restaurante_espectaculo + restaurante_precio + restaurante_pago+reserva);
+        
+       // $( "#dialog" ).dialog( "open" );
+        //$(".ui-dialog-title").html("Arenas del Sur menu descripción");
+    }
+</script>
+<div class="container pt-3 pb-2">
+
+<div class="row">
+  <div class="col-lg-6">
+    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+      <span class="thumb-info-wrapper">
+      <a onclick="modalInfoOpen(1);" href="#arenasdelsur" >     
+        <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/arenas-del-sur_noche_bares.jpg" alt="Noche de Bares, Arenas del Sur" class="img-fluid">    
+        </a>   
+        <span class="thumb-info-title">
+          <span class="thumb-info-inner line-height-1">Arenas del Sur</span>
+          <span class="thumb-info-type opacity-8"><a onclick="modalInfoOpen(1);"><strong class="font-weight-extra-bold" style="font-size: 15px;">Men&uacute; y espectaculo</strong></a></span>
+        </span>
+      </span>
+   </span>
+    <p></p>
+  </div>
+
+   <div class="col-lg-6">
+    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+      <span class="thumb-info-wrapper">
+      <a onclick="modalInfoOpen(1);" href="#arenasdelsur" >     
+        <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/trentinos_noche_bares.jpg" alt="Noche de Bares, Arenas del Sur" class="img-fluid">    
+        </a>   
+        <span class="thumb-info-title">
+          <span class="thumb-info-inner line-height-1">Los Trentinos</span>
+          <span class="thumb-info-type opacity-8"><a onclick="modalInfoOpen(2);"><strong class="font-weight-extra-bold" style="font-size: 15px;">Men&uacute; y espectaculo</strong></a></span>
+        </span>
+      </span>
+   </span>
+    <p></p>
+  </div>
+
+   <div class="col-lg-6">  
+    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+      <span class="thumb-info-wrapper">
+      <a onclick="modalInfoOpen(1);" href="#arenasdelsur" >     
+        <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/lupes-resto_noche-bares.jpg" alt="Noche de Bares, Arenas del Sur" class="img-fluid">    
+        </a>   
+        <span class="thumb-info-title">
+          <span class="thumb-info-inner line-height-1">Lupe's</span>
+          <span class="thumb-info-type opacity-8"><a onclick="modalInfoOpen(3);"><strong class="font-weight-extra-bold" style="font-size: 15px;">Men&uacute; y espectaculo</strong></a></span>
+        </span>
+      </span>
+   </span>
+    <p></p>
+  </div>
+
+  <div class="col-lg-6">  
+    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+      <span class="thumb-info-wrapper">
+      <a onclick="modalInfoOpen(1);" href="#arenasdelsur" >     
+        <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/al-reparo_noche_bares.jpg" alt="Noche de Bares, Arenas del Sur" class="img-fluid">    
+        </a>   
+        <span class="thumb-info-title">
+          <span class="thumb-info-inner line-height-1">Al reparo</span>
+          <span class="thumb-info-type opacity-8"><a onclick="modalInfoOpen(4);"><strong class="font-weight-extra-bold" style="font-size: 15px;">Men&uacute; y espectaculo</strong></a></span>
+        </span>
+      </span>
+   </span>
+    <p></p>
+  </div>
+
+   <div class="col-lg-6">  
+    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+      <span class="thumb-info-wrapper">
+      <a onclick="modalInfoOpen(1);" href="#arenasdelsur" >     
+        <img src="http://static.balneario-el-condor.com.ar/css/images/repositorio/restaurantes/pizzaiolo_noche-bares.jpg" alt="Noche de Bares, Arenas del Sur" class="img-fluid">    
+        </a>   
+        <span class="thumb-info-title">
+          <span class="thumb-info-inner line-height-1">Pizzaiolo</span>
+          <span class="thumb-info-type opacity-8"><a onclick="modalInfoOpen(5);"><strong class="font-weight-extra-bold" style="font-size: 15px;">Men&uacute; y espectaculo</strong></a></span>
+        </span>
+      </span>
+   </span>
+    <p></p>
+  </div>
+
+</div>
+
+</div>
+
+<div class="modal fade" id="modalMenu" tabindex="-1" aria-modal="true" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

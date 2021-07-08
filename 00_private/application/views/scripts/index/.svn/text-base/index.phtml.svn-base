@@ -1,0 +1,296 @@
+<link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--==============================Elastic slider==============================-->
+<div class="modal fade serv" id="formClasificado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only"></span>
+        </button>
+        <h4 class="modal-title titNewClas" id="exampleModalLabel" style="padding:4px 0 0px;">Consulta por nueva publicidad</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="filaleft"> <!-- FILALEFT -->
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Nombre:</label>
+              <input type="txt" class="form-control formClas" id="nombreForm" name="nombreForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Apellido:</label>
+              <input type="txt" class="form-control formClas" id="apellidoForm" name="apellidoForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="recipient-name" class="control-label">Mail de Contacto:</label>
+              <input type="txt" class="form-control formClas" id="emailForm" name="emailForm">
+            </div>
+            <div class="form-group topdos">
+              <label for="message-text" class="control-label">Comentario:</label>
+              <textarea type="txt" class="form-control formClas2" id="comentarioForm" name="comentarioForm"></textarea>
+            </div>
+            <input type="hidden" value="" id="zonaForm">
+          </div> <!-- END FILALEFT -->
+        </form>
+      </div> 
+      <div class="modal-footer">
+        <button type="button" id="publicitar" class="btn btn-default">Enviar Consulta</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--==============================Elastic slider==============================-->
+
+			  <div class="wrapper wrapper-slider">
+                <div id="ei-slider" class="ei-slider">
+                    <ul class="ei-slider-large">
+                    <li class="item1">
+                            <img alt="Playa bonita" src="/imagenes/slider/playa_bonita.jpg">
+                            <div class="ei-title ">
+                            
+                            <div class="container">
+                                <h2>Las Mejores Playas</h2>
+                                <h3>Playa Bonita a solo 15 km.</h3>
+                                </div>
+                            </div>
+                        </li>
+                     <li class="item2">
+                           <img alt="" src="/imagenes/slider/inmensidad_playas.png">
+                            <div class="ei-title  text-center">
+                            <div class="container">  
+                                <h2>Las Playas</h2>
+                                <h3>Con toda su inmensidad</h3>
+                                </div>                                
+                            </div>
+                        </li>
+			    	 <li class="item3">
+                      <img alt="" src="/imagenes/slider/vista_el_condor.png">
+                      
+                      <div class="ei-title">                         
+                       <div class="container"> 
+                           <h2>La Villa Maritima</h2> 
+                          <h3>Toda nuestra calidez</h3>                           
+                          </div>                                                   
+                         </div>
+                           
+                        </li>
+                       
+                        
+                                           
+                        
+                    </ul><!-- ei-slider-large -->
+                    <ul class="ei-slider-thumbs">
+                        <li class="ei-slider-element">Actual</li>
+                        <li><a href="#">Playas</a><img src="/imagenes/slider/imagenes/slider/playa_bonita.jpg" alt="Playa Bonita" /></li>
+                        <li><a href="#">Playas</a><img src="/imagenes/slider/inmensidad_playas.png" alt="Playas" /></li>
+						<li><a href="#">Pueblo</a><img src="/imagenes/slider/vista_el_condor.png" alt="Pueblo El Condor" /></li>
+                        
+                        
+                    </ul><!-- ei-slider-thumbs -->
+                </div><!-- ei-slider -->
+         </div><!-- wrapper -->
+<!--==============================content=================================-->
+<div id="content">       
+  <div class="content-div">  
+         <div class="container"> 
+        <div class="baner-text extra">
+          <!--/*
+              *
+              * Revive Adserver Asynchronous JS Tag
+              * - Generated with Revive Adserver v3.2.1
+              *
+              */-->
+
+            <ins data-revive-zoneid="1" data-revive-id="86d30993f9fb0ee5ee68abe6fb1d5366"></ins>
+            <script async src="//adserver.fidegroup.com.ar/www/delivery/asyncjs.php"></script>
+        </div>     
+         <!--==========row-news=============-->      
+  <div class="row-news">
+        <h3>Novedades</h3>
+       <!--==========carousel-5=============--> 
+        <div class="carousel-3 carousel_indent  carousel">
+           <ul id="carousel-5" class="clearfix">
+           <?php foreach ($this->arrNovedades as $key => $value) { ?>
+              <li>
+                  <div class="block_carousel">
+                  <figure class="img-polaroid"><img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=<?php echo str_replace("thumb_", "photo_", $value["img_nombre"]);?>&amp;w=370&amp;h=222&amp;zc=1" alt="<?php echo utf8_encode($value["nov_titulo"]); ?>"></figure>
+                  <div class="block-news"> 
+                        <div class="extra-wrap">
+                      <h5><a href="/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>"><?php echo utf8_encode($value["nov_titulo"]); ?></a> </h5>
+                      <!--  <span class="txt-1">posted by <a href="#">admin</a> in <a href="#">Work Process</a></span> -->
+                      <p class="txt-2">
+                      <?php   if (strlen(strip_tags($value["nov_descripcion"])) > 200){
+                                    echo utf8_encode(substr(strip_tags($value["nov_descripcion"]),0,200))."...";
+                                }else{
+                                    echo utf8_encode(strip_tags($value["nov_descripcion"]));
+                                } ?>
+                      </p>
+                      <a href="/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>" class="link">Leer m&aacute;s</a> </div>
+                      </div>
+                </div>
+              </li>
+            <?php } ?>
+          </ul>
+              <div class="div-control"> <div  class="prev-slide prev-5"></div> <div class="view_all"></div> <div  class="next-slide next-5"></div> </div>
+            </div>
+       <!--==========end carousel-5=============-->        
+            
+      </div>  
+     <!--carrusel 5-->
+        
+        <div class="row">
+        <div class="slider-block extra responsive clearfix">
+              <article class="span3">
+            <h3>Alojamiento</h3>
+            <p>Caba&ntilde;as, Hoteles, Apart, Camping, todo lo que necesita para alojarse con comodidad y todos los servicios disponibles disfrutar.</p>
+            <div class="div-control"> <div  class="prev-slide prev-alojamiento"></div><div class="view_all"></div> <div class="next-slide next-alojamiento"></div> </div>
+          </article>
+              <article class="span9">              
+        <!--=======carousel-1========-->
+              
+            <ul id="carousel-1-alojamiento" class="clearfix carousel">
+                <li> <a href="#" id="consultar" class="box-work" data-toggle="modal" data-target="#formClasificado">
+                    <figure>
+                    <!--/*
+                      *
+                      * Revive Adserver Asynchronous JS Tag
+                      * - Generated with Revive Adserver v3.2.1
+                      *
+                      */-->
+
+                    <ins data-revive-zoneid="5" data-revive-id="86d30993f9fb0ee5ee68abe6fb1d5366"></ins>
+                    <script async src="//adserver.fidegroup.com.ar/www/delivery/asyncjs.php"></script>
+                    </figure>
+                    <span> <strong>Publicite aqu&iacute;</strong> <i></i> </span> </a> 
+                </li>  
+            		<?php foreach ($this->arrHospedaje as $key => $value) { //print_r($value); ?>
+            		<li> <a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>" class="box-work">
+                    <figure><img src="<?php echo $value["imagen"][0]["ho_url"]; ?>" alt="<?php echo $value["ho_titulo"]; ?>"></figure>
+                    <span> <strong><?php echo $value["ho_titulo"]; ?></strong> <i><?php echo $value["ho_titulo"]; ?></i> </span> </a> </li>
+                 	<?php } ?>
+                </ul>
+          </article>
+            </div>
+      </div>
+       <div class="row">
+        <div class="slider-block extra responsive clearfix">
+              <article class="span3">
+            <h3>Restaurantes</h3>
+            <h4><a href="/noche-de-bares">Mir&aacute; todos los restaurantes de la noche de los bares click aqu&iacute;</a></h4>
+            <!--<p>Encontra los mejores lugares para desayunar, almorzar o cenar en nuestro balneario, con todas las exquisiteses gourmet que nuestra zona ofrece.</p>-->
+            <div class="div-control"> <div  class="prev-slide prev"></div><div class="view_all"></div> <div class="next-slide next"></div> </div>
+          </article>
+              <article class="span9">              
+        <!--=======carousel-1========-->
+              
+            <ul id="carousel-1" class="clearfix carousel">
+            		<?php foreach ($this->arrGourmet as $key => $value) { ?>
+                   <li> <a href="/restaurantes-y-confiterias/<?php echo $value["go_keyword"]; ?>" class="box-work">
+                    <figure><img src="<?php echo $value["imagen"][0]["gi_url"]; ?>" alt="<?php echo $value["go_titulo"]; ?>"></figure>
+                    <span> <strong><?php echo $value["go_titulo"]; ?></strong> <i><?php echo $value["go_titulo"]; ?></i> </span> </a> </li>
+                  <?php } ?>
+                </ul>
+          </article>
+            </div>
+      </div>
+       <!--========responsive-tabs========--> 
+            
+      <!-- tabs left -->
+      <div class="tabbable tabs-left tabs-icons">
+        <ul class="nav nav-tabs">
+          	<li class="active"><a href="#a1" data-toggle="tab"><i class="fa fa-group"></i> Club de Amigos</a></li>
+          	<li><a href="#b1" data-toggle="tab"><i class="fa fa-briefcase"></i> Turismo</a></li>
+       		<li><a href="#c1" data-toggle="tab"><i class="fa fa-briefcase"></i> Delegaci&oacute;n Municipal</a></li>
+        </ul>
+
+        <div class="tab-content">
+         <div class="tab-pane active" id="a1">
+            <figure class="img-polaroid extra"><img src="<?php echo $this->clubDeAmigos[0]["cl_imagenes"]; ?>" alt="<?php echo $this->clubDeAmigos[0]["cl_titulo"]; ?>"></figure>
+            <div class="extra-wrap">
+            <p><strong><?php echo $this->clubDeAmigos[0]["cl_titulo"];?></strong></p>
+            <p><?php   if (strlen($this->clubDeAmigos[0]["cl_descripcion"]) > 800){
+                         echo substr(strip_tags($this->clubDeAmigos[0]["cl_descripcion"]),0,800)."...";
+                       }else{
+                         echo strip_tags($this->clubDeAmigos[0]["cl_descripcion"]);
+                       } ?></p>
+            <a href="/club-de-amigos/<?php echo $this->clubDeAmigos[0]["cl_keyword"]; ?>" class="link">leer m&aacute;s</a> 
+            </div>
+
+         </div>
+
+         <div class="tab-pane" id="b1">
+            <figure class="img-polaroid extra"><img src="/img/thumbs/logo-muni.png" alt="Oficina de Informes Tur&iacute;sticos"></figure>
+             <div class="extra-wrap">
+             <p><strong>Oficina de Informes Tur&iacute;sticos</strong><br />
+					Avda. Francisco de Viedma Nro. 51 - Tel: 427171<br />
+					turismo@viedma.gov.ar - infoturismo@viedma.gov.ar<br />
+					Facebook: TurismoMunicipalidadViedma<br />
+					Twitter: @Turismoviedma<br />
+					YouTube: Viedmaturismo<br />
+					Pinterest: /Turismoviedma<br />
+					Informaci&oacute;n extraida de la web de turismo Viedma.<br /></p> 
+            </div>
+          </div>
+
+          <div class="tab-pane" id="c1">
+           <figure class="img-polaroid extra"><img src="/img/thumbs/logo-muni.png" alt=""></figure>
+             <div class="extra-wrap">
+            <p><strong>Delegaci&oacute;n Municipal Balneario El C&oacute;ndor</strong></p>
+            <p>
+            Calle 69 y 12 Bis, 8501 Balneario El C&oacute;ndor, Rio Negro, Argentina<br />
+            Tel:  02920 - 497068<br />
+            </p>
+            </div>
+          </div>
+
+
+        <!-- /tabs --> 
+      </div>
+    </div>
+  </div>
+</div>
+<!--phpbajo-->
+    <script type="text/javascript">
+      $('#consultar').click(function(event) {
+        $('#zonaForm').val(1);
+      });
+      $('#publicitar').click(function(event) {
+        event.preventDefault();
+        if( $('#nombreForm').val()!='' && $('#emailForm').val()!='' && $('#comentarioForm').val()!=''){
+          var dataString = 'nombre=' + $('#nombreForm').val() + '&apellido=' + $('#apellidoForm').val() + '&email=' + $('#emailForm').val() + '&zona=' + $('#zonaForm').val() + '&comentario=' + $('#comentarioForm').val();
+
+          
+          $.ajax({
+              url: "/index/consultarpublicidad", // Url to which the request is send
+              type: "POST",             // Type of request to be send, called as method
+              data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+              success: function(data)   // A function to be called if request succeeds
+              {
+
+                  alert('La consulta se envio correctamente. En breve nos contactaremos con usted.');
+                  $('#formClasificado').hide();
+              }
+          });
+        } else {
+          alert ('Verifique que todos los datos esten completos');
+        }    
+      });
+   </script>
+    <style type="text/css">
+    .liagenda{
+      float:left;list-style: none;position: relative;width: 370px !important;margin-right: 30px !important;
+    }
+    #nombreForm, #emailForm, #apellidoForm {
+      border: 1px solid #BEBEBE;
+      width: 98%;
+    }
+    #comentarioForm{
+      width: 96%;
+      min-height: 80px;
+      margin-bottom: -4%;
+    }
+    </style>
+    

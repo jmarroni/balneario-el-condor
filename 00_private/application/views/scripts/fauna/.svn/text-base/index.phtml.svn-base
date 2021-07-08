@@ -1,0 +1,11 @@
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="fullCol">
+        	<h2 class="tituloAmarillo">Fauna
+            <span>Donde la diversidad de aves contribuye con el turismo del nordeste Patag&oacute;nico</span></h2>
+<p>Estamos construyendo esta seccion, si tenes aportes para nosotros contactate y envianos informaci&oacute;n</p>
+            <a href="/" class="botonVolver">&lt;&lt; Volver</a>
+        </section>
+        <!-- /fullCol -->
+      </div>
+    </section>

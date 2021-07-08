@@ -1,0 +1,404 @@
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-8">
+                            <h1 class="page-heading">
+                                Usuario <small>Formulario de alta para un nuevo Usuario.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-4 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li><a class="link-effect" href="/usuarios/listado">Usuario</a></li>
+                                <li>Nuevo</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content content-narrow">
+
+				<!-- Bootstrap Design -->
+                    <div class="row">
+                            <!-- Default Elements -->
+                            <div class="block">
+                            	<div class="alert alert-success" id="mensajeOK" style="display:none;">
+								  <strong>Perfecto!</strong> Alta del usuario correcta. <a href="/usuarios/listado">Ir al listado</a>
+								</div>
+								<div class="alert alert-danger" id="mensajeERROR" style="display:none;">
+								  <strong>Upps!</strong> Existen errores, por favor verificalos.
+								</div>
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button"><i class="si si-settings"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Formulario de Alta</h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal" action="base_forms_elements.html" method="post" enctype="multipart/form-data" onsubmit="return false;">
+                                        <input type="hidden" id="us_id" name="us_id" value="<?php echo $this->usuarios->getUs_id(); ?>" />
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Nombre</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_nombre(); ?>" type="text" id="nombre" name="nombre" placeholder="Nombre del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Apellido</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_apellido(); ?>" type="text" id="apellido" name="apellido" placeholder="Apellido del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Email</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_email(); ?>" type="text" id="email" name="email" placeholder="Email del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Tel&eacute;fono</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_telefono(); ?>" type="text" id="telefono" name="telefono" placeholder="Teléfono del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Pa&iacute;s</label>
+                                            <div class="col-sm-9">
+                                              <select class="form-control" id="pais" name="pais" onchange="changeProvincia(this);">
+                                                  <?php foreach ($this->paises as $p) { ?>
+                                                      <option value="<?php echo $p->getPa_id(); ?>"><?php echo $p->getPa_nombre(); ?></option>
+                                                  <?php } ?>
+                                              </select>
+                                            </div>
+                                        </div>  
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Provincia</label>
+                                            <div class="col-sm-9">
+                                              <select class="form-control" id="provincia" name="provincia">
+                                              </select>
+                                            </div>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Ciudad</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_ciudad(); ?>" type="text" id="ciudad" name="ciudad" placeholder="Ciudad del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Actividad Principal</label>
+                                            <div class="col-sm-9">
+                                                <!-- <input class="form-control" value="<?php echo $this->usuarios->getUs_actividad_principal(); ?>" type="text" id="actividad" name="actividad" placeholder="Actividad Principal del Usuario"> -->
+                                                <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="listAct1" name="listAct" onclick="alternar3(this);" value="Transporte aéreo">Transporte a&eacute;reo
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox2">
+                                                   <input type="checkbox" id="listAct2" name="listAct" onclick="alternar3(this);" value="Transporte terrestre">Transporte terrestre
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct3" name="listAct" onclick="alternar3(this);" value="Servicios Profesionales / Consultoría">Servicios Profesionales / Consultor&iacute;a
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct4" name="listAct" onclick="alternar3(this);" value="DMO / Desarrollo de destinos">DMO / Desarrollo de destinos
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct5" name="listAct" onclick="alternar3(this);" value="Hotelería">Hoteler&iacute;a
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct6" name="listAct" onclick="alternar3(this);" value="Proveedor de Tecnología">Proveedor de Tecnolog&iacute;a
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct7" name="listAct" onclick="alternar3(this);" value="Agencia de viajes Tradicional">Agencia de viajes Tradicional
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct8" name="listAct" onclick="alternar3(this);" value="Asistencia al viajero">Asistencia al viajero
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct9" name="listAct" onclick="alternar3(this);" value="Asociación">Asociaci&oacute;n
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct10" name="listAct" onclick="alternar3(this);" value="Educación">Educaci&oacute;n
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct11" name="listAct" onclick="alternar3(this);" value="Cruceros">Cruceros
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct12" name="listAct" onclick="alternar3(this);" value="PR / Agencia de MKT, Publicidad">PR / Agencia de MKT, Publicidad
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct13" name="listAct" onclick="alternar3(this);" value="Prensa">Prensa
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct14" name="listAct" onclick="alternar3(this);" value="Operados">Operados
+                                               </label>
+                                               <br>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct15" name="listAct" onclick="alternar3(this);" value="Agencia de viajes online">Agencia de viajes online
+                                               </label>
+                                               <label style="width:250px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listAct16" name="listAct" onclick="alternar3(this);" value="Otro">Otro
+                                               </label>
+                                            </div>
+                                        </div>                                 
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Cargo</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_cargo(); ?>" type="text" id="cargo" name="cargo" placeholder="Cargo del Usuario">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Jerarqu&iacute;a  del Cargo</label>
+                                            <div class="col-sm-9">
+                                                <!-- <input class="form-control" value="<?php echo $this->usuarios->getUs_jerarquiza_cargo(); ?>" type="text" id="jerarquiza" name="jerarquiza" placeholder=""> -->
+                                                <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="listJC1" name="listJC" onclick="alternar(this);" value="CEO">CEO
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox2">
+                                                   <input type="checkbox" id="listJC2" name="listJC" onclick="alternar(this);"  value="Dueño">Due&ntilde;o
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC3" name="listJC" onclick="alternar(this);"  value="Ejecutivo">Ejecutivo
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC4" name="listJC" onclick="alternar(this);"  value="COO">COO
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC5" name="listJC" onclick="alternar(this);"  value="Presidente">Presidente
+                                               </label>
+                                               <br>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC6" name="listJC" onclick="alternar(this);"  value="VP">VP
+                                               </label>
+
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC7" name="listJC" onclick="alternar(this);"  value="Gerente">Gerente
+                                               </label>
+                                               
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC8" name="listJC" onclick="alternar(this);"  value="Consultor">Consultor
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC9" name="listJC" onclick="alternar(this);"  value="Socio">Socio
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC10" name="listJC" onclick="alternar(this);"  value="Director">Director
+                                               </label>
+                                               <br>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC11" name="listJC" onclick="alternar(this);"  value="CFO">CFO 
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC12" name="listJC" onclick="alternar(this);"  value="Analista">Analista
+                                               </label>
+                                               <label style="width:85px;" class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listJC13" name="listJC" onclick="alternar(this);" value="Otro">Otro
+                                               </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Como conociste</label>
+                                            <div class="col-sm-9">
+                                                <!-- <textarea class="form-control" value="<?php echo $this->usuarios->getUs_como_conociste(); ?>" type="text" id="conociste" name="conociste" placeholder=""> </textarea> -->
+                                                <label class="checkbox-inline" for="example-inline-checkbox1">
+                                                   <input type="checkbox" id="listCC1" name="listCC" onclick="alternar2(this);" value="Prensa">Prensa
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox2">
+                                                   <input type="checkbox" id="listCC2" name="listCC" onclick="alternar2(this);" value="Sponsor">Sponsor
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listCC3" name="listCC" onclick="alternar2(this);" value="Fui invitado">Fui invitado
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listCC4" name="listCC" onclick="alternar2(this);" value="Redes Sociales">Redes Sociales
+                                               </label>
+                                               <label class="checkbox-inline" for="example-inline-checkbox3">
+                                                   <input type="checkbox" id="listCC5" name="listCC" onclick="alternar2(this);" value="Newsletter">Newsletter
+                                               </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Temas de Inter&eacute;s</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value="<?php echo $this->usuarios->getUs_temas_de_interes(); ?>" type="text" id="temas" name="temas" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                           <label class="col-xs-12">Estado</label>
+                                           <div class="col-xs-12">
+                                               <label class="radio-inline" for="example-inline-radio1">
+                                                   <input type="radio" id="activado" name="activo" value="1">Activado
+                                               </label>
+                                               <label class="radio-inline" for="example-inline-radio2">
+                                                   <input type="radio" id="noactivado" name="activo" value="0"> No Activado
+                                               </label>
+                                           </div>
+                                       </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-primary" type="submit">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Default Elements -->                        
+                    </div>
+                    </div>
+                    </main>
+                    <script>
+                        jQuery(document).ready(function($) {
+                            $('#activado').click(function(event) {
+                                $('#noactivado').prop('checked', false);
+                                //alert($('input:radio[name=activo]:checked').val());
+                            });
+                            $('#noactivado').click(function(event) {
+                                $('#activado').prop('checked', false);
+                                //alert($('input:radio[name=activo]:checked').val());
+                            });
+                        });
+	                    jQuery( "form" ).on( "submit", function( event ) {
+	                    	event.preventDefault();
+	                    	 jQuery( "#mensajeERROR" ).hide();
+	                    	 jQuery( "#mensajeOK" ).hide();
+	                    	 
+                             var dataString = 'id=' + $('#us_id').val() + 
+                                            '&nombre='+ $('#nombre').val() + 
+                                            '&apellido=' + $('#apellido').val() + 
+                                            "&email=" + $('#email').val() + 
+                                            '&telefono=' + $('#telefono').val() + 
+                                            '&pais='+ $('#pais').val() + 
+                                            '&provincia=' + $('#provincia').val() + 
+                                            '&ciudad='+ $('#ciudad').val() + 
+                                            '&actividad='+ $("input[name=listAct]:checked").val() + 
+                                            '&cargo='+ $('#cargo').val() + 
+                                            '&jerarquiza='+ $("input[name=listJC]:checked").val() + 
+                                            '&conociste='+ $("input[name=listCC]:checked").val() + 
+                                            '&temas='+ $('#temas').val() + 
+                                            '&status='+ $('input:radio[name=activo]:checked').val();
+                                $.ajax({
+                                url: "/usuarios/procesar", // Url to which the request is send
+                                type: "POST",             // Type of request to be send, called as method
+                                data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                                success: function(data)   // A function to be called if request succeeds
+                                {
+                                    if(data!= ''){
+                                        jQuery( "#mensajeOK" ).show();
+                                        var new_position = jQuery('.page-heading').offset();
+                                        window.scrollTo(new_position.left,new_position.top);
+                                    }
+                                    else {
+                                        jQuery( "#mensajeERROR" ).show();
+                                        var new_position = jQuery('.page-heading').offset();
+                                        window.scrollTo(new_position.left,new_position.top);
+                                    }
+                                }
+                    });
+	                    	 
+	                    });
+
+                        function alternar(check){
+                            listJC1.checked = false;
+                            listJC2.checked = false;
+                            listJC3.checked = false;
+                            listJC4.checked = false;
+                            listJC5.checked = false;
+                            listJC6.checked = false;
+                            listJC7.checked = false;
+                            listJC8.checked = false;
+                            listJC9.checked = false;
+                            listJC10.checked = false;
+                            listJC11.checked = false;
+                            listJC12.checked = false;
+                            listJC13.checked = false;
+                        
+                            check.checked = true; 
+
+                            /*$("input[name=listJC]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function alternar2(check){
+                            listCC1.checked = false;
+                            listCC2.checked = false;
+                            listCC3.checked = false;
+                            listCC4.checked = false;
+                            listCC5.checked = false;
+                                                
+                            check.checked = true; 
+
+                            /*$("input[name=listCC]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function alternar3(check){
+                            listAct1.checked = false;
+                            listAct2.checked = false;
+                            listAct3.checked = false;
+                            listAct4.checked = false;
+                            listAct5.checked = false;
+                            listAct6.checked = false;
+                            listAct7.checked = false;
+                            listAct8.checked = false;
+                            listAct9.checked = false;
+                            listAct10.checked = false;
+                            listAct11.checked = false;
+                            listAct12.checked = false;
+                            listAct13.checked = false;
+                            listAct14.checked = false;
+                            listAct15.checked = false;
+                            listAct16.checked = false;
+                            
+                                                
+                            check.checked = true; 
+
+                            /*$("input[name=listAct]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function changeProvincia(sel){ 
+                          //console.log(sel.value);                        
+                          var idPais = sel.value;
+                          $.post("/usuarios/buscarprovincia", { id: idPais }, function(data){
+                              $("#provincia").html(data);
+                          //console.log(data);
+                          }); 
+                        }
+                    </script>
+                    <link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                    <script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+                    
+                    <style type="text/css">
+                    #fileuploader, #fileuploader2 {
+                          margin-left: 2%;
+                          margin-top: 4%;
+                    }
+                    .ajax-file-upload-statusbar{
+                        width: 71% !important;
+                        margin-left: 2%;
+                    }
+                    .ajax-file-upload-progress{
+                        float: right;
+                        margin-top: -25px;
+                    }
+                    .ajax-upload-dragdrop{
+                        width: 73% !important;
+                    }
+                    #pais , #provincia{
+                        width: 613px;
+                        margin-left: 15px;
+                    }
+                    </style>

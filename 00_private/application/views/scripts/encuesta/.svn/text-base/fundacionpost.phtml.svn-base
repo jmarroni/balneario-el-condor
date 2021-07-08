@@ -1,0 +1,70 @@
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota" style="width: 670px;">
+            <h2>Encuesta - Fundaci&oacute;n del Balneario El Condor</h2>
+            <CENTER>
+            <h3>Gracias por tu vot&oacute;, abajo te adjuntamos los resultados.</h3>
+                <div id='fb-root'></div>
+    <script src='http://connect.facebook.net/en_US/all.js'></script>
+    <p>Compartilo en las redes sociales para sumar mas gente: <img src="/imagenes/facebook-share.jpg" onclick='postToFeed(); return false;'></p>
+    <p id='msg'></p>
+            <table border="1" width="400">
+  <caption style="font-weight:bold">Resultados<br></caption>
+  <thead>
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">Fundaci&oacute;n 1881</th>
+      <th scope="col">Fundaci&oacute;n mayo 1887</th>
+      <th scope="col">Fundaci&oacute;n 1887</th>
+      <th scope="col">Fundaci&oacute;n 1915</th>
+      <th scope="col">Fundaci&oacute;n 1920</th>
+      <th scope="col">Fundaci&oacute;n 1922</th>
+      <th scope="col">Fundaci&oacute;n 1948</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Votos</td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1881"])) echo $this->conabilizacionEncuesta["1881"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1888"])) echo $this->conabilizacionEncuesta["1888"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1887"])) echo $this->conabilizacionEncuesta["1887"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1915"])) echo $this->conabilizacionEncuesta["1915"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1920"])) echo $this->conabilizacionEncuesta["1920"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1922"])) echo $this->conabilizacionEncuesta["1922"]; else echo "0"; ?></td>
+      <td><?php if (isset($this->conabilizacionEncuesta["1948"])) echo $this->conabilizacionEncuesta["1948"]; else echo "0"; ?></td>
+    </tr>
+  </tbody>
+</table>
+            </CENTER>
+            
+
+                    </section><!-- /mainCol -->        
+        <section class="sidebar right short" style="width: 300px;">
+            <div id="fb-root"></div>
+<script> 
+      FB.init({appId: "341020419335849", status: true, cookie: true});
+
+      function postToFeed() {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          link: 'http://www.balneario-el-condor.com.ar/encuesta/fundacion?ot=google',
+          picture: 'http://www.balneario-el-condor.com.ar/css/images/logo.png',
+          name: 'Encuesta - Votemos una fecha de Fundaci&oacute;n para el Balneario El Condor',
+          caption: 'Reference Documentation',
+          description: 'Ingresa en La Web del Balneario y vot&aacute; una fecha de fundaci&oacute;n, juntos podemos tener una fecha.'
+        };
+
+        function callback(response) {
+          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+        }
+
+        FB.ui(obj, callback);
+      }
+    
+    </script>
+<div class="fb-like-box" data-href="https://www.facebook.com/VillaMaritimaElCondor" data-width="300" data-show-faces="true" data-stream="true" data-header="true"></div>
+        </section><!-- /sidebar -->
+      </div>
+    </section>

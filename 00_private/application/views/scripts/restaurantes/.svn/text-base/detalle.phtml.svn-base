@@ -1,0 +1,36 @@
+
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="fullCol">
+        	<h2><?php echo $this->cercanos[0]["go_titulo"]; ?></h2>
+            <p><?php echo $this->cercanos[0]["go_descripcion"]; ?></p><br><br>
+            <div id="map_canvas" style="width:100%;height: 512px;" ></div>
+        </section>
+        <!-- /fullCol -->
+      </div>
+</section>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<?php
+$coordenadas = explode(",",str_replace(")","",str_replace("(", "", $this->cercanos[0]["go_googlemaps"])));
+?>
+<script type="text/javascript">
+    var initialLocation;
+    var browserSupportFlag =  new Boolean();
+    var map;
+    var infowindow = new google.maps.InfoWindow();
+    var latitud  = '<?php echo $coordenadas[0]; ?>';
+    var longitud = '<?php echo $coordenadas[1]; ?>';
+    var myOptions = {
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.SATELLITE
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      
+
+        initialLocation = new google.maps.LatLng(latitud,longitud);
+        contentString = "<?php echo $this->cercanos[0]["go_titulo"]; ?>";
+        map.setCenter(initialLocation);
+        infowindow.setContent(contentString);
+        infowindow.setPosition(initialLocation);
+        infowindow.open(map);
+</script>

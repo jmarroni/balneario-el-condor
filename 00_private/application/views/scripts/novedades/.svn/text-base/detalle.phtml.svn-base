@@ -1,0 +1,132 @@
+<link href="/jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="/jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+
+<div id="content">   
+  <div class="row-title">
+    <div class="container">
+      <h2>Novedades Balneario El Condor</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span><a href="/noticias-y-actividades">Novedades</a></span><i class="fa fa-angle-right"></i><?php echo utf8_encode($this->arrNovedades[0]["nov_titulo"]); ?></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row content-div">
+         <!--/*
+  *
+  * Revive Adserver Asynchronous JS Tag
+  * - Generated with Revive Adserver v3.2.1
+  *
+  */-->
+
+<ins data-revive-zoneid="6" data-revive-id="86d30993f9fb0ee5ee68abe6fb1d5366"></ins>
+<script async src="//adserver.fidegroup.com.ar/www/delivery/asyncjs.php"></script>
+      <article class="span9">
+    <h3><?php echo utf8_encode($this->arrNovedades[0]["nov_titulo"]); ?></h3>
+    <div class="box_news extra blog_post">
+     
+      <!--==========block-news=============--> 
+      <section class="block-news m_b_no_space"> 
+        
+        <div class="extra-wrap">
+          <figure class="img-indent"><a href="#"><img alt="" src="<?php echo str_replace("thumb_", "photo_", $this->arrNovedades[0]["img_nombre"]); ?>"></a></figure>               
+            
+          <p class="txt-2"><?php echo utf8_encode(str_replace('"', "&#34;", $this->arrNovedades[0]["nov_descripcion"])); ?> </p>
+          <?php if  ($this->arrNovedades[0]["nov_video"] != ""){
+          echo $this->arrNovedades[0]["nov_video"] ; } ?>
+           
+          
+            <?php 
+            if (sizeof($this->arrNovedades) > 1){?>
+            <h4 class="heading-h4">Galeria de Imagenes</h4>
+            <div class="row">
+            <ul class="blog_photo_gallery row">
+				<?php foreach ($this->arrNovedades as $arrNovedades){ //print_r($arrNovedades); ?>
+				<li class="span2">
+                <div class="box-work m_b_no_space">
+                  <figure>
+                  <a class="jackbox"                         
+                      data-group="images"            
+                      data-title="<?php echo $arrNovedades["nov_titulo"] ?>" 
+                      data-description="" 
+                      href="<?php echo str_replace("thumb_", "photo_", $arrNovedades["img_nombre"]); ?>" >            
+                      <img src="<?php echo $arrNovedades["img_nombre"]; ?>" alt="<?php echo $arrNovedades["nov_titulo"] ?>">            
+					</a>
+				</figure> 
+                </div>
+              </li>
+				
+			<?php 
+				}?>
+				</ul>
+          </div>
+			<?php } ?>
+              
+<!--/*
+  *
+  * Revive Adserver Asynchronous JS Tag
+  * - Generated with Revive Adserver v3.2.1
+  *
+  */-->
+
+
+          <div class="v_space3">
+
+<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=341020419335849";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			<div class="fb-comments" data-href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[0]["nov_keyword"] ?>" data-width="700" data-numposts="10" data-colorscheme="light"></div>
+
+          </div>
+        </div>
+
+
+      </section>
+      <!--==========end block-news=============-->  
+           
+    </div>          
+  </article>
+      
+      <article class="span3" style="margin-left:0px;">  
+        <div class="span12">
+
+        </div>
+        <div class="span12">
+        <!--/*
+  *
+  * Revive Adserver Asynchronous JS Tag
+  * - Generated with Revive Adserver v3.2.1
+  *
+  */-->
+
+<ins data-revive-zoneid="7" data-revive-id="86d30993f9fb0ee5ee68abe6fb1d5366"></ins>
+<script async src="//adserver.fidegroup.com.ar/www/delivery/asyncjs.php"></script>
+                  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=434469869953110";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" data-href="https://www.facebook.com/VillaMaritimaElCondor" data-width="300" data-show-faces="true" data-stream="true" data-header="true"></div>
+
+<iframe name="banner" frameborder="0" scrolling="no" width="300" height="500" src="http://www.legisrn.gov.ar/lrn/wp-content/uploads/publiprensa/vagonv.html"></iframe>
+    </div>
+    </article>
+
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/jackbox/js/libs/Jacked.js"></script>
+      <script type="text/javascript" src="/jackbox/js/jackbox-swipe.js"></script>
+      <script type="text/javascript" src="/jackbox/js/jackbox.js"></script>
+      <script type="text/javascript" src="/jackbox/js/libs/StackBlur.js"></script>
+      <script>
+        $(document).ready(function() {    
+    jQuery(".jackbox[data-group]").jackBox("init",{deepLinking: true});
+        })
+      </script>

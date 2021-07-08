@@ -1,0 +1,137 @@
+<style type="text/css">
+.titulo,
+.slider,
+.Bloque{
+	color: #FFF;
+	font-size: 18px;
+	text-align: center;
+    margin: 20px auto;
+    width: 980px;
+}
+h1{
+	text-align: center;	
+	width: 980px
+}
+.titulo img{
+	margin-top: 10px;
+}
+.slider{
+	margin-top: 150px;
+}
+.bxslider li{
+	width: 100px;
+}
+.bx-viewport{
+  margin-left: 60px;
+}
+.bx-wrapper{
+  margin-top:-120px;
+}
+.bloqueRigth,
+.bloqueLeft{
+  color:#FFF;
+  float:left;
+  width:400px;
+  text-align: center;
+}
+label{
+  display:block;
+}
+dt{
+  text-align: left;
+}
+dt .forminput{
+  width:300px;
+}
+dl{
+  margin-left: 42px;
+}
+.bloqueLeft{
+  margin-top: 30px;
+}
+.bloqueLeft li{
+  float:left;
+  width: 400px;
+  text-align: left;
+  font-size: 25px;
+}
+.bloqueLeft ul{
+  margin-left: 40px
+}
+.sliderfondo{
+  background-color: #CCC;
+  width: 980px;
+  margin: 0px auto;
+  height: 300px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+</style>
+<div class="titulo">
+	<h1>Fiesta de la primavera, Club Amigos Balneario el condor</h1>
+	<img width="100" src="/css/images/club_amigos_balneario_el_condor.jpg" />
+</div>
+<div class="sliderfondo">
+  <h2 style="color:#2269a9;text-align:center;font-size:25px;margin-top:10px">Asi festejamos todas nuestros encuentros...Amigos, Familia...</h2>
+  <div class="slider">
+  <ul class="bxslider">
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+      <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+      <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+      <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+    <li><figure style="width:100px;"><img src="/css/images/logo.png" /></figure></li>
+  </ul>
+  </div>
+  <h2 style="color:#2269a9;text-align:center;font-size:25px">Te vas a perder el proximo???</h2>
+</div>
+
+
+<div class="Bloque">
+  <div class="bloqueLeft">
+    <ul>
+      <li>Entrada de Achuras y ensalada</li>
+      <li>Costillar al Asador</li>
+      <li>Postre</li>
+      <li>Bebida libre, Vino, Gaseosa...</li>
+      <li>Despues de Almorzar escuchamos al grupo  y festejamos el resto de la noche</li>
+    </ul>
+  </div>
+  <div class="bloqueRigth">
+    <h3>Reserva tu entrada, te estaremos contactando</h3>
+    <form>
+        <dl>
+            <dt><label for="deForm">Nombre:&nbsp;</label><input class="forminput" type="text" name="nombre" id="nombre" value="" /></dt>
+            <dt><label for="deForm">Apellido:&nbsp;</label><input class="forminput" type="text" name="apellido" id="apellido" value="" /></dt>
+            <dt><label for="deForm">Direcci&oacute;n:&nbsp;</label><input class="forminput" type="text" name="direccion" id="direccion" value="" /></dt>
+            <dt><label for="deForm">Mail&nbsp;</label><input class="forminput" type="text" name="mail" id="mail" value="" /></dt>
+            <dt><label for="deForm"></label><input type="checkbox" checked="true" name="autorizo"/>&nbsp;Quiero que me envien informaci&oacute;n del balneario a mi email.</dt>
+            <dt><label for="deForm">Telefono&nbsp;</label><input class="forminput" type="text" name="telefono" id="telefono" value="" /></dt>
+            <dt><label for="deForm">Comentario:&nbsp;</label><textarea class="forminput" name="comentario"></textarea></dt>
+            <dt><input class="forminput" type="button" id="enviar" value="Enviar Reserva" name="enviar" /></dt>
+        </dl>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.bxslider').bxSlider({ 	
+  	slideWidth: 140,
+    minSlides: 2,
+    maxSlides: 7,
+    auto: true,
+    autoControls: true});
+});
+</script>

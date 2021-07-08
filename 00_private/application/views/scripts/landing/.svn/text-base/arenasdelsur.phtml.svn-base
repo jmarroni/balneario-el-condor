@@ -1,0 +1,204 @@
+﻿
+<link rel="stylesheet" type="text/css" href="/css/shadow/shadowbox.css">
+<script type="text/javascript" src="/js/shadowbox.js"></script>
+<script src="<?php echo RUTA_JS ?>/js/jquery.masonry.min.js"></script>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            var $container = $('#container');
+            $container.imagesLoaded( function(){
+            $container.masonry({
+                  itemSelector: '.grid', 
+                  isAnimated:true,
+                  columnWidth: function( containerWidth ) {
+                                    return containerWidth / 3;
+                                  }
+                });
+            });
+        });
+        function grabarClick(id){
+            $.post( "imagen/visita/id/" + id, function( data ) {});
+        }
+</script>
+
+     <div  itemscope itemtype=" http://schema.org/NewsArticle" class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota" style="margin-top:20px;width:970px">
+        	<div style="font-size:16px;float:left;width:450px;">
+            <h2 style="margin-top: 30px;width:450px;"><strong>Participa por dos tarjetas para la cena Show en Arenas del Sur</strong></h2>
+            <strong>Entrada:</strong>&nbsp;Mesa Americana<br /><br />
+            <strong>Plato Principal:</strong>&nbsp;Pernil de cerdo con ensaladas y salsas<br /><br />
+            <strong>Postre:</strong>&nbsp;Presentaci&oacute;n Copa Lupe's<br /><br />
+            <strong>Venta de entradas:</strong>&nbsp;(02920) 15 323348 / 22<br /><br />
+            <i>(Venta de tarjetas de contado, con tarjeta Visa o Mastercard)</i><br /><br />
+           </div>
+            <div style="float:left;">
+            	<img alt="" style="width:450px;margin-left: 60px;" src="/imagenes/SandroCena/cenaShowFolleto.jpg">
+            </div>
+            <div style="float:left;font-size:16px;">
+             <h2 style="font-size: 25px;font-weight: bold; color: #e4a317; border-bottom:  1px solid #f3f2f2">&iquest; C&oacute;mo Participar ?</h2><br /><br />
+            <!-- 1. Completa tu email --><input type="email" style="display:none" name="email" id="email" value="" style="width: 250px;" />- Lo lamentamos la inscripci&oacute;n cerro a las 14hs.<br />
+            <i><input type="checkbox" checked="checked" value="1" name="recibir" id="recibir"><label style="font-size: 10px">Deseo recibir informaci&oacute;n relacionada al Balneario El Condor a este email.</label></i><br /><br />
+			2. Realiza click en el boton compartir que figura debajo<br /><br />
+			3. Compart&iacute; el link en facebook y listo, ya est&aacute;s participando por el par de tarjetas, <br /><br />
+			<CENTER>
+			<a href="#email" onclick="javascript:postToFeed();">
+				<img alt="" onmouseover="this.style.cursor='pointer';" src="/imagenes/SandroCena/compartirenFBC.jpg">
+			</a>
+			</CENTER>
+			<strong style="font-size: 30px;font-weight: bold; color: #e4a317">&iquest; Cu&aacute;ndo se realiz&aacute; el sorteo ?</strong><br /><br />
+			Las tarjetas se sortear&aacute;n el s&aacute;bado despues del mediodia. Comunicaremos por mail y Facebook el ganador para que las vayas a buscar directamente al restaurante.<br /><br />	
+            </div>
+            
+                <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/es_LA/all.js"></script>
+<script>
+    FB.init({
+        appId  : "341020419335849",
+        status : true,
+        cookie : true,
+        xfbml  : true
+    });
+</script>
+<script>
+function postToFeed() {
+	alert('<?php echo utf8_decode('Lo lamentamos, la inscripción cerró a las 14hs. en breve daremos a conocer al ganador de las entradas !!!'); ?>');
+            // calling the API ...
+       /* if ($("#email").val() != ""){
+            var obj = {
+              method: 'feed',
+              link: 'http://www.balneario-el-condor.com.ar/arenas-del-sur-cenashow?share=si',
+              picture: "http://www.balneario-el-condor.com.ar/imagenes/SandroCena/cenaShowFolleto.jpg",
+              name: 'Sorteo de entradas, Cena Show Sandro Fogel',
+              caption: '',
+              description: 'Ya estoy participando por un par de entradas para la cena Show de Sandro Fogel el 6 de septiembre, ingresa y participa vos tambi&eacute;n.'
+            };
+            FB.ui(obj, callback);
+        }else{
+             alert ('Debes ingresar tu email para poder participar');
+             $("#email").focus();
+        }*/
+}
+function callback(response) {
+    if (response){
+            var quiero = 0;
+            if ($("#recibir").attr('checked')) quiero = 1; 
+        
+        var checkIn = '/landing/reservar?' + 
+                    '&nombre=Sandro' +
+                    '&apellido=Fogel' +
+                    '&mail=' + $("#email").val() +
+                    '&entradas=1' +
+                    '&comentario=nada' +
+                    '&telefono=292000000' +
+                    '&quiero=' + quiero;
+        $.ajax({
+                    dataType: 'json',
+                    async:false,
+                    success: function ( data ) {
+                        if (data.Mensaje){
+                            alert ('<?php echo utf8_decode('Ya estas participando por el par de entradas, el día jueves daremos a conocer los ganadores, Suerte !!!'); ?>');   
+                        }else{
+                            alert ('El servidor se encuentra fuera de servicio, por favor intente mas tarde');
+                        }
+                        
+                    },
+                    url: checkIn
+                }); 
+
+
+    }else{
+        alert('<?php echo utf8_decode(' Debes compartir la promoción para poder participar, ayúdanos a promocionar el concurso.'); ?>');
+    }
+
+
+}
+
+</script>		
+            
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=341020419335849";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="http://www.balneario-el-condor.com.ar/cenashow-arenas-del-sur?id=cena-3" data-width="970" data-numposts="6" data-colorscheme="light"></div>
+<h2>Conoces el lugar ?? Mira las imagenes de las fiestas que ya pasaron ...</h2>
+        <div id="container" class="masonry" style="height: 980px;margin-top:30px">
+            <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">
+                <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(1);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen1.jpg">
+                        <img src="/imagenes/SandroCena/Imagen1.jpg" >
+                    </a>
+                </div>                        
+            </div>
+            <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(9);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/128.jpg">
+                        <img src="/imagenes/SandroCena/128.jpg" >
+                    </a>
+                </div>    </div> 
+<div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(10);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/127.jpg">
+                        <img src="/imagenes/SandroCena/127.jpg" >
+                    </a>
+                </div>    </div> 
+<div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(11);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/126.jpg">
+                        <img src="/imagenes/SandroCena/126.jpg" >
+                    </a>
+                </div>    </div> 
+<div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(12);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/125.jpg">
+                        <img src="/imagenes/SandroCena/125.jpg" >
+                    </a>
+                </div>    </div> 
+<div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(13);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/124.jpg">
+                        <img src="/imagenes/SandroCena/124.jpg" >
+                    </a>
+                </div>    </div>                   
+<div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(13);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/123.jpg">
+                        <img src="/imagenes/SandroCena/123.jpg" >
+                    </a>
+                </div>    </div>
+                <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;"><div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(2);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen2.jpg">
+                        <img src="/imagenes/SandroCena/Imagen2.jpg" >
+                    </a>
+                </div>  </div>
+                   <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">         <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(3);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen3.jpg">
+                        <img src="/imagenes/SandroCena/Imagen3.jpg" >
+                    </a>
+                </div> </div>
+                   <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">             <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(4);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen4.jpg">
+                        <img src="/imagenes/SandroCena/Imagen4.jpg" >
+                    </a>
+                </div> </div>
+                    <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">            <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(5);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen5.jpg">
+                        <img src="/imagenes/SandroCena/Imagen5.jpg" >
+                    </a>
+                </div> </div>
+                     <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(6);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen6.jpg">
+                        <img src="/imagenes/SandroCena/Imagen6.jpg" >
+                    </a>
+                </div> </div>
+                      <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">          <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(7);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen7.jpg">
+                        <img src="/imagenes/SandroCena/Imagen7.jpg" >
+                    </a>
+                </div> </div>
+                     <div class="grid masonry-brick" style="position: absolute; top: 0px; left: 388px;">           <div class="imgholder">
+                    <a class="verImagenGrande" onclick="grabarClick(8);" rel="shadowbox[Mixed];" href="/imagenes/SandroCena/Imagen8.jpg">
+                        <img src="/imagenes/SandroCena/Imagen8.jpg" >
+                    </a>
+                </div>    </div> 
+
+        </div>
+</section>

@@ -1,0 +1,30 @@
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota">
+            <h2>Clasificados</h2>
+            <div class="anuncios">
+                <ul>
+                    <?php foreach ($this->arrClasificados as $key => $value) { ?>
+                    <li class="clasificados">
+                        <img src="http://www.balneario-el-condor.com.ar/imagenes/clasificados/<?php echo  ($value["cla_imagenes"] != "")?$value["cla_imagenes"]:"no_image.jpg";?>">
+                        <h3><label style="color:red">vendo</label><br><?php echo $value["cla_titulo"]; ?></h3>
+                        <a href="/clasificados/detalle/<?php echo $value["cla_keyword"]; ?>">[+ info]</a><br><br>
+                    </li>
+                    <?php } ?>
+                    <li class="clasificados">
+                        <img src="http://www.balneario-el-condor.com.ar/css/images/logo.png">
+                        <h3>Envianos tu clasificado a</h3>
+                        <a rel="leanModal" href="#cargaClasificado">[contacto@balneario-el-condor.com.ar]</a><br><br>
+                    </li>
+                </ul>
+            </div>
+        </section><!-- /mainCol -->        
+        <section class="sidebar right short">
+            <div class="bannerContacto">
+                <a href="/contacto"><img src="/css/images/banner-contacto-230.gif" alt="Contactenos" title ="Contactenos"></a>
+            </div>
+            
+        </section><!-- /sidebar -->
+      </div>
+    </section>
+    <div id="cargaClasificado" style="background:#FFF;display:none;width:200px;hegith:100px">Esto es la carga del clasificado</div>

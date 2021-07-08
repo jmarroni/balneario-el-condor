@@ -1,0 +1,99 @@
+<!--==============================content=================================-->
+
+<div id="content">   
+  <div class="row-title">
+    <div class="container">
+      <h2>Club de Amigos Balneario El Condor</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span><a href="/club-de-amigos">Club de Amigos, Novedades</a></span><i class="fa fa-angle-right"></i><?php echo utf8_encode($this->detalleAmigos[0]["cl_titulo"]); ?></div>
+    </div>
+  </div>
+    <div class="container">
+      <div class="row content-div">
+        <article class="span9">
+          <h3><?php echo utf8_encode($this->detalleAmigos[0]["cl_titulo"]); ?></h3>
+          
+          <label style="float:left;padding-right: 2%;"><b>Compart&iacute;r:</b> </label>
+                      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>  
+                      <a href="#" onclick="javascript:postToFeed('http://www.balneario-el-condor.com.ar/club-de-amigos/<?php echo $this->detalleAmigos[0]["cl_keyword"]; ?>','<?php echo $this->detalleAmigos[0]["cl_imagenes"]; ?>','<?php echo $this->detalleAmigos[0]["cl_titulo"]; ?>','Encontre esta novedad en la web del Balneario, hace click y mira toda la descripción');"><img src="/imagenes/fbcCompartir.jpg" style="margin-top:-1%;"/></a><br><br> 
+          
+          <div class="box_news extra blog_post">
+           
+            <!--==========block-news=============--> 
+            <section class="block-news m_b_no_space"> 
+              
+              <div class="extra-wrap">
+                <figure class="img-indent"><a href="#"><img alt="" src="<?php echo $this->detalleAmigos[0]["cl_imagenes"]; ?>"></a></figure>               
+                  
+                <p class="txt-2"><?php echo $this->detalleAmigos[0]["cl_descripcion"] ?></p>
+              </div>
+            </section>
+            <!--==========end block-news=============-->  
+                 
+          </div>          
+        </article>
+    </div>
+  </div>
+</div>
+<div id="fb-root"></div>
+    <script src="http://connect.facebook.net/es_LA/all.js"></script>
+    <script src="/js/elevatezoom.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.isotope.js"></script>
+<!-- 
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="mainCol left long colNota">
+            <h2>Club de Amigos</h2>
+            <?php if ($this->detalleAmigos[0]["cl_imagenes"]){ ?>
+                <CENTER><img class="imagenNota" src="<?php echo $this->detalleAmigos[0]["cl_imagenes"]; ?>" alt="<?php echo $this->detalleAmigos[0]["cl_titulo"] ?>"></CENTER>
+            <?php } ?>
+            <span class="tituloNota"><?php echo $this->detalleAmigos[0]["cl_titulo"] ?></span>
+            <p><?php echo $this->detalleAmigos[0]["cl_descripcion"] ?></p>
+            <a class="botonVolver" href="/">&laquo; Volver</a>
+        </section>
+        <section class="sidebar right short">
+            <div class="bannerContacto">
+                <a href="/contacto"><img src="/css/images/banner-contacto-230.gif" alt="Contactenos" title ="Contactenos"></a>
+            </div>
+        </section>
+      </div>
+    </section> -->
+
+<script>
+    FB.init({
+        appId  : "341020419335849",
+        status : true,
+        cookie : true,
+        xfbml  : true
+    });
+ function postToFeed(linkEnviado,pictureEnviada,tituloEnviado,descripcionEnviado) {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'http://www.balneario-el-condor.com.ar',
+          link: linkEnviado,
+          picture: pictureEnviada,
+          name: tituloEnviado,
+          caption: '',
+          description: descripcionEnviado
+        };
+
+        function callback(response) {
+        }
+
+        FB.ui(obj, callback);
+      }
+
+       !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);
+          js.id=id;
+          js.src="https://platform.twitter.com/widgets.js";
+
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }
+          (document,"script","twitter-wjs");
+</script>

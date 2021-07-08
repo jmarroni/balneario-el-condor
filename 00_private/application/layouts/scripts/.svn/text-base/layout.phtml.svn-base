@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><?php echo  (isset($this->title))? utf8_encode($this->title):"Balneario El condor | Viedma | Patagonia Argentina"; ?></title>
+    <meta charset="utf-8">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="<?php echo  (isset($this->metaDescription))? $this->metaDescription:"Balneario El Condor - Sitio Web"?>">
+    <meta name="keywords" content="<?php echo  (isset($this->metaKeywords))? $this->metaKeywords:"Balneario,Playas,Turismo,Verano,Alojamiento,Hotel,Restaurante"?>">
+    <meta name="author" content="Balneario El Condor">
+    <meta name = "format-detection" content = "telephone=+54 9 2920 535353" /> 
+     <!--bootstrap styles --> 
+    <link rel="stylesheet" href="/min/?f=/css/bootstrap.css">
+    <link rel="stylesheet" href="/min/?f=/css/responsive.css">
+    <!--main styles -->
+    <link rel="stylesheet" href="/min/?f=/css/style.css"> 
+    <link rel="stylesheet" href="/min/?f=/css/MyMedia.css">  
+       <!--bxslider styles --> 
+    <link rel="stylesheet" href="/min/?f=/css/bxslider.css">
+     <!--bootstrap-tabs styles --> 
+     <link rel="stylesheet" href="/min/?f=/css/bootstrap-tabs.css">       
+    
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+   	<link rel="stylesheet"  href="/min/?f=/css/eislideshow.css" />   
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	   
+
+	<!--[if lt IE 8]>
+  		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>  
+ 	<![endif]-->
+  <!--[if lt IE 9]>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/ie.css">
+    <script src="/js/html5shiv.js"></script>
+  <![endif]-->
+ <!--[if gte IE 9]>
+    <link rel="stylesheet" href="/css/ie.css">
+  <![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+<body class="wide_layout relative w_xs_auto">
+<!--styleswitcher-->
+<header role="banner" class="header_3  extra">
+  <div class="panel">
+    <div class="container">
+      <div class="clearfix">
+      
+  <!--===========top menu===============-->    
+      
+      <nav id="menu-nav">
+         <div id="menu-button">
+           <i class="fa fa-align-justify"></i>  
+             </div>
+           </nav>
+      	<?php // print_r($this->arrMareas); exit();?>
+          <ul class="list-panel">
+            <li><a href="#">Mareas de hoy: Bajamar <?php echo substr($this->arrMareas[0]["ma_primera_bajamar"],0,5); ?></a></li>
+            <li><a href="#">Pleamar <?php echo substr($this->arrMareas[0]["ma_primera_pleamar"],0,5); ?></a></li>
+            <li><a href="#">Bajamar <?php echo substr($this->arrMareas[0]["ma_segunda_bajamar"],0,5); ?></a></li>
+            <li><a href="#">Pleamar <?php echo substr($this->arrMareas[0]["ma_segunda_plamar"],0,5); ?></a></li>
+            <li><a href="/tablas-mareas-pleamar"><strong>Ver todo el mes</strong></a></li>
+          </ul>
+         <!--===========end top menu===============-->             
+      </div>
+    </div>
+  </div>
+   
+        <div class="header_top">
+          <div class="container">
+           <div class="navbar navbar_ clearfix">
+              
+                <div class="navbar-inner">   
+                  <h1 class="brand" style="width:20%" ><a href="/"><img src="/img/comun_logo.png" alt=""></a><span>Balneario El Condor</span></h1> 
+                </div>
+                <div style="position: absolute;left: 150px; top: 15px">
+<!--/*
+  *
+  * Revive Adserver iFrame Tag
+  * - Generated with Revive Adserver v3.2.1
+  *
+  */-->
+
+<!--/*
+  * This tag has been generated for use on a non-SSL page. If this tag
+  * is to be placed on an SSL page, change the
+  *   'http://adserver.fidegroup.com.ar/www/delivery/...'
+  * to
+  *   'https://adserver.fidegroup.com.ar/www/delivery/...'
+  *
+  * The backup image section of this tag has been generated for use on a
+  * non-SSL page. If this tag is to be placed on an SSL page, change the
+  *   'http://adserver.fidegroup.com.ar/www/delivery/...'
+  * to
+  *   'https://adserver.fidegroup.com.ar/www/delivery/...'
+  *
+  * If iFrames are not supported by the viewer's browser, then this
+  * tag only shows image banners. There is no width or height in these
+  * banners, so if you want these tags to allocate space for the ad
+  * before it shows, you will need to add this information to the <img>
+  * tag.
+  */-->
+
+<iframe id='ab9b7183' name='ab9b7183' src='http://adserver.fidegroup.com.ar/www/delivery/afr.php?zoneid=10&amp;cb=1612' frameborder='0' scrolling='no' width='980' height='140'><a href='http://adserver.fidegroup.com.ar/www/delivery/ck.php?n=a73def9b&amp;cb=1612' target='_blank'><img src='http://adserver.fidegroup.com.ar/www/delivery/avw.php?zoneid=10&amp;cb=1612&amp;n=a73def9b' border='0' alt='' /></a></iframe>
+
+                </div></div>
+                </div>  
+                     <!--<div class="phone-div">
+                       Tiempo en el Balneario
+                       <strong>Temperatura Actual <?php echo $this->arrClima[0]["temp_c"]; ?> &deg;C <br />(max. <?php echo $this->arrClima[0]["temp_alta"]; ?> &deg;C min. <?php echo $this->arrClima[0]["temp_baja"]; ?> &deg;C)</strong>
+                       Viento <?php echo $this->arrClima[0]["viento"]; ?> km./h 
+                     </div>
+                  </div>              
+              </div>
+            </div> 
+            -->
+    <!--========main-menu========-->       
+        <div class="main-menu">
+          <div>
+           <div class="container">
+            <div class="nav-collapse nav-collapse_ collapse">
+            <button id="menu_button"><i class="fa fa-align-justify"></i></button><ul class="nav sf-menu clearfix">
+              <li class="sub-menu <?php echo $this->param["Home"]; ?>"><a href="javascript:;">Inicio <em>Lo Principal</em></a></li>
+              
+               <!-- <li class="sub-menu"><a href="/club-de-amigos">Club Amigos <em>Novedades</em></a>
+                   <ul>
+                      <li><a href="revolution_slider.html">Futbol</a></li>
+                      <li><a href="home_portfolio2.html">Patin</a></li>
+                      <li><a href="iosSlider.html">Paddle</a></li>
+                      <li class="active"><a href="elastic_slider.html">Tejo</a></li>
+                  </ul>
+              </li> -->
+              
+             <li class="sub-menu <?php echo $this->param["Lugares"]; ?>"><a href="javascript:;">Playas <em>Lugares, paseos...</em></a>
+                <ul>
+                	<?php foreach ($this->arrCercanos as $value) {?>
+                		<li><a href="/playa/<?php echo $value["ce_keyword"]; ?>"><?php echo $value["ce_titulo"]; ?></a></li>
+                	<?php }?>
+                	<li><a href="/lugares"><strong>Ver todas...</strong></a></li>
+                  </ul>
+              </li>
+  
+              <li class="sub-menu <?php echo $this->param["Hospedaje"]; ?>" ><a href="javascript:;">Hospedaje <em>Hotel, Camping...</em></a>
+                    <ul>
+                      	<li class="sub-menu"><a href="#">Hoteles</a>
+                       		<ul>
+                       			<?php foreach ($this->arrHospedaje1 as $value) {?>
+                          			<li><a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>"><?php echo $value["ho_titulo"]; ?></a></li>
+                          		<?php } ?>
+                        	</ul>
+                     	</li>
+                     	<li class="sub-menu"><a href="#">Complejos</a>
+                       		<ul>
+                       			<?php foreach ($this->arrHospedaje2 as $value) {?>
+                          			<li><a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>"><?php echo $value["ho_titulo"]; ?></a></li>
+                          		<?php } ?>
+                        	</ul>
+                     	</li>
+                     	<li class="sub-menu"><a href="#">Camping</a>
+                       		<ul>
+                       			<?php foreach ($this->arrHospedaje3 as $value) {?>
+                          			<li><a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>"><?php echo $value["ho_titulo"]; ?></a></li>
+                          		<?php } ?>
+                        	</ul>
+                     	</li>
+                     	<li><a href="/alquileres-y-ventas">Particulares</a>
+                       		<!-- <ul>
+                          		<li><a href="/alquileres-y-ventas">Clasificados</a></li>
+                          		<li><a href="/servicios">Servicios</a></li>
+                        	</ul> -->
+                     	</li>
+                    </ul>
+              </li>
+               <li class="sub-menu <?php echo $this->param["Nocturno"]; ?>"><a href="javascript:;">Salidas <em>Boliches, Pubs...</em></a>
+                  <ul>
+                  <?php foreach ($this->arrNocturno as $value) {?>
+                  		<li><a href="/boliches-pub/<?php echo $value["no_keyword"]; ?>"><?php echo $value["no_titulo"]; ?></a></li>
+                  <?php } ?>
+                  </ul>
+              </li>
+               <li class="sub-menu <?php echo $this->param["Imagenes"]; ?>"><a href="javascript:;">Imagenes<em>Flora y Fauna</em> </a><ul>
+                  <li ><a href="/imagen">Nuestros paisajes...</a></li>
+                </ul></li>
+              <li class="sub-menu <?php echo $this->param["Historia"]; ?>"><a href="javascript:;">Historia <em>C&oacute;mo empez&oacute;</em></a>
+                <ul>
+                  <li ><a href="/historia">Conocer nuestra historia...</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu  <?php echo $this->param["Informacion"]; ?>"><a href="javascript:;">De Inter&eacute;s<em>Colectivo</em></a>
+                <ul>
+                  <li ><a href="/ubicacion">Atracciones</a></li>
+                  <li ><a href="/horario-colectivo">Colectivos</a></li>
+                  <li ><a href="/servicios">Servicios</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu  <?php echo $this->param["Contacto"]; ?>"><a href="javascript:;">Contacto<em>Cont&aacute;ctenos</em></a>
+                <ul>
+                  <li ><a href="/contacto">Tel&eacute;fonos &Uacute;tiles</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          </div>
+        </div>
+     </div>
+  <!--========end main-menu========-->        
+              
+   </div> 
+   
+  </header>
+<!--==============================end header==============================-->
+
+         <?php
+        echo $this->layout()->content;
+    ?>    
+  
+  <!--==============================aside================================-->  
+<aside>
+
+    <div class="container">
+      <div class="row">
+      <article class="span2 contacts">
+      <h3>Contacto</h3>
+      <address  class="address-1">
+      <span><i class="fa fa-phone"></i>+54 9 2920 15535353</span>
+      <span class="mail-info"><i class="fa fa-envelope"></i><a href="mailto:contacto@balneario-el-condor.com.ar">contacto@balneario-el-condor.com.ar</a></span>
+      
+      </article>   
+      <!-- 
+        <article class="span2 info">
+          <h3>Information</h3>
+          <ul class="list-footer">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">New collection</a></li>
+        <li><a href="#">Best sellers</a></li>
+        <li><a href="#">Manufacturers</a></li>
+        <li><a href="#">Tops</a></li>
+        <li><a href="#">Privacy policy</a></li>
+        <li><a href="#">Terms &amp; Condition</a></li>
+          </ul>
+        </article>
+   -->
+   <article class="span3 tweets">
+          <h3>&Uacute;ltimos Tweets</h3>
+          <div id="twitter"></div>
+ </article>
+        
+        
+   <!--========Facebook========-->        
+        
+ <article class="span3 fbook">
+  <h3>Join Us on Facebook</h3>      
+          
+                          <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FVillaMaritimaElCondor&amp;width=235&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=438889712801266" style="border:none; overflow:hidden; width:235px; height:258px;"></iframe>  
+    
+    </article>       
+        
+   <!--========end Facebook========-->   
+           
+        <article class="span2 form-newsletter">
+        <h3>Bolet&iacute;n Informativo</h3>
+        <p>Ingres&aacute; tu email y recib&iacute; en el mismo todas las novedades del Balneario !!</p>
+        
+        <form id="newsletter">
+                <div class="rel">
+                  <input type="email" placeholder="Ingres&aacute; tu email" name="suscripcion">
+                  <button type="submit" class="btn-small btn-blue" data-type="submit">Anotarse</button> 
+                </div>
+              </form>
+        
+        </article>
+            
+      </div>
+    </div>
+  
+  </aside>
+  
+ <!--==============================footer================================--> 
+  <footer>  
+  
+  <div class="container clearfix block-bottom">         
+           <article class="privacy">
+                 © 2015 <span>Balneario El Condor</span>. Sitio Web sin relaci&oacute;n oficial.
+           </article>     
+  </div>
+</footer>
+<div id="gotoTop" class="fa fa-angle-up"></div> 
+
+   <!--========block social========-->   
+<div class="social">
+<ul> 
+    <li><a class="mail hasTooltip" data-original-title="mail"  href="mailto:contacto@balneario-el-condor.com.ar" target="_blank"><i class="fa fa-envelope"></i></a></li>
+    <li><a class="facebook hasTooltip" data-original-title="facebook"  href="https://www.facebook.com/VillaMaritimaElCondor" target="_blank"><i class="fa fa-facebook"></i></a></li>
+    <li><a class="twitter hasTooltip" data-original-title="twitter"  href="https://twitter.com/BrioElCondor" target="_blank"><i class="fa fa-twitter"></i></a></li>
+    <li><a class="google hasTooltip" data-original-title="google"   href="google.com/+Balneario-el-condorAr" target="_blank"><i class="fa fa-google-plus"></i></a></li>	
+</ul>
+</div>
+
+   
+
+     <script src="/js/retina.js"></script>
+    <script src="/js/bootstrap.js"></script>
+	  <script src="/js/script.js"></script>
+    <script src="/js/jquery.bxslider.js"></script>  
+    
+        <!-- iosSlider plugin -->
+    <script src = "/js/jquery.eislideshow.js"></script>           
+        <script type="text/javascript">
+         $(function() {
+          $('#ei-slider').eislideshow({
+          animation     : 'center',
+          autoplay      : true,
+          slideshow_interval  : 7000,
+          titlesFactor    : 0
+                });
+  
+            });
+        </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37315926-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+$.src='//v2.zopim.com/?2XEPN6ftkC32xOx17NqL9Msp3AXTeWVY';z.t=+new Date;$.
+type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+</script>
+<!--End of Zopim Live Chat Script-->
+
+</body>
+</html>

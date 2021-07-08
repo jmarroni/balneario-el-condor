@@ -1,0 +1,91 @@
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo utf8_encode($this->detalleAmigos[0]["cl_titulo"]);  ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><a class="active font-weight-semibold" href="/lugares" style="color: #e2a522;font-size: 16px;">Club de Amigos, Novedades</a></span> <i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo utf8_encode($this->detalleAmigos[0]["cl_titulo"]); ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!--==============================content=================================-->
+
+<div class="container pt-3 pb-2">
+
+  <div class="row pt-2">
+    <div class="col">
+      <h2 class="font-weight-normal text-7 mb-2"><strong class="font-weight-extra-bold"><?php echo utf8_encode($this->detalleAmigos[0]["cl_titulo"]);?></strong></h2>
+      <br>
+      <div class="post-content">
+        <h4><a href="" class="text-decoration-none" style="color:black">Compartir en:</a>
+         <div>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a> 
+          <a href="#" onclick="javascript:postToFeed('http://produccion/clasificados/detalle/Alquiler-Temporario-Casa','http://produccion/imagenes/clasificados/f93dc3_verano2012 049.jpg','Alquiler Temporario Casa','Encontre este clasificado en la web del Balneario, hace click y mira toda la descripción');"><img src="/imagenes/fbcCompartir.jpg" style="margin-top: -9px;"></a><br><br> 
+        </div>
+      </h4>
+      <img alt="" src="<?php echo $this->detalleAmigos[0]["cl_imagenes"]; ?>">    
+      <div style="font-size:19px;text-align: justify"><p style="text-align: justify"><?php echo $this->detalleAmigos[0]["cl_descripcion"] ?></p></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div id="fb-root"></div>
+
+<script src="http://connect.facebook.net/es_LA/all.js"></script>
+<script src="/js/elevatezoom.min.js"></script>
+<script>
+  FB.init({
+    appId  : "341020419335849",
+    status : true,
+    cookie : true,
+    xfbml  : true
+  });
+  function postToFeed(linkEnviado,pictureEnviada,tituloEnviado,descripcionEnviado) {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'http://www.balneario-el-condor.com.ar',
+          link: linkEnviado,
+          picture: pictureEnviada,
+          name: tituloEnviado,
+          caption: '',
+          description: descripcionEnviado
+        };
+
+        function callback(response) {
+        }
+
+        FB.ui(obj, callback);
+      }
+
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);
+          js.id=id;
+          js.src="https://platform.twitter.com/widgets.js";
+
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }
+      (document,"script","twitter-wjs");
+    </script>

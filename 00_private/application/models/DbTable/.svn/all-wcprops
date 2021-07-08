@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/balneario-el-condor/!svn/ver/63/trunk/00_private/application/models/DbTable
+END
+informacionutil.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/informacionutil.php
+END
+hospedaje.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/hospedaje.php
+END
+clasificadomail.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/clasificadomail.php
+END
+redsocial.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/redsocial.php
+END
+clientes.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/balneario-el-condor/!svn/ver/63/trunk/00_private/application/models/DbTable/clientes.php
+END
+servicios.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/servicios.php
+END
+encuesta.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/encuesta.php
+END
+nocturno.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/nocturno.php
+END
+mareas.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/mareas.php
+END
+novedades.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/DbTable/novedades.php
+END
+clasificadoimagenes.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/DbTable/clasificadoimagenes.php
+END
+usuarios.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/DbTable/usuarios.php
+END
+hospedajeimagenes.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/hospedajeimagenes.php
+END
+landing.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/landing.php
+END
+agenda.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/balneario-el-condor/!svn/ver/51/trunk/00_private/application/models/DbTable/agenda.php
+END
+publicite.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/balneario-el-condor/!svn/ver/51/trunk/00_private/application/models/DbTable/publicite.php
+END
+log.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/balneario-el-condor/!svn/ver/19/trunk/00_private/application/models/DbTable/log.php
+END
+gourmet.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/gourmet.php
+END
+locales.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/DbTable/locales.php
+END
+clasificados.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/DbTable/clasificados.php
+END
+clima.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/clima.php
+END
+recetas.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/recetas.php
+END
+imagenes.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/imagenes.php
+END
+climaextendido.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/DbTable/climaextendido.php
+END
+gourmetimagenes.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/gourmetimagenes.php
+END
+newsletter.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/newsletter.php
+END
+ubicacion.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/balneario-el-condor/!svn/ver/42/trunk/00_private/application/models/DbTable/ubicacion.php
+END
+cercanos.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/cercanos.php
+END
+clubdeamigos.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/clubdeamigos.php
+END
+tejo.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/balneario-el-condor/!svn/ver/2/trunk/00_private/application/models/DbTable/tejo.php
+END

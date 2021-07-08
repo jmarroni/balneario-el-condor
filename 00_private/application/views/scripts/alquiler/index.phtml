@@ -1,0 +1,338 @@
+     <!--Isotop styles -->
+     <link href="css/sorting.css" rel="stylesheet" />
+     <link href="css/main.css" rel="stylesheet" />
+     <link href="css/animation.css" rel="stylesheet" />
+  <!--jackbox styles -->
+  <link href="jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--==============================content=================================-->
+<div class="modal fade serv" 
+		id="formFotos" 
+		tabindex="-1" 
+		role="dialog" 
+		aria-labelledby="exampleModalLabel" 
+		aria-hidden="true" 
+		style="display:none; width: 700px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only"></span>
+				</button>
+				<h4 class="modal-title titNewClas" id="exampleModalLabel">Nueva Imagen/Foto</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form">
+					<div class="filaleft"> <!-- FILALEFT -->
+						<div class="form-group topdos">
+							<label for="recipient-name" class="control-label">T&iacute;tulo:</label>
+							<input type="text" class="form-control formClas" id="tituloForm">
+						</div>
+						<div class="form-group topdos">
+							<label for="recipient-name" class="control-label">Telefono:</label>
+							<input type="text" class="form-control formClas" id="telefonoForm">
+						</div>
+						<div class="form-group topdos">
+							<label for="recipient-name" class="control-label">E-Mail:</label>
+							<input type="text" class="form-control formClas" id="mailForm">
+						</div>
+						<div class="form-group topdos">
+							<label for="recipient-name" class="control-label">Direccion:</label>
+							<input type="text" class="form-control formClas" id="direccionForm">
+						</div>
+						<div class="form-group topdos">
+							<label for="recipient-name" class="control-label">Contacto:</label>
+							<input type="text" class="form-control formClas" id="contactoForm">
+						</div>
+					</div> <!-- END FILALEFT -->
+					
+					<div class="filaright"> <!-- FILARIGHT -->
+						<div class="form-group topdos">
+							<label for="message-text" class="control-label">Descripci&oacute;n:</label>
+							<textarea class="form-control formClas2" id="descripcionForm"></textarea>
+						</div>
+						<div class="form-group topcuatro" id="upload">
+							<div id="fileuploader">Subir Archivo</div>
+							
+							<input type="hidden" value="" name="uploadLogo0" id="uploadLogo0"/>
+							<input type="hidden" value="" name="uploadLogo1" id="uploadLogo1"/>
+							<input type="hidden" value="" name="uploadLogo2" id="uploadLogo2"/>
+							<input type="hidden" value="" name="uploadLogo3" id="uploadLogo3"/>
+							<input type="hidden" value="" name="uploadLogo4" id="uploadLogo4"/>
+						</div>  
+					</div> <!-- END FILARIGHT -->
+				</form>
+			</div> 
+			<div class="modal-footer">
+				<button type="button" id="subir" class="btn btn-default" >Agregar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="content"> 
+
+  <div class="row-title">
+    <div class="container">
+      <h2>Fotos e Imagenes</h2>
+      <div class="breadcrumb"> <span><a href="/">Inicio</a></span> <i class="fa fa-angle-right"></i><span>Fotos</span></div>
+    </div>
+  </div>
+  <div class="content-div extra">
+    <div class="container">
+            <div class="baner-text extra">
+        	<!--/*
+  *
+  * Revive Adserver Asynchronous JS Tag
+  * - Generated with Revive Adserver v3.2.1
+  *
+  */-->
+<iframe name="banner" frameborder="0" scrolling="no" width="980" height="140" src="http://www.legisrn.gov.ar/lrn/wp-content/uploads/publiprensa/diah.html"></iframe>
+<ins data-revive-zoneid="2" data-revive-id="86d30993f9fb0ee5ee68abe6fb1d5366"></ins>
+<script async src="//adserver.fidegroup.com.ar/www/delivery/asyncjs.php"></script>
+        </div>   
+      <a href="#" data-toggle="modal" data-target="#formFotos" 
+      		class="btnalta btn-small btn-blue btn-extra">Agrega tu Foto o Imagen
+      </a>
+      <h3 class="titleanv">Fotos e Imagenes</h3> 
+      <article>
+        <div id="work_container" class="clearfix projects">
+          <ul class="row inline" style="margin-left:-1%;width:120%; ">
+				<?php 
+				$categroy_count = 1;
+				foreach ($this->arrAlquiler as $key => $value) { ?>
+				<li class="item element category01"> 
+		              <div class="box-work">
+		              <figure>
+		                <a class="jackbox"                         
+		                  data-group="images"            
+		                  data-title="<?php echo $value["uim_titulo"]; ?>" 
+		                  data-description="<?php echo (strlen(strip_tags($value["uim_descripcion"])) > 50)
+		                  						?substr(strip_tags($value["uim_descripcion"]), 0, 50)."..."
+     											:strip_tags($value["uim_descripcion"]); ?>" 
+		                  href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/alquiler/detalle/<?php 
+		                  	echo $value["uim_id"]; ?>" >            
+		                  <img src="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=http://<?php 
+		                  		echo $_SERVER["SERVER_NAME"]; ?>/imagenes/alquiler/<?php 
+		                  		echo ($value["uim_imagen0"] != "")
+		                  			?$value["uim_imagen0"]
+		                  			:"no_image.jpg";?>&w=570&h=359&zc=1" 
+		                  		alt="<?php echo $value["uim_titulo"]; ?>">            
+		                </a> 
+		              </figure>
+		              <span> <strong><a href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/alquiler/detalle/<?php 
+		              		echo $value["uim_id"]; ?>"><?php echo $value["uim_titulo"]; ?></a> 
+		              		</strong> <i>
+		              		<a href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/alquiler/detalle/<?php 
+		              			echo $value["uim_id"]; ?>"><?php echo $value["uim_titulo"]; ?></a></i> </span> 
+		              </div> 
+		            </li>
+		        <?php } ?>
+          </ul>
+        </div>
+      </article> 
+    </div>
+  </div>
+
+  
+</div>
+
+
+  <script src="js/jquery.isotope.js"></script>
+  <script>
+    jQuery(window).load(function() {  
+    var jQuerycontainer = jQuery('.projects');
+    //Run to initialise column sizes
+    updateSize();
+
+    //Load masonry when images all loaded
+    jQuerycontainer.imagesLoaded( function(){
+
+        jQuerycontainer.isotope({
+            // options
+            itemSelector : '.element',  
+            layoutMode : 'masonry',
+            transformsEnabled: false,
+            columnWidth: function( containerWidth ) {
+                containerWidth = jQuerybrowserWidth;
+                return Math.floor(containerWidth / jQuerycols);
+              }
+        });
+    });
+    
+      // update columnWidth on window resize
+    jQuery(window).smartresize(function(){  
+        updateSize();
+        jQuerycontainer.isotope( 'reLayout' );
+    });
+
+  
+    //Set item size
+    function updateSize() {
+        jQuerybrowserWidth = jQuerycontainer.width();
+        jQuerycols = 3;
+
+        if (jQuerybrowserWidth >= 1200) {
+            jQuerycols = 3;
+        }
+        else if (jQuerybrowserWidth >= 980 && jQuerybrowserWidth < 1200) {
+            jQuerycols = 3;
+        }
+    
+       else if (jQuerybrowserWidth >= 768 && jQuerybrowserWidth < 979) {
+            jQuerycols = 3;
+        }
+    
+    
+        else if (jQuerybrowserWidth >= 401 && jQuerybrowserWidth < 767) {
+            jQuerycols = 2;
+        }
+        else if (jQuerybrowserWidth < 400) {
+            jQuerycols = 1;
+        }
+
+        //console.log("Browser width is:" + jQuerybrowserWidth);
+        //console.log("Cols is:" + jQuerycols);
+
+        // jQuerygutterTotal = jQuerycols * 20;
+    jQuerybrowserWidth = jQuerybrowserWidth; // - jQuerygutterTotal;
+        jQueryitemWidth = jQuerybrowserWidth / jQuerycols;
+        jQueryitemWidth = Math.floor(jQueryitemWidth);
+
+        jQuery(".element").each(function(index){
+            jQuery(this).css({"width":jQueryitemWidth+"px"});             
+        });
+      
+    
+  var jQueryoptionSets = jQuery('#options .option-set'),
+    jQueryoptionLinks = jQueryoptionSets.find('a');
+
+  jQueryoptionLinks.click(function(){
+  var jQuerythis = jQuery(this);
+  // don't proceed if already selected
+  if ( jQuerythis.hasClass('selected') ) {
+    return false;
+  }
+  var jQueryoptionSet = jQuerythis.parents('.option-set');
+  jQueryoptionSet.find('.selected').removeClass('selected');
+  jQuerythis.addClass('selected');
+
+  // make option object dynamically, i.e. { filter: '.my-filter-class' }
+  var options = {},
+    key = jQueryoptionSet.attr('data-option-key'),
+    value = jQuerythis.attr('data-option-value');
+  // parse 'false' as false boolean
+  value = value === 'false' ? false : value;
+  options[ key ] = value;
+  if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+    // changes in layout modes need extra logic
+    changeLayoutMode( jQuerythis, options )
+  } else {
+    // otherwise, apply new options
+    jQuerycontainer.isotope( options );
+  }
+  
+  return false;
+  });   
+    
+    };      
+    
+    });
+  </script>
+
+   
+    <script type="text/javascript" src="/jackbox/js/libs/Jacked.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox-swipe.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox.js"></script>
+    <script type="text/javascript" src="/jackbox/js/libs/StackBlur.js"></script>
+
+<link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+
+<script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script>
+    <script> 
+
+    $( document ).ready(function() {
+
+        /*############# UPLOAD DE ARCHIVOS x5 #############*/
+        var contador=0;
+            $("#fileuploader").uploadFile({
+            	url:"/alquiler/upload",
+            	dragDrop:true,
+            	maxFileCount:5,
+            	fileName:"myfile",
+           		acceptFiles:"image/*",
+           		showPreview:true,
+				previewHeight: "50px",
+				previewWidth: "50px",
+				onSuccess:function(files,data,xhr,pd){
+					$("#uploadLogo"+contador).val(data);
+					contador++;
+				}
+            }); 
+      /*###################### FIN UPLOAD #############################*/
+
+      $("#subir").click(function(event){
+        event.preventDefault();
+        if( $('#tituloForm').val()!='' && 
+        		$('#telefonoForm').val()!='' &&
+        		$('#mailForm').val()!='' &&
+        		$('#direccionForm').val()!='' &&
+        		$('#contactoForm').val()!='' &&
+        		$('#descripcionForm').val()!='' && 
+                $('#uploadLogo0').val()!=''){
+          var dataString = 'titulo='+ $('#tituloForm').val() + 
+          		'&telefono=' + 	$('#telefonoForm').val() + 
+          		'&mail=' + 		$('#mailForm').val() + 
+          		'&direccion=' + $('#direccionForm').val() + 
+          		'&contacto=' + 	$('#contactoForm').val() +  
+          		'&descripcion=' + $('#descripcionForm').val() + 
+				"&archivo0=" + $('#uploadLogo0').val() + 
+				"&archivo1=" + $('#uploadLogo1').val() + 
+				"&archivo2=" + $('#uploadLogo2').val() + 
+				"&archivo3=" + $('#uploadLogo3').val() + 
+				"&archivo4=" + $('#uploadLogo4').val();
+          
+          $.ajax({
+              url: "/alquiler/cargar", // Url to which the request is send
+              type: "POST",             // Type of request to be send, called as method
+              data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+              success: function(data)   // A function to be called if request succeeds
+              {
+				alert('Las imagenes se han cargado correctamente.');
+				document.location.href = "/alquiler/detalle/?id="+data;
+              }
+          });
+        } else {
+          alert ('Verifique que todos los datos estan completos');
+        }
+      });
+});
+</script>
+<style type="text/css">
+.ajax-file-upload-filename{
+  word-wrap: break-word;
+  width: 96%;
+}
+.ajax-file-upload-statusbar {
+  width: 94% !important;
+  float: left !important;
+}
+.ajax-upload-dragdrop{
+  width: 94% !important;
+}
+.btnalta{
+  font-size: 25px;
+  width: 83%;
+  text-align: center;
+  margin-top: 3%;
+  position: absolute;
+  line-height: 0.8;
+}
+.titleanv{
+  margin-top: 10%;
+}
+.btnb{
+  font-size: 14px;
+}
+</style>

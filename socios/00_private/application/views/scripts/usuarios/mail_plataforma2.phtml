@@ -1,0 +1,382 @@
+<?php /*print_r($this->arrDbTableEvento);exit(); */?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<?php if ($this->cita == 1){ ?>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Invertur</title>
+  </head>
+  <body style="margin:0 auto; width:595px; padding:0">
+    <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="595px">
+      <tbody>
+        <!-- Header -->
+        <tr>
+          <td width="595">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="595px">
+              <tbody>
+                <tr bgcolor="#A6C3D9" style="background-image:url(<?php echo RUTA; ?>images/header-texture-blue.jpg)">
+                  <td width="16">
+                    <img alt="Imagen" src="<?php echo RUTA; ?>images/16x1.png" width="16px" height="1px">
+                  </td>
+                  <td width="387" align="left">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/img1.png" width="136px" height="49px">
+                  </td>
+                  <td width="176" height="39">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="174px" height="39px">
+                      <tbody>
+                        <tr>
+                          <td width="176" colspan="4">
+                            <img alt="Imagen"  src="<?php echo RUTA; ?>images/174x10.png" width="174px" height="10px">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="5" bgcolor="#EEE772">
+                            <img alt="Imagen"  src="<?php echo RUTA; ?>images/5x1.png" width="5" height="5px" height="1px">
+                          </td>
+                          <td bgcolor="#EEE772" width="105">
+                            <p style="font-family:verdana;color:#333333;font-size:10px;font-weight:bolder;letter-spacing:-0.5px;margin:0;text-transform:uppercase;">ALVEAR ART Hotel</p>
+                            <p style="font-family:verdana;color:#333333;font-size:10px;font-weight:bolder;letter-spacing:-0.5px;margin:0;text-transform:uppercase;">Buenos Aires</p>
+                          </td>
+                          <td width="22" bgcolor="#FFFFFF">
+                            <img alt="Imagen"  src="<?php echo RUTA; ?>images/header-division.png" width="22px" height="39">
+                          </td>
+                          <td width="39" bgcolor="#FFFFFF" align="center" height="39">
+                            <p style="font-family:verdana;color:#333333;font-size:10px;font-weight:bolder;letter-spacing:-0.5px;margin:0;text-transform:uppercase; text-align:center;">
+                              30<sup style="font-size:6px;">th</sup>
+                            </p>
+                            <p style="font-family:verdana;color:#333333;font-size:7px;font-weight:bolder;letter-spacing:-0.5px;margin:0;text-transform:uppercase; text-align:center;">
+                              september
+                            </p>
+                          </td>
+                          <td width="5" bgcolor="#FFFFFF">
+                            <img alt="Imagen"  src="<?php echo RUTA; ?>images/5x1.png" width="5" height="5px" height="1px">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td width="16">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/16x1.png" width="16px" height="1px">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <!--//Header  -->
+
+        <!-- Contenido -->
+        <tr>
+          <td colspan="4">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="595px">
+              <tbody>
+                <!-- Espacio Top -->
+                <tr>
+                  <td colspan="3">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+                <!-- //Espacio Top -->
+                <tr>
+                  <td>
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                  <td width="555px">
+                    <p style="font-family:arial;color:#666;font-size:14px;margin:0;">
+                      Hola <?php echo $this->nombre; ?>,<br>
+                    <?php $this->mensaje;?>
+                    <br>Te queremos anunciar el lanzamiento de <?php echo $this->arrDbTableEvento->getEv_nombre(); ?>!<br><br>
+                    Esta iniciativa la llevamos adelante con el fin de <?php echo utf8_decode($this->arrDbTableWeb->getWe_objetivo()); ?><br><br>
+                    Hemos confirmado tu participaci&oacute;n en <?php echo $this->arrDbTableEvento->getEv_nombre(); ?> y su Ronda de Negocios!<br><br>
+                    El <?php echo $this->arrDbTableEvento->getEv_nombre(); ?> tendr&aacute; lugar en <?php echo $this->arrDbTableEvento->getEv_titulo_ubicacion().", ".$this->arrDbTableEvento->getEv_ubicacion(); ?> el d&iacute;a <?php echo $this->arrDbTableEvento->getEv_fecha_comienzo(); ?>. Ac&aacute; pod&eacute;s acceder para conocer m&aacute;s de los <a href="http://invertur.com.ar/speakers">oradores</a> y de la <a href="http://invertur.com.ar/agenda">agenda</a>.<br><br>
+                    Para comenzar a diagramar tu agenda de citas solo ten&eacute;s que ingresar al panel que te indicamos a continuaci&oacute;n. Ver&aacute;s que es muy simple gestionar tus citas, podr&aacute;s solicitar, cancelar o reprogramar las mismas de una forma amigable y sencilla.<br><br>
+                    Los datos que necesitas para acceder son:<br><br>
+                    Panel: <a href="http://panel.invertur.com.ar">http://panel.invertur.com.ar</a><br>
+                    Usuario: <?php echo $this->usuario; ?><br>
+                    Clave: <?php echo $this->pass; ?><br><br>
+                    No dudes en consultarnos en cualquier momento si te surge una inquietud. Estamos para asistirte en el proceso de diagramar una agenda de citas que potencie al m&aacute;ximo la generaci&oacute;n de valor en tu negocio.<br><br>
+                    <?php echo $this->arrDbTableEvento->getEv_nombre(); ?> desarrolla la Gu&iacute;a InverTUR - invertir en Turismo en Argentina que presenta un mapeo de los datos econ&oacute;micos y tur&iacute;sticos claves de las 24 econom&iacute;as regionales, aqu&iacute; va adjunta en el siguiente link <a href="http://invertur.com.ar/guia_inverTUR.pdf">(Gu&iacute;a)</a> por ser parte de <?php echo $this->arrDbTableEvento->getEv_nombre(); ?>.<br><br> 
+                    Va a ser un gusto verte en <?php echo $this->arrDbTableEvento->getEv_nombre(); ?>!<br><br>
+                    Saludos!
+
+                    </p>
+                  </td>
+                  <td>
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                </tr>
+                <!-- Espacio Bottom -->
+                <tr>
+                  <td colspan="3">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+                <!-- //Espacio Bottom -->
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <!--//Contenido  -->
+
+        <!-- FOOTER -->
+        <tr bgcolor="#68AFE4">
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="595px">
+              <tbody>
+                <tr height="12px">
+                  <td colspan="6">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+                <tr>
+                  <td width="16px">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/16x1.png" width="16px" height="1px">
+                  </td>
+                  <td width="148px" valign="top">
+                    <h1 style="font-family:arial;color:#FFF;font-size:14px;font-weight:bolder;margin:0;">
+                      CUANDO
+                    </h1>
+                    <a href="mailto:info@invertur.com.ar" style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                      <?php $fecha_comienzo = substr($this->arrDbTableEvento->getEv_fecha_comienzo(),6,2);
+                            $fecha_fin = substr($this->arrDbTableEvento->getEv_fecha_fin(),6,2);  ?>
+                      <?php 
+                      if ($fecha_fin - $fecha_comienzo > 1){
+                        echo "Del ".$fecha_comienzo." al ".$fecha_fin." ";
+                      }else{
+                        for ($i = $fecha_comienzo; $i <= $fecha_fin; $i++) {
+                          echo ($i == $fecha_fin)?$i:$i." & ";
+                        }
+                      }?>
+                      de Septiembre<br>20<?php echo substr($this->arrDbTableEvento->getEv_fecha_fin(),0,2);?>
+                    </a>
+                    <!-- <p style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                      [+54] 11 4701 0999
+                    </p>
+                    <p style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                      Arias 1691 Nu&ntilde;ez 2A [C.P. 1429]
+                      <br>
+                      <br>
+                      Buenos Aires, Argentina 
+                    </p> -->
+                  </td>
+                  <td width="20px">
+                  <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                  <td width="218px" valign="top">
+                    <h1 style="font-family:arial;color:#FFF;font-size:14px;font-weight:bolder;margin:0;">
+                      DONDE
+                    </h1>
+                    <p style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                    <?php echo $this->arrDbTableEvento->getEv_titulo_ubicacion()."<br />".utf8_decode($this->arrDbTableEvento->getEv_ubicacion()); ?>
+                    </p>
+                  </td>
+                  <td width="20px">
+                  <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                  <td width="200px" valign="top">
+                    <h1 style="font-family:arial;color:#FFF;font-size:14px;font-weight:bolder;margin:0;">
+                      CONTACTANOS
+                    </h1>
+                    
+                    <?php $info = explode(",", $this->arrDbTableEvento->getEv_email_responsable()); ?>
+                    <?php foreach ($info as $value) { ?>
+                      <a href="mailto:<?php echo utf8_decode($value); ?>" style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;"><?php echo utf8_decode($value); ?></a><br>
+                    <?php  } ?>
+                  </td>
+                </tr>
+                <td width="20px">
+                  <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                  
+                </tr>
+                <tr height="12px">
+                  <td colspan="6">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <!--//FOOTER -->
+<?php } else { ?>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Turtech</title>
+  </head>
+
+  <body style="margin:0 auto; width:595px; padding:0">
+    <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="595px">
+      <tbody>
+        <!-- Header -->
+        <tr bgcolor="#f89d22" style="background-image:url(<?php echo RUTA; ?>images/header-texture.jpg">
+          <td width="150px">
+            <img alt="Imagen"  src="<?php echo RUTA; ?>images/223x67.png" width="150px" height="67px">
+          </td>
+          <td width="250px">
+            <img alt="Imagen"  src="<?php echo RUTA; ?>images/turtech-logo.png" width="250px" height="67px">
+          </td>
+          <td bgcolor="#f89d22">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="152px">
+              <tbody>
+                <tr height="15px">
+                  <td style="margin-left:-10%;">
+                  <img alt="Imagen"  src="<?php echo RUTA; ?>images/152x16.png" width="152px" height="16px">
+                  </td>
+                </tr>
+                <tr bgcolor="#93193a">
+                  <td align="center" width="51px" height="52px" style="padding:12px 0 13px 0;">
+                    <p style="font-family:arial;color:#f89d22;font-size:12px;font-weight:bolder;letter-spacing:-0.5px;margin:0;">
+                      28 de Septiembre de 2015
+                    </p>
+                    <p style="font-family:arial;color:#FFF;font-size:9px;font-weight:bolder;margin:0; letter-spacing:-0.5px;">
+                      Feria Internacional de Turismo - FIT
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td bgcolor="#f89d22" width="16px">
+            <img alt="Imagen"  src="<?php echo RUTA; ?>images/16x1.png" width="16px" height="1px">
+          </td>
+        </tr>
+        <!--//Header  -->
+
+        <!-- Contenido -->
+        <tr>
+          <td colspan="4">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="595px">
+              <tbody>
+                <!-- Espacio Top -->
+                <tr>
+                  <td colspan="3">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+                <!-- //Espacio Top -->
+                <tr>
+                  <td>
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                  <td width="555px">
+                    <!-- <h1 style="font-family:arial;color:#333;font-size:14px;font-weight:bolder;margin:0;"> -->
+                    <p style="font-family:arial;color:#666;font-size:14px;margin:0;">
+                      Hola <?php echo $this->nombre; ?>,<br>
+                    <?php $this->mensaje;?>
+                    <br>Te queremos anunciar el lanzamiento de <?php echo $this->arrDbTableEvento->getEv_nombre(); ?>!<br><!-- <br> -->
+                    Esta iniciativa la llevamos adelante con el fin de <?php echo utf8_decode($this->arrDbTableWeb->getWe_objetivo()); ?><br><br>
+                    Por considerarte un referente en la industria es que nos gustar&iacute;a invitarte a ser parte. Te hemos pre-reservado un cupo para asegurarnos tu participaci&oacute;n.<br><br>
+                    El <?php echo $this->arrDbTableEvento->getEv_nombre(); ?> tendr&aacute; lugar en <?php echo $this->arrDbTableEvento->getEv_titulo_ubicacion().", ".utf8_decode($this->arrDbTableEvento->getEv_ubicacion()); ?> el d&iacute;a <?php echo $this->arrDbTableEvento->getEv_fecha_comienzo(); ?>. Ac&aacute; pod&eacute;s acceder para conocer m&aacute;s de los <a href="http://turtech.travel/speakers">oradores</a> y de la <a href="http://turtech.travel/agenda">agenda</a>.<br><br>
+                    Confirmanos tu participaci&oacute;n haciendo click <a href="http://turtech.travel/registracion">aqu&iacute;</a> <br><br>
+                    Va a ser un gusto verte en <?php echo $this->arrDbTableEvento->getEv_nombre(); ?>!<br><br>
+                    Saludos!
+
+
+                    </p>
+                  </td>
+                  <td>
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                </tr>
+                <!-- Espacio Bottom -->
+                <tr>
+                  <td colspan="3">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+                <!-- //Espacio Bottom -->
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <!--//Contenido  -->
+
+     
+
+        <!-- FOOTER -->
+        <tr bgcolor="#b3b5b7">
+          <td colspan="6">
+            <table border="0" cellspacing="0" cellpadding="0" align="center" borderspacing="0" width="595px">
+              <tbody>
+                <tr height="12px">
+                  <td colspan="6">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+                <tr>
+                  <td width="46px">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/46x1.png" width="46px" height="1px">
+                  </td>
+                  <td width="148px" valign="top">
+                    <h1 style="font-family:arial;color:#FFF;font-size:14px;font-weight:bolder;margin:0;">
+                      CUANDO
+                    </h1>
+                    <a href="mailto:info@turtech.com.ar" style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                      <?php $fecha_comienzo = substr($this->arrDbTableEvento->getEv_fecha_comienzo(),6,2);
+                            $fecha_fin = substr($this->arrDbTableEvento->getEv_fecha_fin(),6,2);  ?>
+                      <?php 
+                      if ($fecha_fin - $fecha_comienzo > 1){
+                        echo "Del ".$fecha_comienzo." al ".$fecha_fin." ";
+                      }else{
+                        for ($i = $fecha_comienzo; $i <= $fecha_fin; $i++) {
+                          echo ($i == $fecha_fin)?$i:$i." & ";
+                        }
+                      }?>
+                      de Septiembre<br>20<?php echo substr($this->arrDbTableEvento->getEv_fecha_fin(),0,2);?>
+                    </a>
+                    <!-- <p style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                      [+54] 11 4701 0999
+                    </p>
+                    <p style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                      Arias 1691 Nu&ntilde;ez 2A [C.P. 1429]
+                      <br>
+                      <br>
+                      Buenos Aires, Argentina 
+                    </p> -->
+                  </td>
+                  <td width="20px">
+                  <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                  <td width="218px" valign="top">
+                    <h1 style="font-family:arial;color:#FFF;font-size:14px;font-weight:bolder;margin:0;">
+                      DONDE
+                    </h1>
+                    <p style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;">
+                    <?php echo $this->arrDbTableEvento->getEv_titulo_ubicacion()."<br />".utf8_decode($this->arrDbTableEvento->getEv_ubicacion()); ?>
+                    </p>
+                  </td>
+                  <td width="20px">
+                  <img alt="Imagen"  src="<?php echo RUTA; ?>images/20x1.png" width="20px" height="1px">
+                  </td>
+                  <td width="200px" valign="top">
+                    <h1 style="font-family:arial;color:#FFF;font-size:14px;font-weight:bolder;margin:0;">
+                      CONTACTANOS
+                    </h1>
+                    
+                    <?php $info = explode(",", $this->arrDbTableEvento->getEv_email_responsable()); ?>
+                    <?php foreach ($info as $value) { ?>
+                      <a href="mailto:<?php echo utf8_decode($value); ?>" style="font-family:arial;color:#FFF;font-size:11px;font-weight:bolder;margin:0;"><?php echo utf8_decode($value); ?></a><br>
+                    <?php  } ?>
+                  </td>
+                </tr>
+                <tr height="12px">
+                  <td colspan="6">
+                    <img alt="Imagen"  src="<?php echo RUTA; ?>images/595x12.png" width="595px" height="12px">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <!--//FOOTER -->
+<?php } ?>
+
+     
+
+        
+      </tbody>
+    </table>
+  </body>
+</html>

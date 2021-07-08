@@ -1,0 +1,86 @@
+
+<main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading">
+                                Socios
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Socios</li>
+                                
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-content">
+                        <button class="btn btn-success push-5-r push-10" onclick="document.location.href= '/socios/toexcel'" type="button"><i class="fa fa-download"></i> Descargar Listado a Excel</button>
+                            <?php // print_r($this->socios);exit(); ?>
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-bordered table-striped js-dataTable-simple">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Socio</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th class="hidden-xs" style="width: 15%;">Domicilio</th>
+                                        <th class="hidden-xs" style="width: 15%;">Tel&eacute;fono</th>
+                                        <th class="hidden-xs" style="width: 15%;">Cuota</th>
+                                        <th class="text-center" style="width: 10%;">Acci&oacute;n</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($this->socios as $value) {?>
+                                    <tr>
+                                        <td class="text-center"><?php echo $value["IdSocio"]; ?></td>
+                                        <td class="text-center"><?php echo utf8_encode($value["Nombre_"]); ?></td>
+                                        <td class="font-w600"><?php echo utf8_encode($value["Apellidos_"]); ?></td>
+                                        <td class="hidden-xs"><?php echo utf8_encode($value["DireccionDomicilio"]); ?></td>
+                                        <td class="hidden-xs"><?php echo $value["TelefonoCasa"]; ?></td>
+                                        <td class="hidden-xs"><?php echo $value["CuotasSocio"]; ?></td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                               <a href="/socios/accion/id/<?php echo $value["IdSocio"]; ?>"<button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Ver / Editar Socios"><i class="fa fa-pencil"></i></button></a>
+                                                <button class="btn btn-xs btn-default" type="button" onclick="eliminarNovedad(<?php echo $value["IdSocio"]; ?>)" data-toggle="tooltip" title="Remover Socios"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+            <script>
+
+            function eliminarNovedad(idNovedad){
+                event.preventDefault();
+                if (confirm('Esta seguro?')){
+                        var jqxhr = $.ajax( "/novedades/eliminar/id/" + idNovedad );
+                        jqxhr.done(function(data) {
+                         var obj = jQuery.parseJSON(data);
+                         if (obj.proceso != "error"){
+                            document.location.reload();
+                         }else{
+                            alert('Error, por favor intente mas tarde');
+                         }
+                        })
+                        jqxhr.fail(function() {
+                          jQuery( "#mensajeERROR" ).show();
+                        });
+                }
+            };
+            </script>

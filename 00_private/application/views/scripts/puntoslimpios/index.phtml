@@ -1,0 +1,287 @@
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo 'Puntos limpios' ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li></span> <i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo 'Horarios de Colectivo' ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--==============================content=================================-->
+
+<div class="container pt-3 pb-2">
+
+  <div class="row portfolio-list sort-destination">
+    <div class="col">
+      <h2 class="font-weight-normal text-7 mb-2"><strong class="font-weight-extra-bold">Puntos limpios</strong></h2>
+      <br>
+       </div>
+      <p class="lead" style="text-align: justify">&Uacute;ltima Actualizaci&oacute;n: 31/10/2019</p>
+      <div id="map" style="width: 100%;height: 600px;"></div>
+      <br>
+      <blockquote class="with-borders" style="text-align: justify">
+                    <p><h4>En estos puntos se pueden tirar, dentro del volquete ramas, cesped y escombros. Nada de residuos domiciliarios que contengan bolsas, plasticos, carton, etc.!</h4></p>
+                  </blockquote>
+    </div>
+      <div id="examples" class="container py-2">
+    <div class="row">
+      <div class="col-lg-12">
+       <div class="divider divider-primary">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row portfolio-list sort-destination">
+      <h2 class="font-weight-normal text-7 mb-2"><strong class="font-weight-extra-bold">Horarios</strong></h2>
+    </div>
+    <div class="col-lg-8">
+      <table class="table table-bordered">
+            <tbody><tr>
+              <td>
+                <div>
+                  <table class="table table-bordered">
+                    <tbody>
+                    <tr style="color:#A61B4A;background-color: #e8e8e8 !important;">
+                      <td  style="width: 210px;">
+                        <b style="color:#A61B4A;">Punto</b>
+                      </td>
+                        <td>
+                          <b style="color:#A61B4A;">Ubicaci&oacute;n</b>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>Punto I</td>
+                      <td>Calle 2 y 77</td>
+                    </tr>
+                    <tr>
+                      <td>Punto II</td>
+                      <td>Calle 8 y 83</td>
+                    </tr>
+                    <tr>
+                      <td>Punto III</td>
+                      <td>Calle 16 y 77</td>
+                    </tr>
+                    <tr>
+                      <td>Punto IV</td>
+                      <td>Calle 100 y 61</td>
+                    </tr>
+                    <tr>
+                      <td>Punto V</td>
+                      <td>Calle 140 y 59</td>
+                    </tr>
+                    <tr>
+                      <td>Punto VI</td>
+                      <td>Calle 160 y 63</td>
+                    </tr>
+                  </tbody></table>
+                </div>
+                
+              </td>
+            </tr>
+          </tbody></table>
+            </div>
+          </div>
+
+
+        
+        </div><!-- row -->
+
+
+
+  </div>
+
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAyIx0FqkyPhL6WUykJG7oswU5hzCbPF8&callback=initMap"></script>
+<script type="text/javascript">
+  var map;
+var markers = [];
+var iconBase = "https://balneario-el-condor.com.ar/images/volquetes.png";
+function initMap() {
+
+    map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15
+                    });
+
+    
+
+    map.setCenter( {lat: -41.0436882, lng: -62.8288442} );
+    
+    // PUNTO I
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Punto I (Calle 2 y 77)</h1>'+
+        '<div id="bodyContent">'+
+        '<p>En estos puntos se pueden tirar, dentro del volquete ramas, cesped y escombros. Nada de residuos domiciliarios que contengan bolsas, plasticos, carton, etc.!</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker( {
+                map     : map,
+                position: {lat: -41.041239, lng: -62.821765},
+                icon: iconBase
+            } );
+
+    // PUNTO II
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Punto II (Calle 8 y 83)</h1>'+
+        '<div id="bodyContent">'+
+        '<p>En estos puntos se pueden tirar, dentro del volquete ramas, cesped y escombros. Nada de residuos domiciliarios que contengan bolsas, plasticos, carton, etc.!</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker( {
+                map     : map,
+                position: {lat: -41.038848, lng: -62.822199},
+                icon: iconBase
+            } );
+
+
+
+    // PUNTO III
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Punto III (Calle 16 y 77)</h1>'+
+        '<div id="bodyContent">'+
+        '<p>En estos puntos se pueden tirar, dentro del volquete ramas, cesped y escombros. Nada de residuos domiciliarios que contengan bolsas, plasticos, carton, etc.!</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker( {
+                map     : map,
+                position: {lat: -41.038034, lng: -62.826475},
+                icon: iconBase
+            } );
+
+
+    // PUNTO IV
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Punto IV (Calle 100 y 61)</h1>'+
+        '<div id="bodyContent">'+
+        '<p>En estos puntos se pueden tirar, dentro del volquete ramas, cesped y escombros. Nada de residuos domiciliarios que contengan bolsas, plasticos, carton, etc.!</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker( {
+                map     : map,
+                position: {lat: -41.046510, lng: -62.831280},
+                icon: iconBase
+            } );
+
+
+    // PUNTO V
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Punto V (Calle 140 y 59)</h1>'+
+        '<div id="bodyContent">'+
+        '<p>En estos puntos se pueden tirar, dentro del volquete ramas, cesped y escombros. Nada de residuos domiciliarios que contengan bolsas, plasticos, carton, etc.!</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker( {
+                map     : map,
+                position: {lat: -41.046252, lng: -62.833871},
+                icon: iconBase
+            } );
+
+    // PUNTO VI
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Punto VI (Calle 160 y 63)</h1>'+
+        '<div id="bodyContent">'+
+        '<p>En estos puntos se pueden tirar, dentro del volquete ramas, cesped y escombros. Nada de residuos domiciliarios que contengan bolsas, plasticos, carton, etc.!</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker( {
+                map     : map,
+                position: {lat: -41.043854, lng: -62.832244},
+                icon: iconBase
+            } );
+
+}
+
+function removeMarker(id){
+    console.log(id);
+    for (var i = 0; i < markers.length; i++) {
+        if (markers[i].id == id){
+            markers[i].setMap(null);   
+            markers.splice(i,1);
+        }
+    }
+}
+
+var TILE_SIZE = 256;
+
+function createInfoWindowContent(latLng, zoom) {
+    var scale = 1 << zoom;
+
+    var worldCoordinate = project(latLng);
+
+    var pixelCoordinate = new google.maps.Point(
+        Math.floor(worldCoordinate.x * scale),
+        Math.floor(worldCoordinate.y * scale));
+
+    var tileCoordinate = new google.maps.Point(
+        Math.floor(worldCoordinate.x * scale / TILE_SIZE),
+        Math.floor(worldCoordinate.y * scale / TILE_SIZE));
+
+    return [
+      'Chicago, IL',
+      'LatLng: ' + latLng,
+      'Zoom level: ' + zoom,
+      'World Coordinate: ' + worldCoordinate,
+      'Pixel Coordinate: ' + pixelCoordinate,
+      'Tile Coordinate: ' + tileCoordinate
+    ].join('<br>');
+}
+
+</script>
+
+
+
+    
+
+
+  

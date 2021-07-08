@@ -1,0 +1,27 @@
+.wgfcst table.forecast {
+font-size: 16px !important;
+font-family: 'Arial CE', 'Helvetica CE', Arial, Helvetica, sans-serif;
+margin: 0px 0px 0px 0px;
+text-align: center;
+}
+.wgfcst table.forecast-ram {
+background-color: #EAEAEA;
+border: 1px solid #666666;
+margin: 0px 0px 0px 0px;
+padding: 0px 0px 0px 0px;
+}
+.wgfcst a:link {
+color: #000099;
+}
+.wgfcst a:visited{
+color: #000099;
+}
+.wgfcst table {
+	width: 100%;
+}
+.forecast{
+	font-size: 14px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

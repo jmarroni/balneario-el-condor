@@ -1,0 +1,149 @@
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo 'Novedades' ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><a class="active font-weight-semibold" href="/lugares" style="color: #e2a522;font-size: 16px;">Novedades</a></span> <i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo utf8_encode($this->arrNovedades[0]["nov_titulo"]); ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--==============================content=================================-->
+
+<div class="container py-4">
+
+  <div class="row pt-2">
+    <div class="col-lg-9">
+      <h2 class="font-weight-semibold pt-4 pt-lg-0 text-7 line-height-4 mb-2" style="text-align: center;"><strong class="font-weight-extra-bold " style="color: #0088CC;"><?php echo utf8_encode($this->arrNovedades[0]["nov_titulo"]); ?></strong></h2>
+    </div>
+  </div>
+
+  <div class="row pt-2">
+    <div class="col-lg-9">
+      <div class="blog-posts">
+        <article class="post post-large">
+          <div class="post-image">
+            <a href="#">
+              <img alt="" src="<?php echo str_replace("thumb_", "photo_", $this->arrNovedades[0]["img_nombre"]); ?>" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0">
+            </a>
+          </div>
+        </article>
+      </div>
+      <div style="font-size:20px"><?php echo utf8_encode(str_replace('"', "&#34;", $this->arrNovedades[0]["nov_descripcion"])); ?> 
+          <?php if  ($this->arrNovedades[0]["nov_video"] != ""){
+          echo $this->arrNovedades[0]["nov_video"] ; } ?>
+    </div>
+    </div>
+    
+    <div class="col-lg-3 order-lg-2">
+      <aside class="sidebar">
+       <div class="v_space3">
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=434469869953110";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-like-box" data-href="https://www.facebook.com/VillaMaritimaElCondor" data-width="300" data-show-faces="true" data-stream="true" data-header="true"></div>
+      </div>
+  </div>
+
+</div><!-- row -->
+
+<!--==============================Separador=================================-->
+<div id="examples" class="container py-2">
+  <div class="row">
+    <div class="col-lg-12">
+     <div class="divider divider-primary">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+</div>
+</div> 
+<!--==============================Separador=================================-->
+ <div class="row">
+      <div class="col-lg-9">
+        <div class="col">
+         <div class="heading text-primary">
+          <h3 class="text-primary">Notas similares</h3>
+        </div>
+        <div class="owl-carousel owl-theme show-nav-title top-border mb-0 owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 3}, '1199': {'items': 3}}, 'items': 3, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}" style="height: auto;">
+
+          <div class="owl-stage-outer">
+
+            <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2628px;">
+              <?php foreach ($this->arrNovedades5 as $key => $value) { ?>
+                <div class="owl-item active" style="width: 365.333px; margin-right: 10px;">
+                  <a href="blog-post.html">
+                    <img src="https://<?php echo $_SERVER["SERVER_NAME"]; ?>/imagenes/servicios/timthumb.php?src=<?php echo str_replace("thumb_", "photo_", $value["img_nombre"]);?>&amp;w=370&amp;h=222&amp;zc=1" alt="<?php echo utf8_encode($value["nov_titulo"]); ?>" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-3">
+                  </a>
+                  <div class="recent-posts">
+                    <article class="post">
+                      <div class="post-date">
+                        <span class="day"><?php echo date("d",strtotime($value["nov_fechahora"]));?>"</span>
+                        <span class="month"><?php echo strftime("%a", strtotime($value["nov_fechahora"]));?>"</span>
+                      </div>
+                      <h4><a href="/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>" class="text-decoration-none"><?php echo utf8_encode($value["nov_titulo"]); ?></a></h4>
+                      <p> <p><?php   if (strlen(strip_tags($value["nov_descripcion"])) > 200){
+                        echo utf8_encode(substr(strip_tags($value["nov_descripcion"]),0,200))."...";
+                      }else{
+                        echo utf8_encode(strip_tags($value["nov_descripcion"]));
+                      } ?></p>
+                      <div class="post-meta">
+                        <span class="d-block mt-2"><a href="/noticias-y-actividades/<?php echo $value["nov_keyword"]; ?>" class="btn btn-xs btn-light text-color-dark font-weight-bold text-uppercase">Leer m&aacute;s</a> </span>
+                      </div>
+                    </article>
+                  </div>
+                </div> <?php } ?></div>
+
+              </div>
+              <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"></button><button type="button" role="presentation" class="owl-next"></button></div>
+              <div class="owl-dots disabled"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--==============================Separador=================================-->
+<div id="examples" class="container py-2">
+  <div class="row">
+    <div class="col-lg-12">
+     <div class="divider divider-primary">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+</div>
+</div> 
+<!--==============================Separador=================================-->
+
+<div class="row">
+           <div class="col-lg-9">
+
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=341020419335849";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      <div class="fb-comments" data-href="http://www.balneario-el-condor.com.ar/noticias-y-actividades/<?php echo $this->arrNovedades[0]["nov_keyword"] ?>" data-width="700" data-numposts="10" data-colorscheme="light"></div>
+
+          </div>
+</div>
+
+</div> <!-- Content -->

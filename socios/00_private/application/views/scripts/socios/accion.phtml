@@ -1,0 +1,238 @@
+        <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-8">
+                            <h1 class="page-heading">
+                                Socios <small>Formulario de <?php echo (isset($this->arrSocio[0]["IdSocio"]))?"edici&oacute;n":"alta"; ?> para un socio.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-4 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li><a class="link-effect" href="/socios/listado">Socio</a></li>
+                                <li><?php echo (isset($this->arrSocio[0]["IdSocio"]))?"Edici&oacute;n":"Alta"; ?></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+                <?php  //print_r($this->arrSocio);exit(); ?>
+                <!-- Page Content -->
+                <div class="content content-narrow">
+
+				<!-- Bootstrap Design -->
+                    <div class="row">
+                            <!-- Default Elements -->
+                            <div class="block">
+                            	<div class="alert alert-success" id="mensajeOK" style="display:none;">
+								  <strong>Perfecto!</strong> <?php echo (isset($this->arrSocio[0]["IdSocio"]))?"Edici&oacute;n":"Alta"; ?> del socio correcta. <a href="/socios/listado">Ir al listado</a>
+								</div>
+								<div class="alert alert-danger" id="mensajeERROR" style="display:none;">
+								  <strong>Upps!</strong> Existen errores, por favor verificalos.
+								</div>
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button"><i class="si si-settings"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Formulario de <?php echo (isset($this->arrSocio[0]["IdSocio"]))?"Edici&oacute;n":"Alta"; ?></h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal" action="base_forms_elements.html" method="post" enctype="multipart/form-data" onsubmit="return false;">
+                                        <input type="hidden" id="IdSocio" name="IdSocio" value="<?php echo $this->arrSocio[0]["IdSocio"]; ?>" />
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Id Socio</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" disabled="true" value='<?php echo utf8_encode($this->arrSocio[0]["IdSocio"]); ?>' type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Nombre</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["Nombre_"]); ?>' type="text" id="Nombre_" name="Nombre_" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Apellido</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["Apellidos_"]); ?>' type="text" id="Apellidos_" name="Apellidos_" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Tipo de Socio</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="IdTipoSocio" name="IdTipoSocio">
+                                                    <option <?php echo ($this->arrSocio[0]["IdTipoSocio"] == 2)?"selected='selected'":""; ?> value="2">Individual</option>
+                                                    <option <?php echo ($this->arrSocio[0]["IdTipoSocio"] == 3)?"selected='selected'":""; ?> value="3">Familiar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Direcci&oacute;n</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["DireccionDomicilio"]); ?>' type="text" id="DireccionDomicilio" name="DireccionDomicilio" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Ciudad</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["Ciudad"]); ?>' type="text" id="Ciudad" name="Ciudad" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Provincia</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["EdoOProvDomicilio"]); ?>' type="text" id="EdoOProvDomicilio" name="EdoOProvDomicilio" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">C&oacute;digo Postal</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["CodPostalDomicilio"]); ?>' type="text" id="CodPostalDomicilio" name="CodPostalDomicilio" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Pa&iacute;s</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["PaisNatal"]); ?>' type="text" id="PaisNatal" name="PaisNatal" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Tel&eacute;fono fijo</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["TelefonoCasa"]); ?>' type="text" id="TelefonoCasa" name="TelefonoCasa" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Tel&eacute;fono celular</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["TelefonoMovil"]); ?>' type="text" id="TelefonoMovil" name="TelefonoMovil" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Fecha de nacimiento</label>
+                                            <div class="col-sm-9">
+                                                <?php 
+                                                $fechaHora = (isset($this->arrSocio[0]["FechaNacimiento"])?substr($this->arrSocio[0]["FechaNacimiento"],0,10):"0000-00-00");
+                                                $arrFechaHora = ($fechaHora != "")?explode("-",$fechaHora):array(date("Y"),date("m"),date("d"));
+                                                ?>
+                                                <input class="js-datepicker form-control" value="<?php echo $arrFechaHora[2]."/".$arrFechaHora[1]."/".$arrFechaHora[0]; ?>" type="text" id="FechaNacimiento" name="FechaNacimiento" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Nombre C&oacute;nyuge</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["NombreConyuge"]); ?>' type="text" id="NombreConyuge" name="NombreConyuge" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Fecha de nacimiento C&oacute;nyuge</label>
+                                            <div class="col-sm-9">
+                                                <?php 
+                                                $fechaHora = (isset($this->arrSocio[0]["FechaNacConyuge"])?substr($this->arrSocio[0]["FechaNacConyuge"],0,10):"0000-00-00");
+                                                $arrFechaHora = ($fechaHora != "")?explode("-",$fechaHora):array(date("Y"),date("m"),date("d"));
+                                                ?>
+                                                <input class="js-datepicker form-control" value="<?php echo $arrFechaHora[2]."/".$arrFechaHora[1]."/".$arrFechaHora[0]; ?>" type="text" id="FechaNacConyuge" name="FechaNacConyuge" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Mail</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["E-Mail"]); ?>' type="text" id="E-Mail" name="E-Mail" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Hijo 1</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["Hijo1"]); ?>' type="text" id="Hijo1" name="Hijo1" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Fecha de nacimiento Hijo 1</label>
+                                            <div class="col-sm-9">
+                                                <?php 
+                                                $fechaHora = (isset($this->arrSocio[0]["FechaNacHijo1"])?substr($this->arrSocio[0]["FechaNacHijo1"],0,10):"0000-00-00");
+                                                $arrFechaHora = ($fechaHora != "")?explode("-",$fechaHora):array(date("Y"),date("m"),date("d"));
+                                                ?>
+                                                <input class="js-datepicker form-control" value="<?php echo $arrFechaHora[2]."/".$arrFechaHora[1]."/".$arrFechaHora[0]; ?>" type="text" id="FechaNacHijo1" name="FechaNacHijo1" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Hijo 2</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["Hijo2"]); ?>' type="text" id="Hijo2" name="Hijo2" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Fecha de nacimiento Hijo 2</label>
+                                            <div class="col-sm-9">
+                                                <?php 
+                                                $fechaHora = (isset($this->arrSocio[0]["FechaNacHijo2"])?substr($this->arrSocio[0]["FechaNacHijo2"],0,10):"0000-00-00");
+                                                $arrFechaHora = ($fechaHora != "")?explode("-",$fechaHora):array(date("Y"),date("m"),date("d"));
+                                                ?>
+                                                <input class="js-datepicker form-control" value="<?php echo $arrFechaHora[2]."/".$arrFechaHora[1]."/".$arrFechaHora[0]; ?>" type="text" id="FechaNacHijo2" name="FechaNacHijo2" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Hijo 3</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" value='<?php echo utf8_encode($this->arrSocio[0]["Hijo3"]); ?>' type="text" id="Hijo3" name="Hijo3" placeholder="Titulo de la novedad">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="example-text-input">Fecha de nacimiento Hijo 3</label>
+                                            <div class="col-sm-9">
+                                                <?php 
+                                                $fechaHora = (isset($this->arrSocio[0]["FechaNacHijo3"])?substr($this->arrSocio[0]["FechaNacHijo3"],0,10):"0000-00-00");
+                                                $arrFechaHora = ($fechaHora != "")?explode("-",$fechaHora):array(date("Y"),date("m"),date("d"));
+                                                ?>
+                                                <input class="js-datepicker form-control" value="<?php echo $arrFechaHora[2]."/".$arrFechaHora[1]."/".$arrFechaHora[0]; ?>" type="text" id="FechaNacHijo3" name="FechaNacHijo3" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-primary" type="submit">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Default Elements -->                        
+                    </div>
+                    </div>
+                    </main>
+                    <link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+                    <script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+
+                    <script>
+	                    jQuery( "form" ).on( "submit", function( event ) {
+	                    	  event.preventDefault();
+	                    	 jQuery( "#mensajeERROR" ).hide();
+	                    	 jQuery( "#mensajeOK" ).hide();
+	                    	 var datosAlta = $( this ).serialize();
+                             
+	                    	 var jqxhr = $.ajax({url:"/socios/save",data: datosAlta,method:"POST" } );
+	                    	 jqxhr.done(function(data) {
+	                    		 var obj = jQuery.parseJSON(data);
+	                    		 console.log(obj);
+	                    		 if (obj.proceso != "error"){
+	                    		 	jQuery( "#mensajeOK" ).show();
+	                    			var new_position = jQuery('.page-heading').offset();
+	                    			window.scrollTo(new_position.left,new_position.top);
+	                    		 }else{
+	                    			jQuery( "#mensajeERROR" ).show();
+		                    		var new_position = jQuery('.page-heading').offset();
+		                    		window.scrollTo(new_position.left,new_position.top);
+		                    	 }
+	                    	  })
+	                    	  jqxhr.fail(function() {
+	                    		  jQuery( "#mensajeERROR" ).show();
+	                    	  });
+	                    	});
+                    </script>
+                    

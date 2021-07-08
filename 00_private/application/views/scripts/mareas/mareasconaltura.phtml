@@ -1,0 +1,322 @@
+<?php if (isset($this->toWord)) {
+	header("Content-type: application/vnd.ms-word");
+	header("Content-Disposition: attachment; Filename=".date("d-m-Y")."-Tabla-de-mareas-El-Condor.docx");
+	?>
+<style>
+<!--
+td {
+	border: 1px solid;
+}
+
+.impar {
+	color: #2269a9;
+}
+
+table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	width: 900px;
+}
+
+.tituloAmarillo {
+	text-align: center;
+}
+-->
+</style>
+	<?php } ?>
+<div id="content">
+	<div class="row-title">
+		<div class="container">
+			<h2>Tabla de Mareas </h2>
+			
+			<div class="breadcrumb">
+				<span><a href="/">Inicio</a> </span> <i class="fa fa-angle-right"></i><span><a
+					href="/tablas-mareas-pleamar">Tabla de Mareas</a> </span> <i
+					class="fa fa-angle-right"></i><?php echo $this->playas; ?>
+			</div>
+			
+		</div>
+		
+	</div>
+
+	<?php 
+	$primero=explode('-', $this->clima[1]->getfecha_actual());
+	$pri=explode(' ',$primero[2]);
+	$uno= $pri[0];
+	$dos= $uno +1;
+	$tres= $uno +2;
+	$cuatro= $uno +3;
+	$cinco= $uno +4;
+	$seis= $uno +5;
+	$siete= $uno +6;
+	$ocho= $uno +7;
+	$nueve= $uno +8;
+	$diez= $uno +9;
+	?>
+	<div class="row-landing4">
+	
+		<div class="container v_space ls_tables">
+			<div class="m_xm_top_20">
+				<div class="list-buttons clearfix">
+					<a href="/tablas-mareas-pleamar" class="btn-small <?php echo ($this->playas != "El Condor")?"btn-blue":""; ?> btn-extra">El Condor</a>
+					<a href="/tablas-mareas-pleamar/playa/loberia" class="btn-small <?php echo ($this->playas != "Loberia")?"btn-blue":""; ?> btn-extra">Loberia</a>
+					<a href="/tablas-mareas-pleamar/playa/bahia-rosa" class="btn-small <?php echo ($this->playas != "Bah&iacute;a-rosa")?"btn-blue":""; ?> btn-extra">Bah&iacute;a rosa</a>
+					<a href="/tablas-mareas-pleamar/playa/bahia-creek" class="btn-small <?php echo ($this->playas != "Bahia-creek")?"btn-blue":""; ?> btn-extra">Bahia creek</a>
+				</div>
+				<div class="fa-hover span3"><a href="/tabla-mareas.pdf"><i class="fa fa-download"></i> Descargar en version pdf</a></div>
+				<div class="fa-hover detalle">B: Bajamar , P: Pleamar.</div>
+
+				<table class="tab_var1">
+					<tr>
+						<td class="tab_var1_pad">
+							<div class="v_tables">
+								<table>
+									<tr>
+										<td>Domingo</td>
+										<td>Lunes</td>
+										<td>Martes</td>
+										<td>Mi&eacute;rcoles</td>
+										<td>Jueves</td>
+										<td>Viernes</td>
+										<td>S&aacute;bado</td>
+									</tr>
+									<?php for ($col=0; $col < 5 ; $col++) { ?>
+									<tr>
+									<?php for ($fila=0; $fila < 7 ; $fila++) { //filas
+										switch ($fila) {
+											case '0': $dia = 'Sunday';break;
+											case '1': $dia = 'Monday';break;
+											case '2': $dia = 'Tuesday';break;
+											case '3': $dia = 'Wednesday';break;
+											case '4': $dia = 'Thursday';break;
+											case '5': $dia = 'Friday';break;
+											case '6': $dia = 'Saturday';break;
+
+										}
+										?> 
+										<td><span class="dia"><?php echo $this->arrMareasDiarias[$dia][$col]["numero"]; ?>
+										</span>
+											<div class="boxMareas">
+											<?php $num=$this->arrMareasDiarias[$dia][$col]["numero"];
+												switch ($num) {
+												    case $uno: ?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[0]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[0]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[0]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[0]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												   	case $dos:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[1]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[1]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[1]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[1]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												   	case $tres:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[2]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[2]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[2]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[2]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												    case $cuatro:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[3]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[3]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[3]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[3]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												    case $cinco:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[4]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[4]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[4]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[4]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												    case $seis:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[5]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[5]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[5]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[5]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												    case $siete:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[6]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[6]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[6]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[6]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;												  
+												    case $ocho:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[7]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[7]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[7]->gettemp_baja(); ?>°C </b>
+													        <br>
+													   	</div>
+													   	<br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[7]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												    case $nueve:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[8]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[8]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[8]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>
+													    <br>
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[8]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												    case $diez:?>
+												    	<div class="clima2">
+													    	<img class="iconoclima" src="<?php echo $this->clima[9]->geticono();?>" alt="">
+													    	<b class="textclima">Máx: <?php echo $this->clima[9]->gettemp_alta(); ?>°C </b>
+													    	<br>
+													    	<b class="textclima">Mín: <?php echo $this->clima[9]->gettemp_baja(); ?>°C </b>
+													        <br>
+													    </div>													    	
+													        <div class="centro1">
+													        <b class="centro" style="line-height:1;"><?php echo $this->clima[9]->getcondicion(); ?></b></div>
+													        <br>
+												    	
+												        <?php break;
+												    default: 
+												    	if ($this->arrMareasDiarias[$dia][$col]["numero"]){ ?>
+												    	<div class="clima2" style="text-align: center;margin-bottom:41%;">
+												    		<img src="/imagenes/clasificados/no_image.jpg" style="width:50%;" alt="">
+												    	</div>
+												    	<?php break; }
+												}
+												?>
+											<?php if ($this->arrMareasDiarias[$dia][$col]["numero"]){ ?>
+												<ul id="filatabla">
+												<?php
+												$PrimerItem = ($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"] > $this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"])? "<b>B:</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar_altura"]."</b>": "P:<span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar_altura"]."</b>";
+												$SegundoItem= ($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"] < $this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"])? "<b>B:</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_primera_bajamar_altura"]."</b>": "P:<span>".substr($this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_primera_pleamar_altura"]."</b>";
+												$TercerItem = ($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"] > $this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"])?  "<b>B:</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar_altura"]."</b>": "P:<span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_segunda_pleamar_altura"]."</b>";
+												$CuartoItem = ($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"] < $this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"])?  "<b>B:</b> <span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_segunda_bajamar_altura"]."</b>": "P:<span>".substr($this->arrMareasDiarias[$dia][$col]["ma_segunda_plamar"], 0, 5)."<b id='altura'> - ".$this->arrMareasDiarias[$dia][$col]["ma_segunda_pleamar_altura"]."</b>";
+												?>
+
+
+													<li class="impar"><?php echo str_replace(array("00:00", "0 mts."), array(" No posee hoy" , ""), $PrimerItem); ?>
+													</li>
+													<li><?php echo str_replace(array("00:00", "0 mts."), array(" No posee hoy" , ""), $SegundoItem); ?>
+													</li>
+													<li class="impar"><?php echo str_replace(array("00:00", "0 mts."), array(" No posee hoy" , ""), $TercerItem); ?>
+													</li>
+													<li><?php echo str_replace(array("00:00", "0 mts."), array(" No posee hoy" , ""), $CuartoItem); ?></li>
+												</ul>
+												<?php } ?>
+											</div>
+										</td>
+										<?php } ?>
+									</tr>
+									<?php } ?>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+#altura{
+	font-weight: 100;
+	/*font-size: 12px;*/
+}
+.iconoclima{
+	margin-top: -10%;
+  	width: 50%;
+  	float: left;
+  	padding-right: 4%;
+}
+#filatabla{
+	width: 112%;
+ 	margin-left: 0%;
+}
+.detalle{
+	float: right;
+  	font-size: 15px;
+  	color: #000;
+}
+.boxMareas{
+	width: 104%;
+  	margin-left: -3%;
+}
+.centro{
+	margin-top: -2%;
+	font-weight: 100;
+}
+.centro1{
+	text-align: center;
+	line-height: 0;
+	margin-top: 8%;
+}
+.textclima{
+	font-weight: 100;
+}
+.clima2{
+	font-size: 12px;
+}
+</style>

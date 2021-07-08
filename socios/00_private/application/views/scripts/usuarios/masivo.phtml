@@ -1,0 +1,226 @@
+          <!-- Main Container -->
+            <main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-8">
+                            <h1 class="page-heading">
+                                Usuario <small>Formulario de alta masiva de Usuario.</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-4 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li><a class="link-effect" href="/usuarios/listado">Usuario</a></li>
+                                <li>Masivo</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content content-narrow">
+
+				<!-- Bootstrap Design -->
+                    <div class="row">
+                            <!-- Default Elements -->
+                            <div class="block">
+                            	<div class="alert alert-success" id="mensajeOK" style="display:none;">
+								  <strong>Perfecto!</strong> Alta del usuario correcta. <a href="/usuarios/listado">Ir al listado</a>
+								</div>
+								<div class="alert alert-danger" id="mensajeERROR" style="display:none;">
+								  <strong>Upps!</strong> Existen errores, por favor verificalos.
+								</div>
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button"><i class="si si-settings"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Formulario de Alta Masiva</h3>
+                                </div>
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal" action="base_forms_elements.html" method="post" enctype="multipart/form-data" onsubmit="return false;">
+                                        <div class="form-group" id="upload">
+                                            <label class="col-xs-12" for="example-text-input">Archivo csv</label>
+                                            <div id="fileuploader">Subir Archivo Csv</div>
+                                            <input type="hidden" value="" name="archivo" id="archivo"/>
+                                        </div> 
+                                                                              
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-primary" type="submit">Procesar Archivo</button>
+                                            </div></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <div class="help-block">Descargar excel Modelo para el alta <a href="/archivos/ejemplo/20150814_altausuarios.xlsx">archivo</a>
+                                            </div></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <div class="help-block">Descargar csv Modelo para el alta <a href="/archivos/ejemplo/20150814_altausuarios.csv">archivo</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Default Elements -->                        
+                    </div>
+                    </div>
+                    </main>
+                    <script>
+                        jQuery(document).ready(function($) {
+                            $('#activado').click(function(event) {
+                                $('#noactivado').prop('checked', false);
+                                //alert($('input:radio[name=activo]:checked').val());
+                            });
+                            $('#noactivado').click(function(event) {
+                                $('#activado').prop('checked', false);
+                                //alert($('input:radio[name=activo]:checked').val());
+                            });
+                        });
+	                    jQuery( "form" ).on( "submit", function( event ) {
+	                    	event.preventDefault();
+	                    	 jQuery( "#mensajeERROR" ).hide();
+	                    	 jQuery( "#mensajeOK" ).hide();
+	                    	 
+                                $.ajax({
+                                url: "/usuarios/procesarmasivo", // Url to which the request is send
+                                type: "POST",             // Type of request to be send, called as method
+                                data:  "archivo=" + jQuery( "#archivo").val(),// Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                                success: function(data)   // A function to be called if request succeeds
+                                {
+                                    if(data != '{"proceso" : "ok"}'){
+                                        jQuery( "#mensajeERROR" ).append("<br />" + data);
+                                       jQuery( "#mensajeERROR" ).show();
+                                        var new_position = jQuery('.page-heading').offset();
+                                        window.scrollTo(new_position.left,new_position.top);
+                                    }
+                                    else {
+                                         jQuery( "#mensajeOK" ).show();
+                                        
+                                        var new_position = jQuery('.page-heading').offset();
+                                        window.scrollTo(new_position.left,new_position.top);
+                                    }
+                                }
+                    });
+	                    	 
+	                    });
+
+                        function alternar(check){
+                            listJC1.checked = false;
+                            listJC2.checked = false;
+                            listJC3.checked = false;
+                            listJC4.checked = false;
+                            listJC5.checked = false;
+                            listJC6.checked = false;
+                            listJC7.checked = false;
+                            listJC8.checked = false;
+                            listJC9.checked = false;
+                            listJC10.checked = false;
+                            listJC11.checked = false;
+                            listJC12.checked = false;
+                            listJC13.checked = false;
+                        
+                            check.checked = true; 
+
+                            /*$("input[name=listJC]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function alternar2(check){
+                            listCC1.checked = false;
+                            listCC2.checked = false;
+                            listCC3.checked = false;
+                            listCC4.checked = false;
+                            listCC5.checked = false;
+                                                
+                            check.checked = true; 
+
+                            /*$("input[name=listCC]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function alternar3(check){
+                            listAct1.checked = false;
+                            listAct2.checked = false;
+                            listAct3.checked = false;
+                            listAct4.checked = false;
+                            listAct5.checked = false;
+                            listAct6.checked = false;
+                            listAct7.checked = false;
+                            listAct8.checked = false;
+                            listAct9.checked = false;
+                            listAct10.checked = false;
+                            listAct11.checked = false;
+                            listAct12.checked = false;
+                            listAct13.checked = false;
+                            listAct14.checked = false;
+                            listAct15.checked = false;
+                            listAct16.checked = false;
+                            
+                                                
+                            check.checked = true; 
+
+                            /*$("input[name=listAct]:checked").each(function(){
+                                alert($(this).val());
+                            });*/
+                        }
+
+                        function changeProvincia(sel){ 
+                          //console.log(sel.value);                        
+                          var idPais = sel.value;
+                          $.post("/usuarios/buscarprovincia", { id: idPais }, function(data){
+                              $("#provincia").html(data);
+                          //console.log(data);
+                          }); 
+                        }
+                    </script>
+                    <link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                    <script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+                    <script>
+                        jQuery(document).ready(function() {
+                            $('.ajax-file-upload-error').html('');
+                            $("#fileuploader").uploadFile({
+                                url:"/usuarios/uploadarchivo",
+                                fileName:"myfile",
+                                maxFileCount:1,
+                                multiple: true,
+                                showDownload:false,
+                                onSuccess:function(files,data,xhr,pd)
+                                {   $('.ajax-file-upload-error').html('');
+                                    if($('.ajax-file-upload-error').css('display')!= 'none'){
+                                        $('.ajax-file-upload-error').html('');
+                                        $('.ajax-file-upload-error').html('No se puede subir mas de 5 archivos.');
+                                        $('.ajax-file-upload-error').css('display', 'block');
+                                    } 
+                                    if(data !=''){
+                                        $("#archivo").val(data);
+                                    }
+                                    
+                                }
+                             
+                            });
+                        });
+                            </script>
+                    <style type="text/css">
+                    #fileuploader, #fileuploader2 {
+                          margin-left: 2%;
+                          margin-top: 4%;
+                    }
+                    .ajax-file-upload-statusbar{
+                        width: 71% !important;
+                        margin-left: 2%;
+                    }
+                    .ajax-file-upload-progress{
+                        float: right;
+                        margin-top: -25px;
+                    }
+                    .ajax-upload-dragdrop{
+                        width: 73% !important;
+                    }
+                    </style>

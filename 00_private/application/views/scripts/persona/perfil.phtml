@@ -1,0 +1,369 @@
+
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="/css/style.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<title>Ubbi Maps</title>
+ 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script type="text/javascript">
+    $('.nav-tabs a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+});
+    //$('.collapse').collapse();
+</script>
+
+</head>
+
+<body>
+<div class="perfil">
+    <div class="col-md-12 sinpadding">
+            <div role="tabpanel">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Perfil de Usuario</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Historial de B&uacute;squedas</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Mis Favoritos</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content" style="padding: 7px;background-color: #046EA5; height: 386px;">
+	            <div role="tabpanel" class="tab-pane active" id="home">
+	            	<form action="" name="datos_personales" id="datos_personales">
+		                <div class="col-md-12 sinpadding">
+		                  	<div class="bs-example" data-example-id="collapse-accordion">
+		                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		
+		                          <div class="panel panel-default">
+		                            <div class="panel-heading active-tab" role="tab" id="headingOne" title="accordion">
+		                              <h4 class="panel-title" id="-collapsible-group-item-#1-">
+		                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		                                  DATOS DE USUARIO
+		                                </a>
+		                              <a class="anchorjs-link" href="#-collapsible-group-item-#1-"><span class="anchorjs-icon"></span></a></h4>
+		                            </div>
+		                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		                              <div class="panel-body">
+		                                NOMBRE: <input type="text" name="nombre" value="<?php echo $this->arrUsuario->getus_nombre(); ?>" /><br>
+		                                APELLIDO: <input type="text" name="apellido" value="<?php echo $this->arrUsuario->getus_apellido(); ?>" /><br>
+		                                MAIL: <input type="text" name="mail" value="<?php echo $this->arrUsuario->getus_apodo(); ?>" /><br>
+		                                TEL&Eacute;FONO: <input name="telefono" type="text" value="<?php echo $this->arrUsuario->getus_telefono(); ?>" /><br>
+		                              </div>
+		                            </div>
+		                          </div>
+		
+		                          <div class="panel panel-default">
+		                            <div class="panel-heading" role="tab" id="headingTwo" title="accordion">
+		                              <h4 class="panel-title" id="-collapsible-group-item-#2-">
+		                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		                                  DIRECCIONES R&Aacute;PIDAS
+		                                </a>
+		                              <a class="anchorjs-link" href="#-collapsible-group-item-#2-"><span class="anchorjs-icon"></span></a></h4>
+		                            </div>
+		                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		                              <div class="panel-body">
+		                              <?php  $casa = ($this->arrDireccion[0]["tu_id"] == 2)?0:1; ?>
+		                                <b>CASA</b> 
+		                                <input type="hidden" name="ub_id_casa" value="<?php echo $this->arrDireccion[$casa]["ub_id"]; ?>" />
+		                                <input type="hidden" name="latitud_casa" id="latitud_casa" value="<?php echo $this->arrDireccion[$casa]["ub_latitud"]; ?>" />
+		                                <input type="hidden" name="longitud_casa" id="longitud_casa" value="<?php echo $this->arrDireccion[$casa]["ub_longitud"]; ?>" />
+		                                <br>&nbsp;&nbsp;Direcci&oacute;n: <input type="text" name="direccion_casa" id="direccion_casa" value="<?php echo $this->arrDireccion[$casa]["ub_calle"]." ".$this->arrDireccion[$casa]["ub_altura"]; ?>" />
+		                                <br>&nbsp;&nbsp;Localidad: <input type="text" name="localidad_casa" id="localidad_casa" value="<?php echo $this->arrDireccion[$casa]["ub_localidad"]; ?>" />
+		                                <br>&nbsp;&nbsp;Provincia: <input type="text" name="provincia_casa" id="provincia_casa" value="<?php echo $this->arrDireccion[$casa]["ub_provincia"]; ?>" />
+		                                <br>
+		                              <?php  $trabajo = ($this->arrDireccion[0]["tu_id"] == 2)?1:0; ?>
+		                                <b>TRABAJO </b>  
+		                                <input type="hidden" name="ub_id_trabajo" value="<?php echo $this->arrDireccion[$trabajo]["ub_id"]; ?>" />
+		                                <input type="hidden" name="latitud_trabajo" id="latitud_trabajo" value="<?php echo $this->arrDireccion[$casa]["ub_latitud"]; ?>" />
+		                                <input type="hidden" name="longitud_trabajo" id="longitud_trabajo" value="<?php echo $this->arrDireccion[$casa]["ub_longitud"]; ?>" />
+		                                <br>&nbsp;&nbsp;Direcci&oacute;n: <input type="text" name="direccion_trabajo" id="direccion_trabajo" value="<?php echo $this->arrDireccion[$trabajo]["ub_calle"]." ".$this->arrDireccion[$trabajo]["ub_altura"]; ?>" />
+		                                <br>&nbsp;&nbsp;Localidad: <input type="text" name="localidad_trabajo" id="localidad_trabajo" value="<?php echo $this->arrDireccion[$trabajo]["ub_localidad"]; ?>" />
+		                                <br>&nbsp;&nbsp;Provincia: <input type="text" name="provincia_trabajo" id="provincia_trabajo" value="<?php echo $this->arrDireccion[$trabajo]["ub_provincia"]; ?>" />
+		                              </div>
+		                            </div>
+		                          </div>
+		
+		                          <!-- <div class="panel panel-default">
+		                            <div class="panel-heading" role="tab" id="headingThree" title="accordion">
+		                              <h4 class="panel-title" id="-collapsible-group-item-#3-">
+		                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		                                  GUSTOS E INTERESES
+		                                </a>
+		                              <a class="anchorjs-link" href="#-collapsible-group-item-#3-"><span class="anchorjs-icon"></span></a></h4>
+		                            </div>
+		                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		                              <div class="panel-body">
+		                                CASA        | Av. Las Heras 2538<br>
+		                                TRABAJO     | Av. Cabildo 1132
+		
+		                              </div>
+		                            </div>
+		                          </div>
+		                          <div class="panel panel-default">
+		                            <div class="panel-heading" role="tab" id="headingfour" title="accordion">
+		                              <h4 class="panel-title" id="-collapsible-group-item-#4-">
+		                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+		                                  PERFILES ASOCIADOS
+		                                </a>
+		                              <a class="anchorjs-link" href="#-collapsible-group-item-#4-"><span class="anchorjs-icon"></span></a></h4>
+		                            </div>
+		                            <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
+		                              <div class="panel-body">
+		                                EN BLANCO 
+		
+		                              </div>
+		                            </div>
+		                          </div> -->
+		
+		                        </div>
+		                        <div class="col-md-12 sinpadding ">
+		                          <div class="col-md-12 sinpadding">
+		                              <input type="image"  src="/img/guardar.jpg" style="padding:5px 0px;">
+		                              <div class="col-md-12 sinpadding text-white" id="btnGuardar" style="display:none;">Guardando...</div>
+		                          </div>         
+		                     </div>
+		                      </div>
+		                </div>
+                <!-- 
+                <div class="col-md-12 sinpadding box-check">
+                    <div class="col-md-12 sinpadding text-white">
+                         <input name="envio_ofertas" type="checkbox" >   Permiso de env&iacute;o de ofertas
+                    </div>    
+                    <div class="col-md-12 sinpadding  text-white">
+                         <input name="envio_novedades" type="checkbox">   Permiso de env&iacute;o de informaci&oacute;n de novedades y servicios de Ubimap.com
+                    </div>         
+                </div>
+                 -->
+                </form>
+                <div class="col-md-12 sinpadding ">
+                    <div class="col-md-12 sinpadding">
+                         <a href="#"><img src="/img/boton-term.png"></a>
+                    </div>         
+                </div>
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+            <!--CONTENIDO-->
+            <div class="col-md-12 sinpadding">
+                  <div class="bs-example" data-example-id="collapse-accordion">
+                        <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading active-tab" role="tab" id="heading4" title="accordion1">
+                              <h4 class="panel-title" id="-collapsible-group-item-#4-">
+                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                                  DESDE TU UBICACI&Oacute;N
+                                </a>
+                              <a class="anchorjs-link" href="#-collapsible-group-item-#4-"><span class="anchorjs-icon"></span></a></h4>
+                            </div>
+                            <div id="collapse4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading4">
+                              <div class="panel-body">
+                                <a href="#" id="todas_historial" >TODAS</a> <input type="image" src="/img/ok.png" id="ok_todas" class="ok"><br>
+                               <?php  $casa = ($this->arrDireccion[0]["tu_id"] == 2)?0:1; ?>
+                                <a href="#" id="casa_historial" >CASA</a>| <input type="image" style="display:none;" src="/img/ok.png" id="ok_casa" class="ok"><?php echo $this->arrDireccion[$casa]["ub_calle"]." ".$this->arrDireccion[$casa]["ub_altura"]; ?><br>
+                              <?php  $trabajo = ($this->arrDireccion[0]["tu_id"] == 2)?1:0; ?>
+                                <a href="#" id="trabajo_historial" >TRABAJO</a>    | <input style="display:none;" type="image"  id="ok_trabajo" src="/img/ok.png" class="ok"><?php echo $this->arrDireccion[$trabajo]["ub_calle"]." ".$this->arrDireccion[$trabajo]["ub_altura"]; ?>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading5" title="accordion1">
+                              <h4 class="panel-title" id="-collapsible-group-item-#5-">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                  PER&iacute;ODO DE TIEMPO
+                                </a>
+                              <a class="anchorjs-link" href="#-collapsible-group-item-#5-"><span class="anchorjs-icon"></span></a></h4>
+                            </div>
+                            <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+                              <div class="panel-body">
+                                    <div class="col-md-12 col-sd-12 sinpadding">
+                                    	<?php $fecha = date('Y-m-d');
+										$nuevafecha = strtotime ( '-1 month' , strtotime ( $fecha ) ) ;
+										$nuevafecha = date ( 'Y-m-d' , $nuevafecha );
+										?>
+                                        Desde |     <input type="date" value="<?php echo $nuevafecha; ?>" /> 
+                                    </div>
+                                    <div class="col-md-12 col-sd-12 sinpadding">
+                                        Hasta |     <input type="date" value="<?php echo date("Y-m-d"); ?>" /> 
+                                    </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading6" title="accordion1">
+                              <h4 class="panel-title" id="-collapsible-group-item-#6-">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                  &Uacute;LTIMAS B&Uacute;SQUEDAS
+                                </a>
+                              <a class="anchorjs-link" href="#-collapsible-group-item-#6-"><span class="anchorjs-icon"></span></a></h4>
+                            </div>
+                            <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+                              <div class="panel-body sinpadding">
+                               <!--TABLE-->
+
+                                    <div class="table-detalle" data-example-id="striped-table">
+                                        <table class="table table-striped">
+                                          <tbody id="listado_historico">
+                                            
+                                          </tbody>
+                                        </table>
+                                      </div>
+
+                               <!--TABLE-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                
+                <!-- FIN CONTENIDO-->
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+                <!--CONTENIDO-->
+            <div class="col-md-12 sinpadding">
+                  <div class="bs-example" data-example-id="collapse-accordion">
+                        <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading active-tab" role="tab" id="heading7" title="accordion2">
+                              <h4 class="panel-title" id="-collapsible-group-item-#7-">
+                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse7" aria-expanded="true" aria-controls="collapse7">
+                                  EMPRESA
+                                </a>
+                              <a class="anchorjs-link" href="#-collapsible-group-item-#7-"><span class="anchorjs-icon"></span></a></h4>
+                            </div>
+                            <div id="collapse7" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading7">
+                              <div class="panel-body sinpadding">
+                                <!--TABLE-->
+
+                                    <div class="table-detalle" data-example-id="striped-table">
+                                        <table class="table table-striped">
+                                          <tbody id="listado_favoritos" >
+                                            
+                                          </tbody>
+                                        </table>
+                                      </div>
+
+                               <!--TABLE-->
+                              </div>
+                            </div>
+                          </div>
+
+<!--
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading8" title="accordion2">
+                              <h4 class="panel-title" id="-collapsible-group-item-#8-">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                  CATEGOR&iacute;A Y RUBROS
+                                </a>
+                              <a class="anchorjs-link" href="#-collapsible-group-item-#8-"><span class="anchorjs-icon"></span></a></h4>
+                            </div>
+                            <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
+                              <div class="panel-body sinpadding">
+                                   <!--TABLE--
+
+                                    <div class="table-detalle" data-example-id="striped-table">
+                                        <table class="table table-striped">
+                                          <tbody>
+                                            
+                                          </tbody>
+                                        </table>
+                                      </div>
+                               <!--TABLE--
+
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading9" title="accordion2" >
+                              <h4 class="panel-title" id="-collapsible-group-item-#9-">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                  ELIMINAR
+                                </a>
+                              <a class="anchorjs-link" href="#-collapsible-group-item-#9-"><span class="anchorjs-icon"></span></a></h4>
+                            </div>
+                            <div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9">
+                              <div class="panel-body sinpadding">
+                               <!--TABLE--
+
+                                    <div class="table-detalle" data-example-id="striped-table">
+                                        <table class="table table-striped">
+                                          <tbody>
+                                            <tr>
+                                            <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                              <td>Ferreter&iacute;a Industrial </td>
+                                              <td>02-01-15</td>
+                                              <td>Moreno 530</td>
+                                            </tr>
+                                            <tr>
+
+                                            <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                              <td>Ferreter&iacute;a Industrial </td>
+                                              <td>02-01-15</td>
+                                              <td>Moreno 530</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                              <td>Ferreter&iacute;a Industrial </td>
+                                              <td>02-01-15</td>
+                                              <td>Moreno 530</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                              <td>Ferreter&iacute;a Industrial </td>
+                                              <td>02-01-15</td>
+                                              <td>Moreno 530</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                              <td>Ferreter&iacute;a Industrial </td>
+                                              <td>02-01-15</td>
+                                              <td>Moreno 530</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row"><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                                              <td>Ferreter&iacute;a Industrial </td>
+                                              <td>02-01-15</td>
+                                              <td>Moreno 530</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+
+                               <!--TABLE--
+                              </div>
+                            </div>
+                          </div> -->
+                        </div>
+                      </div>
+                </div>
+                
+                <!-- FIN CONTENIDO-->
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/perfilFunctions.js"></script>
+    
+</div>
+</body>
+</html>

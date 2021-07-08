@@ -1,0 +1,172 @@
+    <!--Isotop styles -->
+     <link href="/css/sorting.css" rel="stylesheet" />
+     <link href="/css/animation.css" rel="stylesheet" />
+  <link href="/jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+  <link href="/jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
+
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo 'Galería de imágenes' ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><a class="active font-weight-semibold" href="/hospedaje" style="color: #e2a522;font-size: 16px;">Hospedaje</a></span> <i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo 'Galería de imágenes' ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--==============================content=================================-->
+
+<div class="container pt-3 pb-2">
+
+  <div class="row pt-2">
+    <div class="col-lg-12">
+
+      <a href="/imagen" class="btn-small"><span style="margin-top: 14px;margin-bottom: 14px;" class="badge <?php echo ($this->autor == "")?"badge-primary":"badge-dark" ?> badge-md">Todas</span></a>
+      <?php foreach ($this->autores as $key => $value) { ?> 
+       <a href="/imagen/autor/<?php echo $value["im_titulo"]; ?>" class="btn-small"><span style="margin-top: 14px;margin-bottom: 14px;" class="badge  <?php echo ($this->autor == $value["im_titulo"])?"badge-primary":"badge-dark" ?>  badge-md"><?php echo $value["im_titulo"]; ?></span></a> 
+     <?php } ?>
+   </div>
+ </div>
+ <div class="row pt-2">
+
+  <div class="sort-destination-loader mt-4 pt-2 sort-destination-loader-loaded">
+ <?php $album = "";
+     $cont = 1;
+     foreach ($this->Imagenes as $key => $value) { 
+      if ($cont==1) { ?>
+    <div class="row portfolio-list sort-destination" data-sort-id="portfolio" data-filter="*" style="position: relative; height: 296px;">
+    
+        <div class="col-12 col-sm-6 col-lg-3 isotope-item websites" style="position: absolute; left: 0px; top: 0px;">
+          <div class="portfolio-item">                    
+            <a class="jackbox"                         
+                    data-group="images"            
+                    data-title="" 
+                    data-description="" 
+                    href="<?php echo $value["im_imagen"]; ?>"
+                    onclick="grabarClick(<?php echo $value["im_id"]; ?>);" >                           
+              <span class="thumb-info thumb-info-lighten border-radius-0">
+                <span class="thumb-info-wrapper border-radius-0">
+                  <img src="/timthumb/timthumb.php?src=<?php echo $value["im_thumb"] ?>&h=170&w=270&zc=1" alt="<?php echo $value["im_titulo"]; ?>" class="img-fluid border-radius-0">
+                   <span class="thumb-info-title">
+              <span class="thumb-info-type"><?php echo $value["im_titulo"]; ?></span>
+            </span>
+                  <span class="thumb-info-action">
+                    <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
+                  </span>
+                </span>
+              </span>
+            </a>
+          </div><!--portfolio-item-->
+        </div><!--col-->
+      <?php }; if ($cont==2) { ?>
+       <div class="col-12 col-sm-6 col-lg-3 isotope-item medias" style="position: absolute; left: 285px; top: 0px;">
+        <div class="portfolio-item">                    
+         <a class="jackbox"                         
+                    data-group="images"            
+                    data-title="" 
+                    data-description="" 
+                    href="<?php echo $value["im_imagen"]; ?>"
+                    onclick="grabarClick(<?php echo $value["im_id"]; ?>);" >                             
+            <span class="thumb-info thumb-info-lighten border-radius-0">
+              <span class="thumb-info-wrapper border-radius-0">
+                <img src="/timthumb/timthumb.php?src=<?php echo $value["im_thumb"] ?>&h=170&w=270&zc=1" alt="<?php echo $value["im_titulo"]; ?>" class="img-fluid border-radius-0">
+               <span class="thumb-info-title">
+              <span class="thumb-info-type"><?php echo $value["im_titulo"]; ?></span>
+            </span>
+                <span class="thumb-info-action">
+                  <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
+                </span>
+              </span>
+            </span>
+          </a>
+        </div><!--portfolio-item-->
+      </div><!--col-->
+    <?php }; if ($cont==3) { ?>
+     <div class="col-12 col-sm-6 col-lg-3 isotope-item logos" style="position: absolute; left: 570px; top: 0px;">
+      <div class="portfolio-item">                    
+        <a class="jackbox"                         
+                    data-group="images"            
+                    data-title="" 
+                    data-description="" 
+                    href="<?php echo $value["im_imagen"]; ?>"
+                    onclick="grabarClick(<?php echo $value["im_id"]; ?>);" >                                
+          <span class="thumb-info thumb-info-lighten border-radius-0">
+            <span class="thumb-info-wrapper border-radius-0">
+              <img src="/timthumb/timthumb.php?src=<?php echo $value["im_thumb"] ?>&h=170&w=270&zc=1" alt="<?php echo $value["im_titulo"]; ?>" class="img-fluid border-radius-0">
+               <span class="thumb-info-title">
+              <span class="thumb-info-type"><?php echo $value["im_titulo"]; ?></span>
+            </span>
+              <span class="thumb-info-action">
+                <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
+              </span>
+            </span>
+          </span>
+        </a>
+      </div><!--portfolio-item-->
+    </div><!--col-->
+  <?php }; if ($cont==4) { ?>
+   <div class="col-12 col-sm-6 col-lg-3 isotope-item brands" style="position: absolute; left: 855px; top: 0px;">
+    <div class="portfolio-item">                    
+      <a class="jackbox"                         
+                    data-group="images"            
+                    data-title="" 
+                    data-description="" 
+                    href="<?php echo $value["im_imagen"]; ?>"
+                    onclick="grabarClick(<?php echo $value["im_id"]; ?>);" >                              
+        <span class="thumb-info thumb-info-lighten border-radius-0">
+          <span class="thumb-info-wrapper border-radius-0">
+            <img src="/timthumb/timthumb.php?src=<?php echo $value["im_thumb"] ?>&h=170&w=270&zc=1" alt="<?php echo $value["im_titulo"]; ?>" class="img-fluid border-radius-0">
+            <span class="thumb-info-title">
+              <span class="thumb-info-type"><?php echo $value["im_titulo"]; ?></span>
+            </span>
+            <span class="thumb-info-action">
+              <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
+            </span>
+          </span>
+        </span>
+      </a>
+    </div><!--portfolio-item-->
+  </div><!--col-->
+
+
+
+</div><!--row portfolio-->
+<?php } $cont = $cont+1;
+if ($cont==5) $cont=1;
+} ?>
+
+</div> <!--sort destination-->
+
+</div> <!--row-->
+</div> <!--container-->
+
+    <script type="text/javascript" src="/jackbox/js/libs/Jacked.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox-swipe.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox.js"></script>
+    <script type="text/javascript" src="/jackbox/js/libs/StackBlur.js"></script>
+    <script>
+      $(document).ready(function() {    
+  jQuery(".jackbox[data-group]").jackBox("init",{deepLinking: true});
+      })
+    </script>
+    <script type="text/javascript">
+
+        function grabarClick(id){
+            $.post( "imagen/visita/id/" + id, function( data ) {});
+        }
+</script>

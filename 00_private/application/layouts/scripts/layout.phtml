@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><?php echo  (isset($this->title))? utf8_encode($this->title):"Balneario El condor | Viedma | Patagonia Argentina"; ?></title>
+  <meta charset="utf-8">
+
+  <meta name="description" content="<?php echo  (isset($this->metaDescription))? $this->metaDescription:"Balneario El Condor - Sitio Web"?>">
+  <meta name="keywords" content="<?php echo  (isset($this->metaKeywords))? $this->metaKeywords:"Balneario,Playas,Turismo,Verano,Alojamiento,Hotel,Restaurante"?>">
+  <meta name="author" content="Balneario El Condor">
+  <meta name = "format-detection" content = "telephone=+54 9 2920 535353" /> 
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/vendor/animate/animate.compat.css">
+  <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="/vendor/owl.carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/vendor/owl.carousel/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/vendor/magnific-popup/magnific-popup.min.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/css/porto/theme.css">
+  <link rel="stylesheet" href="/css/porto/theme-elements.css">
+  <link rel="stylesheet" href="/css/porto/theme-blog.css">
+  <link rel="stylesheet" href="/css/porto/theme-shop.css">
+
+  <!-- Skin CSS -->
+  <link id="skinCSS" rel="stylesheet" href="/css/porto/skins/default.css">
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="/css/porto/custom.css">
+
+  <!-- Head Libs -->
+  <script src="/vendor/modernizr/modernizr.min.js"></script>
+
+
+	<!--[if lt IE 8]>
+  		<div style='text-align:center'><a href="https://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="https://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>  
+    <![endif]-->
+  <!--[if lt IE 9]>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/ie.css">
+    <script src="/js/html5shiv.js"></script>
+  <![endif]-->
+ <!--[if gte IE 9]>
+    <link rel="stylesheet" href="/css/ie.css">
+  <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script data-ad-client="ca-pub-6223502738437330" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+
+  <body class="wide_layout relative w_xs_auto">
+    <div class="body">
+      <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 120, 'stickyHeaderContainerHeight': 70}">
+        <div class="header-body border-top-0" >
+          <div class="header-top"> <!-- style="background-color: #f0f0f0" -->
+            <div class="container" >
+              <div class="header-row py-2" >
+                <div class="header-column justify-content-start">
+                  <div class="header-row">
+                    <nav class="header-nav-top">
+                      <ul class="nav nav-pills">
+                        <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                          <a class="nav-link ps-0" href="#"><i class="fas fa-angle-right"></i><a href="#">Mareas de hoy: Bajamar <?php echo substr($this->arrMareas[0]["ma_primera_bajamar"],0,5); ?></a>
+                        </li>
+                        <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                          <a class="nav-link" href="#"><i class="fas fa-angle-right"></i>Pleamar <?php echo substr($this->arrMareas[0]["ma_primera_pleamar"],0,5); ?></a>
+                        </li>
+                        <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                          <a class="nav-link" href="#"><i class="fas fa-angle-right"></i> Bajamar <?php echo substr($this->arrMareas[0]["ma_segunda_bajamar"],0,5); ?></a>
+                        </li>
+                        <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                          <a class="nav-link" href="#"><i class="fas fa-angle-right"></i> Pleamar <?php echo substr($this->arrMareas[0]["ma_segunda_plamar"],0,5); ?></a>
+                        </li>
+                        <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                          <a class="nav-link" href="/tablas-mareas-pleamar"><i class="fas fa-angle-right"></i> <strong>Ver todo el mes</strong></a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+                <div class="header-column justify-content-end">
+                  <div class="header-row">
+                    <ul class="header-social-icons social-icons d-none d-sm-block social-icons-clean">
+                      <li class="social-icons-email" style="background-color: #dc3545;"><a href="mailto:contacto@balneario-el-condor.com.ar" target="_blank" title="Mail"><i class="fa fa-envelope" style="color:white"></i></a></li>
+                      <li class="social-icons-facebook" style="background-color: #0088CC;"><a href="https://www.facebook.com/VillaMaritimaElCondor" target="_blank" title="Facebook"><i class="fab fa-facebook-f" style="color:white"></i></a></li>
+                      <li class="social-icons-twitter" style="background-color: #e2a522;"><a  href="https://twitter.com/BrioElCondor" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color:white"></i></a></li>
+                      <li class="social-icons-googleplus" style="background-color: #0dcaf0;"><a href="https://google.com/+Balneario-el-condorAr" target="_blank" title="Google"><i class="fab fa-google-plus-g" style="color:white"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-container container">
+            <div class="header-row">
+              <div class="header-column">
+                <div class="header-row">
+                  <div class="header-logo">
+                    <a href="/">
+                      <img alt="Porto" width="150" height="100" data-sticky-width="82" data-sticky-height="70" src="/img/logo.png">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="header-column justify-content-end">
+                <div class="header-row">
+                  <div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border order-2 order-lg-1">
+                    <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                      <nav class="collapse" >
+                        <ul class="nav nav-pills" id="mainNav">
+
+                          <!-- Home -->
+                          <li class="dropdown">
+                            <a class="dropdown-item dropdown-toggle active" href="/" style="font-size:16px">
+                              Inicio
+                            </a>
+                          </li>
+                          <!-- Fin Home --> 
+
+
+                          <!-- Playas -->
+                          <li class="dropdown">
+                            <a class="dropdown-item dropdown-toggle" href="javascript:;" style="font-size:16px">
+                              Playas
+                            </a>
+                            <ul class="dropdown-menu">
+                              <?php 
+                              if (is_array($this->arrCercanos)>0){
+                              foreach ($this->arrCercanos as $value) {?>
+                                <li><a href="/playa/<?php echo $value["ce_keyword"]; ?>" ><?php echo $value["ce_titulo"]; ?></a></li>
+                              <?php }}?>
+                              <li><a href="/lugares"><strong>Ver todas...</strong></a></li>
+                            </ul>
+                          </li>
+                          <!-- Fin Playas --> 
+
+                          <!-- Hospedaje --> 
+                          <li class="dropdown">
+                            <a class="dropdown-item dropdown-toggle" href="#" style="font-size:16px">
+                              Hospedaje
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="#">Hoteles</a>
+                                <ul class="dropdown-menu">
+                                  <?php foreach ($this->arrHospedaje1 as $value) {?>
+                                    <li><a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>" class="dropdown-item"><?php echo $value["ho_titulo"]; ?></a></li>
+                                  <?php } ?>
+                                </ul>
+                              </li>
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="#">Complejos</a>
+                                <ul class="dropdown-menu">
+                                  <?php foreach ($this->arrHospedaje2 as $value) {?>
+                                    <li><a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>" class="dropdown-item"><?php echo $value["ho_titulo"]; ?></a></li>
+                                  <?php } ?>
+                                </ul>
+                              </li>
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="#">Camping</a>
+                                <ul class="dropdown-menu">
+                                  <?php foreach ($this->arrHospedaje3 as $value) {?>
+                                    <li><a href="/hoteles-camping-cabanias/<?php echo $value["ho_keyword"]; ?>" class="dropdown-item"><?php echo $value["ho_titulo"]; ?></a></li>
+                                  <?php } ?>
+                                </ul>
+                              </li>
+                              <li class="dropdown">
+                                <a class="dropdown-item" href="/alquileres-y-ventas">Particulares</a>
+                              </li>
+
+                            </ul>
+                          </li>
+                        </li>
+                        <!-- Fin Hospedaje --> 
+
+                        <!-- Salidas --> 
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle" href="#" style="font-size:16px">
+                            Salidas
+                          </a>
+                          <ul class="dropdown-menu">
+
+                           <?php 
+                          if (is_array($this->arrNocturno)){
+                           foreach ($this->arrNocturno as $value) {?>
+                            <li><a class="dropdown-item" href="/boliches-pub/<?php echo $value["no_keyword"]; ?>"><?php echo $value["no_titulo"]; ?></a></li>
+                          <?php } }?>
+
+                        </ul>
+                      </li>
+                    </li>
+                    <!-- Fin Salidas --> 
+
+                    <!-- Imagenes -->
+                    <li class="dropdown">
+                      <a class="dropdown-item dropdown-toggle" href="#" style="font-size:16px">
+                        Imágenes
+                      </a>
+                      <ul class="dropdown-menu">                      
+                        <li ><a class="dropdown-item" href="/imagen">Nuestros paisajes...</a></li>
+                      </ul>
+                    </li>
+                  </li>
+                  <!--Fin Imagenes -->
+
+                  <!-- Historia -->
+                  <li class="dropdown">
+                    <a class="dropdown-item dropdown-toggle" href="#" style="font-size:16px">
+                      Historia
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li ><a class="dropdown-item" href="/historia">Conocer nuestra historia...</a></li>
+                    </ul>
+                  </li>
+                </li>
+                <!--Fin Historia -->
+
+                <!-- De interés --> 
+                <li class="dropdown">
+                  <a class="dropdown-item dropdown-toggle" href="#" style="font-size:16px">
+                    De interés
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li ><a class="dropdown-item" href="/ubicacion">Atracciones</a></li>
+                    <li ><a class="dropdown-item" href="/horario-colectivo">Colectivos</a></li>
+                    <li ><a class="dropdown-item" href="/puntoslimpios">Puntos Limpios</a></li>
+                    <li ><a class="dropdown-item" href="/servicios">Servicios</a></li>
+                  </ul>
+                </li>
+              </li>
+              <!-- Fin Interés --> 
+
+              <!-- Contacto --> 
+              <li class="dropdown">
+                <a class="dropdown-item dropdown-toggle" href="#" style="font-size:16px">
+                 Contacto
+               </a>
+               <ul class="dropdown-menu">
+                <li ><a class="dropdown-item" href="/contacto">Tel&eacute;fonos &Uacute;tiles</a></li>
+              </ul>
+            </li>
+          </li>
+          <!-- Fin Contacto --> 
+
+        </ul>
+      </nav>
+    </div>
+    <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!--==============================end header==============================-->
+
+<?php
+echo $this->layout()->content;
+?>    
+<!--==============================footer================================-->  
+
+<footer id="footer">
+  <div class="container my-4">
+    <div class="row">
+     <div class="col-lg-4">
+      <h3 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Contacto de la p&aacute;gina web</h3>
+      <p class="text-4 mb-0"><i class="icon-envelope icons" style="color:#1f97ff"></i> Email:<a href="mailto:contacto@balneario-el-condor.com.ar">contacto@balneario-el-condor.com.ar</a></p>
+      <p></p>
+      <div class="col-md-6 col-lg-6 mb-5 mb-lg-0">
+              <ul class="social-icons social-icons-clean-with-border social-icons-medium">
+                  <li class="social-icons-email" style="background-color: #dc3545;"><a href="mailto:contacto@balneario-el-condor.com.ar" target="_blank" title="Mail"><i class="fa fa-envelope" style="color:white"></i></a></li>
+                      <li class="social-icons-facebook" style="background-color: #0088CC;"><a href="https://www.facebook.com/VillaMaritimaElCondor" target="_blank" title="Facebook"><i class="fab fa-facebook-f" style="color:white"></i></a></li>
+                      <li class="social-icons-twitter" style="background-color: #e2a522;"><a  href="https://twitter.com/BrioElCondor" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color:white"></i></a></li>
+                      <li class="social-icons-googleplus" style="background-color: #0dcaf0;"><a href="https://google.com/+Balneario-el-condorAr" target="_blank" title="Google"><i class="fab fa-google-plus-g" style="color:white"></i></a></li>
+              </ul>
+            </div>
+    </div>
+    <div class="col-lg-4">
+      <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Últimos tweets</h5>
+      <a class="twitter-timeline" data-width="250" data-height="280" data-theme="dark" href="https://twitter.com/BrioElCondor?ref_src=twsrc%5Etfw">Tweets by BrioElCondor</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <div class="col-lg-4">
+      <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Join Us on Facebook</h5>
+      <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FVillaMaritimaElCondor&amp;width=235&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=438889712801266" style="border:none; overflow:hidden; width:235px; height:258px;"></iframe>  
+    </div>
+  </div>
+</div>
+<div class="footer-copyright footer-copyright-style-2">
+  <div class="container py-2">
+    <div class="row py-4">
+      <div class="col d-flex align-items-center justify-content-center mb-4 mb-lg-0">
+        <p class="text-4 text-color-light">  @ 2015 <span class="font-weight-semibold">Balneario El Condor</span>. Sitio Web sin relaci&oacute;n oficial.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+  <script src="/js/retina.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/jquery.bxslider.js"></script>  
+
+  <!-- iosSlider plugin -->
+  <script src = "/js/jquery.eislideshow.js"></script>           
+  <script type="text/javascript">
+   $(function() {
+    $('#ei-slider').eislideshow({
+      animation     : 'center',
+      autoplay      : true,
+      slideshow_interval  : 7000,
+      titlesFactor    : 0
+    });
+
+  });
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37315926-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+  window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+    d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+      _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+      $.src='//v2.zopim.com/?2XEPN6ftkC32xOx17NqL9Msp3AXTeWVY';z.t=+new Date;$.
+      type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+    </script>
+    <!--End of Zopim Live Chat Script-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37315926-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-37315926-1', { 'optimize_id': 'GTM-TSNGSFS'});
+    </script>
+    <script data-ad-client="ca-pub-6223502738437330" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+    <!-- Vendor -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/vendor/jquery.cookie/jquery.cookie.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery.validation/jquery.validate.min.js"></script>
+    <script src="/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+    <script src="/vendor/lazysizes/lazysizes.min.js"></script>
+    <script src="/vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/vendor/vide/jquery.vide.min.js"></script>
+    <script src="/vendor/vivus/vivus.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script>
+    <script type="text/javascript" src="/jackbox/js/libs/Jacked.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox-swipe.js"></script>
+    <script type="text/javascript" src="/jackbox/js/jackbox.js"></script>
+    <script type="text/javascript" src="/jackbox/js/libs/StackBlur.js"></script>
+    <!-- Theme Base, Components and Settings -->
+    <script src="/js/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="/js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="/js/theme.init.js"></script>
+
+    <script src="/vendor/examples/examples.gallery.js"></script>
+  </body>
+  </html>

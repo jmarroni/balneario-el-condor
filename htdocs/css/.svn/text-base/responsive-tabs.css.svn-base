@@ -1,0 +1,613 @@
+
+/* REQUIRED for core functionality */
+
+.responsive-tabs__heading { display: none;}
+.responsive-tabs__list__item { display: inline; cursor:pointer;}
+.responsive-tabs{
+	position: relative;
+/*	margin-top: 14px;*/
+}
+.responsive-tabs:after{
+	display: block;
+	content: "";
+	width: 5px;
+	height: 40px;
+	background: #f0f0f0;
+	position: absolute;
+	left: 0;
+	top: 10px;
+	z-index: 100;
+}
+/*
+.responsive-tabs-wrapper{margin-bottom:30px}*/
+.tabs-inner{margin-bottom:41px}
+
+@media (min-width: 768px) {
+	.responsive-tabs__panel--closed-accordion-only { display: block !important;}
+}
+
+/* END - Required for core functionality */
+
+.responsive-tabs-extra .responsive-tabs{margin-top:30px}
+
+.responsive-tabs_1.extra{margin-top:0}
+/*.responsive-tabs_1{margin-bottom:55px}*/
+
+.responsive-tabs_1{margin-bottom:44px}
+
+.responsive-tabs-extra .responsive-tabs>div{width:100%;  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom:30px
+  }
+
+.responsive-tabs>div{
+	margin: -5px 0 0 0;
+	border: 5px solid  #f0f0f0; 
+	-webkit-border-radius: 0 5px 5px 5px;
+	-moz-border-radius: 0 5px 5px 5px;
+	border-radius: 0 5px 5px 5px;
+	padding: 12px 12px 10px 20px;
+	font-size: 14px;
+	line-height: 21px;
+	overflow: hidden;
+	background: #fff;
+	position: relative;
+	z-index: 1;
+	float: left;
+	 min-height:293px
+}
+.responsive-tabs>div .extra-wrap{overflow: visible;}
+.responsive-tabs>div .img-polaroid{
+	float: left;
+	margin: 0 19px 10px 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.responsive-tabs>div .img-polaroid img{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+/* OPTIONAL - Basic Skin */
+
+.responsive-tabs-wrapper { 
+	clear: both;
+	zoom: 1; 
+}
+.responsive-tabs-wrapper:before,
+.responsive-tabs-wrapper:after {
+    content: "";
+    display: table;
+} 
+.responsive-tabs-wrapper:after {
+    clear: both;
+}
+
+.responsive-tabs__heading:focus,
+.responsive-tabs__list__item:focus {outline: none}
+
+.responsive-tabs__heading--active:focus,
+.responsive-tabs__list__item--active:focus { outline: none !important;}
+
+.responsive-tabs__list { 
+	margin: 0 5px 0 0; 
+	padding: 0;
+	position: relative;
+	z-index: 2;
+}
+.responsive-tabs__list__item
+	 { 
+		float: left;
+		background: #f0f0f0; 
+		padding: 10px 16px;  
+		font-weight:normal;
+		border: 5px solid  #f0f0f0; 
+		margin: 0 5px 0 0;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 16px; 
+		line-height: 20px;
+		color: #1b1b1b;
+		-webkit-border-radius: 5px 5px 0 0;
+		-moz-border-radius: 5px 5px 0 0;
+		border-radius: 5px 5px 0 0;
+		-webkit-transition: 0.3s ease all;
+		-moz-transition: 0.3s ease all;
+		-ms-transition: 0.3s ease all;
+		-o-transition: 0.3s ease all;
+		transition: 0.3s ease all;
+	}
+
+
+
+
+.dark-style .responsive-tabs__list .responsive-tabs__list__item{background-color: #262626;color: #fff; border-bottom-color: #262626;}
+
+
+
+
+ .dark-style .responsive-tabs__list__item--active:hover, .dark-style .responsive-tabs__list__item:hover{
+    background:#333;
+    border-bottom-color: #333;
+    color:#fff;
+}
+
+.dark-style  .responsive-tabs p{
+	color:#999999;
+}
+.dark-style  .responsive-tabs:after,
+.dark-style .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:first-child:after,
+.dark-style .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:first-child:after{background:none;}
+
+.dark-style .responsive-tabs > div,
+.dark-style .responsive-tabs__list__item
+{border-color:#262626;
+background:#333;
+}
+.dark-style .responsive-tabs:after{background-color: #333}
+
+.dark-style .responsive-tabs > div, .dark-style .responsive-tabs__list__item{}
+
+/*----------responsive-tabs_1--------------*/
+/*
+
+.responsive-tabs_1{
+	margin-top: 32px;
+}
+*/
+
+
+.responsive-tabs__list__item:hover{color:#1f97ff}
+.responsive-tabs__list__item--active, 
+.responsive-tabs__list__item--active:hover ,
+.responsive-tabs__list__item:hover {
+	background: #fff;
+	border-bottom-color: #fff;	
+}
+.responsive-tabs__list__item--active{font-weight:600}
+
+.responsive-tabs__list__item--active, 
+.responsive-tabs__list__item--active:hover {color:#1b1b1b}
+
+.responsive-tabs__list__item--active{cursor:default}
+
+.responsive-tabs_1 .responsive-tabs__list{
+	display: block;
+	float: left;
+	width: 300px;
+	position: relative;
+	z-index: 2;
+}
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item{
+	padding: 10px 23px 10px 15px; 
+	display: block;
+	overflow: visible;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	float: none;
+	margin: 0 0 5px 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position:relative
+}
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:first-child, .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child{
+	position: relative;
+}
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:first-child:after
+{
+	display: none;
+	position: absolute;
+	content: "";
+	height: 5px; 
+	background: #f0f0f0;
+	left: 0;
+	right: 0;
+	top: -5px;
+}
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child:after
+{
+	display: none;
+	position: absolute;
+	content: "";
+	height: 5px; 
+	background: #f0f0f0;
+	left: 0;
+	right: 0;
+	bottom: -5px;
+}
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child:hover:after
+{
+	display: block;
+	right: -5px;
+}
+/*.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child.responsive-tabs__list__item--active:after
+{
+	display: block;
+	right:0;
+}*/
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:first-child:hover:after
+{
+	display: block;
+	right: -10px;
+}
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item.responsive-tabs__list__item--active:after
+{
+	display: block;
+	right: -10px;
+}
+
+.responsive-tabs__list__item i{width: 28px;}
+
+ /* --------responsive-tabs  type-tabs1-----------*/
+
+.type-tabs1 .responsive-tabs__list{width: 15%}
+.type-tabs1 .responsive-tabs__list li i{display: none;}
+.type-tabs1  .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item { padding: 10px 15px;}
+
+.type-tabs1 .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child:after{background:none }
+
+ /* --------responsive-tabs  type-tabs3----------*/
+
+.type-tabs3 .responsive-tabs__list{width: 20%}
+.type-tabs3 .responsive-tabs__list li i{}
+.type-tabs3  .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item { padding: 10px 15px;}
+
+.type-tabs3 .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child:after{background:none }
+
+
+ /* --------responsive-tabs  type-tabs4----------*/
+
+.type-tabs4 .responsive-tabs .responsive-tabs__list .responsive-tabs__list__item{ padding: 10px 12px;text-align: center;}
+
+ /* --------tabbable.responsive-----------*/
+
+
+ /* --------responsive-tabs  type-tabs5----------*/
+
+.type-tabs5 .responsive-tabs__list{width: 10%}
+.type-tabs5 .responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child:after{background:none }
+
+ /* --------tabbable.responsive-----------*/
+
+
+
+
+
+
+ 
+ .tabbable.responsive{
+	position: relative;
+	margin:30px 0 ;
+	overflow:hidden
+}
+ .tabbable.responsive:after{
+	display: block;
+	content: "";
+	width: 5px;
+	height: 40px;
+	background: #f0f0f0;
+	position: absolute;
+	left: 0;
+	top: 10px;
+	z-index: 100;
+}
+  
+ .tabbable.responsive .nav-tabs:after{
+    clear: both;
+	 }
+  .tabbable.responsive .nav-tabs{margin:0;
+  border:none;position:relative;z-index:2}
+ .tabbable.responsive .nav-tabs > li { 
+	float: left;
+	margin: 0 5px 0 0;	
+
+	}
+  .tabbable.responsive .nav-tabs > li>a { 	
+	background: #f0f0f0; 
+	padding: 10px 20px;  
+	font-weight:600;
+	border: 5px solid  #f0f0f0; 	
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px; 
+	line-height: 20px;
+	color: #1b1b1b;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+	-webkit-transition: 0.3s ease all;
+	-moz-transition: 0.3s ease all;
+	-ms-transition: 0.3s ease all;
+	-o-transition: 0.3s ease all;
+	transition: 0.3s ease all;
+	position:relative
+	}
+ .tabbable.responsive .nav-tabs > li>a:hover,
+ .tabbable.responsive .nav-tabs > li.active>a{color:#1f97ff;
+ 	background: #fff;
+	border-bottom-color: #fff;	
+ }
+ 
+  .tabbable.responsive .tab-content{
+	margin: -5px 0 0 0;
+	border: 5px solid  #f0f0f0; 
+	-webkit-border-radius: 0 5px 5px 5px;
+	-moz-border-radius: 0 5px 5px 5px;
+	border-radius: 0 5px 5px 5px;
+	padding: 12px 20px 10px;
+	font-size: 14px;
+	line-height: 21px;
+	overflow: hidden;	
+	position: relative;
+	z-index: 1;	
+	float:left;
+	width:100%;
+   -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	 min-height:293px;
+	 background:#fff
+}
+ 
+
+
+
+      .tabbable.responsive .nav-tabs > li.active>a,
+	  .tabbable.responsive .nav-tabs > li.active>a:hover{color:#1b1b1b} 
+ 
+     .tabbable.responsive .nav-tabs > li > span.tab-control-spacer{
+    width: 30px;
+	height: 30px;
+	float:left}
+  
+ 
+      .tabbable.responsive .nav-tabs > li > a.tab-control{
+	display:block;
+	float:left;
+	width: 30px;
+	height: 30px;
+	margin:7px 0;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+        	border-radius: 3px;
+			background:#f0f0f0;
+	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.15);
+       -moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.15);
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.15);
+			text-align:center;
+			  -webkit-transition: all 0.3s ease;
+                 -moz-transition: all 0.3s ease;
+				   -o-transition: all 0.3s ease;
+					  transition: all 0.3s ease;
+					  overflow:hidden;
+					  cursor:pointer;
+					  font-weight:normal
+          }
+      .tabbable.responsive .nav-tabs > li > a.tab-control.right,
+      .tabbable.responsive .nav-tabs > li > span.tab-control-spacer.right {
+          float: right;
+      }
+      .tabbable.responsive .nav-tabs > li > a.tab-control:hover {
+     background:#1f97ff
+      }
+      .tabbable.responsive .nav-tabs > li > span.tab-control-spacer {
+          line-height: 28px;
+          color: transparent;
+          background: transparent;
+      }
+	  
+.tabbable.responsive .nav-tabs > li > a.tab-control:before,
+.tabbable.responsive .nav-tabs > li > a.tab-control:after{
+	font-family:FontAwesome;
+	font-size:21px;
+	line-height:30px;	
+	color:#1b1b1b;	
+	position:relative;
+     -webkit-transition: all 0.3s ease;
+		 -moz-transition: all 0.3s ease;
+		   -o-transition: all 0.3s ease;
+			  transition: all 0.3s ease;
+	}
+
+ .tabbable.responsive .nav-tabs > li > a.tab-control.right:after{
+left:-30px;
+color:#fff
+}
+
+ .tabbable.responsive .nav-tabs > li > a.tab-control.right:before{left:5px}
+ .tabbable.responsive .nav-tabs > li > a.tab-control.right:hover:after{left:-3px}
+ .tabbable.responsive .nav-tabs > li > a.tab-control.right:hover:before{
+color:#fff; 
+left:30px
+}
+
+ .tabbable.responsive .nav-tabs > li > a.tab-control.left:after{
+right:-30px;
+color:#fff
+}
+
+ .tabbable.responsive .nav-tabs > li > a.tab-control.left:before{right:-3px}
+ .tabbable.responsive .nav-tabs > li > a.tab-control.left:hover:after{right:4px}
+ .tabbable.responsive .nav-tabs > li > a.tab-control.left:hover:before{
+color:#fff; 
+right:30px
+}
+ .tabbable.responsive .nav-tabs > li > a.tab-control.left:before,
+ .tabbable.responsive .nav-tabs > li > a.tab-control.left:after{content:""} 
+ .tabbable.responsive .nav-tabs > li > a.tab-control.right:before,
+ .tabbable.responsive .nav-tabs > li > a.tab-control.right:after{content: ""}
+
+
+
+@media (min-width: 1200px) {
+	.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item:last-child:hover:after{
+	display: block;
+	right: -10px;
+}
+.responsive-tabs_1 .responsive-tabs__list .responsive-tabs__list__item.responsive-tabs__list__item--active:after{
+	display: block;
+	right: -10px;
+}
+}
+.responsive-tabs_1 .responsive-tabs__list__item:hover {
+	background: #fff;
+	border-right-color: #fff;
+	border-bottom-color:#f0f0f0; 
+	margin-right: -11px !important;
+	font-weight: 600;
+}
+.responsive-tabs_1 .responsive-tabs__list__item--active, 
+.responsive-tabs_1 .responsive-tabs__list__item--active:hover {
+	background: #fff;
+	border-right-color: #fff;
+	border-bottom-color: #f0f0f0;
+	margin-right: -11px !important;
+	font-weight: 600;
+}
+.responsive-tabs_1>div{
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	float: none;
+	margin: 5px 0 0 5px;
+	
+
+}
+.responsive-tabs_1>div .img-polaroid{
+	float: right;
+	margin: 10px 5px;
+}
+
+.responsive-tabs_1>div .img-polaroid.extra{
+	
+	margin-left:20px;
+}
+
+.responsive-tabs_1>div .extra-wrap{padding-top: 10px;}
+.responsive-tabs__panel {margin-bottom: 50px;}
+
+
+
+a:focus{outline:none;text-decoration: none;}	 
+a:visited{outline:none;border: none;text-decoration: none;}	
+
+@media (max-width: 1199px) {
+
+.tabbable.responsive:after{display:none}
+
+
+  .tabbable.responsive .nav-tabs {              
+			  overflow:hidden
+          }
+          .tabbable.responsive .nav-tabs {
+			   border: 5px solid #F0F0F0;
+			    background:#fff;
+              margin: 0;
+			  overflow:hidden;
+			  		  	-webkit-border-radius: 5px 5px 0 0;
+	               -moz-border-radius: 5px 5px 0 0;
+        	            border-radius: 5px 5px 0 0;
+          }
+          .tabbable.responsive .nav-tabs li {
+              /* box-sizing seems like the cleanest way to make sure width includes padding */
+              -webkit-box-sizing: border-box;
+                 -moz-box-sizing: border-box; 
+                  -ms-box-sizing: border-box;
+                   -o-box-sizing: border-box;
+                      box-sizing: border-box; 
+					 
+              display: inline-block; 
+              width: 100%; 
+              height: 44px;
+              line-height: 44px; 
+              padding: 0 7px;            
+              overflow: hidden;
+			  
+          }
+          .tabbable.responsive .nav-tabs > li > a {
+              border-style: none;
+              display: inline-block;
+              margin: 0;
+              padding: 0;
+          }
+          /* include hover and active styling for links to override bootstrap defaults */
+          .tabbable.responsive .nav-tabs > li > a:hover {
+              border-style: none; 
+              background-color: transparent;}
+          .tabbable.responsive .nav-tabs > li > a:active,
+          .tabbable.responsive .nav-tabs > .active > a,
+          .tabbable.responsive .nav-tabs > .active > a:hover {
+              border-style: none;
+          }
+
+}
+
+@media (max-width: 767px) {
+	.responsive-tabs{margin: 30px 0 30px 0;}
+	
+	.responsive-tabs__heading { 
+		padding: 0.5em; 
+		border-radius: 5px; 
+		background: #f0f0f0; 
+		position: relative;
+		margin: 2px 0 2px 0;
+	}
+.responsive-tabs__heading{
+	font-size: 20px;
+}
+.responsive-tabs_1 i{
+	margin-right: 16px;
+	font-size: 16px;
+}
+	.responsive-tabs__heading:after {
+		content:"";
+		display: block;
+		position: absolute;
+		right: 20px;
+		top: 40%;
+		width: 0; 
+		height: 0; 
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 10px solid #000;
+	}
+	.responsive-tabs__heading:hover,
+	.responsive-tabs__heading--active:hover { background-color: #efefef}
+	.responsive-tabs__heading--active { background: #fff;}
+	.responsive-tabs__heading--active:after {
+		border-bottom: 10px solid #000;
+		border-top:0;
+	 }
+	 .responsive-tabs:after{display: none;}
+	.responsive-tabs > div{
+		margin: 0;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		min-height:inherit;
+		float:none
+	}
+	
+	.responsive-tabs__list { display: none;}
+	.responsive-tabs__heading { display: block; cursor: pointer; }
+	.responsive-tabs__panel--closed-accordion-only { display: none;}		
+    .responsive-tabs_1 .responsive-tabs__list{display: none;} 
+
+}
+@media (max-width: 570px) {
+	.responsive-tabs_1 > div .img-polaroid{float:none;margin-left:0;
+	}
+	
+		.responsive-tabs_1 > div .img-polaroid img{width:100%}
+	
+	}
+
+ @media only screen and (min-width: 768px) and (max-width: 979px) {
+	.responsive-tabs__list__item{padding: 10px 4px;font-size:15px} 
+	 .tabbable.responsive .tab-content{ padding: 12px 15px 10px;}
+	 
+	 }
+/* END - Optional - Basic Skin */

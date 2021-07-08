@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Agenda Turismo Municipalidad Viedma</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+      h3{color:#7a8cbc;font-weight: bold;}
+      .table-striped>tbody>tr {
+    background-color: #c9d0e3;
+    color: white;}
+      
+      .table-striped>tbody>tr:nth-child(odd) {
+    background-color: #6aa6b0;
+    color: white;}
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6{
+      padding-left: 0px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="col-md-6" style="background: -webkit-linear-gradient(#7c89bd, #e2e2ee);">
+        <h1 style="text-align: center;color:white;font-weight: bold;height: 154px;">AGENDA CULTURAL Y DEPORTIVA DEL 27 DE OCTUBRE AL 2 DE NOVIEMBRE</h1>
+    </div>
+    <div class="col-md-6">
+      <img src="/imagenes/fondo_agenda.png" style="width: 100%" />
+    </div>
+    <div class="col-md-12">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <h3>AGENDA</h3>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>D&iacute;a</th>
+        <th>Hora</th>
+        <th>Actividad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Fila -->
+      <tr>
+        <td><b>Jueves 27</b></td>
+        <td><i>17hs</i></td>
+        <td>Proyección del documental “El Secreto de Urdaneta” - Ciclo de Cine Vasco - Centro AberrEtxea - Alberdi 169.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Jueves 27</b></td>
+        <td><i>23hs</i></td>
+        <td>Show de “Pelusa” Rupayán – Melódico covers – Casino del Río - Cagliero y Vallese.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Viernes 28</b></td>
+        <td><i>17hs.</i></td>
+        <td>Charla informativa sobre hábitos saludables – Disertan Dr. Fernando Orellano, Dra. Marina Chechi y Dr. Luis Malicki – Club Tronador – Belgrano 328, Carmen de Patagones.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Viernes 28</b></td>
+        <td><i>20:30hs.</i></td>
+        <td>Muestra 2016 “Estudio Anual de Danzas Clásicas” - A cargo de Valeria Ayala -  Sala Mayor de Centro Municipal de Cultura – Gallardo 550.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Viernes 28</b></td>
+        <td><i>23hs.</i></td>
+        <td>Show de “Impasse” – Popular covers – Casino del Río – Cagliero y Vallese. </td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Viernes 28</b></td>
+        <td><i>00hs.</i></td>
+        <td>Show de “La Gamboide” y “Maldita costilla” - Rock – Bucanero Bar – Laprida y Belgrano.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Viernes 28</b></td>
+        <td><i>00hs.</i></td>
+        <td>Show de “Censura” – Cumbia covers – Ghimel Café – Bynon y Harosteguy, Carmen de Patagones.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>9hs.</i></td>
+        <td>Programa “Cadena Municipal de Favores” - Entrega de plantines para huertas familiares y charla informativa - Barrio Lavalle, calles N°13 y N°4.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>9 a 15hs.</i></td>
+        <td>Liga Municipal de Newcom – Participación de equipos locales - Gimnasio Anexo Polideportivo Ángel Cayetano Arias - Ruta 3 km 964.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>9.30 a 19.30hs.</i></td>
+        <td>Torneo Interprovincial de Tejo - Participación de 40 parejas exponentes de Buenos Aires, Chubut, La Pampa y Río Negro - Club de Amigos Balneario El Cóndor – Calle 12 y 71, El Cóndor.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>10 a 12hs.</i></td>
+        <td>Encuentro de Patín – Participación de Fioravanti Ruggeri, Escuela del Barrio Santa Clara, Barrio San Martín, Escuela N°355 e invitados de APEL - Parque Jorge Ferreira, Av. Villarino y puente Basilio Villarino.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>10 a 16hs.</i></td>
+        <td>Encuentro de Vóley - Organiza Mauro Cornejo – Participación de distintos clubes y presencia de la Escuela Municipal de Vóley en calidad de invitados - Parque Jorge Ferreira, Av. Villarino y puente Basilio Villarino.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>10:30hs.</i></td>
+        <td>Concurso de salto – Exhibición de equinoterapia – Escuela Municipal de Equitación – 1º Bajada de lanchas, Av. Costanera, Carmen de Patagones.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>15:30hs.</i></td>
+        <td>Conferencia sobre vida saludable – A cargo del Lic. en Nutrición Mauro Galli y el Prof. en Actividad Física Daniel El Daher – Organiza Fundación ALCO – Escuela Nº319 – Roca 750.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>19hs.</i></td>
+        <td>Segunda Muestra 2016 de “Danzas Maeras” -  Sala Mayor Centro Municipal de Cultura – Gallardo 550.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>20:30hs.</i></td>
+        <td>Presentación del disco “Calma”, de Clara Cantore, y “La Menguante, ensamble folclórico” – Entrada libre y gratuita – Organizan Universidad Nacional de Río Negro, Asociación Cultural No Todo es Vigilia, Fundación Trama Cultural Patagónica y Concejo Deliberante de Viedma – Concejo Deliberante de Viedma – Buenos Aires 320.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>21hs.</i></td>
+        <td>Show de Ana Gauna y Seba Droszler – Fusión de géneros – Entrada general $100 – Teatro El Tubo – Belgrano 747.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>21hs.</i></td>
+        <td> Noche de gala “Ciclo Lorca a Pleno” – Bailes y canciones – Entrada libre y gratuita – Rigoletto Bar – J.J. Biedma y Bynon, Carmen de Patagones.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>22:30hs.</i></td>
+        <td>Show de La Fondue – Rock covers – Calle 60 y 65, Balneario El Cóndor. </td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>23hs.</i></td>
+        <td>Show de “Impasse” – Popular covers – Casino del Río – Cagliero y Vallese.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>00hs.</i></td>
+        <td>Show de “La Gamboide” y “Maldita costilla” – Rock – Bucanero BAR – Laprida y Belgrano.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Sabado 29</b></td>
+        <td><i>00hs.</i></td>
+        <td>Show de “Los Rancheros” – Rock nacional – Maroco Discotheque – Av. Caseros y México.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Domingo 30</b></td>
+        <td><i>15:30hs.</i></td>
+        <td>17º Edición de la Maratón Stilo “La Anónima” – 5km y 10km – Organiza C.A.VE.CO – Carreras preliminares 12:30hs – Jardines del Ministerio de Economía, Av. Villarino y Av. 25 de mayo. </td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>Lunes 31</b></td>
+        <td><i>23hs.</i></td>
+        <td>Show de Celeste Barrionuevo – Melódico covers – Casino del Río – Cagiero y Vallese.</td>
+      </tr>
+      <!-- END Fila -->
+    </tbody>
+    </table>
+    <h3>EXCURSIONES</h3>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>D&iacute;a</th>
+        <th>Hora</th>
+        <th>Actividad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Fila -->
+      <tr>
+        <td><b>--  d&iacute;as</b></td>
+        <td><i>16hs</i></td>
+        <td>Catamarán Turístico Currú Leuvú II – Muelle de Lanchas – Domingos.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>-- d&iacute;as</b></td>
+        <td><i>--hs</i></td>
+        <td>Cicloturismo “Ceferino Cacique” – Alquiler de bicicletas de paseo – Excursiones guiadas en la comarca y la región – Te. 15516020.</td>
+      </tr>
+      <!-- END Fila -->
+      <!-- Fila -->
+      <tr>
+        <td><b>-- d&iacute;as</b></td>
+        <td><i>--hs</i></td>
+        <td>Establecimiento de Turismo Rural “San Andrés” – Te. 15607037/15603293.</td>
+      </tr>
+      <!-- END Fila -->
+      <!-- Fila -->
+      <tr>
+        <td><b>-- d&iacute;as</b></td>
+        <td><i>--hs</i></td>
+        <td>Excursiones náuticas “Náutica del Plata/El vasco” – Paseos y pesca embarcada – Te. 15626719.</td>
+      </tr>
+      <!-- END Fila -->
+            <!-- Fila -->
+      <tr>
+        <td><b>-- d&iacute;as</b></td>
+        <td><i>--hs</i></td>
+        <td>“Patagonia Kayak” travesías náuticas y alquiler de bicicletas – Te. 15490310.</td>
+      </tr>
+      <!-- END Fila -->
+    </tbody>
+    </table>
+    <h3>MUESTRAS</h3>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>D&iacute;a</th>
+        <th>Hora</th>
+        <th>Actividad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Fila -->
+      <tr>
+        <td colspan="2"><b>Hasta el 31 de Oct</b></td>
+        <td>Muestra colectiva “Leyendo Pinturas” de los aristas Fichetti, Mastrángelo, Guerrisi y Becker – Biblioteca Provincial del Maestro – San Martín 435. </td>
+      </tr>
+      <!-- END Fila -->
+              <!-- Fila -->
+      <tr>
+        <td colspan="2"><b>Del 27 de Octubre al 1 de Noviembre</b></td>
+        <td>CINE GAMA – Gallardo 160. 19hs: “Troll…encuentro de felicidad” en 3D.</td>
+      </tr>
+      <!-- END Fila -->
+    </tbody>
+    </table>
+    </div>
+  </body>
+</html>

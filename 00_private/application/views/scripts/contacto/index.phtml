@@ -1,0 +1,421 @@
+<section class="page-header page-header-modern bg-color-primary page-header-md ">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <div class="overflow-hidden pb-2">
+              <h1 class="text-light font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;"><?php echo 'Contacto' ?></h1>
+            </div>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-md-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+              <li><a class="font-weight-semibold" href="/" style="color: #e2a522;font-size: 16px;">Inicio</a></span></li>
+              <li><i class="fa fa-angle-right"></i><span class="active " style="color: #e2a522;font-size: 16px;"> <?php echo 'Contacto'; ?></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--==============================content=================================-->
+
+<div class="container pt-3 pb-2">
+
+  <div class="row pt-2">
+   <div class="col-lg-6">
+     <h2 class="font-weight-normal text-7 mb-2 text-center"><strong class="font-weight-extra-bold">Información de contacto</strong></h2>
+     <div id="map_canvas" style="width:auto;height: 600px;" ></div>
+   </div>
+   <div class="col-lg-1">
+   </div>
+   <div class="col-lg-5">
+    <h2 class="font-weight-normal text-7 mb-2 text-center"><strong class="font-weight-extra-bold">Formulario</strong></h2>
+    <br>
+    <div class="card mb-4 bg-color-grey">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <form class="contact-form form-with-icons" method="POST" novalidate="novalidate" id="contactform">
+              <div class="contact-form-success alert alert-success d-none mt-4">
+                <strong>Success!</strong> Your message has been sent to us.
+              </div>
+
+              <div class="contact-form-error alert alert-danger d-none mt-4">
+                <strong>Error!</strong> There was an error sending your message.
+                <span class="mail-error-message text-1 d-block"></span>
+              </div>
+
+              <div class="row">
+                <div class="form-group col">
+                  <label class="form-label mb-1 text-2">Nombre</label>
+                  <div class="position-relative">
+                    <i class="icons icon-user text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+                    <input type="text" id="cf_name" name="deForm" placeholder="Nombre (requerido)" maxlength="100" class="form-control text-3 h-auto py-2" required="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <label class="form-label mb-1 text-2">Email</label>
+                  <div class="position-relative">
+                    <i class="icons icon-envelope text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+                    <input type="email" value="" placeholder="Email (requerido)" data-msg-required="Email (requerido)" data-msg-email="Please enter a valid email address." maxlength="100" class="form-control text-3 h-auto py-2" id="cf_email" name="correoForm" required="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <label class="form-label mb-1 text-2">Teléfono</label>
+                  <div class="position-relative">
+                    <i class="fa fa-phone text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+                    <input id="cf_subject" name="asuntoForm" value="" maxlength="100" class="form-control text-3 h-auto py-2">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col">
+                  <label class="form-label mb-1 text-2">Mensaje</label>
+                  <div class="position-relative">
+                    <i class="icons icon-bubble text-color-primary text-3 position-absolute left-15 top-15"></i>
+                    <textarea maxlength="5000" data-msg-required="Por favor introduzca un mensaje." rows="8" class="form-control text-3 h-auto py-2" id="cf_message" name="mensajeForm" required=""></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col">
+                  <label class="form-label mb-1 text-2" for="capcha">Anti-spam test: 4 + 4 =</label>
+                  <div class="position-relative">
+                    <input  id="captcha" name="" value="" maxlength="100" class="form-control text-3 h-auto py-2" required="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <input type="submit" value="Enviar mensaje" class="btn btn-primary" data-loading-text="Loading...">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Primera sección -->
+<div class="row pt-2">
+  <div class="col-lg-6">
+   <h2 class="font-weight-normal text-7 mb-2 text-center"><strong class="font-weight-extra-bold">Teléfonos de interés</strong></h2>
+ </div>
+</div>
+<div class="row pt-2">
+ <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+  <div class="counter">
+    <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+      <li class="listasGrandes" class="listasGrandes"><a href="#"><span><i class="fa fa-map-marker"></i></span></a>
+        Balneario El Condor, Rio Negro <br>
+        C.P. 8501
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+  <div class="counter">
+    <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+      <li class="listasGrandes" class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>
+        <a href="mailto:contacto@balneario-el-condor.com.ar">contacto@balneario-el-condor.com.ar</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- Segunda sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-phone"></i></span></a> Contacto Web <br>
+          2920 - 535353
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-wrench"></i></span></a>
+          <a href="http://viedma.gov.ar/index.php/el-condor">Municipalidad del Condor</a> <br>
+          <a href="http://viedma.gov.ar/turismo/">Turismo Viedma</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Tercera sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a> Centro de Salud<br>
+          107 <br>
+          2920 - 497198 <br>
+          Urgencias: 15414693
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a> Bomberos<br>
+          100 <br>
+          2920 - 497161
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Cuarta sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>   Comisaria<br>
+          101 <br>
+          2920 - 497300
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>  Escuela N° 246<br>
+          2920 - 497055
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Quinta sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>    Aguas Rionegrinas<br>
+          0800-999-24827
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>    Edersa (Luz)<br>
+          0800-222-9500
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Sexta sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>    Fauna<br>
+          2920 - 423391 <br>
+          2920 - 422282
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>      Camuzzi<br>
+          0810-555-3698<br>
+          Viedma 2920 - 426451 <br>
+          Emergencias: 0810-999-0810
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Séptima sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>    Biblioteca Popular<br>
+          2920 - 15343779   
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a> Defensa Civil<br>
+          103
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Octava sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>   Delegaci&oacute;n Municipal<br>
+          2920 - 497068
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>   Informes Tur&iacute;sticos<br>
+          2920 - 497148
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Novena sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>   Prefectura Naval Argentina<br>
+          106 <br>
+          2920 - 461742 <br>
+          2920 - 464918
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>  Farmacia<br>
+          2920 - 497176
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Décima sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>    Terminal de Omnibus<br>
+          2920 - 497209
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a>  Cami&oacute;n Atmosf&eacute;rico<br>
+          2920 - 15564042
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Onceava sección -->
+<div class="row pt-2">
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a> Recolector de Escombros y Ramas<br>
+          Fletes y Mudanzas <br>
+          2920 - 15360233
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+    <div class="counter">
+      <ul class="list list-icons list-icons-style-3 list-primary list-icons-lg">
+        <li class="listasGrandes"><a href="#"><span><i class="fa fa-envelope"></i></span></a> Servicio de Grua Privado <br>
+          para el Autom&oacute;vil<br>
+          2920 - 15359421<br>
+          2920 - 15260928<br>
+          2920 - 15605458
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+</div><!-- Container -->
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+<script type="text/javascript">
+  var initialLocation;
+  var browserSupportFlag =  new Boolean();
+  var map;
+  var infowindow = new google.maps.InfoWindow();
+  var latitud  = '-41.0414809';
+  var longitud = '-62.8291098';
+  var myOptions = {
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+  };
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+  initialLocation = new google.maps.LatLng(latitud,longitud);
+  contentString = "Balneario El Condor";
+  map.setCenter(initialLocation);
+  infowindow.setContent(contentString);
+  infowindow.setPosition(initialLocation);
+  infowindow.open(map);
+</script>
+<style type="text/css">
+.listasGrandes
+{
+ font-size: 16px;
+}
+.listasGrandes a span i
+{
+  font-size: 27px;
+}
+</style>

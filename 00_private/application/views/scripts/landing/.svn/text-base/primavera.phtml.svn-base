@@ -1,0 +1,118 @@
+<section class="mainSection">
+      <div class="wrapper wrapperSection clearfix">
+        <section class="fullCol">
+        	<h2>Fiesta de la Primavera - Club Amigos Balneario El C&oacute;ndor</h2>
+            <div class="datosBalneario">
+            	<ul style="width:400px">
+                	<li>
+                    	<p style="font-size:16px;"><span class="titulo" style="font-size:18px;">Men&uacute;:</span>
+                        - Entrada, chorizo, con ensaladas<br>
+                        - Cl&aacute;sico costillares asado presente en cada fiesta<br>
+                        - Postre helado<br>
+                    </li>
+                    <li>
+                    	<p style="font-size:16px;"><span class="titulo" style="font-size:18px;">Bebida:</span>
+                        - Vino<br>
+                        - Gaseosa<br>
+                        - Soda<br>
+                         <labe style="color:red">Todo libre !!!</label></p>
+                    </li>
+                    <li>
+                        <p style="font-size:16px;"><span class="titulo" style="font-size:18px;">Grupo Musical:</span>
+                        <img src="/imagenes/grupo_musical.png" />
+                       </p>
+                    </li>
+                    <li>
+                        <p style="font-size:16px;"><span class="titulo" style="font-size:18px;">Costo $150 p/persona y $130 socios.</span>
+                            Menores mitad de precio<br>
+                            <label style="font-size:12px">(Sujeto a modificaciones sin previo aviso)</label></p>
+                    </li>
+                    <li>
+                    	<p style="font-size:16px;"><span class="titulo" style="font-size:18px;">Lugares de compra directa de entradas:</span>
+                        - Rot Automotores<br>
+                        - Mubleart<br>
+                        - Los Aromos paddle<br>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="contenedorForm">
+            	<span class="titulo">Reserva tu entrada entrada<br>
+                    Te estaremos contactando v&iacute;a mail o tel&eacute;fono</span>
+                    (Solo v&aacute;lido para Viedma, Carmen de Patagones y la Villa Mar&iacute;tima).
+                <form>
+                	<dl>
+                    	<dt><label for="nombre">* Nombre:</label></dt>
+                        <dd><input type="text" id="nombre" name="nombre"></dd>
+                        <dt><label for="apellido">* Apellido:</label></dt>
+                        <dd><input type="text" id="apellido" name="apellido"></dd>
+                        <dt><label for="telefono">* Tel&eacute;fono de contacto:</label></dt>
+                        <dd><input type="text" id="telefono" name="telefono"></dd>
+                        <dt><label for="mail">* Direcci&oacute;n de Correo de contacto:</label></dt>
+                        <dd><input type="text" id="mail" name="mail"><br></dd>
+                        <dt><label for="deForm"><input type="checkbox" value="1" checked="true" name="quiero" id="quiero" />&nbsp;Quiero que me envien informaci&oacute;n del la web del balneario.</label><br><br></dt>
+                        <dt><label for="entradas">Cantidad de entradas:</label></dt>
+                        <dd>
+                        	<select name="entradas" id="entradas">
+                            	<option value="1">1 (Una)</option>
+                                <option value="2">2 (Dos)</option>
+                                <option value="3">3 (Tres)</option>
+                                <option value="4">4 (Cuatro)</option>
+                                <option value="5">5 (Cinco)</option>
+                            </select>
+                        </dd>
+                        <dt><label for="comentario">Comentario:</label></dt>
+                        <dd><textarea name="comentario" id="comentario"></textarea></dd>
+                    </dl>
+                    <a class="botonEnviar" id="enviarFormulario" href="#">Reservar</a>
+
+                </form>
+            </div>
+        </section>
+        <!-- /fullCol -->
+      </div>
+    </section>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#enviarFormulario').click(function(){
+            var nombre      = $("#nombre").val();
+            var apellido    = $("#apellido").val();
+            var telefono    = $("#telefono").val();
+            var mail        = $("#mail").val();
+            var quiero      = 0;
+            var entradas    = $("#entradas").val();
+            var comentario  = $("#comentario").val();
+            if ($("#quiero").attr('checked')) quiero = 1; 
+            if (nombre != "" && apellido != "" && telefono != "" && mail != ""){
+            var checkIn = '/landing/reservar?' + 
+                        '&nombre=' + nombre +
+                        '&apellido=' + apellido +
+                        '&mail=' + mail +
+                        '&entradas=' + entradas +
+                        '&comentario=' + comentario +
+                        '&telefono=' + telefono +
+                        '&quiero=' + quiero;
+            $.ajax({
+                        dataType: 'json',
+                        async:false,
+                        success: function ( data ) {
+                            if (data.Mensaje){
+                                alert (data.Mensaje);   
+                                document.location.href="/"; 
+                            }else{
+                                alert ('El servidor se encuentra fuera de servicio, por favor intente mas tarde');
+                            }
+                            
+                        },
+                        url: checkIn
+                    }); 
+            }else{
+                alert('Debe completar todos los campos con (*)');
+            }
+        });
+
+
+           
+    });
+    </script>

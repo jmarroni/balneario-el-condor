@@ -1,0 +1,80 @@
+<main id="main-container">
+                <!-- Page Header -->
+                <div class="content bg-gray-lighter">
+                    <div class="row items-push">
+                        <div class="col-sm-7">
+                            <h1 class="page-heading">
+                                Item del Programa <small>Listados de items dados de alta</small>
+                            </h1>
+                        </div>
+                        <div class="col-sm-5 text-right hidden-xs">
+                            <ol class="breadcrumb push-10-t">
+                                <li>Item del Programa</li>
+                                <li><a class="link-effect" href="">DataTables</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Header -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Dynamic Table Simple -->
+                    <div class="block">
+                        <div class="block-content">
+                            <!-- DataTables init on table by adding .js-dataTable-simple class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-bordered table-striped js-dataTable-simple">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 10%;">ID</th>
+                                        <th class="hidden-xs" style="width: 20%;">Web</th>
+                                        <th class="hidden-xs" style="width: 20%;">Fecha</th>
+                                        <th class="hidden-xs" style="width: 20%;">Hora</th>
+                                        <th class="hidden-xs" style="width: 10%;"><a href="/programa/accion">Nuevo</a></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<?php foreach ($this->arrPrograma as $value) { ?>
+                                    <tr>
+                                        <td class="text-center"><?php echo $value->getPr_id(); ?></td>
+                                        <td class="hidden-xs"><?php echo $value->web->getWe_titulo(); ?></td>
+                                        <td class="hidden-xs"><?php echo $value->getPr_fecha(); ?></td>
+                                        <td class="hidden-xs"><?php echo $value->getPr_hora(); ?></td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <a href="/programa/accion/id/<?php echo $value->getPr_id(); ?>"><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar Programa"><i class="fa fa-pencil"></i></button></a>
+                                                <a href="#"><button class="btn btn-xs btn-default" type="button" onclick="eliminarBanners(<?php echo $value->getPr_id(); ?>);" id="remover_banners" data-toggle="tooltip" title="Remover Programa"><i class="fa fa-times"></i></button></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END Dynamic Table Simple -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+            <script>
+            function eliminarBanners(id){
+            	if (confirm('Esta seguro?')){
+	            	var jqxhr = $.ajax( "/programa/eliminar/id/" + id );
+			       	 jqxhr.done(function(data) {
+			       		 var obj = jQuery.parseJSON(data);
+			       		 console.log(obj.proceso);
+			       		 if (obj.proceso != "error"){
+			       		 	document.location.reload();
+			       		 }else{
+			       			jQuery( "#mensajeERROR" ).show();
+			           		var new_position = jQuery('.page-heading').offset();
+			           		window.scrollTo(new_position.left,new_position.top);
+			           	 }
+			       	  })
+			       	  jqxhr.fail(function() {
+			       		  jQuery( "#mensajeERROR" ).show();
+			       	  });
+            	}
+            }
+            </script>

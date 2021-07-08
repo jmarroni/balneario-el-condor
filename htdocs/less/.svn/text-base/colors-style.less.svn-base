@@ -1,0 +1,62 @@
+.btn-medium, 
+.btn-medium span,
+.btn-large, 
+.btn-large>span, 
+.btn-large strong,
+.btn-large-1,
+.btn-large-1 span,
+figure.img-polaroid,
+figure.img-polaroid img,
+.block,
+.foto-carousel,
+.badge,
+.btn-small,
+.btn-small span,
+.block_banner,
+.box-tabs,
+.div_table_1,
+.selected_div,
+.block-info{.border-radius(5px);} 
+
+.btn{&:hover{background-position: 0 0;}}
+
+.btn-medium, 
+.btn-medium span,
+.btn-large, 
+.btn-large>span, 
+.btn-large strong,
+.btn-large-1,
+.btn-large-1 span,
+.nav-collapse_ .nav>li>a>span,
+.nav-collapse_ .nav>li>a,
+#head-form a,
+.block,
+.block-list span,
+.block-features span,
+.btn-small span,
+.block_banner i,
+.block_banner
+{.transition(0.3s);}
+
+.block-info,.foto-carousel,.box-tabs, .div_table_1, .selected_div{.box-shadow( 0 0 3px rgba( 0, 0, 0, 0.3));}
+
+.box-tabs{
+	&:after{
+		display: block;
+		position: absolute;
+		height: 3px;
+		background: #1d94ff;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		content: '';
+		}
+}
+
+.responsive-tabs__list{
+	.clearfix();
+}
+// Core variables and mixins
+/*Core variables and mixins*/
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less"; 

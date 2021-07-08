@@ -1,0 +1,25 @@
+<table  style="font-family: Arial">
+	<tr>
+		<td><img width="50px;" src="http://www.balneario-el-condor.com.ar/css/images/logo.png"></td>
+		<td>Recibiste un Mensaje desde la Web del Balneario El Condor<br>Por el Clasificado <?php echo $this->mailDest[0]["cla_titulo"] ?></td>
+	</tr>
+	<tr style="font-size: 12px;">
+		<td>&nbsp;</td>
+		<td><strong>Mensaje: </strong><?php echo $this->param["comentarioForm"]; ?></td>
+	</tr>
+	<tr style="font-size: 12px;">
+		<td>&nbsp;</td>
+		<td><strong>Contacto: </strong><?php echo $this->nomApe; ?></td>
+	</tr>
+	<tr style="font-size: 12px;">
+		<td>&nbsp;</td>
+		<td><strong>Telefono de Contacto: </strong><?php echo $this->param["telefonoForm"]; ?></td>
+	</tr>
+	<tr style="font-size: 12px;">
+		<td>&nbsp;</td>
+		<td><strong>Mail de Contacto: </strong><?php echo $this->param["correoForm"]; ?></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align: right;">Saludos, el equipo del Balneario El Condor.</td>
+	</tr>
+</table>
