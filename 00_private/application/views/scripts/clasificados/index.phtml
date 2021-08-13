@@ -93,15 +93,15 @@
               <input type="hidden" value="" name="uploadLogo4" id="uploadLogo4"/>
             </div>
 
-       </div>
-     </div>
-     </form>
-   </div>
-   <div class="modal-footer">
-    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-    <button type="button" id="subir" class="btn btn-primary">Agregar Clasificado</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+      <button type="button" id="subir" class="btn btn-primary">Agregar Clasificado</button>
+    </div>
   </div>
-</div>
 </div>
 </div>
 
@@ -170,46 +170,46 @@
 
   $( document ).ready(function() {
 
- var contador= '';
+   var contador= '';
 
-              $("#fileuploader").uploadFile({
-                url:"/clasificados/upload",
-                fileName:"myfile",
-                maxFileCount:5,
-                multiple: true,
-                showDownload:false,
-                onSuccess:function(files,data,xhr,pd)
-                {   
-                  if(data!=''){
-                    $("#uploadLogo"+contador).val(data); 
-                    contador++;   
-                  }
-
-
-                  /*$("#upload-1").css("display", "inline");*/
-                }
-              });
+   $("#fileuploader").uploadFile({
+    url:"/clasificados/upload",
+    fileName:"myfile",
+    maxFileCount:5,
+    multiple: true,
+    showDownload:false,
+    onSuccess:function(files,data,xhr,pd)
+    {   
+      if(data!=''){
+        $("#uploadLogo"+contador).val(data); 
+        contador++;   
+      }
 
 
-              /*###################### FIN UPLOAD #############################*/
+      /*$("#upload-1").css("display", "inline");*/
+    }
+  });
 
-              $("#subir").click(function(){
-                event.preventDefault();
-                if( $('#tituloForm').val()!='' && $('#dirForm').val()!='' && $('#correoForm').val()!='' && $('#comboForm').val()!=''){
-                  var dataString = 'titulo='+ $('#tituloForm').val() + 
-                  '&descripcion=' + $('#descripcionForm').val() + 
-                  '&categoria=' + $('#comboForm').val() + 
-                  '&direccion=' + $('#dirForm').val() + 
-                  '&nombre=' + $('#nomForm').val() + 
-                  '&correo=' + $('#correoForm').val() + 
-                  '&video=' + $('#videoForm').val() + 
-                  "&archivo=" + $('#uploadLogo').val() + 
-                  "&archivo1=" + $('#uploadLogo1').val() + 
-                  "&archivo2=" + $('#uploadLogo2').val() + 
-                  "&archivo3=" + $('#uploadLogo3').val() + 
-                  "&archivo4=" + $('#uploadLogo4').val();
 
-                  $.ajax({
+   /*###################### FIN UPLOAD #############################*/
+
+   $("#subir").click(function(){
+    event.preventDefault();
+    if( $('#tituloForm').val()!='' && $('#dirForm').val()!='' && $('#correoForm').val()!='' && $('#comboForm').val()!=''){
+      var dataString = 'titulo='+ $('#tituloForm').val() + 
+      '&descripcion=' + $('#descripcionForm').val() + 
+      '&categoria=' + $('#comboForm').val() + 
+      '&direccion=' + $('#dirForm').val() + 
+      '&nombre=' + $('#nomForm').val() + 
+      '&correo=' + $('#correoForm').val() + 
+      '&video=' + $('#videoForm').val() + 
+      "&archivo=" + $('#uploadLogo').val() + 
+      "&archivo1=" + $('#uploadLogo1').val() + 
+      "&archivo2=" + $('#uploadLogo2').val() + 
+      "&archivo3=" + $('#uploadLogo3').val() + 
+      "&archivo4=" + $('#uploadLogo4').val();
+
+      $.ajax({
               url: "/clasificados/cargarclasificado", // Url to which the request is send
               type: "POST",             // Type of request to be send, called as method
               data:  dataString,// Data sent to server, a set of key/value pairs (i.e. form fields and values)
@@ -220,18 +220,18 @@
                 document.location.href = "/clasificados/detalle/"+data;
               }
             });
-                } else {
-                  alert ('Verifique que todos los datos estan completos');
-                }
-              });
+    } else {
+      alert ('Verifique que todos los datos estan completos');
+    }
+  });
 
 
-             
+   
 
-            });
-          </script>
+ });
+</script>
 <style type="text/css">
-  .ajax-file-upload-statusbar {
+.ajax-file-upload-statusbar {
   width: 75% !important;
 
 }
@@ -239,3 +239,10 @@
   width: 75% !important;
 }
 </style>
+<script>
+  $( document ).ready(function() {
+    $('.dropdown-item').removeClass("active");
+    $('#hospedaje').addClass("active");
+  });
+
+</script>

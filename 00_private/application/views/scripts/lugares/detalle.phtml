@@ -30,9 +30,9 @@
   <div class="row pt-2">
     <div class="col">
       <?php if ($this->cercanos[0]["ce_descripcion"]!="") {  ?>
-      <h2 class="font-weight-normal text-7 mb-2"><strong class="font-weight-extra-bold">Descripción</strong></h2>
-     <?php  }  ?>
-     <br>
+        <h2 class="font-weight-normal text-7 mb-2"><strong class="font-weight-extra-bold">Descripción</strong></h2>
+      <?php  }  ?>
+      <br>
       <p class="lead" style="text-align: justify"><?php echo utf8_encode($this->cercanos[0]["ce_descripcion"]); ?></p>
     </div>
   </div>
@@ -149,4 +149,12 @@
       infowindow.setContent(contentString);
       infowindow.setPosition(initialLocation);
       infowindow.open(map);
+    </script>
+
+    <script>
+      $( document ).ready(function() {
+        $('.dropdown-item').removeClass("active");
+        $('#playa').addClass("active");
+      });
+
     </script>

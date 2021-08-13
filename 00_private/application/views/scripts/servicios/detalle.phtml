@@ -27,76 +27,76 @@
 
 <div class="container pt-3 pb-2">
 
-<div class="row">
-            <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" style="animation-delay: 100ms;">
-              <img src="/imagenes/servicios/<?php echo  ($this->arrServicios[0]["ser_imagenes"] != "")?$this->arrServicios[0]["ser_imagenes"]:"no_image.jpg";?>" class="img-fluid" alt="">
-            </div>
-            <div class="col-md-7 order-2">
-                <article class="post post-large">
-                    <div class="post-image">
-                      <a href="#" class="d-block btn  btn-outline border-0 rounded-0 font-weight-bold text-center text-6 py-5"><?php echo $this->arrServicios[0]["ser_titulo"]; ?></a>
-                    </div>
+  <div class="row">
+    <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" style="animation-delay: 100ms;">
+      <img src="/imagenes/servicios/<?php echo  ($this->arrServicios[0]["ser_imagenes"] != "")?$this->arrServicios[0]["ser_imagenes"]:"no_image.jpg";?>" class="img-fluid" alt="">
+    </div>
+    <div class="col-md-7 order-2">
+      <article class="post post-large">
+        <div class="post-image">
+          <a href="#" class="d-block btn  btn-outline border-0 rounded-0 font-weight-bold text-center text-6 py-5"><?php echo $this->arrServicios[0]["ser_titulo"]; ?></a>
+        </div>
 
-                    <div class="post-content">
-                      <h4><a href="" class="text-decoration-none" style="color:black">Titular:  <span style="font-size:14px ;"><i style="color:#0088CC" class="far fa-user"></i><a style="font-size:14px ;" href="#"><?php echo ($this->arrServicios[0]["ser_nombre_contacto"] != "")?$this->arrServicios[0]["ser_nombre_contacto"]:"<b>No informa</b>"; ?></a> </span></a></h4>
+        <div class="post-content">
+          <h4><a href="" class="text-decoration-none" style="color:black">Titular:  <span style="font-size:14px ;"><i style="color:#0088CC" class="far fa-user"></i><a style="font-size:14px ;" href="#"><?php echo ($this->arrServicios[0]["ser_nombre_contacto"] != "")?$this->arrServicios[0]["ser_nombre_contacto"]:"<b>No informa</b>"; ?></a> </span></a></h4>
 
-                      <h4><a href="" class="text-decoration-none" style="color:black">Mail:  <span style="font-size:14px ;"><i style="color:#0088CC" class="far fa-envelope"></i><a style="font-size:14px ;" href="#"> <?php echo ($this->arrServicios[0]["ser_mail_contacto"] != "")?$this->arrServicios[0]["ser_mail_contacto"]:"<b>No informa</b>"; ?></a> </span></a></h4>
+          <h4><a href="" class="text-decoration-none" style="color:black">Mail:  <span style="font-size:14px ;"><i style="color:#0088CC" class="far fa-envelope"></i><a style="font-size:14px ;" href="#"> <?php echo ($this->arrServicios[0]["ser_mail_contacto"] != "")?$this->arrServicios[0]["ser_mail_contacto"]:"<b>No informa</b>"; ?></a> </span></a></h4>
 
-                      <h4><a href="" class="text-decoration-none" style="color:black">Compartir en:</a>
-                       <div >
+          <h4><a href="" class="text-decoration-none" style="color:black">Compartir en:</a>
+           <div >
 
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="es" data-text="<?php echo $this->arrServicios[0]["ser_titulo"]; ?>: <?php echo $this->arrServicios[0]["ser_titulo"]; ?>"><img src="/imagenes/tweet-button-300x242.jpg" style="height: 18px;" /></a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="es" data-text="<?php echo $this->arrServicios[0]["ser_titulo"]; ?>: <?php echo $this->arrServicios[0]["ser_titulo"]; ?>"><img src="/imagenes/tweet-button-300x242.jpg" style="height: 18px;" /></a>
 
-                         <a href="#" onclick="javascript:postToFeed('http://www.balneario-el-condor.com.ar/servicios/detalle/id/<?php echo $this->arrServicios[0]["ser_keyword"]; ?>','http://www.balneario-el-condor.com.ar/imagenes/servicios/<?php echo  ($this->arrServicios[0]["ser_imagenes"] != "")?$this->arrServicios[0]["ser_imagenes"]:"no_image.jpg";?>','Servicios Balneario El Condor','<?php echo $this->arrServicios[0]["ser_titulo"]; ?>');"><img src="/imagenes/fbcCompartir.jpg" style="margin-top: -9px;" /></a><br><br> 
+            <a href="#" onclick="javascript:postToFeed('http://www.balneario-el-condor.com.ar/servicios/detalle/id/<?php echo $this->arrServicios[0]["ser_keyword"]; ?>','http://www.balneario-el-condor.com.ar/imagenes/servicios/<?php echo  ($this->arrServicios[0]["ser_imagenes"] != "")?$this->arrServicios[0]["ser_imagenes"]:"no_image.jpg";?>','Servicios Balneario El Condor','<?php echo $this->arrServicios[0]["ser_titulo"]; ?>');"><img src="/imagenes/fbcCompartir.jpg" style="margin-top: -9px;" /></a><br><br> 
 
-                      </div>
-                    </h4>
-
-                    <p class="mb-1"></p>
-
-
-
-                    <div class="post-meta">
-
-                    </div>
-
-                  </div>
-                </article>
-            </div>
           </div>
-<div id="examples" class="container py-2">
-    <div class="row">
-      <div class="col-lg-12">
-       <div class="divider divider-primary">
-        <i class="fas fa-chevron-down"></i>
+        </h4>
+
+        <p class="mb-1"></p>
+
+
+
+        <div class="post-meta">
+
+        </div>
+
       </div>
+    </article>
+  </div>
+</div>
+<div id="examples" class="container py-2">
+  <div class="row">
+    <div class="col-lg-12">
+     <div class="divider divider-primary">
+      <i class="fas fa-chevron-down"></i>
     </div>
   </div>
 </div>
+</div>
 <div class="row">
   <div class="tabs tabs-primary">
-                <ul class="nav nav-tabs">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#popularColors1" data-bs-toggle="tab">Descripción</a>
-                  </li>
-                </ul>
-                <div class="tab-content">
-                  <div id="popularColors1" class="tab-pane active">
-                    <p><?php echo utf8_encode($this->arrServicios[0]["ser_descripcion"]); ?></p>
-                  </div>
-                 
-                </div>
-              </div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#popularColors1" data-bs-toggle="tab">Descripción</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="popularColors1" class="tab-pane active">
+        <p><?php echo utf8_encode($this->arrServicios[0]["ser_descripcion"]); ?></p>
+      </div>
+      
+    </div>
+  </div>
 </div>
 </div>
-      <script>
-        FB.init({
-          appId  : "341020419335849",
-          status : true,
-          cookie : true,
-          xfbml  : true
-        });
-        function postToFeed(linkEnviado,pictureEnviada,tituloEnviado,descripcionEnviado) {
+<script>
+  FB.init({
+    appId  : "341020419335849",
+    status : true,
+    cookie : true,
+    xfbml  : true
+  });
+  function postToFeed(linkEnviado,pictureEnviada,tituloEnviado,descripcionEnviado) {
 
         // calling the API ...
         var obj = {
@@ -126,4 +126,11 @@
         }
       }
       (document,"script","twitter-wjs");
+    </script>
+    <script>
+      $( document ).ready(function() {
+        $('.dropdown-item').removeClass("active");
+        $('#interes').addClass("active");
+      });
+
     </script>
