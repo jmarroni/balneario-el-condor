@@ -1,0 +1,52 @@
+version: '3'
+services:
+  php:
+    image: php:fpm-alpine
+    networks:
+          - marvel
+    volumes:
+        # Volúmenes backend
+        - ./htdocs:/sites/balneario-el-condor/htdocs/
+        
+  nginx:
+    build:
+        context: .
+        dockerfile: ${DOCKERFILE_CUSTOM}
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    working_dir: /sites/
+    ports:
+      - "${BALNEARIO_PORT}:8000"
+    volumes:
+      # errors
+      - ./nginx/errors/:/nginx/errors/
+      # Volúmenes backend
+      - ./htdocs:/sites/balneario-el-condor/htdocs/
+      # Volúmenes nginx
+      - ${NGINX_PATH_CONFIG}:/etc/nginx/conf.d/
+      - ./nginx/ssl/:/etc/nginx/ssl/
+    networks:
+      - marvel
+  #Database
+  db:
+    image: mariadb
+    container_name: thor
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "${DB_PORT}:3306"
+    env_file:
+      - .env
+    volumes:
+      - ./docker/db/init:/docker-entrypoint-initdb.d
+      - ./mariadb_data:/var/lib/mysql/
+      - ./db_conf/my.cnf:/etc/mysql/my.cnf
+      - ./db_conf/mariadb.cnf:/etc/mysql/mariadb.cnf
+    networks:
+      - marvel
+
+#Networks
+networks:
+  marvel:
+    driver: bridge

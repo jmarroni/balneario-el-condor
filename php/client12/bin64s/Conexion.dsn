@@ -1,0 +1,13 @@
+[ODBC]
+;Driver=C:\\Program Files\\SQL Anywhere 10\\win32\\dbodbc10.dll
+; este driver estaba en el registry de la PC de Desarrollo si no funciona quitar el de abajo que fue tomado como ejemplo de los DSN que estan en PrTe 
+DRIVER=SQL Anywhere 10
+UID=dba
+DatabaseName=Tribunal
+EngineName=Servidor
+AutoStop=YES
+Integrated=NO
+CommLinks=SharedMemory,TCPIP{HOST=10.114.75.1}
+Compress=NO
+
+; Ver ejemplos de Conexiones dinamicas en PrTe
