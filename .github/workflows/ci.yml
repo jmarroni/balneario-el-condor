@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main, feature/**]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  test:
+    name: PHP Tests
+    runs-on: ubuntu-latest
+
+    services:
+      mariadb:
+        image: mariadb:11
+        env:
+          MARIADB_ROOT_PASSWORD: root
+          MARIADB_DATABASE: balneario_test
+          MARIADB_USER: balneario
+          MARIADB_PASSWORD: balneario
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    defaults:
+      run:
+        working-directory: app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: pdo_mysql, mbstring, zip, intl, bcmath, gd, redis
+          coverage: none
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: app/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('app/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install composer dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Prepare .env for testing
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+        env:
+          DB_HOST: 127.0.0.1
+          DB_DATABASE: balneario_test
+          REDIS_HOST: 127.0.0.1
+
+      - name: Run migrations
+        run: php artisan migrate --no-interaction
+        env:
+          DB_HOST: 127.0.0.1
+          DB_DATABASE: balneario_test
+          DB_USERNAME: balneario
+          DB_PASSWORD: balneario
+          REDIS_HOST: 127.0.0.1
+
+      - name: Run PHPUnit tests
+        run: php artisan test
+        env:
+          DB_HOST: 127.0.0.1
+          DB_DATABASE: balneario_test
+          DB_USERNAME: balneario
+          DB_PASSWORD: balneario
+          REDIS_HOST: 127.0.0.1
+
+  lint:
+    name: PHP Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+
+      - name: Check syntax errors in app/
+        run: find app -type f -name "*.php" ! -path "*/vendor/*" -exec php -l {} \;
