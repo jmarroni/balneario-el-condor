@@ -6,7 +6,7 @@
 
 **Architecture:** Laravel 11 monolítico (Blade + Alpine + Tailwind + Vite) corriendo sobre PHP 8.3 FPM Alpine, con nginx como reverse proxy, MariaDB 11, Redis 7, worker y scheduler como contenedores separados que comparten imagen. Auth vía Laravel Breeze sin registro público, roles con `spatie/laravel-permission`.
 
-**Tech Stack:** Laravel 11, PHP 8.3, MariaDB 11, Redis 7, Laravel Breeze (Blade), spatie/laravel-permission 6.x, Tailwind CSS 3, Alpine.js 3, Vite 5, PHPUnit, GitHub Actions.
+**Tech Stack:** Laravel 11, PHP 8.4 (las deps actuales de Laravel 11.31 requieren 8.4+), MariaDB 11, Redis 7, Laravel Breeze (Blade), spatie/laravel-permission 6.x, Tailwind CSS 3, Alpine.js 3, Vite 5, PHPUnit, GitHub Actions.
 
 ---
 
@@ -156,7 +156,7 @@ Create `app/docker/php/Dockerfile`:
 # syntax=docker/dockerfile:1.7
 
 # ============== BASE ==============
-FROM php:8.3-fpm-alpine AS base
+FROM php:8.4-fpm-alpine AS base
 
 RUN apk add --no-cache \
       git curl bash \
@@ -1491,7 +1491,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.4'
           extensions: pdo_mysql, mbstring, zip, intl, bcmath, gd, redis
           coverage: none
 
@@ -1546,7 +1546,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.4'
           tools: cs2pr
 
       - name: Install composer dependencies
