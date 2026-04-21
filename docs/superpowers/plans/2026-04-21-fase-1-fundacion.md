@@ -184,7 +184,7 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 # ============== DEV ==============
 FROM base AS dev
 
-RUN apk add --no-cache nodejs npm
+RUN apk add --no-cache nodejs npm linux-headers
 
 RUN pecl install xdebug \
  && docker-php-ext-enable xdebug
