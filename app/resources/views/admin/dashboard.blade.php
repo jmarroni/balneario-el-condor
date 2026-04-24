@@ -1,14 +1,10 @@
-@extends('admin.layouts.admin')
-
-@section('content')
-    <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
-
-    <div class="bg-white rounded-lg shadow p-6">
-        <p class="text-gray-600">
-            Panel administrativo de Balneario El Cóndor.
-        </p>
-        <p class="text-sm text-gray-500 mt-4">
-            Placeholder — los CRUDs de cada módulo llegan en Fase 4.
-        </p>
+<x-admin.layouts.admin title="Dashboard">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        @foreach($stats as $label => $count)
+            <div class="bg-white rounded shadow p-4">
+                <p class="text-xs uppercase text-slate-500">{{ $label }}</p>
+                <p class="text-2xl font-bold mt-1">{{ $count }}</p>
+            </div>
+        @endforeach
     </div>
-@endsection
+</x-admin.layouts.admin>
