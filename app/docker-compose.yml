@@ -85,7 +85,7 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     ports:
-      - "${DB_PORT:-3306}:3306"
+      - "${DB_HOST_PORT:-3306}:3306"
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 10s
@@ -99,7 +99,7 @@ services:
     volumes:
       - redis_data:/data
     ports:
-      - "${REDIS_PORT:-6379}:6379"
+      - "${REDIS_HOST_PORT:-6379}:6379"
     restart: unless-stopped
 
 volumes:
