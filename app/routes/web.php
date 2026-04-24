@@ -1,13 +1,17 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Public\AdvertisingController;
 use App\Http\Controllers\Public\ClassifiedController;
+use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\EventController;
 use App\Http\Controllers\Public\GalleryController;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\LodgingController;
 use App\Http\Controllers\Public\NearbyPlaceController;
 use App\Http\Controllers\Public\NewsController;
+use App\Http\Controllers\Public\NewsletterController;
+use App\Http\Controllers\Public\PageController;
 use App\Http\Controllers\Public\RecipeController;
 use App\Http\Controllers\Public\RentalController;
 use App\Http\Controllers\Public\ServiceProviderController;
@@ -58,8 +62,19 @@ Route::get('/recetas/{recipe:slug}', [RecipeController::class, 'show'])->name('r
 Route::get('/mareas', [TideController::class, 'index'])->name('mareas.index');
 Route::get('/clima', [WeatherController::class, 'index'])->name('clima.index');
 
-// Stubs pendientes (a implementarse en tasks futuras).
-Route::get('/newsletter', fn () => 'pending')->name('newsletter.form');
+// Forms públicos + páginas estáticas (Fase 5 / Task 8).
+Route::get('/contacto', [ContactController::class, 'show'])->name('contacto.show');
+Route::post('/contacto', [ContactController::class, 'store'])->name('contacto.store');
+
+Route::get('/newsletter', [NewsletterController::class, 'show'])->name('newsletter.form');
+Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::get('/newsletter/confirmar/{token}', [NewsletterController::class, 'confirm'])->name('newsletter.confirm');
+Route::get('/newsletter/baja/{token}', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
+
+Route::get('/publicite', [AdvertisingController::class, 'show'])->name('publicite.show');
+Route::post('/publicite', [AdvertisingController::class, 'store'])->name('publicite.store');
+
+Route::get('/pagina/{page:slug}', [PageController::class, 'show'])->name('pages.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
