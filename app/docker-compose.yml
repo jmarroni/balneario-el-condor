@@ -20,6 +20,7 @@ services:
         HOST_GID: ${HOST_GID:-1000}
     volumes:
       - ./:/var/www/html
+      - ./../htdocs:/legacy_htdocs:ro
     environment:
       - APP_ENV=${APP_ENV:-local}
       - DB_HOST=db
