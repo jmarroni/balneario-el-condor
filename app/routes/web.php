@@ -1,11 +1,24 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Public\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class)->name('home');
+
+// Stubs para que Route::has() del nav resuelva (se implementan en tasks 2-6)
+Route::get('/novedades', fn () => 'pending')->name('novedades.index');
+Route::get('/eventos', fn () => 'pending')->name('eventos.index');
+Route::get('/hospedajes', fn () => 'pending')->name('hospedajes.index');
+Route::get('/gastronomia', fn () => 'pending')->name('gastronomia.index');
+Route::get('/alquileres', fn () => 'pending')->name('alquileres.index');
+Route::get('/recetas', fn () => 'pending')->name('recetas.index');
+Route::get('/clasificados', fn () => 'pending')->name('clasificados.index');
+Route::get('/galeria', fn () => 'pending')->name('galeria.index');
+Route::get('/mareas', fn () => 'pending')->name('mareas.index');
+Route::get('/servicios', fn () => 'pending')->name('servicios.index');
+Route::get('/cercanos', fn () => 'pending')->name('cercanos.index');
+Route::get('/newsletter', fn () => 'pending')->name('newsletter.form');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
