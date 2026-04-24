@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up(): void
+    {
+        Schema::create('advertising_contacts', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 200);
+            $table->string('last_name', 200)->nullable();
+            $table->string('email', 200);
+            $table->text('message');
+            $table->string('zone', 200)->nullable();
+            $table->boolean('read')->default(false)->index();
+            $table->unsignedBigInteger('legacy_id')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('advertising_contacts');
+    }
+};
