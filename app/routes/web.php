@@ -11,8 +11,10 @@ use App\Http\Controllers\Public\NewsController;
 use App\Http\Controllers\Public\RecipeController;
 use App\Http\Controllers\Public\RentalController;
 use App\Http\Controllers\Public\ServiceProviderController;
+use App\Http\Controllers\Public\TideController;
 use App\Http\Controllers\Public\UsefulInfoController;
 use App\Http\Controllers\Public\VenueController;
+use App\Http\Controllers\Public\WeatherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -52,8 +54,11 @@ Route::get('/galeria', [GalleryController::class, 'index'])->name('galeria.index
 Route::get('/recetas', [RecipeController::class, 'index'])->name('recetas.index');
 Route::get('/recetas/{recipe:slug}', [RecipeController::class, 'show'])->name('recetas.show');
 
+// Mareas + Clima (Fase 5 / Task 7).
+Route::get('/mareas', [TideController::class, 'index'])->name('mareas.index');
+Route::get('/clima', [WeatherController::class, 'index'])->name('clima.index');
+
 // Stubs pendientes (a implementarse en tasks futuras).
-Route::get('/mareas', fn () => 'pending')->name('mareas.index');
 Route::get('/newsletter', fn () => 'pending')->name('newsletter.form');
 
 Route::get('/dashboard', function () {
