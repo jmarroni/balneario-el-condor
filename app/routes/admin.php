@@ -3,9 +3,17 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventRegistrationController;
+use App\Http\Controllers\Admin\LodgingController;
+use App\Http\Controllers\Admin\NearbyPlaceController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\RecipeController;
+use App\Http\Controllers\Admin\RentalController;
+use App\Http\Controllers\Admin\ServiceProviderController;
+use App\Http\Controllers\Admin\TideController;
+use App\Http\Controllers\Admin\TideImportController;
+use App\Http\Controllers\Admin\UsefulInfoController;
+use App\Http\Controllers\Admin\VenueController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'])
@@ -25,17 +33,20 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
         Route::resource('recipes', RecipeController::class);
 
         // Directorio
-        // TODO: descomentar cuando se cree el controller correspondiente en Task 5
-        // Route::resource('lodgings', LodgingController::class);
-        // Route::resource('venues', VenueController::class);
-        // Route::resource('rentals', RentalController::class);
-        // Route::resource('service-providers', ServiceProviderController::class)
-        //     ->parameters(['service-providers' => 'serviceProvider']);
-        // Route::resource('nearby-places', NearbyPlaceController::class)
-        //     ->parameters(['nearby-places' => 'nearbyPlace']);
-        // Route::resource('useful-info', UsefulInfoController::class)
-        //     ->parameters(['useful-info' => 'usefulInfo']);
-        // Route::resource('tides', TideController::class);
+        Route::resource('lodgings', LodgingController::class);
+        Route::resource('venues', VenueController::class);
+        Route::resource('rentals', RentalController::class);
+        Route::resource('service-providers', ServiceProviderController::class)
+            ->parameters(['service-providers' => 'serviceProvider']);
+        Route::resource('nearby-places', NearbyPlaceController::class)
+            ->parameters(['nearby-places' => 'nearbyPlace']);
+        Route::resource('useful-info', UsefulInfoController::class)
+            ->parameters(['useful-info' => 'usefulInfo']);
+
+        // Tides: rutas de import antes del resource para que no choquen con {tide}
+        Route::get('tides/import', [TideImportController::class, 'form'])->name('tides.import.form');
+        Route::post('tides/import', [TideImportController::class, 'import'])->name('tides.import');
+        Route::resource('tides', TideController::class);
 
         // Comunidad
         // TODO: descomentar cuando se cree el controller correspondiente en Task 6
