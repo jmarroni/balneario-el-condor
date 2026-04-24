@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdvertisingContactController;
 use App\Http\Controllers\Admin\ClassifiedContactController;
 use App\Http\Controllers\Admin\ClassifiedController;
+use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventRegistrationController;
@@ -9,10 +11,14 @@ use App\Http\Controllers\Admin\GalleryImageController;
 use App\Http\Controllers\Admin\LodgingController;
 use App\Http\Controllers\Admin\NearbyPlaceController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\NewsletterCampaignController;
+use App\Http\Controllers\Admin\NewsletterSubscriberController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\Admin\RentalController;
 use App\Http\Controllers\Admin\ServiceProviderController;
+use App\Http\Controllers\Admin\SurveyController;
+use App\Http\Controllers\Admin\SurveyResponseController;
 use App\Http\Controllers\Admin\TideController;
 use App\Http\Controllers\Admin\TideImportController;
 use App\Http\Controllers\Admin\UsefulInfoController;
@@ -59,21 +65,31 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
             ->parameters(['gallery' => 'galleryImage']);
 
         // Engagement
-        // TODO: descomentar cuando se cree el controller correspondiente en Task 7
-        // Route::resource('surveys', SurveyController::class);
-        // Route::resource('surveys.responses', SurveyResponseController::class)
-        //     ->shallow()->only(['index', 'show', 'destroy']);
-        // Route::resource('newsletter-subscribers', NewsletterSubscriberController::class)
-        //     ->parameters(['newsletter-subscribers' => 'subscriber'])
-        //     ->except(['show']);
-        // Route::resource('newsletter-campaigns', NewsletterCampaignController::class)
-        //     ->parameters(['newsletter-campaigns' => 'campaign']);
-        // Route::resource('contact-messages', ContactMessageController::class)
-        //     ->parameters(['contact-messages' => 'message'])
-        //     ->only(['index', 'show', 'destroy']);
-        // Route::resource('advertising-contacts', AdvertisingContactController::class)
-        //     ->parameters(['advertising-contacts' => 'adContact'])
-        //     ->only(['index', 'show', 'destroy']);
+        Route::resource('surveys', SurveyController::class);
+        Route::resource('surveys.responses', SurveyResponseController::class)
+            ->shallow()->only(['index', 'show', 'destroy']);
+
+        // Export debe ir antes del resource para no chocar con {subscriber}
+        Route::get('newsletter-subscribers/export', [NewsletterSubscriberController::class, 'export'])
+            ->name('newsletter-subscribers.export');
+        Route::resource('newsletter-subscribers', NewsletterSubscriberController::class)
+            ->parameters(['newsletter-subscribers' => 'subscriber'])
+            ->only(['index', 'destroy']);
+
+        Route::resource('newsletter-campaigns', NewsletterCampaignController::class)
+            ->parameters(['newsletter-campaigns' => 'campaign']);
+        Route::post('newsletter-campaigns/{campaign}/send', [NewsletterCampaignController::class, 'send'])
+            ->name('newsletter-campaigns.send');
+
+        Route::resource('contact-messages', ContactMessageController::class)
+            ->parameters(['contact-messages' => 'message'])
+            ->only(['index', 'show', 'destroy']);
+        Route::patch('contact-messages/{message}/mark-read', [ContactMessageController::class, 'markRead'])
+            ->name('contact-messages.mark-read');
+
+        Route::resource('advertising-contacts', AdvertisingContactController::class)
+            ->parameters(['advertising-contacts' => 'adContact'])
+            ->only(['index', 'show', 'destroy']);
 
         // Sistema
         // TODO: descomentar cuando se cree el controller correspondiente en Task 8
