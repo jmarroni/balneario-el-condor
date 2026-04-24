@@ -4,7 +4,10 @@
         'Suscriptores' => null,
     ]">
     <div class="flex flex-wrap gap-2 items-center justify-between mb-4">
-        <form method="GET" action="{{ route('admin.newsletter-subscribers.index') }}" class="flex gap-2 items-center">
+        <form method="GET" action="{{ route('admin.newsletter-subscribers.index') }}" class="flex gap-2 items-center flex-wrap">
+            <input type="search" name="q" value="{{ request('q') }}"
+                   placeholder="Buscar por email…"
+                   class="border-slate-300 rounded text-sm px-3 py-2 w-64">
             <label class="text-sm text-slate-600">Estado:</label>
             <select name="status" onchange="this.form.submit()"
                     class="border-slate-300 rounded text-sm">
@@ -13,6 +16,10 @@
                     <option value="{{ $k }}" @selected($status === $k)>{{ $label }}</option>
                 @endforeach
             </select>
+            <button type="submit"
+                    class="bg-slate-200 text-slate-700 rounded px-3 py-2 text-sm hover:bg-slate-300">
+                Buscar
+            </button>
         </form>
         <a href="{{ route('admin.newsletter-subscribers.export') }}"
            class="bg-slate-800 text-white rounded px-4 py-2 text-sm hover:bg-slate-700">

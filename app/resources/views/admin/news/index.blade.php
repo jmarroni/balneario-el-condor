@@ -3,7 +3,16 @@
         'Admin' => route('admin.dashboard'),
         'Noticias' => null,
     ]">
-    <div class="flex justify-end mb-4">
+    <div class="flex flex-wrap gap-2 items-center justify-between mb-4">
+        <form method="GET" action="{{ route('admin.news.index') }}" class="flex gap-2 items-center">
+            <input type="search" name="q" value="{{ request('q') }}"
+                   placeholder="Buscar por título…"
+                   class="border-slate-300 rounded text-sm px-3 py-2 w-64">
+            <button type="submit"
+                    class="bg-slate-200 text-slate-700 rounded px-3 py-2 text-sm hover:bg-slate-300">
+                Buscar
+            </button>
+        </form>
         @can('create', App\Models\News::class)
             <a href="{{ route('admin.news.create') }}"
                class="bg-slate-800 text-white rounded px-4 py-2 hover:bg-slate-700">

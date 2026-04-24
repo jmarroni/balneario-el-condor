@@ -11,6 +11,7 @@ use App\Models\Classified;
 use App\Models\ClassifiedCategory;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -18,16 +19,20 @@ class ClassifiedController extends Controller
 {
     use AuthorizesRequests;
 
-    public function index(): View
+    public function index(Request $request): View
     {
         $this->authorize('viewAny', Classified::class);
 
+        $q = trim((string) $request->query('q', ''));
+
         $classifieds = Classified::query()
             ->with('category')
+            ->when($q !== '', fn ($query) => $query->where('title', 'like', '%'.$q.'%'))
             ->latest('published_at')
-            ->paginate(20);
+            ->paginate(20)
+            ->withQueryString();
 
-        return view('admin.classifieds.index', compact('classifieds'));
+        return view('admin.classifieds.index', compact('classifieds', 'q'));
     }
 
     public function create(): View

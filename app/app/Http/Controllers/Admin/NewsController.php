@@ -11,6 +11,7 @@ use App\Models\News;
 use App\Models\NewsCategory;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -18,16 +19,20 @@ class NewsController extends Controller
 {
     use AuthorizesRequests;
 
-    public function index(): View
+    public function index(Request $request): View
     {
         $this->authorize('viewAny', News::class);
 
+        $q = trim((string) $request->query('q', ''));
+
         $news = News::query()
             ->with('category')
+            ->when($q !== '', fn ($query) => $query->where('title', 'like', '%'.$q.'%'))
             ->latest('published_at')
-            ->paginate(20);
+            ->paginate(20)
+            ->withQueryString();
 
-        return view('admin.news.index', compact('news'));
+        return view('admin.news.index', compact('news', 'q'));
     }
 
     public function create(): View

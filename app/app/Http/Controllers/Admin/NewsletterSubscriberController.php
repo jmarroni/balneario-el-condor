@@ -23,15 +23,21 @@ class NewsletterSubscriberController extends Controller
         $this->authorize('viewAny', NewsletterSubscriber::class);
 
         $status = $request->query('status');
+        $q      = trim((string) $request->query('q', ''));
         $query  = NewsletterSubscriber::query()->latest();
 
         if (is_string($status) && in_array($status, self::ALLOWED_STATUSES, true)) {
             $query->where('status', $status);
         }
 
+        if ($q !== '') {
+            $query->where('email', 'like', '%'.$q.'%');
+        }
+
         return view('admin.newsletter-subscribers.index', [
             'subscribers' => $query->paginate(25)->withQueryString(),
             'status'      => $status,
+            'q'           => $q,
         ]);
     }
 
