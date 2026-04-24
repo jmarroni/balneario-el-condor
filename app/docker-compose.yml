@@ -20,6 +20,7 @@ services:
         HOST_GID: ${HOST_GID:-1000}
     volumes:
       - ./:/var/www/html
+      - ./../htdocs:/legacy_htdocs:ro
     environment:
       - APP_ENV=${APP_ENV:-local}
       - DB_HOST=db
@@ -102,6 +103,27 @@ services:
       - "${REDIS_HOST_PORT:-6379}:6379"
     restart: unless-stopped
 
+  legacy_db:
+    image: mariadb:11
+    container_name: balneario_legacy_db
+    profiles: ["etl"]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${LEGACY_DB_ROOT_PASSWORD:-rootsecret}
+      MYSQL_DATABASE: balneario_legacy
+      MYSQL_USER: ${LEGACY_DB_USER:-legacy}
+      MYSQL_PASSWORD: ${LEGACY_DB_PASSWORD:-legacysecret}
+    volumes:
+      - ./../balneario-el-condor.sql:/docker-entrypoint-initdb.d/01-legacy.sql:ro
+      - legacy_db_data:/var/lib/mysql
+    ports:
+      - "${LEGACY_DB_HOST_PORT:-33062}:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      retries: 20
+      start_period: 60s
+
 volumes:
   mariadb_data:
   redis_data:
+  legacy_db_data:

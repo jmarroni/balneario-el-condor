@@ -62,6 +62,24 @@ return [
             ]) : [],
         ],
 
+        'legacy' => [
+            'driver'    => 'mysql',
+            'url'       => env('LEGACY_DB_URL'),
+            'host'      => env('LEGACY_DB_HOST', 'legacy_db'),
+            'port'      => env('LEGACY_DB_PORT', '3306'),
+            'database'  => env('LEGACY_DB_DATABASE', 'balneario_legacy'),
+            'username'  => env('LEGACY_DB_USER', 'legacy'),
+            'password'  => env('LEGACY_DB_PASSWORD', ''),
+            'charset'   => 'latin1',       // el dump está en latin1
+            'collation' => 'latin1_swedish_ci',
+            'prefix'    => '',
+            'strict'    => false,          // legacy viola modo strict (dates `0000-00-00`)
+            'engine'    => null,
+            'options'   => [
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET SESSION sql_mode=""',
+            ],
+        ],
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),
