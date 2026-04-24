@@ -9,4 +9,10 @@
         @include('admin.recipes._form')
         <x-admin.submit-button label="Actualizar" />
     </form>
+
+    @if($recipe->exists)
+        <div class="max-w-3xl">
+            <x-admin.media-manager :mediable="$recipe" class="mt-6" />
+        </div>
+    @endif
 </x-admin.layouts.admin>

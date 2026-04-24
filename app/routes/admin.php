@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventRegistrationController;
 use App\Http\Controllers\Admin\GalleryImageController;
 use App\Http\Controllers\Admin\LodgingController;
+use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\NearbyPlaceController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\NewsletterCampaignController;
@@ -91,6 +92,12 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
         Route::resource('advertising-contacts', AdvertisingContactController::class)
             ->parameters(['advertising-contacts' => 'adContact'])
             ->only(['index', 'show', 'destroy']);
+
+        // Media (polimórfico, usado por múltiples recursos)
+        // reorder primero para que no matchee {media} como string 'reorder'
+        Route::patch('media/reorder', [MediaController::class, 'reorder'])->name('media.reorder');
+        Route::post('media', [MediaController::class, 'store'])->name('media.store');
+        Route::delete('media/{media}', [MediaController::class, 'destroy'])->name('media.destroy');
 
         // Sistema
         Route::resource('users', UserController::class)->middleware('role:admin');

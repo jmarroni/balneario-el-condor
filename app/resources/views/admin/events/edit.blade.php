@@ -18,4 +18,10 @@
         @include('admin.events._form')
         <x-admin.submit-button label="Actualizar" />
     </form>
+
+    @if($event->exists)
+        <div class="max-w-3xl">
+            <x-admin.media-manager :mediable="$event" class="mt-6" />
+        </div>
+    @endif
 </x-admin.layouts.admin>

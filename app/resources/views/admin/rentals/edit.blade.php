@@ -9,4 +9,10 @@
         @include('admin.rentals._form')
         <x-admin.submit-button label="Actualizar" />
     </form>
+
+    @if($rental->exists)
+        <div class="max-w-3xl">
+            <x-admin.media-manager :mediable="$rental" class="mt-6" />
+        </div>
+    @endif
 </x-admin.layouts.admin>
