@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\SurveyResponseController;
 use App\Http\Controllers\Admin\TideController;
 use App\Http\Controllers\Admin\TideImportController;
 use App\Http\Controllers\Admin\UsefulInfoController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VenueController;
 use Illuminate\Support\Facades\Route;
 
@@ -92,6 +93,5 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
             ->only(['index', 'show', 'destroy']);
 
         // Sistema
-        // TODO: descomentar cuando se cree el controller correspondiente en Task 8
-        // Route::resource('users', UserController::class)->middleware('role:admin');
+        Route::resource('users', UserController::class)->middleware('role:admin');
     });
