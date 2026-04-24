@@ -50,9 +50,14 @@
     {{ $head ?? '' }}
 </head>
 <body>
+    <a href="#main"
+       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-coral focus:text-sand focus:px-4 focus:py-2 focus:rounded focus:z-50">
+        Saltar al contenido
+    </a>
+
     <x-public.nav />
 
-    <main>
+    <main id="main">
         {{ $slot }}
     </main>
 

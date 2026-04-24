@@ -44,11 +44,17 @@
         @apply bg-coral -translate-y-0.5;
         box-shadow: 0 12px 30px -8px rgba(200, 90, 60, 0.5);
     }
+    .btn-primary:focus-visible {
+        @apply outline-none ring-2 ring-coral ring-offset-2 ring-offset-sand;
+    }
     .btn-ghost {
         @apply inline-flex items-center gap-2 px-7 py-4 border-[1.5px] border-ink text-ink rounded font-medium transition-colors;
     }
     .btn-ghost:hover {
         @apply bg-ink text-sand;
+    }
+    .btn-ghost:focus-visible {
+        @apply outline-none ring-2 ring-coral ring-offset-2 ring-offset-sand;
     }
 
     .nav-link {
@@ -62,4 +68,13 @@
     }
     .nav-link:hover { @apply text-coral; }
     .nav-link:hover::after { right: 0; }
+    .nav-link:focus-visible {
+        @apply outline-none text-coral ring-2 ring-coral ring-offset-2 ring-offset-sand rounded-sm;
+    }
+
+    /* Default focus-visible para enlaces y botones genéricos del público */
+    a:focus-visible,
+    button:focus-visible {
+        @apply outline-none ring-2 ring-coral ring-offset-2 ring-offset-sand rounded-sm;
+    }
 }

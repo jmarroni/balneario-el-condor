@@ -27,7 +27,7 @@ class UsefulInfoController extends Controller
         }
 
         return view('public.info-util.index', [
-            'items' => $base->get(),
+            'items' => $base->limit(48)->get(),
             'q'     => $q,
         ]);
     }
