@@ -16,8 +16,17 @@
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="Balneario El Cóndor">
+    <meta property="og:locale" content="es_AR">
     @if($image)
         <meta property="og:image" content="{{ $image }}">
+    @endif
+
+    <meta name="twitter:card" content="{{ $image ? 'summary_large_image' : 'summary' }}">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    @if($image)
+        <meta name="twitter:image" content="{{ $image }}">
     @endif
 
     <link rel="icon" href="{{ asset('favicon.ico') }}">

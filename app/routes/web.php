@@ -15,11 +15,25 @@ use App\Http\Controllers\Public\PageController;
 use App\Http\Controllers\Public\RecipeController;
 use App\Http\Controllers\Public\RentalController;
 use App\Http\Controllers\Public\ServiceProviderController;
+use App\Http\Controllers\Public\SitemapController;
 use App\Http\Controllers\Public\TideController;
 use App\Http\Controllers\Public\UsefulInfoController;
 use App\Http\Controllers\Public\VenueController;
 use App\Http\Controllers\Public\WeatherController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
+Route::get('/robots.txt', function () {
+    $path = public_path('robots.txt');
+
+    if (! is_file($path)) {
+        abort(404);
+    }
+
+    return response(file_get_contents($path), 200)
+        ->header('Content-Type', 'text/plain; charset=UTF-8');
+})->name('robots');
 
 Route::get('/', HomeController::class)->name('home');
 

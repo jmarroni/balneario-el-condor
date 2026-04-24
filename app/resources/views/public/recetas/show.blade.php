@@ -22,6 +22,9 @@
 @endphp
 
 <x-public.layouts.main :title="$recipe->title" :description="Str::limit(strip_tags((string) $recipe->instructions), 160)" :image="$heroUrl">
+    <x-slot:head>
+        <x-public.jsonld.recipe :recipe="$recipe" />
+    </x-slot:head>
 
     {{-- =============== BREADCRUMB =============== --}}
     <nav aria-label="Breadcrumb" class="bg-sand border-b border-ink-line">

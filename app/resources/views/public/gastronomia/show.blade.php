@@ -6,6 +6,9 @@
     $eyebrow = $catLabels[$item->category] ?? null;
 @endphp
 <x-public.layouts.main :title="$item->name" :description="$item->description">
+    <x-slot:head>
+        <x-public.jsonld.venue :venue="$item" />
+    </x-slot:head>
     @include('public._partials.directory-show', [
         'item'              => $item,
         'title'             => $item->name,

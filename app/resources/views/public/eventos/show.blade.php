@@ -20,6 +20,9 @@
 @endphp
 
 <x-public.layouts.main :title="$event->title" :description="$event->location ? $event->title.' — '.$event->location : $event->title" :image="$heroUrl">
+    <x-slot:head>
+        <x-public.jsonld.event :event="$event" />
+    </x-slot:head>
 
     {{-- =============== BREADCRUMB =============== --}}
     <nav aria-label="Breadcrumb" class="bg-sand border-b border-ink-line">

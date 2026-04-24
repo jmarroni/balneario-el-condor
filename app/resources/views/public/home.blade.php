@@ -11,6 +11,9 @@
 @endphp
 
 <x-public.layouts.main title="Balneario El Cóndor">
+    <x-slot:head>
+        <x-public.jsonld.website />
+    </x-slot:head>
 
     {{-- =============== HERO =============== --}}
     <x-public.hero :tide="$todayTide" />
