@@ -16,15 +16,16 @@ class Classified extends Model
     protected $fillable = [
         'classified_category_id', 'title', 'slug', 'description',
         'contact_name', 'contact_email', 'address', 'latitude', 'longitude',
-        'video_url', 'views', 'legacy_id',
+        'video_url', 'views', 'published_at', 'legacy_id',
     ];
 
     protected function casts(): array
     {
         return [
-            'latitude'  => 'decimal:7',
-            'longitude' => 'decimal:7',
-            'views'     => 'integer',
+            'latitude'     => 'decimal:7',
+            'longitude'    => 'decimal:7',
+            'views'        => 'integer',
+            'published_at' => 'datetime',
         ];
     }
 
