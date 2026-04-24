@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Public\EventController;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\NewsController;
 use Illuminate\Support\Facades\Route;
@@ -10,8 +11,11 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/novedades', [NewsController::class, 'index'])->name('novedades.index');
 Route::get('/novedades/{news:slug}', [NewsController::class, 'show'])->name('novedades.show');
 
+Route::get('/eventos', [EventController::class, 'index'])->name('eventos.index');
+Route::get('/eventos/{event:slug}', [EventController::class, 'show'])->name('eventos.show');
+Route::post('/eventos/{event:slug}/inscripcion', [EventController::class, 'register'])->name('eventos.register');
+
 // Stubs para que Route::has() del nav resuelva (se implementan en tasks 2-6)
-Route::get('/eventos', fn () => 'pending')->name('eventos.index');
 Route::get('/hospedajes', fn () => 'pending')->name('hospedajes.index');
 Route::get('/gastronomia', fn () => 'pending')->name('gastronomia.index');
 Route::get('/alquileres', fn () => 'pending')->name('alquileres.index');

@@ -39,4 +39,14 @@ class Event extends Model
     {
         return $this->morphMany(Media::class, 'mediable')->orderBy('sort_order');
     }
+
+    public function getIsPastAttribute(): bool
+    {
+        return $this->starts_at !== null && $this->starts_at->isPast();
+    }
+
+    public function getIsUpcomingAttribute(): bool
+    {
+        return $this->starts_at === null || $this->starts_at->isFuture();
+    }
 }
