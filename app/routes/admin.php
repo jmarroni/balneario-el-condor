@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\ClassifiedContactController;
+use App\Http\Controllers\Admin\ClassifiedController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventRegistrationController;
+use App\Http\Controllers\Admin\GalleryImageController;
 use App\Http\Controllers\Admin\LodgingController;
 use App\Http\Controllers\Admin\NearbyPlaceController;
 use App\Http\Controllers\Admin\NewsController;
@@ -49,12 +52,11 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
         Route::resource('tides', TideController::class);
 
         // Comunidad
-        // TODO: descomentar cuando se cree el controller correspondiente en Task 6
-        // Route::resource('classifieds', ClassifiedController::class);
-        // Route::resource('classifieds.contacts', ClassifiedContactController::class)
-        //     ->shallow()->only(['index', 'show', 'destroy']);
-        // Route::resource('gallery', GalleryImageController::class)
-        //     ->parameters(['gallery' => 'galleryImage']);
+        Route::resource('classifieds', ClassifiedController::class);
+        Route::resource('classifieds.contacts', ClassifiedContactController::class)
+            ->shallow()->only(['index', 'show', 'destroy']);
+        Route::resource('gallery', GalleryImageController::class)
+            ->parameters(['gallery' => 'galleryImage']);
 
         // Engagement
         // TODO: descomentar cuando se cree el controller correspondiente en Task 7
