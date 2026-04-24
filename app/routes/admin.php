@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'])
@@ -10,8 +11,7 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
         Route::get('/', DashboardController::class)->name('dashboard');
 
         // Contenido
-        // TODO: descomentar cuando se cree el controller correspondiente en Task 3
-        // Route::resource('news', NewsController::class);
+        Route::resource('news', NewsController::class);
         // TODO: descomentar cuando se cree el controller correspondiente en Task 4
         // Route::resource('news-categories', NewsCategoryController::class);
         // Route::resource('events', EventController::class);
