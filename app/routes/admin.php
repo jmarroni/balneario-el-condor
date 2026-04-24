@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\EventRegistrationController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\RecipeController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'])
@@ -14,11 +18,11 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
         Route::resource('news', NewsController::class);
         // TODO: descomentar cuando se cree el controller correspondiente en Task 4
         // Route::resource('news-categories', NewsCategoryController::class);
-        // Route::resource('events', EventController::class);
-        // Route::resource('events.registrations', EventRegistrationController::class)
-        //     ->shallow()->only(['index', 'show', 'destroy']);
-        // Route::resource('pages', PageController::class);
-        // Route::resource('recipes', RecipeController::class);
+        Route::resource('events', EventController::class);
+        Route::resource('events.registrations', EventRegistrationController::class)
+            ->shallow()->only(['index', 'show', 'destroy']);
+        Route::resource('pages', PageController::class);
+        Route::resource('recipes', RecipeController::class);
 
         // Directorio
         // TODO: descomentar cuando se cree el controller correspondiente en Task 5
