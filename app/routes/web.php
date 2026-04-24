@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Public\ClassifiedController;
 use App\Http\Controllers\Public\EventController;
+use App\Http\Controllers\Public\GalleryController;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\LodgingController;
 use App\Http\Controllers\Public\NearbyPlaceController;
 use App\Http\Controllers\Public\NewsController;
+use App\Http\Controllers\Public\RecipeController;
 use App\Http\Controllers\Public\RentalController;
 use App\Http\Controllers\Public\ServiceProviderController;
 use App\Http\Controllers\Public\UsefulInfoController;
@@ -39,10 +42,17 @@ Route::get('/cercanos/{nearbyPlace:slug}', [NearbyPlaceController::class, 'show'
 
 Route::get('/informacion-util', [UsefulInfoController::class, 'index'])->name('info-util.index');
 
+// Comunidad (Fase 5 / Task 6).
+Route::get('/clasificados', [ClassifiedController::class, 'index'])->name('clasificados.index');
+Route::get('/clasificados/{classified:slug}', [ClassifiedController::class, 'show'])->name('clasificados.show');
+Route::post('/clasificados/{classified:slug}/contacto', [ClassifiedController::class, 'storeContact'])->name('clasificados.contact');
+
+Route::get('/galeria', [GalleryController::class, 'index'])->name('galeria.index');
+
+Route::get('/recetas', [RecipeController::class, 'index'])->name('recetas.index');
+Route::get('/recetas/{recipe:slug}', [RecipeController::class, 'show'])->name('recetas.show');
+
 // Stubs pendientes (a implementarse en tasks futuras).
-Route::get('/recetas', fn () => 'pending')->name('recetas.index');
-Route::get('/clasificados', fn () => 'pending')->name('clasificados.index');
-Route::get('/galeria', fn () => 'pending')->name('galeria.index');
 Route::get('/mareas', fn () => 'pending')->name('mareas.index');
 Route::get('/newsletter', fn () => 'pending')->name('newsletter.form');
 
