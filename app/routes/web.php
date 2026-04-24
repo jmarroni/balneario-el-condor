@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Public\HomeController;
+use App\Http\Controllers\Public\NewsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 
+Route::get('/novedades', [NewsController::class, 'index'])->name('novedades.index');
+Route::get('/novedades/{news:slug}', [NewsController::class, 'show'])->name('novedades.show');
+
 // Stubs para que Route::has() del nav resuelva (se implementan en tasks 2-6)
-Route::get('/novedades', fn () => 'pending')->name('novedades.index');
 Route::get('/eventos', fn () => 'pending')->name('eventos.index');
 Route::get('/hospedajes', fn () => 'pending')->name('hospedajes.index');
 Route::get('/gastronomia', fn () => 'pending')->name('gastronomia.index');
