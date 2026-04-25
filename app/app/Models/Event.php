@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Event extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, LogsActivity, SoftDeletes;
 
     protected $fillable = [
         'title', 'slug', 'description', 'location',
@@ -28,6 +30,23 @@ class Event extends Model
             'accepts_registrations'  => 'boolean',
             'sort_order'             => 'integer',
         ];
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly([
+                'title', 'slug', 'description', 'location',
+                'starts_at', 'ends_at', 'accepts_registrations', 'featured',
+            ])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
+            ->setDescriptionForEvent(fn (string $event) => match ($event) {
+                'created' => 'creó el evento',
+                'updated' => 'actualizó el evento',
+                'deleted' => 'eliminó el evento',
+                default   => $event,
+            });
     }
 
     public function registrations(): HasMany

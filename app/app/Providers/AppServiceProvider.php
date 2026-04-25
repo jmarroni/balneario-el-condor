@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Pulse\Facades\Pulse;
+use Spatie\Activitylog\Models\Activity;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,16 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
         $this->configurePulse();
+        $this->registerPolicies();
+    }
+
+    /**
+     * Las policies de modelos de paquetes externos (fuera de App\Models) no las
+     * descubre el autoloader de Laravel 11 — hay que registrarlas a mano.
+     */
+    protected function registerPolicies(): void
+    {
+        Gate::policy(Activity::class, \App\Policies\ActivityPolicy::class);
     }
 
     /**

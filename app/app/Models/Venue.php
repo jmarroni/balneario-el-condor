@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Venue extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, LogsActivity, SoftDeletes;
 
     protected $fillable = [
         'name', 'slug', 'category', 'description',
@@ -23,6 +25,20 @@ class Venue extends Model
             'longitude' => 'decimal:7',
             'views'     => 'integer',
         ];
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'slug', 'category', 'address', 'phone'])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
+            ->setDescriptionForEvent(fn (string $event) => match ($event) {
+                'created' => 'creó el establecimiento',
+                'updated' => 'actualizó el establecimiento',
+                'deleted' => 'eliminó el establecimiento',
+                default   => $event,
+            });
     }
 
     public function media(): MorphMany

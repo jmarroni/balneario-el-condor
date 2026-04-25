@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Classified extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, LogsActivity, SoftDeletes;
 
     protected $fillable = [
         'classified_category_id', 'title', 'slug', 'description',
@@ -27,6 +29,23 @@ class Classified extends Model
             'views'        => 'integer',
             'published_at' => 'datetime',
         ];
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly([
+                'title', 'slug', 'classified_category_id',
+                'contact_name', 'contact_email', 'published_at',
+            ])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
+            ->setDescriptionForEvent(fn (string $event) => match ($event) {
+                'created' => 'creó el clasificado',
+                'updated' => 'actualizó el clasificado',
+                'deleted' => 'eliminó el clasificado',
+                default   => $event,
+            });
     }
 
     public function category(): BelongsTo

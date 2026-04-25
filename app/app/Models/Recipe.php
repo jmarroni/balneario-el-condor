@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Recipe extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, LogsActivity, SoftDeletes;
 
     protected $fillable = [
         'title', 'slug',
@@ -25,6 +27,20 @@ class Recipe extends Model
             'cook_minutes' => 'integer',
             'published_on' => 'date',
         ];
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['title', 'slug', 'prep_minutes', 'cook_minutes', 'servings', 'author'])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
+            ->setDescriptionForEvent(fn (string $event) => match ($event) {
+                'created' => 'creó la receta',
+                'updated' => 'actualizó la receta',
+                'deleted' => 'eliminó la receta',
+                default   => $event,
+            });
     }
 
     public function media(): MorphMany

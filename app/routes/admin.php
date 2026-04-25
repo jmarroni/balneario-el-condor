@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdvertisingContactController;
 use App\Http\Controllers\Admin\ApiTokenController;
+use App\Http\Controllers\Admin\AuditLogController;
 use App\Http\Controllers\Admin\ClassifiedContactController;
 use App\Http\Controllers\Admin\ClassifiedController;
 use App\Http\Controllers\Admin\ContactMessageController;
@@ -107,6 +108,11 @@ Route::middleware(['auth', 'force.password.reset', 'require.2fa.admin', 'role:ad
 
         // Sistema
         Route::resource('users', UserController::class)->middleware('role:admin');
+
+        // Bitácora de cambios — solo admin
+        Route::get('audit-log', [AuditLogController::class, 'index'])
+            ->name('audit-log.index')
+            ->middleware('role:admin');
 
         // Tokens API personales (cualquier usuario logueado al admin)
         Route::get('tokens', [ApiTokenController::class, 'index'])->name('tokens.index');

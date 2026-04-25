@@ -10,10 +10,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class News extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, LogsActivity, SoftDeletes;
 
     protected $table = 'news';
 
@@ -34,6 +36,20 @@ class News extends Model
             'published_at' => 'datetime',
             'views' => 'integer',
         ];
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['title', 'slug', 'body', 'published_at', 'news_category_id'])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
+            ->setDescriptionForEvent(fn (string $event) => match ($event) {
+                'created' => 'creó la noticia',
+                'updated' => 'actualizó la noticia',
+                'deleted' => 'eliminó la noticia',
+                default   => $event,
+            });
     }
 
     public function category(): BelongsTo

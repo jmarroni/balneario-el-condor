@@ -8,12 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, HasFactory, HasRoles, Notifiable, TwoFactorAuthenticatable;
+    use HasApiTokens, HasFactory, HasRoles, LogsActivity, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,5 +53,24 @@ class User extends Authenticatable
             'must_reset_password' => 'boolean',
             'two_factor_confirmed_at' => 'datetime',
         ];
+    }
+
+    /**
+     * Audit log de cambios sobre el usuario. Solo nombre y email — el password
+     * está hashed y no es informativo, los cambios de role tienen su propio
+     * canal vía spatie/permission events.
+     */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'email'])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
+            ->setDescriptionForEvent(fn (string $event) => match ($event) {
+                'created' => 'creó el usuario',
+                'updated' => 'actualizó el usuario',
+                'deleted' => 'eliminó el usuario',
+                default   => $event,
+            });
     }
 }

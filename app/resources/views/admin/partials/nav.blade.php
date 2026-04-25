@@ -64,6 +64,12 @@
                 @if($group === 'Sistema')
                     @hasrole('admin')
                         <li>
+                            <a href="{{ route('admin.audit-log.index') }}"
+                               class="block px-2 py-1 rounded hover:bg-slate-700 {{ request()->routeIs('admin.audit-log.*') ? 'bg-slate-700' : '' }}">
+                                Bitácora
+                            </a>
+                        </li>
+                        <li>
                             <a href="/pulse"
                                target="_blank"
                                rel="noopener"
