@@ -60,6 +60,18 @@
                         @endcan
                     @endif
                 @endforeach
+                @if($group === 'Sistema')
+                    @hasrole('admin')
+                        <li>
+                            <a href="/pulse"
+                               target="_blank"
+                               rel="noopener"
+                               class="block px-2 py-1 rounded hover:bg-slate-700">
+                                Pulse <span class="text-xs text-slate-400">↗</span>
+                            </a>
+                        </li>
+                    @endhasrole
+                @endif
             </ul>
         </div>
     @endforeach

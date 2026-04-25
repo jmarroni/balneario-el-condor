@@ -6,8 +6,10 @@ namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Pulse\Facades\Pulse;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,23 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureRateLimiting();
+        $this->configurePulse();
+    }
+
+    /**
+     * Restrict Pulse dashboard to admin role and label entries by user.
+     */
+    protected function configurePulse(): void
+    {
+        Gate::define('viewPulse', function ($user) {
+            return $user !== null && method_exists($user, 'hasRole') && $user->hasRole('admin');
+        });
+
+        Pulse::user(fn ($user) => [
+            'name' => $user->name ?? '',
+            'extra' => $user->email ?? '',
+            'avatar' => null,
+        ]);
     }
 
     /**
