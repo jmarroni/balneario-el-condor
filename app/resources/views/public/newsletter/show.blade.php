@@ -34,7 +34,8 @@
             @endif
 
             <form method="POST" action="{{ route('newsletter.subscribe') }}"
-                  class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                  class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+                  onsubmit="if(window.plausible){plausible('newsletter_signup');}">
                 @csrf
 
                 <input type="text"

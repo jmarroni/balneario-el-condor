@@ -47,6 +47,19 @@
             defer></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Plausible Analytics (privacy-first, sin cookies). Solo si está configurado. --}}
+    @if(config('app.plausible_domain'))
+        <script defer
+                data-domain="{{ config('app.plausible_domain') }}"
+                src="{{ rtrim(config('app.plausible_host', 'https://plausible.io'), '/') }}/js/script.js"></script>
+        <script>
+            window.plausible = window.plausible || function () {
+                (window.plausible.q = window.plausible.q || []).push(arguments);
+            };
+        </script>
+    @endif
+
     {{ $head ?? '' }}
 </head>
 <body>
