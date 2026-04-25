@@ -43,4 +43,16 @@ class ClassifiedController extends Controller
 
         return new ClassifiedResource($classified->load(['category', 'media']));
     }
+
+    /**
+     * Endpoint moderable: el rol moderator tiene classifieds.delete.
+     */
+    public function destroy(Classified $classified): JsonResponse
+    {
+        $this->authorize('delete', $classified);
+
+        $classified->delete();
+
+        return response()->json(null, 204);
+    }
 }

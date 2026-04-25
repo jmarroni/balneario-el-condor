@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\Api\V1\StoreNewsRequest;
+use App\Http\Requests\Api\V1\UpdateNewsRequest;
 use App\Http\Resources\NewsResource;
 use App\Models\News;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -44,5 +47,42 @@ class NewsController extends Controller
         $this->authorize('view', $news);
 
         return new NewsResource($news->load(['category', 'media']));
+    }
+
+    public function store(StoreNewsRequest $request): JsonResponse
+    {
+        // authorize() del FormRequest ya valida el permiso news.create.
+        $data = $request->validated();
+        $data['slug'] = ! empty($data['slug'])
+            ? $data['slug']
+            : Str::slug((string) $data['title']);
+
+        $news = News::create($data);
+
+        return (new NewsResource($news->load(['category', 'media'])))
+            ->response()
+            ->setStatusCode(201);
+    }
+
+    public function update(UpdateNewsRequest $request, News $news): NewsResource
+    {
+        // authorize() del FormRequest valida news.update.
+        $data = $request->validated();
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug((string) $data['title']);
+        }
+
+        $news->update($data);
+
+        return new NewsResource($news->fresh()->load(['category', 'media']));
+    }
+
+    public function destroy(News $news): JsonResponse
+    {
+        $this->authorize('delete', $news);
+
+        $news->delete();
+
+        return response()->json(null, 204);
     }
 }

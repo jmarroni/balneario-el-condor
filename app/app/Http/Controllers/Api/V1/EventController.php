@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\Api\V1\StoreEventRequest;
+use App\Http\Requests\Api\V1\UpdateEventRequest;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class EventController extends Controller
 {
@@ -45,5 +48,40 @@ class EventController extends Controller
         $this->authorize('view', $event);
 
         return new EventResource($event->load('media'));
+    }
+
+    public function store(StoreEventRequest $request): JsonResponse
+    {
+        $data = $request->validated();
+        $data['slug'] = ! empty($data['slug'])
+            ? $data['slug']
+            : Str::slug((string) $data['title']);
+
+        $event = Event::create($data);
+
+        return (new EventResource($event->load('media')))
+            ->response()
+            ->setStatusCode(201);
+    }
+
+    public function update(UpdateEventRequest $request, Event $event): EventResource
+    {
+        $data = $request->validated();
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug((string) $data['title']);
+        }
+
+        $event->update($data);
+
+        return new EventResource($event->fresh()->load('media'));
+    }
+
+    public function destroy(Event $event): JsonResponse
+    {
+        $this->authorize('delete', $event);
+
+        $event->delete();
+
+        return response()->json(null, 204);
     }
 }

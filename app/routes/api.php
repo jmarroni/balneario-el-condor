@@ -3,12 +3,15 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\ClassifiedController;
+use App\Http\Controllers\Api\V1\ContactMessageController;
 use App\Http\Controllers\Api\V1\EventController;
 use App\Http\Controllers\Api\V1\GalleryController;
 use App\Http\Controllers\Api\V1\LodgingController;
 use App\Http\Controllers\Api\V1\NearbyPlaceController;
 use App\Http\Controllers\Api\V1\NewsController;
+use App\Http\Controllers\Api\V1\NewsletterSubscriberController;
 use App\Http\Controllers\Api\V1\PageController;
+use App\Http\Controllers\Api\V1\PublicApiController;
 use App\Http\Controllers\Api\V1\RecipeController;
 use App\Http\Controllers\Api\V1\RentalController;
 use App\Http\Controllers\Api\V1\ServiceProviderController;
@@ -40,9 +43,15 @@ Route::middleware('auth:sanctum')->prefix('v1')->name('api.v1.')->group(function
     // Content - news / events / recipes / pages
     Route::get('/news', [NewsController::class, 'index'])->name('news.index');
     Route::get('/news/{news:slug}', [NewsController::class, 'show'])->name('news.show');
+    Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+    Route::put('/news/{news:slug}', [NewsController::class, 'update'])->name('news.update');
+    Route::delete('/news/{news:slug}', [NewsController::class, 'destroy'])->name('news.destroy');
 
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
     Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
+    Route::post('/events', [EventController::class, 'store'])->name('events.store');
+    Route::put('/events/{event:slug}', [EventController::class, 'update'])->name('events.update');
+    Route::delete('/events/{event:slug}', [EventController::class, 'destroy'])->name('events.destroy');
 
     Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
     Route::get('/recipes/{recipe:slug}', [RecipeController::class, 'show'])->name('recipes.show');
@@ -65,6 +74,15 @@ Route::middleware('auth:sanctum')->prefix('v1')->name('api.v1.')->group(function
 
     Route::get('/classifieds', [ClassifiedController::class, 'index'])->name('classifieds.index');
     Route::get('/classifieds/{classified:slug}', [ClassifiedController::class, 'show'])->name('classifieds.show');
+    Route::delete('/classifieds/{classified:slug}', [ClassifiedController::class, 'destroy'])->name('classifieds.destroy');
+
+    // Moderation - contact messages / newsletter subscribers
+    Route::patch('/contact-messages/{message}/mark-read', [ContactMessageController::class, 'markRead'])
+        ->name('contact-messages.mark-read');
+    Route::delete('/contact-messages/{message}', [ContactMessageController::class, 'destroy'])
+        ->name('contact-messages.destroy');
+    Route::delete('/newsletter-subscribers/{subscriber}', [NewsletterSubscriberController::class, 'destroy'])
+        ->name('newsletter-subscribers.destroy');
 
     // Data - gallery / tides / weather
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
@@ -74,3 +92,11 @@ Route::middleware('auth:sanctum')->prefix('v1')->name('api.v1.')->group(function
 
     Route::get('/weather', [WeatherController::class, 'index'])->name('weather.index');
 });
+
+// ---------------------------------------------------------------------------
+// Endpoints públicos (sin auth) — para apps externas que envían formularios.
+// Throttle por IP: 10 requests por minuto.
+// ---------------------------------------------------------------------------
+Route::post('v1/contact', [PublicApiController::class, 'contact'])
+    ->middleware('throttle:10,1')
+    ->name('api.v1.contact');
