@@ -256,4 +256,8 @@ return [
         // If you are using a custom serializer with league/fractal, you can specify it here.
         'serializer' => null,
     ],
+
+    'docs_enabled' => env('SCRIBE_DOCS_ENABLED', false),
+    'docs_basic_auth_user' => env('SCRIBE_DOCS_BASIC_AUTH_USER'),
+    'docs_basic_auth_pass' => env('SCRIBE_DOCS_BASIC_AUTH_PASS'),
 ];
