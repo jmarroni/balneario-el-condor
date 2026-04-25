@@ -1,0 +1,11 @@
+# Cron del host para Balneario El Cóndor
+# Instalar con: crontab -e (como el usuario que tiene permisos sobre el repo + docker)
+
+# Backup diario 03:00 AM
+0 3 * * * /opt/balneario/ops/backup.sh >> /var/log/balneario-backup.log 2>&1
+
+# (Opcional) sync off-site con rclone después del backup
+# 30 3 * * * rclone sync /var/backups/balneario remote:balneario-backups --max-age 30d >> /var/log/balneario-rclone.log 2>&1
+
+# Nota: el scheduler de Laravel (weather:sync, etc.) corre dentro del
+# container 'scheduler' con php artisan schedule:work, no requiere cron del host.
