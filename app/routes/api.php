@@ -21,7 +21,7 @@ use App\Http\Controllers\Api\V1\VenueController;
 use App\Http\Controllers\Api\V1\WeatherController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->prefix('v1')->name('api.v1.')->group(function () {
+Route::middleware(['auth:sanctum', 'throttle:api'])->prefix('v1')->name('api.v1.')->group(function () {
     Route::get('/me', function () {
         $user = auth()->user();
 

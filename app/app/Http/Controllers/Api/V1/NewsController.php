@@ -12,8 +12,22 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+/**
+ * @group Novedades
+ *
+ * Gestión de noticias y novedades publicadas en el sitio.
+ */
 class NewsController extends Controller
 {
+    /**
+     * Listar novedades
+     *
+     * Devuelve un listado paginado de novedades publicadas, ordenadas por fecha descendente.
+     *
+     * @queryParam q string Búsqueda parcial por título. Example: verano
+     * @queryParam categoria string Slug de categoría. Example: eventos
+     * @queryParam per_page integer Cantidad de items por página (default 20). Example: 20
+     */
     public function index(Request $request): JsonResponse
     {
         $this->authorize('viewAny', News::class);
@@ -42,6 +56,13 @@ class NewsController extends Controller
         ));
     }
 
+    /**
+     * Mostrar novedad
+     *
+     * Devuelve una novedad publicada identificada por su slug.
+     *
+     * @urlParam news string required Slug de la novedad. Example: temporada-de-verano-2026
+     */
     public function show(News $news): NewsResource
     {
         $this->authorize('view', $news);

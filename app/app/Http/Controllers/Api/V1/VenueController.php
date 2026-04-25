@@ -9,8 +9,20 @@ use App\Models\Venue;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Gastronomía
+ *
+ * Directorio de restaurantes, bares y locales gastronómicos.
+ */
 class VenueController extends Controller
 {
+    /**
+     * Listar gastronomía
+     *
+     * @queryParam q string Búsqueda parcial por nombre. Example: parrilla
+     * @queryParam category string Filtrar por categoría (parrilla, gourmet, cafetería, etc). Example: gourmet
+     * @queryParam per_page integer Cantidad por página. Example: 20
+     */
     public function index(Request $request): JsonResponse
     {
         $this->authorize('viewAny', Venue::class);
@@ -34,6 +46,11 @@ class VenueController extends Controller
         ));
     }
 
+    /**
+     * Mostrar gastronomía
+     *
+     * @urlParam venue string required Slug del local. Example: la-mejor-parrilla
+     */
     public function show(Venue $venue): VenueResource
     {
         $this->authorize('view', $venue);

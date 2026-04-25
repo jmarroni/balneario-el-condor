@@ -9,8 +9,20 @@ use App\Models\Lodging;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Alojamientos
+ *
+ * Directorio de alojamientos turísticos: hoteles, hosterías, departamentos y campings.
+ */
 class LodgingController extends Controller
 {
+    /**
+     * Listar alojamientos
+     *
+     * @queryParam q string Búsqueda parcial por nombre. Example: hostería
+     * @queryParam type string Filtrar por tipo: hotel | hosteria | departamento | camping. Example: hotel
+     * @queryParam per_page integer Cantidad por página. Example: 20
+     */
     public function index(Request $request): JsonResponse
     {
         $this->authorize('viewAny', Lodging::class);
@@ -34,6 +46,11 @@ class LodgingController extends Controller
         ));
     }
 
+    /**
+     * Mostrar alojamiento
+     *
+     * @urlParam lodging string required Slug del alojamiento. Example: hosteria-del-mar
+     */
     public function show(Lodging $lodging): LodgingResource
     {
         $this->authorize('view', $lodging);

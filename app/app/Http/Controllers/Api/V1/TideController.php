@@ -10,8 +10,20 @@ use Carbon\CarbonImmutable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Mareas
+ *
+ * Información de mareas (alta y baja) para la zona del Balneario.
+ */
 class TideController extends Controller
 {
+    /**
+     * Mareas del día
+     *
+     * Devuelve la información de mareas para una fecha determinada (default: hoy).
+     *
+     * @queryParam date string Fecha en formato YYYY-MM-DD. Default: hoy. Example: 2026-04-25
+     */
     public function index(Request $request): JsonResponse
     {
         $date = $this->parseDate((string) $request->string('date', ''));
@@ -28,6 +40,13 @@ class TideController extends Controller
         ));
     }
 
+    /**
+     * Mareas de la semana
+     *
+     * Devuelve las mareas de la semana (lunes a domingo) que contiene la fecha consultada.
+     *
+     * @queryParam date string Fecha de referencia en formato YYYY-MM-DD. Default: hoy. Example: 2026-04-25
+     */
     public function week(Request $request): JsonResponse
     {
         $reference = $this->parseDate((string) $request->string('date', ''));

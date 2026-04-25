@@ -12,8 +12,22 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+/**
+ * @group Eventos
+ *
+ * Gestión de eventos y agenda cultural del Balneario.
+ */
 class EventController extends Controller
 {
+    /**
+     * Listar eventos
+     *
+     * Devuelve un listado paginado de eventos. Por defecto trae los próximos.
+     *
+     * @queryParam q string Búsqueda parcial por título. Example: feria
+     * @queryParam cuando string Filtra por temporalidad: "proximos" | "pasados". Example: proximos
+     * @queryParam per_page integer Cantidad de items por página (default 20). Example: 20
+     */
     public function index(Request $request): JsonResponse
     {
         $this->authorize('viewAny', Event::class);
@@ -43,6 +57,13 @@ class EventController extends Controller
         ));
     }
 
+    /**
+     * Mostrar evento
+     *
+     * Devuelve un evento identificado por slug.
+     *
+     * @urlParam event string required Slug del evento. Example: feria-del-libro-2026
+     */
     public function show(Event $event): EventResource
     {
         $this->authorize('view', $event);

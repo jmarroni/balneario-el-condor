@@ -1,0 +1,1140 @@
+openapi: 3.0.3
+info:
+  title: 'Balneario El Condor API Documentation'
+  description: 'API REST v1 del sitio de Balneario El Cóndor. Provee acceso a novedades, eventos, alojamientos, gastronomía, alquileres, mareas, clima y formularios públicos.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:18081'
+tags:
+  -
+    name: Alojamientos
+    description: "\nDirectorio de alojamientos turísticos: hoteles, hosterías, departamentos y campings."
+  -
+    name: Clima
+    description: "\nInformación meteorológica actual del Balneario (servida desde caché)."
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: 'Endpoints públicos'
+    description: "\nEndpoints públicos de la API (sin auth).\nPensado para apps externas que necesiten enviar formularios al sitio."
+  -
+    name: Eventos
+    description: "\nGestión de eventos y agenda cultural del Balneario."
+  -
+    name: Gastronomía
+    description: "\nDirectorio de restaurantes, bares y locales gastronómicos."
+  -
+    name: Mareas
+    description: "\nInformación de mareas (alta y baja) para la zona del Balneario."
+  -
+    name: Novedades
+    description: "\nGestión de noticias y novedades publicadas en el sitio."
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []
+paths:
+  /api/v1/lodgings:
+    get:
+      summary: 'Listar alojamientos'
+      operationId: listarAlojamientos
+      description: ''
+      parameters:
+        -
+          in: query
+          name: q
+          description: 'Búsqueda parcial por nombre.'
+          example: hostería
+          required: false
+          schema:
+            type: string
+            description: 'Búsqueda parcial por nombre.'
+            example: hostería
+        -
+          in: query
+          name: type
+          description: 'Filtrar por tipo: hotel | hosteria | departamento | camping.'
+          example: hotel
+          required: false
+          schema:
+            type: string
+            description: 'Filtrar por tipo: hotel | hosteria | departamento | camping.'
+            example: hotel
+        -
+          in: query
+          name: per_page
+          description: 'Cantidad por página.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'Cantidad por página.'
+            example: 20
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Alojamientos
+  '/api/v1/lodgings/{slug}':
+    get:
+      summary: 'Mostrar alojamiento'
+      operationId: mostrarAlojamiento
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Alojamientos
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the lodging.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: lodging
+        description: 'Slug del alojamiento.'
+        example: hosteria-del-mar
+        required: true
+        schema:
+          type: string
+  /api/v1/weather:
+    get:
+      summary: 'Clima actual'
+      operationId: climaActual
+      description: "Devuelve los datos del último snapshot meteorológico cacheado.\nEl cron `weather:fetch` refresca esta caché periódicamente."
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Clima
+  /api/v1/me:
+    get:
+      summary: ''
+      operationId: getApiV1Me
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/v1/recipes:
+    get:
+      summary: ''
+      operationId: getApiV1Recipes
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  '/api/v1/recipes/{slug}':
+    get:
+      summary: ''
+      operationId: getApiV1RecipesSlug
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the recipe.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  '/api/v1/pages/{slug}':
+    get:
+      summary: ''
+      operationId: getApiV1PagesSlug
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the page.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/v1/rentals:
+    get:
+      summary: ''
+      operationId: getApiV1Rentals
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  '/api/v1/rentals/{slug}':
+    get:
+      summary: ''
+      operationId: getApiV1RentalsSlug
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the rental.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/v1/service-providers:
+    get:
+      summary: ''
+      operationId: getApiV1ServiceProviders
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/v1/nearby-places:
+    get:
+      summary: ''
+      operationId: getApiV1NearbyPlaces
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/v1/useful-info:
+    get:
+      summary: ''
+      operationId: getApiV1UsefulInfo
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/v1/classifieds:
+    get:
+      summary: ''
+      operationId: getApiV1Classifieds
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  '/api/v1/classifieds/{slug}':
+    get:
+      summary: ''
+      operationId: getApiV1ClassifiedsSlug
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    delete:
+      summary: 'Endpoint moderable: el rol moderator tiene classifieds.delete.'
+      operationId: endpointModerableElRolModeratorTieneClassifiedsdelete
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the classified.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  '/api/v1/contact-messages/{message_id}/mark-read':
+    patch:
+      summary: 'Marcar un mensaje como leído.'
+      operationId: marcarUnMensajeComoLedo
+      description: 'Requiere contact_messages.update — moderator NO tiene este permiso.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: message_id
+        description: 'The ID of the message.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  '/api/v1/contact-messages/{message_id}':
+    delete:
+      summary: 'Eliminar un mensaje (acción moderable).'
+      operationId: eliminarUnMensajeaccinModerable
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: message_id
+        description: 'The ID of the message.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  '/api/v1/newsletter-subscribers/{subscriber_id}':
+    delete:
+      summary: 'Eliminar suscriptor (acción moderable).'
+      operationId: eliminarSuscriptoraccinModerable
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: subscriber_id
+        description: 'The ID of the subscriber.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/v1/gallery:
+    get:
+      summary: ''
+      operationId: getApiV1Gallery
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/v1/contact:
+    post:
+      summary: 'Enviar mensaje de contacto'
+      operationId: enviarMensajeDeContacto
+      description: "Recibe un formulario de contacto público y lo persiste para que el equipo lo modere.\nRate limit: 10 requests por minuto por IP."
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Endpoints públicos'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Nombre del remitente.'
+                  example: 'Juan Pérez'
+                email:
+                  type: string
+                  description: 'Email de contacto.'
+                  example: juan@example.com
+                phone:
+                  type: string
+                  description: 'Teléfono opcional.'
+                  example: '+54 9 11 1234-5678'
+                  nullable: true
+                subject:
+                  type: string
+                  description: 'Asunto del mensaje.'
+                  example: 'Consulta sobre alojamientos'
+                  nullable: true
+                message:
+                  type: string
+                  description: 'Cuerpo del mensaje.'
+                  example: 'Quiero información para enero.'
+                captcha_honeypot:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+              required:
+                - name
+                - email
+                - message
+      security: []
+  /api/v1/events:
+    get:
+      summary: 'Listar eventos'
+      operationId: listarEventos
+      description: 'Devuelve un listado paginado de eventos. Por defecto trae los próximos.'
+      parameters:
+        -
+          in: query
+          name: q
+          description: 'Búsqueda parcial por título.'
+          example: feria
+          required: false
+          schema:
+            type: string
+            description: 'Búsqueda parcial por título.'
+            example: feria
+        -
+          in: query
+          name: cuando
+          description: 'Filtra por temporalidad: "proximos" | "pasados".'
+          example: proximos
+          required: false
+          schema:
+            type: string
+            description: 'Filtra por temporalidad: "proximos" | "pasados".'
+            example: proximos
+        -
+          in: query
+          name: per_page
+          description: 'Cantidad de items por página (default 20).'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'Cantidad de items por página (default 20).'
+            example: 20
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Eventos
+    post:
+      summary: ''
+      operationId: postApiV1Events
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Eventos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 200 characters.'
+                  example: b
+                slug:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: true
+                description:
+                  type: string
+                  description: ''
+                  example: 'Eius et animi quos velit et.'
+                  nullable: true
+                location:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: v
+                  nullable: true
+                starts_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2026-04-25T00:46:41'
+                  nullable: true
+                ends_at:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after or equal to <code>starts_at</code>.'
+                  example: '2052-05-18'
+                  nullable: true
+                all_day:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+                featured:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+                accepts_registrations:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+                external_url:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: 'http://bailey.com/'
+                  nullable: true
+                sort_order:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 77
+                  nullable: true
+              required:
+                - title
+  '/api/v1/events/{slug}':
+    get:
+      summary: 'Mostrar evento'
+      operationId: mostrarEvento
+      description: 'Devuelve un evento identificado por slug.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Eventos
+    put:
+      summary: ''
+      operationId: putApiV1EventsSlug
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Eventos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 200 characters.'
+                  example: b
+                slug:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: true
+                description:
+                  type: string
+                  description: ''
+                  example: 'Eius et animi quos velit et.'
+                  nullable: true
+                location:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: v
+                  nullable: true
+                starts_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2026-04-25T00:46:41'
+                  nullable: true
+                ends_at:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after or equal to <code>starts_at</code>.'
+                  example: '2052-05-18'
+                  nullable: true
+                all_day:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: true
+                featured:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: true
+                accepts_registrations:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+                external_url:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: 'http://bailey.com/'
+                  nullable: true
+                sort_order:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 77
+                  nullable: true
+              required:
+                - title
+    delete:
+      summary: ''
+      operationId: deleteApiV1EventsSlug
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Eventos
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the event.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: event
+        description: 'Slug del evento.'
+        example: feria-del-libro-2026
+        required: true
+        schema:
+          type: string
+  /api/v1/venues:
+    get:
+      summary: 'Listar gastronomía'
+      operationId: listarGastronoma
+      description: ''
+      parameters:
+        -
+          in: query
+          name: q
+          description: 'Búsqueda parcial por nombre.'
+          example: parrilla
+          required: false
+          schema:
+            type: string
+            description: 'Búsqueda parcial por nombre.'
+            example: parrilla
+        -
+          in: query
+          name: category
+          description: 'Filtrar por categoría (parrilla, gourmet, cafetería, etc).'
+          example: gourmet
+          required: false
+          schema:
+            type: string
+            description: 'Filtrar por categoría (parrilla, gourmet, cafetería, etc).'
+            example: gourmet
+        -
+          in: query
+          name: per_page
+          description: 'Cantidad por página.'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'Cantidad por página.'
+            example: 20
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Gastronomía
+  '/api/v1/venues/{slug}':
+    get:
+      summary: 'Mostrar gastronomía'
+      operationId: mostrarGastronoma
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Gastronomía
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the venue.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: venue
+        description: 'Slug del local.'
+        example: la-mejor-parrilla
+        required: true
+        schema:
+          type: string
+  /api/v1/tides:
+    get:
+      summary: 'Mareas del día'
+      operationId: mareasDelDa
+      description: 'Devuelve la información de mareas para una fecha determinada (default: hoy).'
+      parameters:
+        -
+          in: query
+          name: date
+          description: 'Fecha en formato YYYY-MM-DD. Default: hoy.'
+          example: '2026-04-25'
+          required: false
+          schema:
+            type: string
+            description: 'Fecha en formato YYYY-MM-DD. Default: hoy.'
+            example: '2026-04-25'
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mareas
+  /api/v1/tides/week:
+    get:
+      summary: 'Mareas de la semana'
+      operationId: mareasDeLaSemana
+      description: 'Devuelve las mareas de la semana (lunes a domingo) que contiene la fecha consultada.'
+      parameters:
+        -
+          in: query
+          name: date
+          description: 'Fecha de referencia en formato YYYY-MM-DD. Default: hoy.'
+          example: '2026-04-25'
+          required: false
+          schema:
+            type: string
+            description: 'Fecha de referencia en formato YYYY-MM-DD. Default: hoy.'
+            example: '2026-04-25'
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mareas
+  /api/v1/news:
+    get:
+      summary: 'Listar novedades'
+      operationId: listarNovedades
+      description: 'Devuelve un listado paginado de novedades publicadas, ordenadas por fecha descendente.'
+      parameters:
+        -
+          in: query
+          name: q
+          description: 'Búsqueda parcial por título.'
+          example: verano
+          required: false
+          schema:
+            type: string
+            description: 'Búsqueda parcial por título.'
+            example: verano
+        -
+          in: query
+          name: categoria
+          description: 'Slug de categoría.'
+          example: eventos
+          required: false
+          schema:
+            type: string
+            description: 'Slug de categoría.'
+            example: eventos
+        -
+          in: query
+          name: per_page
+          description: 'Cantidad de items por página (default 20).'
+          example: 20
+          required: false
+          schema:
+            type: integer
+            description: 'Cantidad de items por página (default 20).'
+            example: 20
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Novedades
+    post:
+      summary: ''
+      operationId: postApiV1News
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Novedades
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 200 characters.'
+                  example: b
+                slug:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: true
+                body:
+                  type: string
+                  description: ''
+                  example: architecto
+                news_category_id:
+                  type: integer
+                  description: 'The <code>id</code> of an existing record in the news_categories table.'
+                  example: 16
+                  nullable: true
+                video_url:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: 'http://bailey.com/'
+                  nullable: true
+                published_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2026-04-25T00:46:41'
+                  nullable: true
+                views:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 77
+                  nullable: true
+              required:
+                - title
+                - body
+  '/api/v1/news/{slug}':
+    get:
+      summary: 'Mostrar novedad'
+      operationId: mostrarNovedad
+      description: 'Devuelve una novedad publicada identificada por su slug.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Novedades
+    put:
+      summary: ''
+      operationId: putApiV1NewsSlug
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Novedades
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 200 characters.'
+                  example: b
+                slug:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: true
+                body:
+                  type: string
+                  description: ''
+                  example: architecto
+                news_category_id:
+                  type: integer
+                  description: 'The <code>id</code> of an existing record in the news_categories table.'
+                  example: 16
+                  nullable: true
+                video_url:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: 'http://bailey.com/'
+                  nullable: true
+                published_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2026-04-25T00:46:41'
+                  nullable: true
+                views:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 77
+                  nullable: true
+              required:
+                - title
+                - body
+    delete:
+      summary: ''
+      operationId: deleteApiV1NewsSlug
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Novedades
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the news.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: news
+        description: 'Slug de la novedad.'
+        example: temporada-de-verano-2026
+        required: true
+        schema:
+          type: string
