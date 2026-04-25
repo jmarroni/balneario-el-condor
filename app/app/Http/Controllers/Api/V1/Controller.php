@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Pagination\AbstractPaginator;
 
 abstract class Controller extends \App\Http\Controllers\Controller
 {
+    use AuthorizesRequests;
+
     protected function envelope($data, array $meta = []): array
     {
         if ($data instanceof AbstractPaginator) {
