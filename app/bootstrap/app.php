@@ -17,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => RoleMiddleware::class,
             'force.password.reset' => \App\Http\Middleware\ForcePasswordReset::class,
+            'restrict.docs' => \App\Http\Middleware\RestrictDocsInProd::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

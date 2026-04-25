@@ -22,6 +22,19 @@ use App\Http\Controllers\Public\VenueController;
 use App\Http\Controllers\Public\WeatherController;
 use Illuminate\Support\Facades\Route;
 
+// API docs (Scribe). Gateadas por middleware en prod.
+// nginx no debería tener una location explícita para /docs/ en prod; el front
+// controller delega siempre a esta ruta para que el middleware pueda actuar.
+Route::middleware('restrict.docs')->get('/docs/{path?}', function (string $path = 'index.html') {
+    $file = public_path('docs/'.$path);
+
+    if (! is_file($file)) {
+        abort(404);
+    }
+
+    return response()->file($file);
+})->where('path', '.*')->name('docs');
+
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 Route::get('/robots.txt', function () {
