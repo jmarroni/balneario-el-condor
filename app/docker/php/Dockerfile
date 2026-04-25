@@ -43,16 +43,51 @@ RUN deluser www-data \
 USER www-data
 CMD ["php-fpm"]
 
+# ============== NODE BUILDER ==============
+FROM node:20-alpine AS node-builder
+
+WORKDIR /build
+COPY package.json package-lock.json* ./
+RUN npm ci --no-audit --no-fund
+
+COPY resources/ resources/
+COPY vite.config.* tailwind.config.* postcss.config.* ./
+RUN npm run build
+
 # ============== PROD ==============
 FROM base AS prod
 
+# OPcache + tuning prod
+COPY docker/php/php-prod.ini /usr/local/etc/php/conf.d/zz-prod.ini
+
+# Código fuente (sin .git ni node_modules ni storage — controlado por .dockerignore)
 COPY --chown=www-data:www-data . /var/www/html
 
+# Composer install no-dev con autoload optimizado
+# --no-scripts en ambos: post-autoload-dump dispara package:discover que carga config/scribe.php
+# (Scribe es dev-only). En runtime, php artisan package:discover se ejecuta con cache.
 RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction \
- && php artisan config:cache \
- && php artisan route:cache \
- && php artisan view:cache \
- && chown -R www-data:www-data storage bootstrap/cache
+ && composer dump-autoload --classmap-authoritative --no-scripts
+
+# Assets compilados desde el node-builder
+COPY --from=node-builder --chown=www-data:www-data /build/public/build /var/www/html/public/build
+
+# Caches de Artisan (route + view solamente al build).
+# config:cache y event:cache se hacen en el entrypoint en runtime, cuando .env está
+# disponible. Hacerlo en build evalúa configs que pueden referenciar paquetes dev-only
+# (ej: config/scribe.php usa Knuckles\Scribe\Config\AuthIn).
+RUN php artisan route:cache \
+ && php artisan view:cache
+
+# Permisos finales
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+ && find /var/www/html/storage -type d -exec chmod 775 {} \; \
+ && find /var/www/html/bootstrap/cache -type d -exec chmod 775 {} \;
 
 USER www-data
+
+# Healthcheck simple — verifica que PHP CLI responde dentro del container
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD php -r "exit(0);" || exit 1
+
 CMD ["php-fpm"]
