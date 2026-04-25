@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\Api\V1\StoreContactMessageRequest;
+use App\Mail\ContactMessageReceivedMail;
 use App\Models\ContactMessage;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * @group Endpoints públicos
@@ -42,7 +44,8 @@ class PublicApiController extends Controller
             'read'       => false,
         ]);
 
-        // TODO Task 6: Mail::to($admin)->queue(new ContactMessageReceivedMail($message));
+        Mail::to(config('mail.admin_address'))
+            ->queue(new ContactMessageReceivedMail($message));
 
         return response()->json([
             'data' => [

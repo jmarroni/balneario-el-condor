@@ -6,8 +6,10 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Public\StoreAdvertisingContactRequest;
+use App\Mail\AdvertisingContactReceivedMail;
 use App\Models\AdvertisingContact;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class AdvertisingController extends Controller
@@ -21,7 +23,7 @@ class AdvertisingController extends Controller
     {
         $data = $request->validated();
 
-        AdvertisingContact::create([
+        $ad = AdvertisingContact::create([
             'name'      => $data['name'],
             'last_name' => $data['last_name'] ?? null,
             'email'     => $data['email'],
@@ -31,7 +33,8 @@ class AdvertisingController extends Controller
             'legacy_id' => null,
         ]);
 
-        // TODO Plan 6: Mail::to(admin)->send(new AdvertisingReceivedMail($contact));
+        Mail::to(config('mail.admin_address'))
+            ->queue(new AdvertisingContactReceivedMail($ad));
 
         return redirect()
             ->route('publicite.show')

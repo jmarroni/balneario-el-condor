@@ -6,9 +6,12 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Public\SubscribeRequest;
+use App\Mail\NewsletterConfirmMail;
+use App\Mail\NewsletterUnsubscribedMail;
+use App\Mail\NewsletterWelcomeMail;
 use App\Models\NewsletterSubscriber;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -21,7 +24,7 @@ class NewsletterController extends Controller
 
     /**
      * Crea o reactiva una suscripción en estado pending y dispara el
-     * email de confirmación (Plan 6). Doble opt-in: la suscripción no
+     * email de confirmación (double opt-in). La suscripción no
      * se da por confirmada hasta que el usuario abre el link recibido.
      */
     public function subscribe(SubscribeRequest $request): RedirectResponse
@@ -39,11 +42,7 @@ class NewsletterController extends Controller
             ]
         );
 
-        // TODO Plan 6: Mail::to($sub->email)->send(new NewsletterConfirmMail($sub));
-        Log::info('newsletter.confirm.pending', [
-            'email' => $sub->email,
-            'url'   => route('newsletter.confirm', $token),
-        ]);
+        Mail::to($sub->email)->queue(new NewsletterConfirmMail($sub));
 
         return redirect()
             ->route('newsletter.form')
@@ -54,11 +53,18 @@ class NewsletterController extends Controller
     {
         $sub = NewsletterSubscriber::where('confirmation_token', $token)->firstOrFail();
 
+        $justConfirmed = false;
+
         if ($sub->status === 'pending') {
             $sub->update([
                 'status'       => 'confirmed',
                 'confirmed_at' => now(),
             ]);
+            $justConfirmed = true;
+        }
+
+        if ($justConfirmed) {
+            Mail::to($sub->email)->queue(new NewsletterWelcomeMail($sub));
         }
 
         return view('public.newsletter.confirmed', [
@@ -70,10 +76,16 @@ class NewsletterController extends Controller
     {
         $sub = NewsletterSubscriber::where('confirmation_token', $token)->firstOrFail();
 
+        $wasActive = $sub->status !== 'unsubscribed';
+
         $sub->update([
             'status'           => 'unsubscribed',
             'unsubscribed_at'  => now(),
         ]);
+
+        if ($wasActive) {
+            Mail::to($sub->email)->queue(new NewsletterUnsubscribedMail($sub));
+        }
 
         return view('public.newsletter.unsubscribed', [
             'sub' => $sub,
