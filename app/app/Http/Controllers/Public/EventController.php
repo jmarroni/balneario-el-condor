@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EventRegistrationConfirmationMail;
 use App\Models\Event;
 use App\Models\EventRegistration;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -122,7 +124,7 @@ class EventController extends Controller
             ->filter(fn ($v) => $v !== null && $v !== '')
             ->toArray();
 
-        EventRegistration::create([
+        $registration = EventRegistration::create([
             'event_id'   => $event->id,
             'name'       => $data['name'],
             'email'      => $data['email'],
@@ -131,6 +133,9 @@ class EventController extends Controller
             'ip_address' => $request->ip(),
             'legacy_id'  => 'form-'.Str::random(10),
         ]);
+
+        Mail::to($data['email'])
+            ->queue(new EventRegistrationConfirmationMail($event, $registration));
 
         return redirect()
             ->route('eventos.show', $event)

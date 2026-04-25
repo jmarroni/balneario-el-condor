@@ -6,8 +6,10 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Public\StoreContactMessageRequest;
+use App\Mail\ContactMessageReceivedMail;
 use App\Models\ContactMessage;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class ContactController extends Controller
@@ -21,7 +23,7 @@ class ContactController extends Controller
     {
         $data = $request->validated();
 
-        ContactMessage::create([
+        $message = ContactMessage::create([
             'name'       => $data['name'],
             'email'      => $data['email'],
             'phone'      => $data['phone'] ?? null,
@@ -31,7 +33,8 @@ class ContactController extends Controller
             'read'       => false,
         ]);
 
-        // TODO Plan 6: Mail::to(admin)->send(new ContactReceivedMail($message));
+        Mail::to(config('mail.admin_address'))
+            ->queue(new ContactMessageReceivedMail($message));
 
         return redirect()
             ->route('contacto.show')

@@ -42,7 +42,7 @@ class MigrationRollbackTest extends TestCase
     public function test_rollback_drops_all_custom_tables_cleanly(): void
     {
         Artisan::call('migrate:fresh', ['--force' => true]);
-        $exit = Artisan::call('migrate:rollback', ['--step' => 29, '--force' => true]);
+        $exit = Artisan::call('migrate:rollback', ['--step' => 30, '--force' => true]);
 
         $this->assertSame(0, $exit, 'migrate:rollback should exit 0');
 

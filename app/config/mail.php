@@ -113,4 +113,17 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Notification Address
+    |--------------------------------------------------------------------------
+    |
+    | Dirección a la que se envían las notificaciones internas (formularios
+    | de contacto, consultas de publicidad, etc.). Se inyecta vía
+    | `config('mail.admin_address')`.
+    |
+    */
+
+    'admin_address' => env('ADMIN_NOTIFICATION_EMAIL', 'turismo@elcondor.gob.ar'),
+
 ];

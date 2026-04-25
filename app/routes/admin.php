@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdvertisingContactController;
+use App\Http\Controllers\Admin\ApiTokenController;
 use App\Http\Controllers\Admin\ClassifiedContactController;
 use App\Http\Controllers\Admin\ClassifiedController;
 use App\Http\Controllers\Admin\ContactMessageController;
@@ -101,4 +102,9 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
 
         // Sistema
         Route::resource('users', UserController::class)->middleware('role:admin');
+
+        // Tokens API personales (cualquier usuario logueado al admin)
+        Route::get('tokens', [ApiTokenController::class, 'index'])->name('tokens.index');
+        Route::post('tokens', [ApiTokenController::class, 'store'])->name('tokens.store');
+        Route::delete('tokens/{id}', [ApiTokenController::class, 'destroy'])->name('tokens.destroy');
     });

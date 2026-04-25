@@ -6,11 +6,13 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Public\StoreClassifiedContactRequest;
+use App\Mail\ClassifiedContactMail;
 use App\Models\Classified;
 use App\Models\ClassifiedCategory;
 use App\Models\ClassifiedContact;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class ClassifiedController extends Controller
@@ -97,7 +99,7 @@ class ClassifiedController extends Controller
     ): RedirectResponse {
         $data = $request->validated();
 
-        ClassifiedContact::create([
+        $contact = ClassifiedContact::create([
             'classified_id'     => $classified->id,
             'contact_name'      => $data['name'],
             'contact_email'     => $data['email'],
@@ -107,6 +109,11 @@ class ClassifiedController extends Controller
             'ip_address'        => $request->ip(),
             'legacy_id'         => null,
         ]);
+
+        if (! empty($classified->contact_email)) {
+            Mail::to($classified->contact_email)
+                ->queue(new ClassifiedContactMail($classified, $contact));
+        }
 
         return redirect()
             ->route('clasificados.show', $classified)
