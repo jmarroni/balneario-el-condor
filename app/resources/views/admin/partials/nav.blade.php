@@ -28,6 +28,7 @@
         ],
         'Sistema' => [
             ['users.index', 'Usuarios', 'users.view'],
+            ['tokens.index', 'Tokens API', '*'],
         ],
     ];
     $user = auth()->user();
@@ -41,14 +42,23 @@
             <p class="text-xs uppercase tracking-wide text-slate-400 mb-2">{{ $group }}</p>
             <ul class="space-y-1">
                 @foreach($items as [$route, $label, $permission])
-                    @can($permission)
+                    @if($permission === '*')
                         <li>
                             <a href="{{ Route::has('admin.' . $route) ? route('admin.' . $route) : '#' }}"
                                class="block px-2 py-1 rounded hover:bg-slate-700 {{ request()->routeIs('admin.' . str_replace('.index', '', $route) . '.*') ? 'bg-slate-700' : '' }}">
                                 {{ $label }}
                             </a>
                         </li>
-                    @endcan
+                    @else
+                        @can($permission)
+                            <li>
+                                <a href="{{ Route::has('admin.' . $route) ? route('admin.' . $route) : '#' }}"
+                                   class="block px-2 py-1 rounded hover:bg-slate-700 {{ request()->routeIs('admin.' . str_replace('.index', '', $route) . '.*') ? 'bg-slate-700' : '' }}">
+                                    {{ $label }}
+                                </a>
+                            </li>
+                        @endcan
+                    @endif
                 @endforeach
             </ul>
         </div>
