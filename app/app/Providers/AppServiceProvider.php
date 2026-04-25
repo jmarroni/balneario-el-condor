@@ -6,8 +6,11 @@ namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Pulse\Facades\Pulse;
+use Spatie\Activitylog\Models\Activity;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +28,33 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureRateLimiting();
+        $this->configurePulse();
+        $this->registerPolicies();
+    }
+
+    /**
+     * Las policies de modelos de paquetes externos (fuera de App\Models) no las
+     * descubre el autoloader de Laravel 11 — hay que registrarlas a mano.
+     */
+    protected function registerPolicies(): void
+    {
+        Gate::policy(Activity::class, \App\Policies\ActivityPolicy::class);
+    }
+
+    /**
+     * Restrict Pulse dashboard to admin role and label entries by user.
+     */
+    protected function configurePulse(): void
+    {
+        Gate::define('viewPulse', function ($user) {
+            return $user !== null && method_exists($user, 'hasRole') && $user->hasRole('admin');
+        });
+
+        Pulse::user(fn ($user) => [
+            'name' => $user->name ?? '',
+            'extra' => $user->email ?? '',
+            'avatar' => null,
+        ]);
     }
 
     /**

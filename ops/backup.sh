@@ -43,6 +43,18 @@ $COMPOSE exec -T app sh -c "tar -czf - -C /var/www/html storage/app" \
 echo "→ Tamaños:"
 du -sh "$BACKUP_PATH"/*
 
+# Off-site sync (opcional — solo si RCLONE_REMOTE está set)
+if [ -n "${RCLONE_REMOTE:-}" ]; then
+    echo "→ Off-site sync → $RCLONE_REMOTE/$TIMESTAMP"
+    if command -v rclone >/dev/null 2>&1; then
+        rclone copy "$BACKUP_PATH" "$RCLONE_REMOTE/$TIMESTAMP" \
+            --transfers 4 --checkers 8 --quiet
+        echo "✓ Off-site OK"
+    else
+        echo "⚠ rclone no instalado en el host — saltando off-site sync" >&2
+    fi
+fi
+
 echo "→ Eliminando backups con más de $RETENTION días"
 find "$BACKUP_DIR" -maxdepth 1 -type d -name "20*" -mtime +"$RETENTION" -exec rm -rf {} \; || true
 

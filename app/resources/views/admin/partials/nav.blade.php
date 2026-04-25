@@ -29,6 +29,7 @@
         'Sistema' => [
             ['users.index', 'Usuarios', 'users.view'],
             ['tokens.index', 'Tokens API', '*'],
+            ['two-factor.show', '2FA', '*'],
         ],
     ];
     $user = auth()->user();
@@ -60,6 +61,24 @@
                         @endcan
                     @endif
                 @endforeach
+                @if($group === 'Sistema')
+                    @hasrole('admin')
+                        <li>
+                            <a href="{{ route('admin.audit-log.index') }}"
+                               class="block px-2 py-1 rounded hover:bg-slate-700 {{ request()->routeIs('admin.audit-log.*') ? 'bg-slate-700' : '' }}">
+                                Bitácora
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/pulse"
+                               target="_blank"
+                               rel="noopener"
+                               class="block px-2 py-1 rounded hover:bg-slate-700">
+                                Pulse <span class="text-xs text-slate-400">↗</span>
+                            </a>
+                        </li>
+                    @endhasrole
+                @endif
             </ul>
         </div>
     @endforeach

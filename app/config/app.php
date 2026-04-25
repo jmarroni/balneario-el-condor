@@ -123,4 +123,18 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Plausible Analytics (privacy-first, sin cookies)
+    |--------------------------------------------------------------------------
+    |
+    | Si plausible_domain está set, el layout público inyecta el script.
+    | plausible_host es opcional; default a plausible.io cloud.
+    | Para self-hosted: PLAUSIBLE_HOST=https://analytics.elcondor.gob.ar
+    |
+    */
+
+    'plausible_domain' => env('PLAUSIBLE_DOMAIN'),
+    'plausible_host'   => env('PLAUSIBLE_HOST', 'https://plausible.io'),
+
 ];

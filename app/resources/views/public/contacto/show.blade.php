@@ -45,7 +45,8 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('contacto.store') }}" class="flex flex-col gap-5">
+                        <form method="POST" action="{{ route('contacto.store') }}" class="flex flex-col gap-5"
+                              onsubmit="if(window.plausible){plausible('contact_submit');}">
                             @csrf
 
                             {{-- Honeypot anti-bot: oculto pero presente en el DOM. --}}

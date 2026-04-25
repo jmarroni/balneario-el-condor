@@ -24,7 +24,7 @@ class DashboardAccessTest extends TestCase
 
     public function test_admin_user_can_access_dashboard(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['two_factor_confirmed_at' => now()]);
         $user->assignRole('admin');
 
         $this->actingAs($user)

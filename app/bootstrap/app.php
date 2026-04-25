@@ -18,8 +18,20 @@ return Application::configure(basePath: dirname(__DIR__))
             'role' => RoleMiddleware::class,
             'force.password.reset' => \App\Http\Middleware\ForcePasswordReset::class,
             'restrict.docs' => \App\Http\Middleware\RestrictDocsInProd::class,
+            'require.2fa.admin' => \App\Http\Middleware\RequireTwoFactorForAdmin::class,
         ]);
+
+        // Confiar en proxies (Cloudflare/Traefik) — lee TRUSTED_PROXIES de env.
+        // En prod típico: TRUSTED_PROXIES=* (todo upstream confiable porque
+        // CF/Traefik ya filtran). Default Laravel sin trust = lee solo direct peer.
+        $middleware->trustProxies(
+            at: env('TRUSTED_PROXIES', '*'),
+            headers: \Illuminate\Http\Request::HEADER_X_FORWARDED_FOR
+                | \Illuminate\Http\Request::HEADER_X_FORWARDED_HOST
+                | \Illuminate\Http\Request::HEADER_X_FORWARDED_PORT
+                | \Illuminate\Http\Request::HEADER_X_FORWARDED_PROTO,
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        \Sentry\Laravel\Integration::handles($exceptions);
     })->create();

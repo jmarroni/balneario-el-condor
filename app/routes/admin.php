@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdvertisingContactController;
 use App\Http\Controllers\Admin\ApiTokenController;
+use App\Http\Controllers\Admin\AuditLogController;
 use App\Http\Controllers\Admin\ClassifiedContactController;
 use App\Http\Controllers\Admin\ClassifiedController;
 use App\Http\Controllers\Admin\ContactMessageController;
@@ -28,11 +29,16 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VenueController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'])
+Route::middleware(['auth', 'force.password.reset', 'require.2fa.admin', 'role:admin|editor|moderator'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
         Route::get('/', DashboardController::class)->name('dashboard');
+
+        // Configuración de autenticación de dos factores (Fortify)
+        Route::get('two-factor', function () {
+            return view('admin.profile.two-factor', ['user' => auth()->user()->fresh()]);
+        })->name('two-factor.show');
 
         // Contenido
         Route::resource('news', NewsController::class);
@@ -102,6 +108,11 @@ Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'
 
         // Sistema
         Route::resource('users', UserController::class)->middleware('role:admin');
+
+        // Bitácora de cambios — solo admin
+        Route::get('audit-log', [AuditLogController::class, 'index'])
+            ->name('audit-log.index')
+            ->middleware('role:admin');
 
         // Tokens API personales (cualquier usuario logueado al admin)
         Route::get('tokens', [ApiTokenController::class, 'index'])->name('tokens.index');
