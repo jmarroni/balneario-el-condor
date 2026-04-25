@@ -29,6 +29,7 @@
         'Sistema' => [
             ['users.index', 'Usuarios', 'users.view'],
             ['tokens.index', 'Tokens API', '*'],
+            ['two-factor.show', '2FA', '*'],
         ],
     ];
     $user = auth()->user();

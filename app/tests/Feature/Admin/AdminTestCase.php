@@ -18,7 +18,10 @@ abstract class AdminTestCase extends TestCase
     {
         parent::setUp();
         $this->seed(\Database\Seeders\RolesAndPermissionsSeeder::class);
-        $this->admin     = User::factory()->create()->assignRole('admin');
+        // Por default todos los admin tests asumen 2FA ya confirmado para
+        // saltear el middleware require.2fa.admin. Los tests específicos de
+        // 2FA crean su propio usuario con factory().
+        $this->admin     = User::factory()->create(['two_factor_confirmed_at' => now()])->assignRole('admin');
         $this->editor    = User::factory()->create()->assignRole('editor');
         $this->moderator = User::factory()->create()->assignRole('moderator');
     }

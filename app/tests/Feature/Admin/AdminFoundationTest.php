@@ -29,7 +29,7 @@ class AdminFoundationTest extends TestCase
 
     public function test_admin_user_sees_dashboard(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['two_factor_confirmed_at' => now()]);
         $user->assignRole('admin');
         $response = $this->actingAs($user)->get('/admin');
         $response->assertOk()->assertSee('Dashboard');
@@ -37,7 +37,10 @@ class AdminFoundationTest extends TestCase
 
     public function test_user_with_must_reset_password_is_redirected(): void
     {
-        $user = User::factory()->create(['must_reset_password' => true]);
+        $user = User::factory()->create([
+            'must_reset_password' => true,
+            'two_factor_confirmed_at' => now(),
+        ]);
         $user->assignRole('admin');
         $this->actingAs($user)->get('/admin')
             ->assertRedirect(route('password.edit'));
@@ -45,7 +48,7 @@ class AdminFoundationTest extends TestCase
 
     public function test_dashboard_shows_counts(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['two_factor_confirmed_at' => now()]);
         $user->assignRole('admin');
         \App\Models\News::factory()->count(3)->create();
         $response = $this->actingAs($user)->get('/admin');

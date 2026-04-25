@@ -28,11 +28,16 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VenueController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'force.password.reset', 'role:admin|editor|moderator'])
+Route::middleware(['auth', 'force.password.reset', 'require.2fa.admin', 'role:admin|editor|moderator'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
         Route::get('/', DashboardController::class)->name('dashboard');
+
+        // Configuración de autenticación de dos factores (Fortify)
+        Route::get('two-factor', function () {
+            return view('admin.profile.two-factor', ['user' => auth()->user()->fresh()]);
+        })->name('two-factor.show');
 
         // Contenido
         Route::resource('news', NewsController::class);
