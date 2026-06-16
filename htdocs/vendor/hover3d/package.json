@@ -24,7 +24,7 @@
   "homepage": "https://github.com/ariona/hover3d#readme",
   "dependencies": {
     "browser-sync": "^2.11.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-jshint": "^2.0.0",
     "gulp-rename": "^1.2.2",
